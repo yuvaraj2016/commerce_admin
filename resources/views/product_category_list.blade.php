@@ -131,7 +131,7 @@
                                         $id=$prodcategory['id'];
                                     @endphp
 
-                                    <tr style="padding:17px!important;">
+                                    <tr>
 
                                         <td><span class="text-center justify-content-center"
                                                 style="padding-top:10px;">{{ $prodcategory['category_short_code'] }}</span>

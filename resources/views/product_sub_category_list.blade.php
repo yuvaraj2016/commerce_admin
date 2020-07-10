@@ -143,7 +143,7 @@
                                         <td>
                                             {{ $prodsubcategory['sub_category_desc'] }}
                                         </td>
-                                        <td><img src="{{ isset($prodsubcategory['Assets']['data'][0]['links']) ? $prodsubcategory['Assets']['data'][0]['links']['full'].'?width=52&height=52' : asset('img/no-image.gif')  }}" style="width:100px;height:auto;"/></td>
+                                        <td><img src="{{ isset($prodsubcategory['Assets']['data'][0]['links']) ? $prodsubcategory['Assets']['data'][0]['links']['full'].'?width=52&height=52' : asset('img/no-image.gif')  }}"/></td>
                                         <td>{{ $prodsubcategory['status_desc'] }}</td>
                                         {{-- <td>
                                             <a href="#">
