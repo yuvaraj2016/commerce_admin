@@ -31,6 +31,11 @@ Route::resource('product_categories', 'ProductCategoryController')->except('inde
 
 Route::get('product_cat_list/{page?}','ProductCategoryController@index')->name('product_cat.index');
 
+Route::resource('product_sub_categories', 'ProductSubCategoryController')->except('index');
+
+Route::get('product_sub_cat_list/{page?}','ProductSubCategoryController@index')->name('product_sub_cat.index');
+
+
 
 // Route::get('product_categories/{page?}', function (Request$page=0) {
 //     echo $page;
