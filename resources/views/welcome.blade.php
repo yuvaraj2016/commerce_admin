@@ -136,7 +136,7 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-body">
-                                <form action="/login" method="post">
+                                <form action="{{ url('login') }}" method="post">
                                     @csrf
                                     @if(session('error') !== null)
                                         <div class='alert alert-success'>
