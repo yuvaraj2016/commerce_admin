@@ -131,7 +131,7 @@
                                         $id=$prodcategory['id'];
                                     @endphp
 
-                                    <tr>
+                                    <tr style="padding:17px!important;">
 
                                         <td><span class="text-center justify-content-center"
                                                 style="padding-top:10px;">{{ $prodcategory['category_short_code'] }}</span>
@@ -140,7 +140,10 @@
                                         <td>
                                             {{ $prodcategory['category_desc'] }}
                                         </td>
-                                        <td><img src="{{ isset($prodcategory['Assets']['data']['links']) ? $prodcategory['Assets']['data']['links']['thumb'] : asset('img/no-image.gif')  }}" style="width:100px;height:auto;"/></td>
+                                        {{-- <td>{{ dd($prodcategory['Assets']) }}</td> --}}
+                                        <td align="center">
+
+                                            <img src="{{ isset($prodcategory['Assets']['data'][0]['links']) ? $prodcategory['Assets']['data'][0]['links']['full'].'?width=52&height=52' : asset('img/no-image.gif')  }}"/></td>
                                         <td>{{ $prodcategory['status_desc'] }}</td>
                                         {{-- <td>
                                             <a href="#">
