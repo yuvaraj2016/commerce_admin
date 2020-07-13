@@ -93,7 +93,28 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        //
+        $token = session()->get('token');
+        try{
+
+            $call = $this->client::withToken($token)->get(config('global.url') . '/api/confStatus');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $statuses = $response['data'];
+
+
+
+            return view(
+                'create_product_category', compact(
+                    'statuses'
+                )
+        );
+
     }
 
     /**
@@ -104,7 +125,61 @@ class ProductCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $session = session()->get('token');
+        $fileext = '';
+        $filename = '';
+        if ($request->file('file') !== null) {
+
+            $files =$request->file('file');
+            $response = Http::withToken($session);
+            foreach($files as $k => $ufile)
+            {
+                $filename = fopen($ufile, 'r');
+                $fileext = $ufile->getClientOriginalName();
+                $response = $response->attach('file['.$k.']', $filename,$fileext);
+            }
+
+            $response = $response->post(config('global.url') . '/api/prodCat',
+            [
+            [
+                'name' => 'category_short_code',
+                'contents' => $request->category_short_code
+            ],
+            [
+                'name' => 'category_desc',
+                'contents' => $request->category_desc
+            ],
+
+            [
+                'name' => 'status_id',
+                'contents' => $request->status_id
+            ]
+            ]);
+
+
+        }
+
+
+
+        else{
+            $response = Http::withToken($session)->post(config('global.url').'api/prodCat', [
+                "category_short_code"=>$request->category_short_code,
+                "category_desc"=>$request->category_desc,
+                // "file"=>$request->file,
+                "status_id"=>$request->status_id
+
+            ]);
+            // dd($response);
+        }
+
+        if($response->status()===201){
+            return redirect()->route('product_categories.create')->with('success','Product Category Created Successfully!');
+        }else{
+            return redirect()->route('product_categories.create')->with('error',$response->json());
+        }
+
+
     }
 
     /**
@@ -150,6 +225,25 @@ class ProductCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $session = session()->get('token');
+        // return config('global.url');
+        $response=Http::withToken($session)->delete(config('global.url').'api/prodCat/'.$id);
+       // return $response->status();
+        // if($response->serverError()){
+        //     $error=[['Server Error'],['Please Delete All Photos to this Album']];
+        //     return redirect()->route('albums.index')->with('error',$error);
+        // }
+        // if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+        //     return redirect()->route('home');
+        // }
+        if($response->status()==204){
+
+             return redirect()->route('product_cat.index')->with('success','Product Category Deleted Sucessfully !..');
+        }
+        else{
+
+          //  dd($response);
+             return redirect()->route('product_cat.index')->with('error',$response->json()['message']);
+        }
     }
 }

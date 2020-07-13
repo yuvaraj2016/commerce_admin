@@ -27,13 +27,13 @@ Route::resource('albums', 'AlbumController');
 Route::resource('albums.photo', 'PhotoController');
 Route::resource('testimonials', 'TestimonialsController');
 
-Route::resource('product_categories', 'ProductCategoryController')->except('index');
+Route::resource('product_categories', 'ProductCategoryController')->except('index')->middleware('checktoken');
 
-Route::get('product_cat_list/{page?}','ProductCategoryController@index')->name('product_cat.index');
+Route::get('product_cat_list/{page?}','ProductCategoryController@index')->name('product_cat.index')->middleware('checktoken');
 
-Route::resource('product_sub_categories', 'ProductSubCategoryController')->except('index');
+Route::resource('product_sub_categories', 'ProductSubCategoryController')->except('index')->middleware('checktoken');
 
-Route::get('product_sub_cat_list/{page?}','ProductSubCategoryController@index')->name('product_sub_cat.index');
+Route::get('product_sub_cat_list/{page?}','ProductSubCategoryController@index')->name('product_sub_cat.index')->middleware('checktoken');
 
 
 
