@@ -212,12 +212,12 @@ class ProductSubCategoryController extends Controller
 
         if($response->status()==204){
 
-             return redirect()->route('product_cat.index')->with('success','Product Sub Category Deleted Sucessfully !..');
+             return redirect()->route('product_sub_cat.index')->with('success','Product Sub Category Deleted Sucessfully !..');
         }
         else{
 
           //  dd($response);
-             return redirect()->route('product_cat.index')->with('error',$response->json()['message']);
+             return redirect()->route('product_sub_cat.index')->with('error',$response->json()['message']);
         }
     }
 }
