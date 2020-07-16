@@ -52,7 +52,44 @@ class ProductSubCategoryController extends Controller
      */
     public function create()
     {
-        //
+
+        $token = session()->get('token');
+
+        try{
+
+            $call = $this->client::withToken($token)->get(config('global.url') . '/api/confStatus');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $statuses = $response['data'];
+
+
+         try{
+
+            $call = $this->client::withToken($token)->get(config('global.url') . '/api/prodCat');
+
+            $scresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $categories = $scresponse['data'];
+
+
+            return view(
+                'create_product_sub_category', compact(
+                    'statuses','categories'
+                )
+        );
+
+
     }
 
     /**
@@ -63,7 +100,67 @@ class ProductSubCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+    //    dd($request->all());
+        $session = session()->get('token');
+        $fileext = '';
+        $filename = '';
+        if ($request->file('file') !== null) {
+
+            $files =$request->file('file');
+            $response = Http::withToken($session);
+            foreach($files as $k => $ufile)
+            {
+                $filename = fopen($ufile, 'r');
+                $fileext = $ufile->getClientOriginalName();
+                $response = $response->attach('file['.$k.']', $filename,$fileext);
+            }
+
+            $response = $response->post(config('global.url') . '/api/prodSubCat',
+            [
+            [
+                'name' => 'category_id',
+                'contents' => $request->category_id
+            ],
+            [
+                'name' => 'sub_category_short_code',
+                'contents' => $request->sub_category_short_code
+            ],
+            [
+                'name' => 'sub_category_desc',
+                'contents' => $request->sub_category_desc
+            ],
+
+            [
+                'name' => 'status_id',
+                'contents' => $request->status_id
+            ]
+            ]);
+
+
+        }
+
+
+
+        else{
+            $response = Http::withToken($session)->post(config('global.url').'api/prodSubCat', [
+                "category_id"=>$request->category_id,
+                "sub_category_short_code"=>$request->sub_category_short_code,
+                "sub_category_desc"=>$request->sub_category_desc,
+                // "file"=>$request->file,
+                "status_id"=>$request->status_id
+
+            ]);
+            // dd($response);
+        }
+
+        if($response->status()==201){
+            return redirect()->route('product_sub_categories.create')->with('success','Product Sub Category Created Successfully!');
+        }else{
+            // echo "hai";exit;
+            return redirect()->route('product_sub_categories.create')->with('error',$response->json());
+        }
+
     }
 
     /**
@@ -108,6 +205,19 @@ class ProductSubCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $session = session()->get('token');
+
+        $response=Http::withToken($session)->delete(config('global.url').'api/prodSubCat/'.$id);
+
+        if($response->status()==204){
+
+             return redirect()->route('product_cat.index')->with('success','Product Sub Category Deleted Sucessfully !..');
+        }
+        else{
+
+          //  dd($response);
+             return redirect()->route('product_cat.index')->with('error',$response->json()['message']);
+        }
     }
 }

@@ -9,7 +9,6 @@
         </div>
     @endif
     @if(session('error') !== null)
-        {{-- @echo "hai" --}}
         @foreach(session('error') as $k =>$v)
             <div class='alert alert-danger'>
                 {{ $v[0] }}
@@ -17,7 +16,7 @@
         @endforeach
     @endif
     <div class="section-header-button">
-        <a href="{{ route('product_sub_categories.create') }}" class="btn btn-primary">Add New</a>
+        <a href="{{ route('status.create') }}" class="btn btn-primary">Add New</a>
     </div>
 
 <style>
@@ -39,12 +38,12 @@
                     <div class="container-fluid m-2">
                     <div class="row">
                         <div class="col">
-                             <h4>Product Sub Category List</h4>
+                             <h4>Status List</h4>
                         </div>
 
                     <div class="col">
                         <ul id="pagination" class="float-right m-0 p-0">
-                        <li><a href="{{ route('product_sub_cat.index',$page=1) }}" class="btn btn-primary @if($pagination['current_page']==1) {{ "disabled" }} @endif">First</a></li>
+                        <li><a href="{{ route('status.index',$page=1) }}" class="btn btn-primary @if($pagination['current_page']==1) {{ "disabled" }} @endif">First</a></li>
                         @php
                         if(isset($pagination['links']['previous']))
                         {
@@ -53,22 +52,11 @@
                                 $page = $endurl[1];
 
                         @endphp
-                        <li><a href="{{ route('product_sub_cat.index',$page) }}" class="btn btn-primary">Previous</a></li>
+                        <li><a href="{{ route('status.index',$page) }}" class="btn btn-primary">Previous</a></li>
                         @php
                             }
                         @endphp
 
-
-                        {{-- @for($i = 1; $i <= $pagination['total_pages']; $i++)
-                        <?php
-                        // $isCurrentPage =  $pagination['current_page'] == $i;
-                        ?>
-                        <li class="{{ $isCurrentPage ? 'active' : '' }}" >
-                            <a href="{{ !$isCurrentPage ? route('product_cat.index',$i) : '#' }}"  class="btn btn-primary">
-                                {{ $i }}
-                            </a>
-                        </li>
-                        @endfor --}}
 
 
 
@@ -79,7 +67,7 @@
                                 $page = $endurl[1];
                                 // echo
                         @endphp
-                        <li> <a href="{{ route('product_sub_cat.index',$page) }}" class="btn btn-primary">Next</a></li>
+                        <li> <a href="{{ route('status.index',$page) }}" class="btn btn-primary">Next</a></li>
                         @php
                             }
 
@@ -89,7 +77,7 @@
                         if($pagination['total_pages']>1)
                         {
                         @endphp
-                        <li> <a href="{{ route('product_sub_cat.index',$pagination['total_pages']) }}" class="btn btn-primary float-right">Last</a> </li>
+                        <li> <a href="{{ route('status.index',$pagination['total_pages']) }}" class="btn btn-primary float-right">Last</a> </li>
 
                         @php
                         }
@@ -98,7 +86,7 @@
 
                     </ul>
 
-                       {{-- <a href="{{ route('product_categories.create') }}" class="btn btn-primary float-right">Add New</a> --}}
+
 
                     </div>
 
@@ -114,11 +102,9 @@
                         <table class="table table-striped" id="table-1">
                             <thead>
                                 <tr>
-                                    <th>Category Desc</th>
-                                    <th>Sub Category Short Code</th>
-                                    <th>Sub Category Desc</th>
-                                    <th>Sub Category Image</th>
-                                    <th>Status</th>
+
+
+                                    <th>Status Desc</th>
                                     <th>Created At</th>
                                     <th>Actions</th>
 
@@ -127,42 +113,28 @@
                             <tbody>
 
                                 {{-- @dd($prodcategories) --}}
-                                @foreach($prodsubcategories as $prodsubcategory )
+                                @foreach($statuses as $status )
                                     @php
-                                        $id=$prodsubcategory['id'];
+                                        $id=$status['id'];
                                     @endphp
 
                                     <tr>
-                                        <td><span class="text-center justify-content-center"
-                                            style="padding-top:10px;">{{ $prodsubcategory['category_desc'] }}</span>
 
-                                        </td>
-                                        <td><span class="text-center justify-content-center"
-                                                style="padding-top:10px;">{{ $prodsubcategory['sub_category_short_code'] }}</span>
 
-                                        </td>
                                         <td>
-                                            {{ $prodsubcategory['sub_category_desc'] }}
+                                            {{ $status['status_desc'] }}
                                         </td>
-                                        <td><img src="{{ isset($prodsubcategory['Assets']['data'][0]['links']) ? $prodsubcategory['Assets']['data'][0]['links']['full'].'?width=52&height=52' : asset('img/no-image.gif')  }}"/></td>
-                                        <td>{{ $prodsubcategory['status_desc'] }}</td>
-                                        {{-- <td>
-                                            <a href="#">
-                                                <img alt="image"
-                                                    src="{{ config('global.storage') }}/cover_pictures/{{ $album['cover_picture'] }}"
-                                                    class="rounded-circle" width="35" data-toggle="title" title="">
-                                            </a>
-                                        </td> --}}
 
-                                        <td>{{ date("Y-m-d H:i:s",$prodsubcategory['created_at']) }}</td>
+
+                                        <td>{{ date("Y-m-d H:i:s",$status['created_at']) }}</td>
                                         <td>
                                             <div class="d-flex">
 
-                                                <a href="{{ url('product_sub_categories/'.$id) }}"
+                                                <a href="{{ url('status/'.$id) }}"
                                                     class="badge badge-primary d-inline"><i
                                                         class="fas fa-eye"></i>View&nbsp;&nbsp;</a>&nbsp;&nbsp;
 
-                                                <a href="{{ url('product_sub_categories/'.$id.'/edit') }}"
+                                                <a href="{{ url('status/'.$id.'/edit') }}"
                                                     class="badge badge-info d-inline"><i
                                                         class="fas fa-edit"></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;
                                                 {{-- <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -171,7 +143,7 @@
                                                         class="fas fa-trash"></i>Deletes</a> --}}
 
                                                 <form
-                                                    action="{{ route('product_sub_categories.destroy',$id) }}"
+                                                    action="{{ route('status.destroy',$id) }}"
                                                     method="POST">
                                                     @method('DELETE')
                                                     @csrf

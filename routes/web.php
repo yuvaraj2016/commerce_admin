@@ -36,6 +36,19 @@ Route::resource('product_sub_categories', 'ProductSubCategoryController')->excep
 Route::get('product_sub_cat_list/{page?}','ProductSubCategoryController@index')->name('product_sub_cat.index')->middleware('checktoken');
 
 
+Route::resource('supplier_categories', 'SupplierCategoryController')->except('index')->middleware('checktoken');
+
+Route::get('supplier_cat_list/{page?}','SupplierCategoryController@index')->name('supplier_cat.index')->middleware('checktoken');
+
+
+Route::resource('vendor_categories', 'VendorCategoryController')->except('index')->middleware('checktoken');
+
+Route::get('vendor_cat_list/{page?}','VendorCategoryController@index')->name('vendor_cat.index')->middleware('checktoken');
+
+Route::resource('status', 'StatusController')->except('index')->middleware('checktoken');
+
+Route::get('status_list/{page?}','StatusController@index')->name('status.index')->middleware('checktoken');
+
 
 // Route::get('product_categories/{page?}', function (Request$page=0) {
 //     echo $page;
