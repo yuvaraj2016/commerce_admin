@@ -50,7 +50,28 @@ class SupplierCategoryController extends Controller
      */
     public function create()
     {
-        //
+        $token = session()->get('token');
+        try{
+
+            $call = $this->client::withToken($token)->get(config('global.url') . '/api/confStatus');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $statuses = $response['data'];
+
+
+
+            return view(
+                'create_supplier_category', compact(
+                    'statuses'
+                )
+        );
+
     }
 
     /**
@@ -61,7 +82,34 @@ class SupplierCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $session = session()->get('token');
+
+
+        $response = Http::withToken($session)->post(config('global.url').'api/confSupplierCat',
+
+        [
+
+            "supplier_cat_desc"=>$request->supplier_cat_desc,
+
+            "status_id"=>$request->status_id
+
+        ]);
+        // dd($request->all());
+
+        // dd($response);
+        // echo $response->status();exit;
+
+        if($response->status()===201){
+
+            return redirect()->route('supplier_categories.create')->with('success','Supplier Category Created Successfully!');
+        }else{
+            // var_dump($response);exit;
+
+            return redirect()->route('supplier_categories.create')->with('error',$response->json());
+        }
+
+
     }
 
     /**
@@ -106,6 +154,27 @@ class SupplierCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $session = session()->get('token');
+        // return config('global.url');
+        $response=Http::withToken($session)->delete(config('global.url').'api/confSupplierCat/'.$id);
+       // return $response->status();
+        // if($response->serverError()){
+        //     $error=[['Server Error'],['Please Delete All Photos to this Album']];
+        //     return redirect()->route('albums.index')->with('error',$error);
+        // }
+        // if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+        //     return redirect()->route('home');
+        // }
+        if($response->status()==204){
+
+             return redirect()->route('supplier_cat.index')->with('success','Supplier Category Deleted Sucessfully !..');
+        }
+        else{
+
+          //  dd($response);
+             return redirect()->route('supplier_cat.index')->with('error',$response->json()['message']);
+        }
+
     }
 }

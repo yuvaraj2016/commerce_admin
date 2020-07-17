@@ -49,7 +49,7 @@ class StatusController extends Controller
      */
     public function create()
     {
-        //
+           return view('create_status');
     }
 
     /**
@@ -60,7 +60,26 @@ class StatusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $session = session()->get('token');
+
+
+        $response = Http::withToken($session)->post(config('global.url').'api/confStatus',
+
+        [
+
+            "status_desc"=>$request->status_desc,
+
+        ]);
+
+
+        if($response->status()===201){
+
+            return redirect()->route('status.create')->with('success','Status Created Successfully!');
+        }else{
+
+
+            return redirect()->route('status.create')->with('error',$response->json());
+        }
     }
 
     /**
@@ -105,6 +124,19 @@ class StatusController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $session = session()->get('token');
+
+        $response=Http::withToken($session)->delete(config('global.url').'api/confStatus/'.$id);
+
+        if($response->status()==204){
+
+             return redirect()->route('status.index')->with('success','Status Deleted Sucessfully !..');
+        }
+        else{
+
+
+             return redirect()->route('status.index')->with('error',$response->json()['message']);
+        }
+
     }
 }
