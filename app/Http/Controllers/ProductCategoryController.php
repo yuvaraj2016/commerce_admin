@@ -25,7 +25,7 @@ class ProductCategoryController extends Controller
         $token = session()->get('token');
         try{
 
-            $call = $this->client::withToken($token)->get(config('global.url') . '/api/prodCat?page='.$page);
+            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodCat?page='.$page);
 
             $response = json_decode($call->getBody()->getContents(), true);
             //  return $response;
@@ -96,7 +96,7 @@ class ProductCategoryController extends Controller
         $token = session()->get('token');
         try{
 
-            $call = $this->client::withToken($token)->get(config('global.url') . '/api/confStatus');
+            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
 
             $response = json_decode($call->getBody()->getContents(), true);
             //  return $response;
@@ -140,7 +140,7 @@ class ProductCategoryController extends Controller
                 $response = $response->attach('file['.$k.']', $filename,$fileext);
             }
 
-            $response = $response->post(config('global.url') . '/api/prodCat',
+            $response = $response->withHeaders(['Accept'=>'application/vnd.api.v1+json'])->post(config('global.url') . '/api/prodCat',
             [
             [
                 'name' => 'category_short_code',
@@ -163,20 +163,22 @@ class ProductCategoryController extends Controller
 
 
         else{
-            $response = Http::withToken($session)->post(config('global.url').'api/prodCat', [
+            $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->post(config('global.url').'api/prodCat', [
                 "category_short_code"=>$request->category_short_code,
                 "category_desc"=>$request->category_desc,
                 // "file"=>$request->file,
                 "status_id"=>$request->status_id
 
             ]);
-            // dd($response);
+
         }
+        // return $response;
 
         if($response->status()===201){
             return redirect()->route('product_categories.create')->with('success','Product Category Created Successfully!');
         }else{
-            return redirect()->route('product_categories.create')->with('error',$response->json());
+            $request->flash();
+            return redirect()->route('product_categories.create')->with('error',$response['errors']);
         }
 
 
@@ -227,7 +229,7 @@ class ProductCategoryController extends Controller
     {
         $session = session()->get('token');
         // return config('global.url');
-        $response=Http::withToken($session)->delete(config('global.url').'api/prodCat/'.$id);
+        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->delete(config('global.url').'api/prodCat/'.$id);
        // return $response->status();
         // if($response->serverError()){
         //     $error=[['Server Error'],['Please Delete All Photos to this Album']];

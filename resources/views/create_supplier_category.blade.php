@@ -34,18 +34,23 @@
                                     {{ session('success') }}
                                 </div>
                             @endif
+
                             @if(session('error') !== null)
-                                @foreach(session('error') as $k =>$v)
-                                    <div class='alert alert-danger'>
-                                        {{ $v }}
+
+                                @foreach(session('error') as $v)
+                                   @foreach($v as $e)
+                                   <div class='alert alert-danger'>
+                                       {{ $e }}
                                     </div>
+                                   @endforeach
+
                                 @endforeach
                             @endif
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Supplier Category Desc</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <textarea name="supplier_cat_desc" class="summernote-simple form-control" required></textarea>
+                                    <textarea name="supplier_cat_desc" class="summernote-simple form-control" required>{{ old('supplier_cat_desc') }}</textarea>
                                 </div>
                             </div>
 
@@ -55,7 +60,7 @@
                                     <select name="status_id" id="" placeholder="Status" class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}">{{ $status['status_desc'] }}</option>
+                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -35,17 +35,17 @@
                                 </div>
                             @endif
                             @if(session('error') !== null)
-                                @foreach(session('error') as $k =>$v)
-                                    <div class='alert alert-danger'>
-                                        {{ $v }}
-                                    </div>
-                                @endforeach
+                            @foreach(session('error') as $k =>$v)
+                                <div class='alert alert-danger'>
+                                    {{ $v[0] }}
+                                </div>
+                            @endforeach
                             @endif
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Vendor Category Desc</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <textarea name="vendor_cat_desc" class="summernote-simple form-control" required></textarea>
+                                    <textarea name="vendor_cat_desc" class="summernote-simple form-control" required>{{ old('vendor_cat_desc') }}</textarea>
                                 </div>
                             </div>
 
@@ -55,7 +55,7 @@
                                     <select name="status_id" id="" placeholder="Status" class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}">{{ $status['status_desc'] }}</option>
+                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
                                         @endforeach
                                     </select>
                                 </div>

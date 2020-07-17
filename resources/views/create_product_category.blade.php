@@ -35,22 +35,27 @@
                                 </div>
                             @endif
                             @if(session('error') !== null)
-                                @foreach(session('error') as $k =>$v)
-                                    <div class='alert alert-danger'>
-                                        {{ $v[0] }}
-                                    </div>
-                                @endforeach
-                            @endif
+
+                            @foreach(session('error') as $v)
+                               @foreach($v as $e)
+                               <div class='alert alert-danger'>
+                                   {{ $e }}
+                                </div>
+                               @endforeach
+
+                            @endforeach
+                        @endif
+
                             <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category Short Code</label>
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="category_short_code">Category Short Code</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <input type="text" name="category_short_code" class="form-control" required>
+                                    <input type="text" id="category_short_code" name="category_short_code" value="{{ old('category_short_code') }}" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category Desc</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <textarea name="category_desc" class="summernote-simple form-control" required></textarea>
+                                    <textarea name="category_desc" class="summernote-simple form-control" required>{{ old('category_desc') }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row mb-4">
@@ -75,7 +80,7 @@
                                     <select name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}">{{ $status['status_desc'] }}</option>
+                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
                                         @endforeach
                                     </select>
                                 </div>

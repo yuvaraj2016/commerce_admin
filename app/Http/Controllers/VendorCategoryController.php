@@ -25,7 +25,7 @@ class VendorCategoryController extends Controller
         $token = session()->get('token');
         try{
 
-            $call = $this->client::withToken($token)->get(config('global.url') . '/api/confVendorCat?page='.$page);
+            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confVendorCat?page='.$page);
 
             $response = json_decode($call->getBody()->getContents(), true);
             //  return $response;
@@ -52,7 +52,7 @@ class VendorCategoryController extends Controller
         $token = session()->get('token');
         try{
 
-            $call = $this->client::withToken($token)->get(config('global.url') . '/api/confStatus');
+            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
 
             $response = json_decode($call->getBody()->getContents(), true);
             //  return $response;
@@ -83,7 +83,7 @@ class VendorCategoryController extends Controller
         $session = session()->get('token');
 
 
-        $response = Http::withToken($session)->post(config('global.url').'api/confVendorCat',
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->post(config('global.url').'api/confVendorCat',
 
         [
 
@@ -101,9 +101,10 @@ class VendorCategoryController extends Controller
 
             return redirect()->route('vendor_categories.create')->with('success','Vendor Category Created Successfully!');
         }else{
-            // var_dump($response);exit;
 
-            return redirect()->route('vendor_categories.create')->with('error',$response->json());
+            $request->flash();
+
+            return redirect()->route('vendor_categories.create')->with('error',$response['errors']);
         }
     }
 
@@ -151,7 +152,7 @@ class VendorCategoryController extends Controller
     {
         $session = session()->get('token');
         // return config('global.url');
-        $response=Http::withToken($session)->delete(config('global.url').'api/confVendorCat/'.$id);
+        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->delete(config('global.url').'api/confVendorCat/'.$id);
        // return $response->status();
         // if($response->serverError()){
         //     $error=[['Server Error'],['Please Delete All Photos to this Album']];

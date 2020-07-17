@@ -28,7 +28,7 @@ class ProductSubCategoryController extends Controller
         $token = session()->get('token');
         try{
 
-            $call = $this->client::withToken($token)->get(config('global.url') . '/api/prodSubCat?page='.$page);
+            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodSubCat?page='.$page);
 
             $response = json_decode($call->getBody()->getContents(), true);
             //  return $response;
@@ -57,7 +57,7 @@ class ProductSubCategoryController extends Controller
 
         try{
 
-            $call = $this->client::withToken($token)->get(config('global.url') . '/api/confStatus');
+            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
 
             $response = json_decode($call->getBody()->getContents(), true);
             //  return $response;
@@ -71,7 +71,7 @@ class ProductSubCategoryController extends Controller
 
          try{
 
-            $call = $this->client::withToken($token)->get(config('global.url') . '/api/prodCat');
+            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodCat');
 
             $scresponse = json_decode($call->getBody()->getContents(), true);
             //  return $response;
@@ -116,7 +116,7 @@ class ProductSubCategoryController extends Controller
                 $response = $response->attach('file['.$k.']', $filename,$fileext);
             }
 
-            $response = $response->post(config('global.url') . '/api/prodSubCat',
+            $response = $response->withHeaders(['Accept'=>'application/vnd.api.v1+json'])->post(config('global.url') . '/api/prodSubCat',
             [
             [
                 'name' => 'category_id',
@@ -143,7 +143,7 @@ class ProductSubCategoryController extends Controller
 
 
         else{
-            $response = Http::withToken($session)->post(config('global.url').'api/prodSubCat', [
+            $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->post(config('global.url').'api/prodSubCat', [
                 "category_id"=>$request->category_id,
                 "sub_category_short_code"=>$request->sub_category_short_code,
                 "sub_category_desc"=>$request->sub_category_desc,
@@ -157,8 +157,9 @@ class ProductSubCategoryController extends Controller
         if($response->status()==201){
             return redirect()->route('product_sub_categories.create')->with('success','Product Sub Category Created Successfully!');
         }else{
-            // echo "hai";exit;
-            return redirect()->route('product_sub_categories.create')->with('error',$response->json());
+            $request->flash();
+
+            return redirect()->route('product_sub_categories.create')->with('error',$response['errors']);
         }
 
     }
@@ -208,7 +209,7 @@ class ProductSubCategoryController extends Controller
 
         $session = session()->get('token');
 
-        $response=Http::withToken($session)->delete(config('global.url').'api/prodSubCat/'.$id);
+        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->delete(config('global.url').'api/prodSubCat/'.$id);
 
         if($response->status()==204){
 

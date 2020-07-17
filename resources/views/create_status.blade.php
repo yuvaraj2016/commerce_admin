@@ -10,8 +10,7 @@
 <section class="section" >
     <div class="section-header">
         <div class="section-header-back">
-            <a href="{{ route('status.index') }}" class="btn btn-icon"><i
-                    class="fas fa-arrow-left"></i>&nbsp;<b>Back</b></a>
+            <a href="{{ route('status.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i>&nbsp;<b>Back</b></a>
         </div>
         <h1>Create Status</h1>
         <div class="section-header-breadcrumb">
@@ -35,17 +34,21 @@
                                 </div>
                             @endif
                             @if(session('error') !== null)
-                                @foreach(session('error') as $k =>$v)
-                                    <div class='alert alert-danger'>
-                                        {{ $v }}
+
+                                @foreach(session('error') as $v)
+                                   @foreach($v as $e)
+                                   <div class='alert alert-danger'>
+                                       {{ $e }}
                                     </div>
+                                   @endforeach
+
                                 @endforeach
                             @endif
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Desc</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <textarea name="status_desc" class="summernote-simple form-control" required></textarea>
+                                    <textarea name="status_desc" class="summernote-simple form-control" required>{{ old('status_desc') }}</textarea>
                                 </div>
                             </div>
 
