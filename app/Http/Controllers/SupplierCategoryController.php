@@ -121,7 +121,27 @@ class SupplierCategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $token = session()->get('token');
+        try{
+
+            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confSupplierCat/'.$id);
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $suppliercategory = $response['data'];
+
+
+
+            return view(
+                'view_supplier_category', compact(
+                    'suppliercategory'
+                )
+        );
     }
 
     /**
