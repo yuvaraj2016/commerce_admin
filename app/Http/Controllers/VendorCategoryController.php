@@ -128,7 +128,7 @@ class VendorCategoryController extends Controller
 
 
         }
-         $suppliercategory = $response['data'];
+         $vendorcategory = $response['data'];
 
 
 
