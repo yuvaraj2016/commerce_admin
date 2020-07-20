@@ -57,6 +57,10 @@ Route::resource('item_variants', 'ItemVariantController')->except('index')->midd
 
 Route::get('item_variant_list/{page?}','ItemVariantController@index')->name('item_variant.index')->middleware('checktoken');
 
+Route::resource('stock_masters', 'StockMasterController')->except('index')->middleware('checktoken');
+
+Route::get('stock_master_list/{page?}','StockMasterController@index')->name('stock_master.index')->middleware('checktoken');
+
 
 // Route::get('product_categories/{page?}', function (Request$page=0) {
 //     echo $page;
