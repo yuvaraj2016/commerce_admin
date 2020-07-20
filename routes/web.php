@@ -49,6 +49,14 @@ Route::resource('status', 'StatusController')->except('index')->middleware('chec
 
 Route::get('status_list/{page?}','StatusController@index')->name('status.index')->middleware('checktoken');
 
+Route::resource('items', 'ItemController')->except('index')->middleware('checktoken');
+
+Route::get('item_list/{page?}','ItemController@index')->name('item.index')->middleware('checktoken');
+
+Route::resource('item_variants', 'ItemVariantController')->except('index')->middleware('checktoken');
+
+Route::get('item_variant_list/{page?}','ItemVariantController@index')->name('item_variant.index')->middleware('checktoken');
+
 
 // Route::get('product_categories/{page?}', function (Request$page=0) {
 //     echo $page;
