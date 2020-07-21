@@ -61,6 +61,15 @@ Route::resource('stock_masters', 'StockMasterController')->except('index')->midd
 
 Route::get('stock_master_list/{page?}','StockMasterController@index')->name('stock_master.index')->middleware('checktoken');
 
+Route::resource('suppliers', 'SupplierController')->except('index')->middleware('checktoken');
+
+Route::get('supplier_list/{page?}','SupplierController@index')->name('supplier.index')->middleware('checktoken');
+
+
+Route::resource('vendors', 'VendorController')->except('index')->middleware('checktoken');
+
+Route::get('vendor_list/{page?}','VendorController@index')->name('vendor.index')->middleware('checktoken');
+
 
 // Route::get('product_categories/{page?}', function (Request$page=0) {
 //     echo $page;
