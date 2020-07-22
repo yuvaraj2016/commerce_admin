@@ -163,7 +163,28 @@ class ItemVariantController extends Controller
      */
     public function show($id)
     {
-        //
+        $token = session()->get('token');
+
+        try{
+
+            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/itemVariant/'.$id);
+
+            $response = json_decode($call->getBody()->getContents(), true);
+
+        }catch (\Exception $e){
+
+
+
+        }
+         $itemvariant = $response['data'];
+
+
+
+            return view(
+                'view_item_variant', compact(
+                    'itemvariant'
+                )
+        );
     }
 
     /**
