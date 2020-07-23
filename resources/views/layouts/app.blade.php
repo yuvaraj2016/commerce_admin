@@ -57,7 +57,7 @@
     <div id="app">
         <div class="main-wrapper container">
             <div class="navbar-bg"></div>
-            <nav class="navbar navbar-expand-lg main-navbar" style="border:0px solid red!important;">
+            <nav class="navbar navbar-expand-lg main-navbar" style="border:0px solid red!important; margin-top:-7px!important;">
                 <a href="index.html" class="navbar-brand">Ecommerce Admin</a>
 
 
@@ -65,6 +65,55 @@
         </div>
         <div class="clearfix" style="clear:both; padding-top:50px;"></div>
 
+
+
+     
+
+
+     
+        <nav class="navbar navbar-expand-sm navbar-light bg-faded">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <!-- Brand -->
+          <a class="navbar-brand" href="#">Logo</a>
+          
+          <!-- Links -->
+          <div class="collapse navbar-collapse" id="nav-content">   
+          <ul class="navbar-nav">
+          <li class="nav-item">
+          <a class="nav-link" href="#">Link 1</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="#">Link 2</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="Preview">
+            <a class="dropdown-item" href="#">Dropdown Link 1</a>
+            <a class="dropdown-item" href="#">Dropdown Link 2</a>
+            <a class="dropdown-item" href="#">Dropdown Link 3</a>
+            </div>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Link 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 1</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#">Link 2</a>
+              </li>
+       
+          </ul>
+          </div>
+          </nav>
         {{-- <nav class="navbar navbar-expand-md bg-dark navbar-dark ml-auto">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -75,11 +124,32 @@
                 <ul class="navbar-nav" style="height:auto!important;">
                      <li class="dropdown">
                         <a class="nav-link nav-link-lg nav-link-user"
-                            href="{{ route('albums.index') }}">Albums</a>
+                            href="{{ route('item.index') }}">Items</a>
                     </li>
                     <li class="dropdown">
                         <a class="nav-link nav-link-lg nav-link-user"
-                            href="{{ route('testimonials.index') }}">Testimonial</a>
+                            href="{{ route('item_variant.index') }}">Item Variants</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link nav-link-lg nav-link-user"
+                            href="{{ route('stock_master.index') }}">Stock Master</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link nav-link-lg nav-link-user"
+                            href="{{ route('supplier.index') }}">Suppliers</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link nav-link-lg nav-link-user"
+                            href="{{ route('supplier.index') }}">Vendors</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="nav-link nav-link-lg nav-link-user nav-link has-dropdown"
+                            href="{{ route('product_cat.index') }}" data-toggle="dropdown">Configurations</a>
+                        <ul class="dropdown-menu open">
+                            <li><a class="nav-link" href="{{ route('product_cat.index') }}">Product Category</a></li>
+                            <li><a class="nav-link" href="{{ route('product_sub_cat.index') }}">Product Sub Category</a></li>
+                        </ul>
                     </li>
 
                 </ul>
@@ -131,3 +201,41 @@
 
 
 </html>
+
+<script>
+$(function () {
+        // Remove Search if user Resets Form or hits Escape!
+		$('body, .navbar-collapse form[role="search"] button[type="reset"]').on('click keyup', function(event) {
+			console.log(event.currentTarget);
+			if (event.which == 27 && $('.navbar-collapse form[role="search"]').hasClass('active') ||
+				$(event.currentTarget).attr('type') == 'reset') {
+				closeSearch();
+			}
+		});
+
+		function closeSearch() {
+            var $form = $('.navbar-collapse form[role="search"].active')
+    		$form.find('input').val('');
+			$form.removeClass('active');
+		}
+
+		// Show Search if form is not active // event.preventDefault() is important, this prevents the form from submitting
+		$(document).on('click', '.navbar-collapse form[role="search"]:not(.active) button[type="submit"]', function(event) {
+			event.preventDefault();
+			var $form = $(this).closest('form'),
+				$input = $form.find('input');
+			$form.addClass('active');
+			$input.focus();
+
+		});
+		// ONLY FOR DEMO // Please use $('form').submit(function(event)) to track from submission
+		// if your form is ajax remember to call `closeSearch()` to close the search container
+		$(document).on('click', '.navbar-collapse form[role="search"].active button[type="submit"]', function(event) {
+			event.preventDefault();
+			var $form = $(this).closest('form'),
+				$input = $form.find('input');
+			$('#showSearchTerm').text($input.val());
+            closeSearch()
+		});
+    });
+</script>

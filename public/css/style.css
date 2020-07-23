@@ -2809,3 +2809,72 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
 /*# sourceMappingURL=style.css.map */
 
+
+
+.dropdown-menu li a
+{
+color:#000!important;
+
+}
+
+
+.navbar{
+  background: #0c73cc !important;
+}
+
+.dropdown{
+  border-radius:0;
+  border:0;
+}
+.dropdown-menu{
+  background: #0c73cc;
+  border:0;
+  top:80%;
+  border-radius:0px 0px 5px 5px;
+}
+.dropdown-item:hover{
+  background:#085ca5;
+  color:#fff;
+}
+.dropdown-menu a{
+  color:#fff;
+} 
+.navbar .nav-item .nav-link{
+  color:#eee !important; 
+  
+}
+.navbar .nav-item .nav-link:hover .navbar .nav-item .nav-link{
+  color:red !important;
+  
+}
+
+@media screen and (max-width: 480px) {
+
+  .navbar-nav li
+  {
+    display:block!important;
+  
+    height: auto!important;
+
+  }
+
+
+  .navbar-nav  {
+    display:block!important;
+    z-index:100;
+    position: relative;
+    height: auto!important;
+    background-color: black;
+  
+
+  }
+
+  .dropdown-menu
+  {
+
+    height: auto!important;
+  }
+
+
+
+}
