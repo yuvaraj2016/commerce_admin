@@ -77,39 +77,55 @@
           </button>
           
           <!-- Brand -->
-          <a class="navbar-brand" href="#">Logo</a>
+          <a class="navbar-brand" href="#"></a>
           
           <!-- Links -->
           <div class="collapse navbar-collapse" id="nav-content">   
           <ul class="navbar-nav">
-          <li class="nav-item">
-          <a class="nav-link" href="#">Link 1</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="#">Link 2</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link nav-link-lg nav-link-user"
+                  href="{{ route('item.index') }}">Items</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link nav-link-lg nav-link-user"
+                  href="{{ route('item_variant.index') }}">Item Variants</a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link nav-link-lg nav-link-user"
+                  href="{{ route('stock_master.index') }}">Stock Master</a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link nav-link-lg nav-link-user"
+                  href="{{ route('supplier.index') }}">Suppliers</a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link nav-link-lg nav-link-user"
+                  href="{{ route('supplier.index') }}">Vendors</a>
+          </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link nav-link-lg nav-link-user nav-link dropdown-toggle"
+                  href="{{ route('product_cat.index') }}" data-toggle="dropdown">Configurations</a>
+              <ul class="dropdown-menu open">
+                  <li><a class="nav-link" href="{{ route('product_cat.index') }}">Product Category</a></li>
+                  <li><a class="nav-link" href="{{ route('product_sub_cat.index') }}">Product Sub Category</a></li>
+                  <li><a class="nav-link" href="{{ route('supplier_cat.index') }}">Supplier Category</a></li>
+                  <li><a class="nav-link" href="{{ route('vendor_cat.index') }}">Vendor Category</a></li>
+                  <li><a class="nav-link" href="{{ route('status.index') }}">Status</a></li>
+                 
+              </ul>
+          </li>
+
+           {{-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="{{ route('product_cat.index') }}" role="button" aria-haspopup="true" aria-expanded="false">
             Dropdown
             </a>
             <div class="dropdown-menu" aria-labelledby="Preview">
-            <a class="dropdown-item" href="#">Dropdown Link 1</a>
-            <a class="dropdown-item" href="#">Dropdown Link 2</a>
-            <a class="dropdown-item" href="#">Dropdown Link 3</a>
+            <a class="dropdown-item" href="{{ route('product_cat.index') }}">Product Category</a>
+            <a class="dropdown-item" href="{{ route('product_sub_cat.index') }}">Product Sub Category</a>
+            
             </div>
-            </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link 1</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Link 2</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link 1</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="#">Link 2</a>
-              </li>
+            </li> --}}
        
           </ul>
           </div>
@@ -151,6 +167,17 @@
                             <li><a class="nav-link" href="{{ route('product_sub_cat.index') }}">Product Sub Category</a></li>
                         </ul>
                     </li>
+
+                     <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="{{ route('product_cat.index') }}" role="button" aria-haspopup="true" aria-expanded="false">
+                      Dropdown
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="Preview">
+                      <a class="dropdown-item" href="{{ route('product_cat.index') }}">Product Category</a>
+                      <a class="dropdown-item" href="{{ route('product_sub_cat.index') }}">Product Sub Category</a>
+                      
+                      </div>
+                      </li>
 
                 </ul>
             </div>

@@ -1006,7 +1006,7 @@ table tr:hover .table-links {
 
 /* 3.9 Nav */
 .nav-tabs .nav-item .nav-link {
-  color: #6777ef; }
+  color: #fff; }
   .nav-tabs .nav-item .nav-link.active {
     color: #000; }
 
@@ -1715,7 +1715,7 @@ h6 .badge {
         color: #6c757d; }
         .nav-collapse .navbar-nav .nav-item .nav-link:hover {
           background-color: #fcfcfd;
-          color: #6777ef; }
+          color: #fff; }
       .nav-collapse .navbar-nav .nav-item:focus > a, .nav-collapse .navbar-nav .nav-item.active > a {
         background-color: #6777ef;
         color: #fff; }
@@ -1724,7 +1724,8 @@ h6 .badge {
     left: 5px;
     right: 0; }
     .navbar .dropdown-menu {
-      position: absolute; }
+      /* position: absolute; */
+     }
     .navbar .navbar-nav {
       flex-direction: row; }
 
@@ -2557,7 +2558,7 @@ body.layout-3 .navbar.navbar-secondary {
         right: 15px; }
     body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .nav-item:hover > .nav-link {
       background-color: #fcfcfd;
-      color: #191d21; }
+      color: #fff; }
     body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .nav-item:hover > .dropdown-menu {
       display: block !important;
       top: -5px;
@@ -2818,42 +2819,13 @@ color:#000!important;
 }
 
 
-.navbar{
-  background: #0c73cc !important;
-}
 
-.dropdown{
-  border-radius:0;
-  border:0;
-}
-.dropdown-menu{
-  background: #0c73cc;
-  border:0;
-  top:80%;
-  border-radius:0px 0px 5px 5px;
-}
-.dropdown-item:hover{
-  background:#085ca5;
-  color:#fff;
-}
-.dropdown-menu a{
-  color:#fff;
-} 
-.navbar .nav-item .nav-link{
-  color:#eee !important; 
-  
-}
-.navbar .nav-item .nav-link:hover .navbar .nav-item .nav-link{
-  color:red !important;
-  
-}
 
 @media screen and (max-width: 480px) {
 
   .navbar-nav li
   {
-    display:block!important;
-  
+    
     height: auto!important;
 
   }
@@ -2862,19 +2834,14 @@ color:#000!important;
   .navbar-nav  {
     display:block!important;
     z-index:100;
-    position: relative;
+    width:100%!important;
     height: auto!important;
-    background-color: black;
+    background-color: #6777ef;
+    padding:10px;
   
 
   }
 
-  .dropdown-menu
-  {
+ 
 
-    height: auto!important;
   }
-
-
-
-}
