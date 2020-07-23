@@ -100,7 +100,7 @@
           </li>
           <li class="nav-item dropdown">
               <a class="nav-link nav-link-lg nav-link-user"
-                  href="{{ route('supplier.index') }}">Vendors</a>
+                  href="{{ route('vendor.index') }}">Vendors</a>
           </li>
 
           <li class="nav-item dropdown">
