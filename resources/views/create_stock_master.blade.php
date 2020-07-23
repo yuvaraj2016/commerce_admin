@@ -62,7 +62,7 @@
                                     <select name="variant_id" id="" placeholder="Variant" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($variants as $variant)
-                                            <option value="{{ $variant['id'] }}" {{ (old("variant_id") == $variant['id'] ? "selected":"") }}>{{ $variant['item_desc'] }}</option>
+                                            <option value="{{ $variant['id'] }}" {{ (old("variant_id") == $variant['id'] ? "selected":"") }}>{{ $variant['variant_desc'] }}</option>
                                         @endforeach
                                     </select>
                                 </div>
