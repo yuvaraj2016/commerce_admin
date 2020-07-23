@@ -80,7 +80,7 @@ class StockMasterController extends Controller
 
 
         }
-         $variants = $iresponse['data'];
+         $variants = $ivresponse['data'];
 
 
 
