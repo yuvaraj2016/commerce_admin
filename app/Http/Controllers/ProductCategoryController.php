@@ -8,17 +8,20 @@ use Illuminate\Support\Facades\Redis;
 use GuzzleHttp\Client;
 class ProductCategoryController extends Controller
 {
+    
+
     public function __construct(Http $client)
     {
-        if(session()->has('token'))
-        {
-            // session()->flush();
+       
+        if (session()->has('token')) {
             // echo "sadf";exit;
+        }   
+       else
+       {
+        return redirect()->route('home');
+       
         }
-        else {
-
-            return redirect()->route('home');
-        }
+             
         
         $this->client = $client;
 
@@ -33,14 +36,18 @@ class ProductCategoryController extends Controller
     {
 
         //  echo $page;
+        // $response='';
 
         $token = session()->get('token');
+        
         try{
-
-            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodCat?page='.$page);
+           
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . 'api/prodCat?page='.$page);
 
             $response = json_decode($call->getBody()->getContents(), true);
-            //  return $response;
+            
+            // return $response;
+
         }catch (\Exception $e){
             //buy a beer
 
@@ -108,7 +115,7 @@ class ProductCategoryController extends Controller
         $token = session()->get('token');
         try{
 
-            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
 
             $response = json_decode($call->getBody()->getContents(), true);
             //  return $response;
@@ -207,7 +214,7 @@ class ProductCategoryController extends Controller
         $token = session()->get('token');
         try{
 
-            $call = $this->client::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodCat/'.$id);
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodCat/'.$id);
 
             $response = json_decode($call->getBody()->getContents(), true);
             //  return $response;
