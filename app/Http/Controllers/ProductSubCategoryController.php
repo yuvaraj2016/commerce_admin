@@ -17,6 +17,15 @@ class ProductSubCategoryController extends Controller
 
     public function __construct(Http $client)
     {
+        if(session()->has('token'))
+        {
+            // session()->flush();
+            // echo "sadf";exit;
+        }
+        else {
+
+            return redirect()->route('home');
+        }
         $this->client = $client;
     }
 
