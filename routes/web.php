@@ -27,48 +27,48 @@ Route::resource('albums', 'AlbumController');
 Route::resource('albums.photo', 'PhotoController');
 Route::resource('testimonials', 'TestimonialsController');
 
-Route::resource('product_categories', 'ProductCategoryController')->except('index');
+Route::resource('product_categories', 'ProductCategoryController')->except('index')->middleware('checktoken');
 
-Route::get('product_cat_list/{page?}','ProductCategoryController@index')->name('product_cat.index');
+Route::get('product_cat_list/{page?}','ProductCategoryController@index')->name('product_cat.index')->middleware('checktoken');
 
-Route::resource('product_sub_categories', 'ProductSubCategoryController')->except('index');
+Route::resource('product_sub_categories', 'ProductSubCategoryController')->except('index')->middleware('checktoken');
 
-Route::get('product_sub_cat_list/{page?}','ProductSubCategoryController@index')->name('product_sub_cat.index');
-
-
-Route::resource('supplier_categories', 'SupplierCategoryController')->except('index');
-
-Route::get('supplier_cat_list/{page?}','SupplierCategoryController@index')->name('supplier_cat.index');
+Route::get('product_sub_cat_list/{page?}','ProductSubCategoryController@index')->name('product_sub_cat.index')->middleware('checktoken');
 
 
-Route::resource('vendor_categories', 'VendorCategoryController')->except('index');
+Route::resource('supplier_categories', 'SupplierCategoryController')->except('index')->middleware('checktoken');
 
-Route::get('vendor_cat_list/{page?}','VendorCategoryController@index')->name('vendor_cat.index');
-
-Route::resource('status', 'StatusController')->except('index');
-
-Route::get('status_list/{page?}','StatusController@index')->name('status.index');
-
-Route::resource('items', 'ItemController')->except('index');
-
-Route::get('item_list/{page?}','ItemController@index')->name('item.index');
-
-Route::resource('item_variants', 'ItemVariantController')->except('index');
-
-Route::get('item_variant_list/{page?}','ItemVariantController@index')->name('item_variant.index');
-
-Route::resource('stock_masters', 'StockMasterController')->except('index');
-
-Route::get('stock_master_list/{page?}','StockMasterController@index')->name('stock_master.index');
-
-Route::resource('suppliers', 'SupplierController')->except('index');
-
-Route::get('supplier_list/{page?}','SupplierController@index')->name('supplier.index');
+Route::get('supplier_cat_list/{page?}','SupplierCategoryController@index')->name('supplier_cat.index')->middleware('checktoken');
 
 
-Route::resource('vendors', 'VendorController')->except('index');
+Route::resource('vendor_categories', 'VendorCategoryController')->except('index')->middleware('checktoken');
 
-Route::get('vendor_list/{page?}','VendorController@index')->name('vendor.index');
+Route::get('vendor_cat_list/{page?}','VendorCategoryController@index')->name('vendor_cat.index')->middleware('checktoken');
+
+Route::resource('status', 'StatusController')->except('index')->middleware('checktoken');
+
+Route::get('status_list/{page?}','StatusController@index')->name('status.index')->middleware('checktoken');
+
+Route::resource('items', 'ItemController')->except('index')->middleware('checktoken');
+
+Route::get('item_list/{page?}','ItemController@index')->name('item.index')->middleware('checktoken');
+
+Route::resource('item_variants', 'ItemVariantController')->except('index')->middleware('checktoken');
+
+Route::get('item_variant_list/{page?}','ItemVariantController@index')->name('item_variant.index')->middleware('checktoken');
+
+Route::resource('stock_masters', 'StockMasterController')->except('index')->middleware('checktoken');
+
+Route::get('stock_master_list/{page?}','StockMasterController@index')->name('stock_master.index')->middleware('checktoken');
+
+Route::resource('suppliers', 'SupplierController')->except('index')->middleware('checktoken');
+
+Route::get('supplier_list/{page?}','SupplierController@index')->name('supplier.index')->middleware('checktoken');
+
+
+Route::resource('vendors', 'VendorController')->except('index')->middleware('checktoken');
+
+Route::get('vendor_list/{page?}','VendorController@index')->name('vendor.index')->middleware('checktoken');
 
 
 // Route::get('product_categories/{page?}', function (Request$page=0) {
