@@ -69,7 +69,9 @@
 
 
                 <div class="section-header-button">
-                    <a href="{{ route('product_categories.create') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('product_categories.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
+                    background-color: #6777ef;
+                    border-color: #6777ef;">Add New</a>
                 </div>
 
 
@@ -150,7 +152,7 @@
                     <div class="card-body">
     
                         <div class="table-responsive">
-                            <table class="table table-striped" id="table-1">
+                            <table class="table" id="table-1">
                                 <thead>
                                     <tr>
     
@@ -198,12 +200,16 @@
                                                 <div class="d-flex">
     
                                                     <a href="{{ url('product_categories/'.$id) }}"
-                                                        class="btn btn-success d-inline"><i
+                                                        class="btn btn-success d-inline" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
+                                                        background-color: #6777ef;
+                                                        border-color: #6777ef;"><i
                                                             class="icofont icofont-eye"></i>View&nbsp;&nbsp;</a>&nbsp;&nbsp;
     
                                                     <a href="{{ url('product_categories/'.$id.'/edit') }}"
-                                                        class="btn btn-info d-inline text-center"><i
-                                                            class="icofont icofont-ui-edit"></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;
+                                                        class="btn btn-info d-inline text-center" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
+                                                        background-color: #6777ef;
+                                                        border-color: #6777ef;"><i
+                                                            class="icofont icofont-ui-edit" ></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;
                                                     {{-- <meta name="csrf-token" content="{{ csrf_token() }}">
                                                     <a href="{{ action('AlbumController@destroy', $id) }}"
                                                         class="job-delete badge badge-danger d-inline"><i
@@ -215,7 +221,9 @@
                                                         @method('DELETE')
                                                         @csrf
                                                         <button type="submit"
-                                                            class="btn btn-danger job-delete d-inline"> <i
+                                                            class="btn btn-danger job-delete d-inline" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
+                                                            background-color: #6777ef;
+                                                            border-color: #6777ef;"> <i
                                                                 class="icofont icofont-trash"></i>Delete</button>
                                                     </form>
                                                 </div>
