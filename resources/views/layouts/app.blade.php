@@ -26,7 +26,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
 
  
-    
+       <!-- Select 2 css -->
+       <link rel="stylesheet" type="text/css" href="{{ asset('files/bower_components/select2/css/select2.min.css') }}">
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="{{ asset('files/bower_components/bootstrap/css/bootstrap.min.css') }}">
     <!-- themify-icons line icon -->
@@ -2226,7 +2227,8 @@
     <!-- modernizr js -->
     <script type="text/javascript" src="{{ asset('files/bower_components/modernizr/js/modernizr.js') }}"></script>
     <script type="text/javascript" src="{{ asset('files/bower_components/modernizr/js/css-scrollbars.js') }}"></script>
-
+<!-- Select 2 js -->
+<script type="text/javascript" src="{{ asset('files/bower_components/select2/js/select2.full.min.js') }}"></script>
     <!-- Syntax highlighter prism js -->
     <script type="text/javascript" src="{{ asset('files/assets/pages/prism/custom-prism.js') }}"></script>
     <!-- i18next.min.js -->
@@ -2235,6 +2237,7 @@
     <script type="text/javascript" src="{{ asset('files/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('files/bower_components/jquery-i18next/js/jquery-i18next.min.js') }}"></script>
     <!-- Custom js -->
+    <script type="text/javascript" src="{{ asset('files/assets/pages/advance-elements/select2-custom.js') }}"></script>
     <script src="{{ asset('files/assets/js/pcoded.min.js') }}"></script>
     <script src="{{ asset('files/assets/js/menu/menu-hori-fixed.js') }}"></script>
     <script src="{{ asset('files/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>

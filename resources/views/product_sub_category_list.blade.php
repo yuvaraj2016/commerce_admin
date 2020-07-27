@@ -2,7 +2,7 @@
 @section('content')
 
 
-
+<!-- 
     @if(session('success') !== null)
         <div class='alert alert-success'>
             {{ session('success') }}
@@ -18,7 +18,7 @@
     @endif
     <div class="section-header-button">
         <a href="{{ route('product_sub_categories.create') }}" class="btn btn-primary">Add New</a>
-    </div>
+    </div> -->
 
 <style>
 #pagination li
@@ -32,8 +32,56 @@
 
  </style>
 
-    <div class="row">
-        <div class="col-12">
+<div class="page-wrapper">
+
+<div class="page-header m-t-50">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <div class="d-inline">
+                        <h4>Product Sub Category List</h4>
+                        {{-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> --}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="index-1.htm">
+                                <i class="icofont icofont-home"></i>
+                            </a>
+                        </li>
+                      
+                        <li class="breadcrumb-item"><a href="{{ route('product_sub_cat.index') }}">Product Sub Category List</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-body">
+<div class="row">
+            <div class="col-12">
+                @if(session('success') !== null)
+        <div class='alert alert-success'>
+            {{ session('success') }}
+        </div>
+        @endif
+        @if(session('error') !== null)
+            @foreach(session('error') as $k =>$v)
+                <div class='alert alert-danger'>
+                    {{ $v[0] }}
+                </div>
+            @endforeach
+        @endif
+        <div class="section-header-button">
+                    <a href="{{ route('product_sub_categories.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
+                    background-color: #6777ef;
+                    border-color: #6777ef;">Add New</a>
+                </div>
+
             <div class="card">
                 <div class="card-header">
                     <div class="container-fluid m-2">
@@ -158,13 +206,23 @@
                                         <td>
                                             <div class="d-flex">
 
-                                                <a href="{{ url('product_sub_categories/'.$id) }}"
-                                                    class="badge badge-primary d-inline"><i
-                                                        class="fas fa-eye"></i>View&nbsp;&nbsp;</a>&nbsp;&nbsp;
+                                            <a href="{{ url('product_sub_categories/'.$id) }}"
+                                                        class="btn btn-success d-inline" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
+                                                        background-color: #6777ef;
+                                                        border-color: #6777ef;"><i
+                                                            class="icofont icofont-eye"></i>View&nbsp;&nbsp;</a>&nbsp;&nbsp;
 
-                                                <a href="{{ url('product_sub_categories/'.$id.'/edit') }}"
-                                                    class="badge badge-info d-inline"><i
-                                                        class="fas fa-edit"></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;
+                                                            <a href="{{ url('product_sub_categories/'.$id.'/edit') }}"
+                                                        class="btn btn-info d-inline text-center" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
+                                                        background-color: #6777ef;
+                                                        border-color: #6777ef;"><i
+                                                            class="icofont icofont-ui-edit" ></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;
+
+
+
+      
+
+                                               
                                                 {{-- <meta name="csrf-token" content="{{ csrf_token() }}">
                                                 <a href="{{ action('AlbumController@destroy', $id) }}"
                                                     class="job-delete badge badge-danger d-inline"><i
@@ -176,8 +234,10 @@
                                                     @method('DELETE')
                                                     @csrf
                                                     <button type="submit"
-                                                        class="job-delete badge badge-danger d-inline"> <i
-                                                            class="fas fa-trash"></i>Delete</button>
+                                                        class="btn btn-danger job-delete d-inline" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
+                                                            background-color: #6777ef;
+                                                            border-color: #6777ef;"> <i
+                                                            class="icofont icofont-trash"></i>Delete</button>
                                                 </form>
                                             </div>
                                         </td>
@@ -190,7 +250,7 @@
             </div>
         </div>
     </div>
-
+    </div>
 {{-- <script>
     $(function () {
         $('.job-delete').click(function (event) {

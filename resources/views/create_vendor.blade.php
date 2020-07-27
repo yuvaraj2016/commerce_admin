@@ -5,10 +5,39 @@
 
 
 
+<div class="page-wrapper">
 
+<div class="page-header m-t-50">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <div class="d-inline">
+                        <h4>Create Vendor</h4>
+                        {{-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> --}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                           
+                                <i class="">Create Vendor</i>
+                          
+                        </li>
+                      
+                        <li class="breadcrumb-item"><a href="{{ route('vendor.index') }}">Vendors</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-body">
 
 <section class="section" >
-    <div class="section-header">
+    <!-- <div class="section-header">
         <div class="section-header-back">
             <a href="{{ route('vendor.index') }}" class="btn btn-icon"><i
                     class="fas fa-arrow-left"></i>&nbsp;<b>Back</b></a>
@@ -18,7 +47,7 @@
             <div class="breadcrumb-item"><a href="{{ route('vendor.index') }}">Vendors</a></div>
             <div class="breadcrumb-item">Create Vendor</div>
         </div>
-    </div>
+    </div> -->
 
     <div class="section-body">
 
@@ -46,7 +75,71 @@
                                 @endforeach
                             @endif
 
-                            <div class="form-group row mb-4">
+
+                            <div class="form-group row">
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendor Name</label>
+                                                        <input type="text" name="vendor_name" value="{{ old('vendor_name') }}" class="form-control" required>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendor Image Picture</label>
+                                                        <input type="file" class="custom-file-input" name="file[]" id="file"  style="border: 1px solid #ccc;">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendor Category</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="vendor_category_id" id="vendor_category_id" placeholder="Vendor Category" required class="form-control selectric" required>
+                                        <option value="">Select</option>
+
+                                        @foreach($vendorcategories as $vendorcategory)
+                                            <option value="{{ $vendorcategory['id'] }}" {{ (old("vendor_category_id") == $vendorcategory['id'] ? "selected":"") }}>{{ $vendorcategory['vendor_cat_desc'] }}</option>
+                                        @endforeach
+                                    </select>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendor Desc</label>
+                                                        <textarea name="vendor_desc" class="summernote-simple form-control" required>{{ old('vendor_desc') }}</textarea>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendor Address</label>
+                                                        <textarea name="vendor_address" class="summernote-simple form-control" required>{{ old('vendor_address') }}</textarea>
+                                          
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendor Contact</label>
+                                                        <input type="number" name="vendor_contact" value="{{ old('vendor_contact') }}" class="form-control" required>
+               
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendor Email</label>
+                                                        <input type="email" name="vendor_email" value="{{ old('vendor_email') }}" class="form-control" required>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                        <option value="">Select</option>
+                                        @foreach($statuses as $status)
+                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
+                                        @endforeach
+                                    </select>
+
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        
+               
+                                                        </div>
+                                                    </div>
+                                               
+
+
+                            <!-- <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Vendor Name</label>
                                 <div class="col-sm-12 col-md-7">
                                     <input type="text" name="vendor_name" value="{{ old('vendor_name') }}" class="form-control" required>
@@ -121,13 +214,13 @@
                                         @endforeach
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
 
 
 
                             <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
-                                <div class="col-sm-12 col-md-7">
+                                <label class="col-form-label text-md-right offset-6"></label>
+                                <div class="col-sm-12 col-md-7 offset-5">
                                     <button type="submit" class="btn btn-primary">Create Vendor</button>
                                 </div>
                             </div>
@@ -138,7 +231,11 @@
             </div>
         </div>
     </div>
+    
 </section>
+    </div>
+</div>
+
 @endsection
 <script type="text/javascript" src="{{ asset('modules/upload-preview/assets/js/jquery-2.0.3.min.js') }}"></script>
 

@@ -2,13 +2,42 @@
 @section('content')
 
 {{-- <a href="{{ route('albums.index') }}">back</a> --}}
+<div class="page-wrapper">
 
+<div class="page-header m-t-50">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <div class="d-inline">
+                        <h4>Create Item Variants</h4>
+                        {{-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> --}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                           
+                                <i class="">Create Item Variants</i>
+                          
+                        </li>
+                      
+                        <li class="breadcrumb-item"><a href="{{ route('item_variant.index') }}">Item Variants</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-body">
 
 
 
 
 <section class="section" >
-    <div class="section-header">
+    <!-- <div class="section-header">
         <div class="section-header-back">
             <a href="{{ route('item_variant.index') }}" class="btn btn-icon"><i
                     class="fas fa-arrow-left"></i>&nbsp;<b>Back</b></a>
@@ -18,7 +47,7 @@
             <div class="breadcrumb-item"><a href="{{ route('item_variant.index') }}">Item Variants</a></div>
             <div class="breadcrumb-item">Create Item Variant</div>
         </div>
-    </div>
+    </div> -->
 
     <div class="section-body">
 
@@ -45,7 +74,58 @@
 
                                 @endforeach
                             @endif
-                            <div class="form-group row mb-4">
+                            <div class="form-group row">
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Item</label>
+                                                        <select class="js-example-basic-single col-sm-12"  name="item_id" id="" placeholder="Item" required class="form-control selectric" required>
+                                        <option value="">Select</option>
+                                        @foreach($items as $item)
+                                            <option value="{{ $item['id'] }}" {{ (old("item_id") == $item['id'] ? "selected":"") }}>{{ $item['item_desc'] }}</option>
+                                        @endforeach
+                                    </select>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Variant Code</label>
+                                                        <input type="text" name="variant_code" value="{{ old('variant_code') }}" class="form-control" required>
+                                          
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Variant Desc</label>
+                                                        <textarea name="variant_desc" class="summernote-simple form-control" required>{{ old('variant_desc') }}</textarea>
+               
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Item Variant Image</label>
+                                                        <input type="file" class="custom-file-input" name="file[]" id="file">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                        <option value="">Select</option>
+                                        @foreach($statuses as $status)
+                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
+                                        @endforeach
+                                    </select>
+               
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        
+               
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+
+
+
+                            <!-- <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Item</label>
                                 <div class="col-sm-12 col-md-7">
                                     <select name="item_id" id="" placeholder="Item" required class="form-control selectric" required>
@@ -99,12 +179,12 @@
                                         @endforeach
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
 
 
                             <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
-                                <div class="col-sm-12 col-md-7">
+                                <label class="col-form-label text-md-right "></label>
+                                <div class="col-sm-12 col-md-7 offset-5">
                                     <button type="submit" class="btn btn-primary">Create Item Variant</button>
                                 </div>
                             </div>
