@@ -736,7 +736,7 @@ padding-top:12px!important;
 
 }
 
-.navbar li{
+.navbar li.active{
 
   /* border:1px solid white; */
   margin-right: 10px;
