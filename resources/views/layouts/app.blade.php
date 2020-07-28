@@ -38,6 +38,10 @@ display: none !important;
                     border-color: #6777ef !important;
                     border-radius:30px !important;
 }
+/* nav bar margin top changed css */
+/* .pcoded-main-container {
+margin-top: 0px !important;
+} */
 </style>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -234,7 +238,7 @@ display: none !important;
           
             
 
-            <div class="pcoded-main-container">
+            <div class="pcoded-main-container" style="margin-top:0px !important">
                 
                 
                 {{-- Below Menu Code Reference -- https://bootsnipp.com/snippets/nNX3a --}}
