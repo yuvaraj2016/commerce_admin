@@ -729,3 +729,9 @@ body.horizontal-icon .pcoded[pcoded-device-type="desktop"] .pcoded-navbar .pcode
     top: -7px;
   }
 }
+
+nav.navbar
+{
+padding-top:12px!important;
+
+}
