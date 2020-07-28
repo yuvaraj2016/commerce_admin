@@ -216,11 +216,11 @@ body {
             <div class="pcoded-main-container">
                 
                 
-
+                {{-- Below Menu Code Reference -- https://bootsnipp.com/snippets/nNX3a --}}
 
 
                 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#">Navbar</a>
+                    <a class="navbar-brand" href="#">Ecommerce Admin</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
@@ -235,58 +235,73 @@ body {
                             </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">
+                          <a class="nav-link" href="{{ route('item.index') }}">
                             <i class="fa fa-envelope-o">
-                              <span class="badge badge-danger">11</span>
+                             
                             </i>
-                            Link
+                            Items
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link disabled" href="#">
-                            <i class="fa fa-envelope-o">
-                              <span class="badge badge-warning">11</span>
-                            </i>
-                            Disabled
-                          </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-envelope-o">
-                              <span class="badge badge-primary">11</span>
-                            </i>
-                            Dropdown
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                          </div>
-                        </li>
+                            <a class="nav-link" href="{{ route('item_variant.index') }}">
+                              <i class="fa fa-envelope-o">
+                               
+                              </i>
+                              Item Variants
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ route('stock_master.index') }}">
+                              <i class="fa fa-envelope-o">
+                               
+                              </i>
+                              Stock Master
+                            </a>
+                          </li>
+
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ route('supplier.index') }}">
+                              <i class="fa fa-envelope-o">
+                               
+                              </i>
+                              Suppliers
+                            </a>
+                          </li>
+
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ route('vendor.index') }}">
+                              <i class="fa fa-envelope-o">
+                               
+                              </i>
+                              Vendors
+                            </a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-envelope-o">
+                              
+                              </i>
+                              Configurations
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{ route('product_cat.index') }}">Product Category</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{{ route('product_sub_cat.index') }}">Product Sub Category</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{{ route('supplier_cat.index') }}">Supplier Category</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{{ route('vendor_cat.index') }}">Vendor Category</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{{ route('status.index') }}">Status</a>
+                              <div class="dropdown-divider"></div>
+                            </div>
+                          </li>
+                 
                       </ul>
-                      <ul class="navbar-nav ">
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">
-                            <i class="fa fa-bell">
-                              <span class="badge badge-info">11</span>
-                            </i>
-                            Test
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">
-                            <i class="fa fa-globe">
-                              <span class="badge badge-success">11</span>
-                            </i>
-                            Test
-                          </a>
-                        </li>
-                      </ul>
-                      <form class="form-inline my-2 my-lg-0">
+                      {{-- <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                      </form>
+                      </form> --}}
                     </div>
                   </nav>
 
