@@ -11,6 +11,17 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- Meta -->
+<style>
+.table-striped tbody tr:nth-of-type(2n+1) {
+
+    background-color: white !important;
+}
+body {
+    font-family: sans-serif !important;
+}
+
+</style>
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Ecommerce Admin') }}</title>
