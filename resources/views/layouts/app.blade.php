@@ -19,7 +19,25 @@
 body {
     font-family: sans-serif !important;
 }
+.border1{
+border:none !important;
+padding:1px !important;
+margin-left: -13px!important;
+}
+.font1{
+    font-size: 13px !important;
+}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 
+display: none !important;
+}
+/* pagination css */
+.btn-primary.disabled, .wizard > .actions a.disabled, .sweet-alert button.disabled.confirm {
+
+    background-color: #6777ef !important;
+                    border-color: #6777ef !important;
+                    border-radius:30px !important;
+}
 </style>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -35,8 +53,11 @@ body {
     <link rel="icon" href="{{ asset('files/assets/images/favicon.ico') }}" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
-
- 
+<!-- datatable -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('files/bower_components/datatables.net-bs4\css\dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/pages/data-table/css/buttons.dataTables.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('files/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/pages/data-table/extensions/buttons/css/buttons.dataTables.min.css')}}">
        <!-- Select 2 css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('files/bower_components/select2/css/select2.min.css') }}">
     <!-- Required Fremwork -->
@@ -491,7 +512,26 @@ body {
     <!-- modernizr js -->
     <script type="text/javascript" src="{{ asset('files/bower_components/modernizr/js/modernizr.js') }}"></script>
     <script type="text/javascript" src="{{ asset('files/bower_components/modernizr/js/css-scrollbars.js') }}"></script>
-<!-- Select 2 js -->
+<!--  datatable -->
+<script type="text/javascript" src="{{asset('files/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/assets/pages/data-table/js/jszip.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/assets/pages/data-table/js/pdfmake.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/assets/pages/data-table/js/vfs_fonts.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/assets/pages/data-table/extensions/buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/assets/pages/data-table/extensions/buttons/js/buttons.flash.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/assets/pages/data-table/extensions/buttons/js/jszip.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/assets/pages/data-table/extensions/buttons/js/vfs_fonts.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/assets/pages/data-table/extensions/buttons/js/buttons.colVis.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/bower_components/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('files/assets/pages/data-table/extensions/buttons/js/extension-btns-custom.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/bower_components/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('files/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+<!-- Select 2 js  -->
+
+
 <script type="text/javascript" src="{{ asset('files/bower_components/select2/js/select2.full.min.js') }}"></script>
     <!-- Syntax highlighter prism js -->
     <script type="text/javascript" src="{{ asset('files/assets/pages/prism/custom-prism.js') }}"></script>
