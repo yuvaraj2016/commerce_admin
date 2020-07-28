@@ -729,3 +729,22 @@ body.horizontal-icon .pcoded[pcoded-device-type="desktop"] .pcoded-navbar .pcode
     top: -7px;
   }
 }
+
+nav.navbar
+{
+padding-top:12px!important;
+
+}
+
+.navbar li{
+
+  /* border:1px solid white; */
+  margin-right: 10px;
+  background-color: #01A9AC;
+  border-radius: 10px;
+}
+
+.navbar .nav-item .nav-link {
+
+  color:white;
+}
