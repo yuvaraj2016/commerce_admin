@@ -56,6 +56,65 @@
                 <div class="card">
                     <div class="card-body">
 
+                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item Code</label>
+                                                        <input type="text"  value="    {{ $item['item_code'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item Desc</label>
+                                                        <input type="text"  value="   {{ $item['item_desc'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Sub Category</label>
+                                                        <input type="text"  value="    {{ $item['sub_category_desc'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <input type="text"  value="  {{ $item['status_desc'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Vendor Name</label>
+                                                        <input type="text"  value="     {{ $item['vendor'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Created At</label>
+                                                        <input type="text"  value=" {{ date("Y-m-d H:i:s",$item['created_at']) }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item Image</label>
+                                                        <img src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'].'?width=300&height=300' : asset('img/no-image.gif')  }}"/>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                       
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+
+
+
+
+
+
+
+<!-- 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Item Code</label>
                                 <div class="col-sm-12 col-md-7 mt-2">
@@ -107,7 +166,7 @@
                                 <div class="col-sm-12 col-md-7 mt-2">
                                    {{ date("Y-m-d H:i:s",$item['created_at']) }}
                                 </div>
-                            </div>
+                            </div> -->
 
 
 

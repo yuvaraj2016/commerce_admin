@@ -55,6 +55,64 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item</label>
+                                                        <input type="text"  value=" {{$stockmaster['item_desc']}}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Variants</label>
+                                                        <input type="text"  value="    {{$stockmaster['variant_desc']}}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Vendor Name</label>
+                                                        <input type="text"  value=" {{$stockmaster['vendor_name']}}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Stock Quantity</label>
+                                                        <input type="text"  value="    {{$stockmaster['stock_quantity']}}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Stock Threshold</label>
+                                                        <input type="text"  value=" {{$stockmaster['stock_threshold']}}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <input type="text"  value="      {{$stockmaster['status_desc']}}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Created At</label>
+                                                        <input type="text"  value="   {{ date("Y-m-d H:i:s",$stockmaster['created_at']) }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                      
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+
+
+
+
+
+<!-- 
+
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Item</label>
@@ -105,7 +163,7 @@
                                 <div class="col-sm-12 col-md-7 mt-2">
                                    {{ date("Y-m-d H:i:s",$stockmaster['created_at']) }}
                                 </div>
-                            </div>
+                            </div> -->
 
 
                     </div>
