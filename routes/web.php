@@ -71,6 +71,9 @@ Route::resource('vendors', 'VendorController')->except('index')->middleware('che
 Route::get('vendor_list/{page?}','VendorController@index')->name('vendor.index')->middleware('checktoken');
 
 
+
+Route::resource('assets', 'AssetsController')->except('index')->middleware('checktoken');
+
 // Route::get('product_categories/{page?}', function (Request$page=0) {
 //     echo $page;
 // });
