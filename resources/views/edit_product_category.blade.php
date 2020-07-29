@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
 
@@ -38,18 +39,7 @@
 
 
 <section class="section" >
-    <!-- <div class="section-header">
-        <div class="section-header-back">
-            <a href="{{ route('product_cat.index') }}" class="btn btn-icon"><i
-                    class="fas fa-arrow-left"></i>&nbsp;<b>Back</b></a>
-        </div>
-        <h1>Create Product Category</h1>
-        <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item"><a href="{{ route('product_cat.index') }}">Product Categories</a></div>
-            <div class="breadcrumb-item">Create Product Category</div>
-        </div>
-    </div> -->
-
+    
     <div class="section-body">
 
         <div class="row">
@@ -87,8 +77,15 @@
                                                         <textarea name="category_desc" class="summernote-simple form-control" required>{{ old('category_desc',$prodcategory['category_desc']) }}</textarea>
                                           
                                                         </div>
+
+
+                                                      
+
                                          
                                                     </div>
+
+                                                    
+
                                                     <div class="form-group row">
                                                         {{-- <div class="col-sm-4 offset-1">
                                                             <img src="{{ isset($prodcategory['Assets']['data'][0]['links']) ? $prodcategory['Assets']['data'][0]['links']['full'].'?width=300&height=300' : asset('img/no-image.gif')  }}"/>
@@ -96,6 +93,26 @@
                                                             <input type="file" class="" name="file[]" id="file">
                                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                                         </div> --}}
+
+                                                        <div class="col-sm-4 offset-1 card">
+                                                            <div class="card-header">
+                                                                <h5>File Upload</h5>
+                                                                <div class="card-header-right">
+                                                                    <ul class="list-unstyled card-option">
+                                                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                                                        <li><i class="feather icon-trash-2 close-card"></i></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-block">
+                                                                <div class="sub-title">Category Image Picture</div>
+                                                                <input type="file" name="files[]" id="filer_input1" multiple="multiple" class="form-control">
+                                                            </div>
+                                                        </div>
+
+
+
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
@@ -106,15 +123,15 @@
                                                         </select>
                                           
                                                         </div>
+
+
+                                                      
+
                                          
                                                     </div>
 
-                                                    <div class="needsclick dropzone" id="document-dropzone">
-
-                                                    </div>
-
-
-
+                                                   
+                                                  
 
 <!-- 
                             <div class="form-group row mb-4">
@@ -150,9 +167,9 @@
                                 <div class="col-sm-12 col-md-7">
                                     <select name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
                                         <option value="">Select</option>
-                                        @foreach($statuses as $status)
+                                        {{-- @foreach($statuses as $status)
                                             <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                 </div>
                             </div> -->
@@ -172,89 +189,4 @@
     </div>
 </section>
 @endsection
-<script type="text/javascript" src="{{ asset('modules/upload-preview/assets/js/jquery-2.0.3.min.js') }}"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-
-$(function() {
-    // Multiple images preview in browser
-    var imagesPreview = function(input, placeToInsertImagePreview) {
-
-        if (input.files) {
-            var filesAmount = input.files.length;
-
-            for (i = 0; i < filesAmount; i++) {
-                var reader = new FileReader();
-
-                reader.onload = function(event) {
-                    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
-                }
-
-                reader.readAsDataURL(input.files[i]);
-            }
-        }
-
-    };
-
-    $('#file').on('change', function() {
-        imagesPreview(this, 'div.gallery');
-    });
-});
-</script>
-
-
-
-<script>
-    $(function() {
-        // var token = 
-
-   
-    var uploadedDocumentMap = {}
-    Dropzone.options.documentDropzone = {
-    //    paramName: "file",
-      url: '{{ route('assets.store') }}',
-      maxFilesize: 2, // MB
-      addRemoveLinks: true,
-    //   uploadMultiple:true,
-      headers: {
-        'X-CSRF-TOKEN': " @csrf ",
-        // 'Accept' : 'application/vnd.api.v1+json',
-        // 'Content-Type': 'image/jpeg'
-        // 'Authorization' : 'Bearer ' + "{{ session()->get('token') }}"
-      success: function (file, response) {
-          alert(response);return;
-        $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
-        uploadedDocumentMap[file.name] = response.name
-      },
-      removedfile: function (file) {
-        file.previewElement.remove()
-        var name = ''
-        if (typeof file.file_name !== 'undefined') {
-          name = file.file_name
-        } else {
-          name = uploadedDocumentMap[file.name]
-        }
-        $('form').find('input[name="document[]"][value="' + name + '"]').remove()
-      },
-      init: function () {
-      
-    //     @if(isset($project) && $project->document)
-    //     var files =
-    //       {!! json_encode($project->document) !!}
-    //     for (var i in files) {
-    //       var file = files[i]
-    //       this.options.addedfile.call(this, file)
-    //       file.previewElement.classList.add('dz-complete')
-    //       $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-    //     }
-    //   @endif
-
-      }
-    }
-
-});
-  </script>
