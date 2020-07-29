@@ -61,6 +61,198 @@
         </div>
     </div>
     <div class="page-body">
+
+    <div class="row">
+    <div class="col-sm-12">
+                                        @if(session('success') !== null)
+        <div class='alert alert-success'>
+            {{ session('success') }}
+        </div>
+        @endif
+        @if(session('error') !== null)
+            @foreach(session('error') as $k =>$v)
+                <div class='alert alert-danger'>
+                    {{ $v[0] }}
+                </div>
+            @endforeach
+        @endif
+                                            
+                                                <!-- HTML5 Export Buttons table start -->
+                                                <div class="card">
+                                                    
+                                                    <div class="card-header table-card-header">
+                                                    <div class="row">
+                                                    <div class="section-header-button col-md-4" >
+                    <a href="{{ route('stock_masters.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
+                    background-color: #6777ef;
+                    border-color: #6777ef;border-radius:30px">Add New</a>
+                </div>
+                <div class="section-header-button col-md-5" >
+                  
+                </div>
+                <div class="section-header-button col-md-3 " >
+                <div class="col" >
+                <ul id="pagination" class="float-right m-0 p-0">
+                        <li><a href="{{ route('stock_master.index',$page=1) }}" class="btn btn-primary @if($pagination['current_page']==1) {{ "disabled" }} @endif">First</a></li>
+                        @php
+                        if(isset($pagination['links']['previous']))
+                        {
+                                # code...
+                                $endurl = explode("?page=",$pagination['links']['previous']);
+                                $page = $endurl[1];
+
+                        @endphp
+                        <li><a href="{{ route('stock_master.index',$page) }}" class="btn btn-primary">Previous</a></li>
+                        @php
+                            }
+                        @endphp
+
+
+
+
+                        @php
+                           if(isset($pagination['links']['next']))
+                            {
+                                $endurl = explode("?page=",$pagination['links']['next']);
+                                $page = $endurl[1];
+                                // echo
+                        @endphp
+                        <li> <a href="{{ route('stock_master.index',$page) }}" class="btn btn-primary">Next</a></li>
+                        @php
+                            }
+
+                        @endphp
+
+                        @php
+                        if($pagination['total_pages']>1)
+                        {
+                        @endphp
+                        <li> <a href="{{ route('stock_master.index',$pagination['total_pages']) }}" class="btn btn-primary float-right">Last</a> </li>
+
+                        @php
+                        }
+
+                        @endphp
+
+                    </ul>
+
+                       {{-- <a href="{{ route('product_categories.create') }}" class="btn btn-primary float-right">Add New</a> --}}
+
+                    </div>
+                </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div class="dt-responsive table-responsive">
+                                                            <table id="basic-btn" class="table table-striped table-bordered nowrap">
+                                                                <thead>
+                                                                    <tr>
+                                                                    <th>Item Desc</th>
+                                    <th>Variant Desc</th>
+                                    <th>Vendor Name</th>
+                                    <th>Stock Quantity</th>
+                                    <th>Stock Threshold</th>
+                                    <th>Status</th>
+                                    <th>Created At</th>
+                                    <th>Actions</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                {{-- @dd($prodcategories) --}}
+                                @foreach($stockmasters as $stockmaster )
+                                    @php
+                                        $id=$stockmaster['id'];
+                                    @endphp
+
+                                    <tr>
+                                        <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $stockmaster['item_desc'] }}</span>
+
+                                        </td>
+                                        <td><span class="text-center justify-content-center"
+                                                style="padding-top:10px;">{{ $stockmaster['variant_desc'] }}</span>
+
+                                        </td>
+                                        <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $stockmaster['vendor_name'] }}</span>
+
+                                        </td>
+
+                                        <td>{{ $stockmaster['stock_quantity'] }}</td>
+
+                                        <td>{{ $stockmaster['stock_threshold'] }}</td>
+
+                                        <td>{{ $stockmaster['status_desc'] }}</td>
+
+                                        <td>{{ date("Y-m-d H:i:s",$stockmaster['created_at']) }}</td>
+                                        <td>
+            <div class="d-flex">
+            <ul class="list-group">
+  <li class="list-group-item border1"><a href="{{ url('stock_masters/'.$id)  }}"
+                        class=" d-inline btn btn-link font1"><i
+                            class="icofont icofont-eye"></i>View&nbsp;&nbsp;</a>&nbsp;&nbsp;</li>
+  <li class="list-group-item border1"><a href="{{url('stock_masters/'.$id.'/edit') }}"
+                        class=" d-inline text-center btn btn-link font1" ><i
+                            class="icofont icofont-ui-edit" ></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;</li>
+  <li class="list-group-item border1"> <form
+                    action="{{route('stock_masters.destroy',$id) }}"
+                    method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit"
+                        class=" job-delete d-inline btn btn-link font1" > <i
+                            class="icofont icofont-trash"></i>Delete</button>
+                </form></li>
+
+</ul>
+
+             </div>
+        </td>
+    </tr>
+
+    
+@endforeach
+  
+</tbody>
+
+
+                                                         
+                                                            </table>
+                                     
+                                                        </div>
+
+                                                        
+                                                    </div>
+                                                </div>
+                                                <!-- HTML5 Export Buttons end -->
+                     
+                                               
+                                       
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
     <div class="row">
         <div class="col-12">
         @if(session('success') !== null)
@@ -230,7 +422,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     </div>
 </div>
 
