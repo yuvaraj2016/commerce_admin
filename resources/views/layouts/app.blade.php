@@ -461,6 +461,8 @@ margin-top: 0px !important;
         </div>
     </div>
 
+
+
     <!-- Warning Section Starts -->
     <!-- Older IE warning message -->
     <!--[if lt IE 10]>
@@ -536,6 +538,16 @@ margin-top: 0px !important;
 <!-- Select 2 js  -->
 
 
+
+<link href="{{ asset('files/assets/pages/jquery.filer/css/jquery.filer.css')}}" type="text/css" rel="stylesheet">
+<link href="{{ asset('files/assets/pages/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css')}}" type="text/css" rel="stylesheet">
+  <!-- jquery file upload js -->
+  <script src="{{ asset('files/assets/pages/jquery.filer/js/jquery.filer.min.js')}}"></script>
+  <script src="{{ asset('files/assets/pages/filer/custom-filer.js" type="text/javascript')}}"></script>
+  <script src="{{ asset('files/assets/pages/filer/jquery.fileuploads.init.js')}}" type="text/javascript"></script>
+
+
+
 <script type="text/javascript" src="{{ asset('files/bower_components/select2/js/select2.full.min.js') }}"></script>
     <!-- Syntax highlighter prism js -->
     <script type="text/javascript" src="{{ asset('files/assets/pages/prism/custom-prism.js') }}"></script>
@@ -562,3 +574,4 @@ margin-top: 0px !important;
 </body>
 
 </html>
+
