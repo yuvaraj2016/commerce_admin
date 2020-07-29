@@ -78,7 +78,7 @@
                             <div class="form-group row">
                                                     <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Supplier Category Desc</label>
-                                                        <textarea name="supplier_cat_desc" class="summernote-simple form-control" required>{{ old('supplier_cat_desc') }}</textarea>
+                                                        <input name="supplier_cat_desc" value="{{ old('supplier_cat_desc') }}" class="summernote-simple form-control" required>
                
                                                         </div>
                                                       

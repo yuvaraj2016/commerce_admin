@@ -81,7 +81,7 @@
                                                         </div>
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Category Desc</label>
-                                                        <textarea name="category_desc" class="summernote-simple form-control" required>{{ old('category_desc') }}</textarea>
+                                                        <input type="text" name="category_desc" value="{{ old('category_desc') }}" class="summernote-simple form-control" required>
                                           
                                                         </div>
                                          
@@ -93,7 +93,7 @@
                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                                         </div>
                                                         <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Statu</label>
+                                                        <label class="col-form-label text-md-right ">Status</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($statuses as $status)

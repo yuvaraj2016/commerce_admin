@@ -91,7 +91,7 @@
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Variant Desc</label>
-                                                        <textarea name="variant_desc" class="summernote-simple form-control" required>{{ old('variant_desc') }}</textarea>
+                                                        <input name="variant_desc" value="{{ old('variant_desc') }}" class="summernote-simple form-control" required>
                
                                                         </div>
                                                     </div>

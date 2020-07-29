@@ -91,7 +91,7 @@
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Sub Category Desc</label>
-                                                        <textarea name="sub_category_desc" class="summernote-simple form-control" required>{{ old('sub_category_desc') }}</textarea>
+                                                        <input type="text" name="sub_category_desc" value="{{ old('sub_category_desc') }}" class="summernote-simple form-control" required>
                                           
                                                         </div>
 

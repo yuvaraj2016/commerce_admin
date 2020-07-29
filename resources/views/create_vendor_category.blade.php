@@ -73,7 +73,7 @@
                             <div class="form-group row">
                                                     <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Vendor Desc</label>
-                                                        <textarea name="vendor_cat_desc" class="summernote-simple form-control" required>{{ old('vendor_cat_desc') }}</textarea>
+                                                        <input name="vendor_cat_desc" value="{{ old('vendor_cat_desc') }}" class="summernote-simple form-control" required>
                
                                                         </div>
                                                       

@@ -82,7 +82,7 @@
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item Desc</label>
-                                                        <textarea name="item_desc" class="summernote-simple form-control" required>{{ old('item_desc') }}</textarea>
+                                                        <input name="item_desc" value="{{ old('item_desc') }}" class="summernote-simple form-control" required>
                                           
                                                         </div>
                                                         <div class="col-sm-4">

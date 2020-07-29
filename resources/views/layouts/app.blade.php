@@ -42,6 +42,22 @@ display: none !important;
 /* .pcoded-main-container {
 margin-top: 0px !important;
 } */
+/* select 2 background color romove 29.07.2020 */
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+background-color: white !important;
+color:black !important;
+
+
+
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: black transparent transparent transparent !important;
+    margin-top: -7px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding: 2px 30px 2px 20px !important;
+
+}
 </style>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
