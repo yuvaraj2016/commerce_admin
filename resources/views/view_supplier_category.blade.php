@@ -76,7 +76,51 @@
                                 @endforeach
                             @endif
 
-                            <div class="form-group row mb-4">
+                            <div class="form-group row">
+                            <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Supplier Category Desc</label>
+                                                        <input type="text"  value="   {{ $suppliercategory['supplier_cat_desc'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status </label>
+                                                        <input type="text"  value="    {{ $suppliercategory['status_desc'] }}" class="form-control" readonly>
+                                                        </div>
+                                                     
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                            <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Created At</label>
+                                                        <input type="text"  value="   {{ date("Y-m-d H:i:s",$suppliercategory['created_at']) }}" class="form-control" readonly>
+                                          
+                                                        </div>
+
+                                                        <div class="col-sm-4 offset-1">
+                                                        
+                                                        </div>
+                                                     
+                                         
+                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Supplier Category Desc</label>
                                 <div class="col-sm-12 col-md-7 mt-2">
                                     {{ $suppliercategory['supplier_cat_desc'] }}
@@ -95,7 +139,7 @@
                                 <div class="col-sm-12 col-md-7 mt-2">
                                    {{ date("Y-m-d H:i:s",$suppliercategory['created_at']) }}
                                 </div>
-                            </div>
+                            </div> -->
 
 
                         </form>

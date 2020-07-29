@@ -74,7 +74,27 @@
                                 @endforeach
                             @endif
 
-                            <div class="form-group row mb-4">
+                            <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status Desc</label>
+                                                        <input type="text"  value="   {{ $status['status_desc'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Created At </label>
+                                                        <input type="text"  value="    {{ date("Y-m-d H:i:s",$status['created_at']) }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+
+
+
+
+
+
+
+                            <!-- <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Desc</label>
                                 <div class="col-sm-12 col-md-7 mt-2">
                                     {{ $status['status_desc'] }}
@@ -85,7 +105,7 @@
                                 <div class="col-sm-12 col-md-7 mt-2">
                                    {{ date("Y-m-d H:i:s",$status['created_at']) }}
                                 </div>
-                            </div>
+                            </div> -->
 
                         </form>
                     </div>

@@ -52,8 +52,87 @@
                 <div class="card">
                     <div class="card-body">
 
+                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Supplier Name</label>
+                                                        <input type="text"  value="    {{ $supplier['supplier_name'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Supplier Category</label>
+                                                        <input type="text"  value="   {{ $supplier['supplier_category_desc'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
 
-                            <div class="form-group row mb-4">
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Supplier Desc</label>
+                                                        <input type="text"  value="   {{ $supplier['supplier_desc'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Supplier Address</label>
+                                                        <input type="text"  value="    {{ $supplier['supplier_address'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Supplier Contact</label>
+                                                        <input type="text"  value="   {{ $supplier['supplier_contact'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Supplier Email</label>
+                                                        <input type="text"  value="   {{ $supplier['supplier_email'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <input type="text"  value="   {{ $supplier['status_desc'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Created At</label>
+                                                        <input type="text"  value="    {{ date("Y-m-d H:i:s",$supplier['created_at']) }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Supplier Image</label>
+                                                        <img src="{{ isset($supplier['Assets']['data'][0]['links']) ? $supplier['Assets']['data'][0]['links']['full'].'?width=300&height=300' : asset('img/no-image.gif')  }}"/>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                     
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Supplier Name</label>
                                 <div class="col-sm-12 col-md-7 mt-2">
                                     {{ $supplier['supplier_name'] }}
@@ -121,7 +200,7 @@
                                 <div class="col-sm-12 col-md-7 mt-2">
                                    {{ date("Y-m-d H:i:s",$supplier['created_at']) }}
                                 </div>
-                            </div>
+                            </div> -->
                     </div>
                 </div>
             </div>

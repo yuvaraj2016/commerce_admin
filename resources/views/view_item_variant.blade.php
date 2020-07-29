@@ -56,7 +56,59 @@
                 <div class="card">
                     <div class="card-body">
 
-                            <div class="form-group row mb-4">
+                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item</label>
+                                                        <input type="text"  value="  {{ $itemvariant['item_desc'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Variant Code</label>
+                                                        <input type="text"  value="    {{ $itemvariant['variant_code'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Variant Desc</label>
+                                                        <input type="text"  value="    {{ $itemvariant['variant_desc'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <input type="text"  value="    {{ $itemvariant['status_desc'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item Variant Image</label>
+                                                        <img src="{{ isset($itemvariant['Assets']['data'][0]['links']) ? $itemvariant['Assets']['data'][0]['links']['full'].'?width=300&height=300' : asset('img/no-image.gif')  }}"/>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Created At</label>
+                                                        <input type="text"  value="   {{ date("Y-m-d H:i:s",$itemvariant['created_at']) }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Item</label>
                                 <div class="col-sm-12 col-md-7 mt-2">
                                     {{ $itemvariant['item_desc'] }}
@@ -103,7 +155,7 @@
                                 <div class="col-sm-12 col-md-7 mt-2">
                                    {{ date("Y-m-d H:i:s",$itemvariant['created_at']) }}
                                 </div>
-                            </div>
+                            </div> -->
                     </div>
                 </div>
             </div>
