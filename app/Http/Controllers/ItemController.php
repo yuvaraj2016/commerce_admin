@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class ItemController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
