@@ -82,7 +82,7 @@
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item Desc</label>
-                                                        <textarea name="item_desc" class="summernote-simple form-control" required>{{ old('item_desc') }}</textarea>
+                                                        <input name="item_desc" value="{{ old('item_desc') }}" class="summernote-simple form-control" required>
                                           
                                                         </div>
                                                         <div class="col-sm-4">
@@ -103,8 +103,9 @@
                                                         <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
+                                            <option value="{{ $status['id'] }}"  {{ ($status['id'] == "2") ? "selected":(old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
                                         @endforeach
+                                       
                                     </select>
                
                                                         </div>
