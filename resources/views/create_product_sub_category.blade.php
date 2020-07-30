@@ -106,7 +106,7 @@
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        <option value="">Select</option>
+                                      
                                         @foreach($statuses as $status)
                                             <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
                                         @endforeach
