@@ -70,7 +70,9 @@ Route::resource('vendors', 'VendorController')->except('index')->middleware('che
 
 Route::get('vendor_list/{page?}','VendorController@index')->name('vendor.index')->middleware('checktoken');
 
-
+Route::post('{?}/{id}/edit/asset', function ($id) {
+    return view('asset');
+});
 
 Route::resource('assets', 'AssetsController')->except('index')->middleware('checktoken');
 

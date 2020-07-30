@@ -79,6 +79,9 @@ margin-top: 0px !important;
     <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/css/jquery.mCustomScrollbar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/css/pcoded-horizontal.min.css') }}">
 
+
+    
+
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 </head>
 <!-- Menu horizontal fixed layout -->
@@ -509,6 +512,11 @@ margin-top: 0px !important;
 <![endif]-->
     <!-- Warning Section Ends -->
     <!-- Required Jquery -->
+  
+    
+    
+
+
     <script type="text/javascript" src="{{ asset('files/bower_components/jquery/js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('files/bower_components/jquery-ui/js/jquery-ui.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('files/bower_components/popper.js/js/popper.min.js') }}"></script>
@@ -518,7 +526,34 @@ margin-top: 0px !important;
     <!-- modernizr js -->
     <script type="text/javascript" src="{{ asset('files/bower_components/modernizr/js/modernizr.js') }}"></script>
     <script type="text/javascript" src="{{ asset('files/bower_components/modernizr/js/css-scrollbars.js') }}"></script>
+
+
+    <link href="{{ asset('files/assets/pages/jquery.filer/css/jquery.filer.css')}}" type="text/css" rel="stylesheet">
+<link href="{{ asset('files/assets/pages/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css')}}" type="text/css" rel="stylesheet">
+  <!-- jquery file upload js -->
+  <script src="{{ asset('files/assets/pages/jquery.filer/js/jquery.filer.min.js')}}"></script>
+  <script src="{{ asset('files/assets/pages/filer/custom-filer.js" type="text/javascript')}}"></script>
+  <script src="{{ asset('files/assets/pages/filer/jquery.fileuploads.init.js')}}" type="text/javascript"></script>
 <!--  datatable -->
+
+<!-- fonts -->
+
+{{-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+<link href="https://innostudio.de/fileuploader/css/font-fileuploader.css" rel="stylesheet">
+
+<!-- styles -->
+<link href="{{ asset('dist/jquery.fileuploader.min.css')}}" media="all" rel="stylesheet">
+
+<!-- js -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+<script src="{{ asset('dist/jquery.fileuploader.min.js')}}" type="text/javascript"></script>
+<script src="{{ asset('dist/fileuploader.js')}}" type="text/javascript"></script> --}}
+{{-- <script src="./js/custom.js" type="text/javascript"></script> --}}
+	
+
+
+
 <script type="text/javascript" src="{{asset('files/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('files/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('files/assets/pages/data-table/js/jszip.min.js')}}"></script>
@@ -539,12 +574,7 @@ margin-top: 0px !important;
 
 
 
-<link href="{{ asset('files/assets/pages/jquery.filer/css/jquery.filer.css')}}" type="text/css" rel="stylesheet">
-<link href="{{ asset('files/assets/pages/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css')}}" type="text/css" rel="stylesheet">
-  <!-- jquery file upload js -->
-  <script src="{{ asset('files/assets/pages/jquery.filer/js/jquery.filer.min.js')}}"></script>
-  <script src="{{ asset('files/assets/pages/filer/custom-filer.js" type="text/javascript')}}"></script>
-  <script src="{{ asset('files/assets/pages/filer/jquery.fileuploads.init.js')}}" type="text/javascript"></script>
+
 
 
 
@@ -570,6 +600,19 @@ margin-top: 0px !important;
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
+
+
+//   $(document).ready(function() {
+	
+// 	// enable fileuploader plugin
+// 	$('input[name="files"]').fileuploader({
+//         limit: 20,
+// 		maxSize: 50,
+	
+// 		addMore: true
+//     });
+	
+// });
 </script>
 </body>
 

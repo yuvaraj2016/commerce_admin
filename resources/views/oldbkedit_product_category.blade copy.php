@@ -50,7 +50,7 @@
 
 
 
-                        <form class="dropzone" action="{{route('product_categories.update',['product_category'=>$prodcategory['id']]) }}" method="post" id="addprocat"
+                        <form class="dropzone" action="{{ url('product_categories/'.$prodcategory['id']) }}" method="post" id="addprocat"
                             enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
@@ -91,60 +91,17 @@
                                                     
 
                                                     <div class="form-group row">
+                                                        {{-- <div class="col-sm-4 offset-1">
+                                                            <img src="{{ isset($prodcategory['Assets']['data'][0]['links']) ? $prodcategory['Assets']['data'][0]['links']['full'].'?width=300&height=300' : asset('img/no-image.gif')  }}"/>
+                                                            <label class="col-form-label text-md-right ">Category Image Picture</label>
+                                                            <input type="file" class="" name="file[]" id="file">
+                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div> --}}
+
                                                         <div class="col-sm-4 offset-1 card">
-                                                            
-                                                            <div class="card-header">
-                                                                <h5>Files Already Uploaded</h5>
-                                                             
-                                                            </div>
-                                                            <div class="card-block">
-
-
-                                                              <div class="row mt-3">  
-
-                                                               <div class="col-sm-6 my-auto">
-                                                                <a href=""><img src="{{ isset($prodcategory['Assets']['data'][0]['links']) ? $prodcategory['Assets']['data'][0]['links']['full'].'?width=100&height=100' : asset('img/no-image.gif')  }}"/></a>
-                                                               </div>
-
-                                                               <div class="col-sm-6 my-auto">
-                                                                   @php
-                                                                  $uuid=  $prodcategory['Assets']['data'][0]['id'];
-                                                                   @endphp
-                                                                <form id="myForm" action="{{ route('assets.destroy',['asset'=>$uuid]) }}"
-                                                                method="POST">
-                                                                @method('DELETE')
-                                                                @csrf
-                                                                <button id="formsubmit" type="button"
-                                                                    class=" job-delete d-inline btn btn-danger font1" > <i
-                                                                        class="icofont icofont-trash"></i>Delete</button>
-                                                            </form>
-                                                                {{-- <a href="{{ url }}" class="btn btn-danger">Delete</a> --}}
-                                                               </div>
-
-                                                             </div>     
-
-                                                             <div class="row mt-3">  
-
-                                                                <div class="col">
-                                                                 <a href=""><img src="{{ isset($prodcategory['Assets']['data'][0]['links']) ? $prodcategory['Assets']['data'][0]['links']['full'].'?width=100&height=100' : asset('img/no-image.gif')  }}"/></a>
-                                                                </div>
- 
-                                                                <div class="col">
-                                                                 <a href="" class="btn btn-danger">Delete</a>
-                                                                </div>
-                                                                
-                                                              </div>  
-
-
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1 card">
-                                                            
                                                             <div class="card-header">
                                                                 <h5>File Upload</h5>
                                                                 <div class="card-header-right">
-                                                                    
                                                                     <ul class="list-unstyled card-option">
                                                                         <li><i class="feather icon-maximize full-card"></i></li>
                                                                         <li><i class="feather icon-minus minimize-card"></i></li>
@@ -152,17 +109,19 @@
                                                                     </ul>
                                                                 </div>
                                                             </div>
-                                                            <div class="card-block">
+                                                            {{-- <div class="card-block">
                                                                 <p id="msg"></p>
                                                                 <div class="sub-title">Category Image Picture</div>
-                                                                <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
+                                                                <input type="file" name="file[]" id="filer_input3" multiple="multiple" class="form-control">
                                                                 <button id="upload" type="button">Upload</button>
-                                                            </div>
+                                                            </div> --}}
                                                         </div>
-                                                    </div>
-                                                        {{-- <input type="file" name="files" data-fileuploader-files='[{"name":"stocksnap_4521.jpg","type":"image\/jpg","size":71135,"file":"{{ asset('files/assets/images/product/1.jpg') }}","local":"{{ asset('files/assets/images/product/1.jpg') }}","data":{"url":"{{ asset('files/assets/images/product/1.jpg') }}","thumbnail":"{{ asset('files/assets/images/product/1.jpg') }}","readerForce":true}}]'> --}}
-            
-                                                       
+                                                        <div class="input-field">
+                                                            <label class="active">Photos</label>
+                                                            <div class="input-images-2" style="padding-top: .5rem;"></div>
+                                                        </div>
+
+
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
@@ -223,7 +182,6 @@
                                     </select>
                                 </div>
                             </div> -->
-                            
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right "></label>
@@ -240,56 +198,65 @@
     </div>
 </section>
 @endsection
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+{{-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script> --}}
 
 <script type="text/javascript">
-	$(document).ready(function (e) {
-        $('#formsubmit').on('click', function () {
+// 	$(document).ready(function (e) {
 
-        });
-		$('#upload').on('click', function () {
-			var form_data = new FormData();
-			var ins = document.getElementById('filer_input').files.length;
-			for (var x = 0; x < ins; x++) {
-				form_data.append("file[]", document.getElementById('filer_input').files[x]);
-            }
-            // alert(form_data);
-            $.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
-			$.ajax({
-                url: "http://ecommerce-api.hridham.com/api/ProdCat/1",
-                headers:'Authorization: Bearer ' // point to server-side PHP script 
-                dataType: 'json', // what to expect back from the PHP script
-                // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-				cache: false,
-				contentType: false,
-				processData: false,
-				data: {file:form_data},
-				type: 'patch',
-				success: function (response) {
+// 		$('#upload').on('click', function () {
+// 			var form_data = new FormData();
+// 			var ins = document.getElementById('filer_input3').files.length;
+// 			for (var x = 0; x < ins; x++) {
+// 				form_data.append("file[]", document.getElementById('filer_input3').files[x]);
+//             }
+//             // alert(form_data);
+//             $.ajaxSetup({
+//   headers: {
+//     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//   }
+// });
+// 			$.ajax({
+// 				url: "{{ route('assets.store') }}", // point to server-side PHP script 
+//                 dataType: 'json', // what to expect back from the PHP script
+//                 // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+// 				cache: false,
+// 				contentType: false,
+// 				processData: false,
+// 				data: {file:form_data},
+// 				type: 'post',
+// 				success: function (response) {
                    
-					$('#msg').html(response); // display success response from the PHP script
-				},
-				error: function (response) {
-                    // alert(response.message);
+// 					$('#msg').html(response); // display success response from the PHP script
+// 				},
+// 				error: function (response) {
+//                     // alert(response.message);
                
-                    console.log(response);
-					$('#msg').html(response); // display error response from the PHP script
-				}
-			});
-		});
-    });
-    
-
-    $(document).ready(function(){
-    $("#formsubmit").click(function(){        
-        $("#myForm").submit(); // Submit the form
-    });
-});
-
-
+//                     console.log(response);
+// 					$('#msg').html(response); // display error response from the PHP script
+// 				}
+// 			});
+// 		});
+// 	});
 </script>
 
+<script>
+  $(document).ready(function () {
+
+        let preloaded = [
+    {id: 1, src: 'https://picsum.photos/500/500?random=1'},
+    {id: 2, src: 'https://picsum.photos/500/500?random=2'},
+    {id: 3, src: 'https://picsum.photos/500/500?random=3'},
+    {id: 4, src: 'https://picsum.photos/500/500?random=4'},
+    {id: 5, src: 'https://picsum.photos/500/500?random=5'},
+    {id: 6, src: 'https://picsum.photos/500/500?random=6'},
+];
+
+$('.input-images-2').imageUploader({
+    preloaded: preloaded,
+    imagesInputName: 'photos',
+    preloadedInputName: 'old'
+});
+    });
+
+        
+</script>
