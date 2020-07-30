@@ -77,7 +77,7 @@
                             <div class="form-group row">
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item</label>
-                                                        <select class="js-example-basic-single col-sm-12"  name="item_id" id="" placeholder="Item" required class="form-control selectric" required>
+                                                        <select id="tm" class="js-example-basic-single col-sm-12"  name="item_id" id="" placeholder="Item" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($items as $item)
                                             <option value="{{ $item['id'] }}" {{ (old("item_id") == $item['id'] ? "selected":"") }}>{{ $item['item_desc'] }}</option>
@@ -87,26 +87,27 @@
 
                                                        
                                                                 <!-- Modal large-->
-                                                                <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button>
+                                                                <button id="btn1" type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button>
                                                                 <div class="modal fade" id="default-Modal" tabindex="-1" role="dialog">
                                                                     <div class="modal-dialog modal-lg" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <h4 class="modal-title">Add Item</h4>
-                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                                                <button type="button" class="close" data-dismiss="modal">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        <span class="sr-only">Close</span>
+                                                    </button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                            <form action="/action_page.php">
+                                                                          
                                                                             <div class="form-group row">
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Item Code</label>
-                                                        <input type="text"  value="    " class="form-control" >
+                                                        <input id="ic" type="text"  value="    " class="form-control" >
                                                         </div>
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Item Desc</label>
-                                                        <input type="text"  value=" " class="form-control" >
+                                                        <input id="id" type="text"  value=" " class="form-control" >
                                           
                                                         </div>
                                          
@@ -136,7 +137,7 @@
                                                     <div class="form-group row">
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Vendor Name</label>
-                                                        <input type="text"  value="    " class="form-control" >
+                                                        <input id="vn" type="text"  value="    " class="form-control" >
                                                         </div>
                                                         <div class="col-sm-4 offset-1">
                                                        
@@ -144,12 +145,14 @@
                                                         </div>
                                          
                                                     </div>
-</form> 
+
                                                                             </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
-                                                                                <button type="submit" class="btn btn-primary waves-effect waves-light ">Submit</button>
-                                                                            </div>
+                                                                            <div class="modal-footer" id="ad">
+                                                    <div type="button" id="clear" class="btn btn-default" name="">Clear</div>
+                                                    
+                                                    <div type="button" id="ad" class="btn btn-primary submitBtn" data-dismiss="modal">ADD</div>
+                                                    <!--<button type="button" id="" class="btn btn-primary submitBtn" name="">ADD</button>-->
+                                                </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -279,7 +282,31 @@
 </section>
 @endsection
 <script type="text/javascript" src="{{ asset('modules/upload-preview/assets/js/jquery-2.0.3.min.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script  type="text/javascript">
+
+
+        
+$(document).ready(function() {
+        $('#btn1').click(function() {
+         //   alert ("ss");
+            $('#tm').val('').change();
+            $('#tm').prop('disabled', true);
+
+
+        });
+   
+        $('#clear').click(function() {
+           // alert ("Hi");
+            $('#ic').val('');
+            $('#id').val('');
+            $('#vn').val(null);
+            // $('#des').prop('disabled', false);
+        });
+    });
+
+</script>
 <script type="text/javascript">
 
 $(function() {
