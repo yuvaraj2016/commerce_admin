@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
+
 class AssetsController extends Controller
 {
     /**
@@ -36,6 +37,7 @@ class AssetsController extends Controller
     public function store(Request $request)
     {
         $session = session()->get('token');
+        echo $module;exit;
         // echo $session;exit;
         // dd($session);
         $fileext = '';
@@ -52,9 +54,9 @@ class AssetsController extends Controller
                 $response = $response->attach('file['.$k.']', $filename,$fileext);
             }
 
-            $response = $response->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'Content-Type'])->post(config('global.url') . '/api/assets',
+            $response = $response->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'image/jpeg'])->post(config('global.url') . '/api/assets',
             []);
-
+            
             return $response;
 
         }
@@ -97,6 +99,39 @@ class AssetsController extends Controller
         //
     }
 
+    public function editimage(Request $request)
+    {
+        $module =  $request->segment(1);
+        $id =  $request->segment(2);
+
+        if($module=="product_categories")
+        {
+            $apicall = "api/prodCat/".$id;
+            $view = "edit_image_product_category";
+        }
+
+
+        $session = session()->get('token');
+
+
+       
+        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url').$apicall);
+
+        //  return $response;
+
+        if($response->ok()){
+
+            $editdata=   $response->json()['data'];
+
+            return view($view, compact(
+                'editdata'
+            ));
+        }
+
+
+
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -117,19 +152,20 @@ class AssetsController extends Controller
      */
     public function destroy($id)
     {
+        
       
         $session = session()->get('token');
 
-        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->delete(config('global.url').'api/confStatus/'.$id);
+        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->delete(config('global.url').'api/assets/'.$id);
 
         if($response->status()==204){
 
-             return redirect()->route('status.index')->with('success','Status Deleted Sucessfully !..');
+             return redirect()->back()->with('imagesuccess','Image Deleted Sucessfully !..');
         }
         else{
 
 
-             return redirect()->route('status.index')->with('error',$response->json()['message']);
+             return redirect()->back()->with('imageerror',$response->json()['message']);
         }
 
     }
