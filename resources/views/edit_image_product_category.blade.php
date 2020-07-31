@@ -187,7 +187,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="card-block">
-                                                                <form class="dropzone" action="{{route('storeimage',$module='product_categories') }}" method="post" id="addprocat"
+                                                                <form class="dropzone" action="{{route('assets.storeimage',$module='product_categories') }}" method="post" id="addprocat"
                                                                     enctype="multipart/form-data">
                                                                   @csrf
                                                                 <p id="msg"></p>
