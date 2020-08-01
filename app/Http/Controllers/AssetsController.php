@@ -61,65 +61,36 @@ class AssetsController extends Controller
                 $response = $response->attach('file['.$k.']', $filename,$fileext);
             }
 
-            $response = $response->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'image/jpeg'])->patch(config('global.url') . '/api/prodCat/'.$id,
-            [    
-             [
+            $response = $response->withHeaders(['Accept'=>'application/vnd.api.v1+json'])->post(config('global.url') . '/api/prodCat/'.$id,
+            [ [   
+             
                 'name' => '_method',
                 'contents' => 'PATCH'
-            ]        
+              ]     
             ]);
 
-            $response = json_decode($response->getBody()->getContents(), true);
+            // $response = json_decode($response->getBody()->getContents(), true);
 
-            return $response;
+            // return $response;
 
-            $assetdata = $response['data'];
-            
-            $uuid = $assetdata['id'];
-
-
-            if($module=="product_categories")
-            {
-                $apicall = "api/prodCat/".$id;
-                $view = "edit_image_product_category";
+            if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+                return redirect()->route('home');
             }
+            if($response->status()===200){
+                return redirect()->back()->with('uploadsuccess','Image Uploaded Successfully!');
+            }else{
+                return redirect()->back()->with('uploaderror',$response->json());
+            }
+     
+    }
 
 
-            $updateresponse = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'json'])->patch(config('global.url').$apicall, [
-                "uuid"=>$uuid,
-              
-            ]);
-
-            return $updateresponse;
-        }
-        if($updateresponse->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
-            return redirect()->route('home');
-        }
-        if($updateresponse->status()===200){
-            return redirect()->back()->with('uploadsuccess','Image Uploaded Successfully!');
-        }else{
-            return redirect()->back()->with('uploaderror',$updateresponse->json());
-        }
+      
 
 
-
-            // return $uuid;
 
         
-
        
-
-    
-
-        
-        // return $response;
-
-        // if($response->status()===201){
-        //     return redirect()->route('product_categories.create')->with('success','Product Category Created Successfully!');
-        // }else{
-        //     $request->flash();
-        //     return redirect()->route('product_categories.create')->with('error',$response['errors']);
-        // }
 
     }
 

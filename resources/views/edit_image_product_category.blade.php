@@ -48,11 +48,11 @@
                     <div class="card-body">
                         
 
-
+                        <br>
 
                         
                             @if(session('success') !== null)
-                                <div class='alert alert-success'>
+                                <div class='alert alert-green' style="margin-top:20px!important;">
                                     {{ session('success') }}
                                 </div>
                             @endif
@@ -60,7 +60,7 @@
 
                             @foreach(session('error') as $v)
                                @foreach($v as $e)
-                               <div class='alert alert-danger'>
+                               <div class='alert alert-red' style="margin-top:10px;">
                                    {{ $e }}
                                 </div>
                                @endforeach
@@ -94,7 +94,7 @@
 
 
                                                                 @if(session('imagesuccess') !== null)
-                                                                 <div class='alert alert-success my-auto'>
+                                                                 <div class='alert alert-green my-auto'  style="margin-top:20px!important;">
                                                                         {{ session('imagesuccess') }}
                                                                 </div>
                                                                 @endif
@@ -102,7 +102,7 @@
 
                                                                 @foreach(session('imageerror') as $v)
                                                                 @foreach($v as $e)
-                                                                <div class='alert alert-danger my-auto'>
+                                                                <div class='alert alert-red my-auto'  style="margin-top:20px!important;">
                                                                     {{ $e }}
                                                                     </div>
                                                                 @endforeach
@@ -118,7 +118,7 @@
                                                                 $imagedata = $editdata['Assets']['data'];
                                                                 if(count($imagedata)==0)
                                                                 {
-                                                                    echo "<h5 class='alert alert-danger'>There is no image for this category.</h5>";
+                                                                    echo "<h5 class='alert alert-red'>There is no image for this category.</h5>";
 
                                                                 }
                                                                 else {
@@ -143,7 +143,7 @@
                                                                 @method('DELETE')
                                                                 @csrf
                                                                 <button id="formsubmit" type="submit"
-                                                                    class=" job-delete d-inline btn btn-danger font1" > <i
+                                                                    class=" job-delete d-inline btn btn-red font1" > <i
                                                                         class="icofont icofont-trash"></i>Delete</button>
                                                             </form>
                                                               
@@ -177,9 +177,9 @@
                                                             
                                                             <div class="card-header">
                                                                 <h5>File Upload</h5>
-                                                                <br>
+                                                                
                                                                 @if(session('uploadsuccess') !== null)
-                                                                <div class='alert alert-success my-auto'>
+                                                                <div class='alert alert-green my-auto mt-3' style="margin-top:20px!important;">
                                                                        {{ session('uploadsuccess') }}
 
                                                                        {{ session('uuidsess') }}
@@ -187,7 +187,7 @@
                                                                @endif
                                                                @if(session('uploaderror') !== null)
 
-                                                                 <div class='alert alert-success my-auto'>
+                                                                 <div class='alert alert-red my-auto' style="margin-top:20px!important;">
                                                                        {{ session('uploaderror') }}
                                                                </div>
                                                                 @endif
@@ -200,15 +200,18 @@
                                                                     </ul>
                                                                 </div>
                                                             </div>
+                                                            
+
                                                             <div class="card-block">
-                                                                <form class="dropzone" action="{{url('assets/storeimage/product_categories/'.$editdata['id']) }}" method="post" id="addprocat"
+                                                                <form id="uploadform" action="{{url('assets/storeimage/product_categories/'.$editdata['id']) }}" method="post" id="addprocat"
                                                                     enctype="multipart/form-data">
                                                                     {{-- @method('PATCH') --}}
                                                                   @csrf
                                                                 <p id="msg"></p>
                                                                 <div class="sub-title">Category Image Picture</div>
                                                                 <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
-                                                                <button type="submit" class="btn btn-primary">Upload Image</button>
+                                                                <input type="button" id="formsubmit" class="btn btn-blue" value="Upload Image" onclick="javascript:upload();"/>
+                                                            </form>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -224,13 +227,16 @@
                                                    
  
                             
-{{-- 
+
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right "></label>
                                 <div class="col-sm-12 col-md-7 offset-5">
-                                    <button type="submit" class="btn btn-primary">Back</button>
+                                 
+                                        <a href="{{ url('product_categories/'.$editdata['id'].'/edit') }}"
+                        class=" d-inline text-center btn btn-blue font1" ><i
+                            class="icofont icofont-arrow-left" ></i>Back&nbsp;&nbsp;</a>
                                 </div>
-                            </div> --}}
+                            </div>
 
                       
                     </div>
@@ -240,7 +246,9 @@
     </div>
 </section>
 @endsection
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+{{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+
+{{-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script> --}}
 
 <script type="text/javascript">
 // 	$(document).ready(function (e) {
@@ -288,5 +296,28 @@
 // });
 
 
+
+    
+function upload()
+{
+          var ins = document.getElementById('filer_input').files.length;
+            
+                if(ins==0)
+                {
+                    swal('Please select image to upload');
+                    return false;
+
+                }
+                else
+                {
+                    document.getElementById("uploadform").submit();
+
+
+                }
+
+    
+}
+
+  
 </script>
 
