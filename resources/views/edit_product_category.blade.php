@@ -56,7 +56,7 @@
                             @csrf
 
                             @if(session('success') !== null)
-                                <div class='alert alert-success'>
+                                <div class='alert alert-green'>
                                     {{ session('success') }}
                                 </div>
                             @endif
@@ -64,7 +64,7 @@
 
                             @foreach(session('error') as $v)
                                @foreach($v as $e)
-                               <div class='alert alert-danger'>
+                               <div class='alert alert-red'>
                                    {{ $e }}
                                 </div>
                                @endforeach

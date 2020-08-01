@@ -113,7 +113,7 @@
 
 
                                                             </div>
-                                                            <div class="card-block">
+                                                            <div class="card-block filesuploaded">
                                                                 @php 
                                                                 $imagedata = $editdata['Assets']['data'];
                                                                 if(count($imagedata)==0)
@@ -228,12 +228,12 @@
  
                             
 
-                            <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right "></label>
+                            <div class="form-group row mb-5">
+                                <label class="col-form-label text-md-right"></label>
                                 <div class="col-sm-12 col-md-7 offset-5">
                                  
                                         <a href="{{ url('product_categories/'.$editdata['id'].'/edit') }}"
-                        class=" d-inline text-center btn btn-blue font1" ><i
+                        class=" d-inline text-center btn btn-blue font1 back" ><i
                             class="icofont icofont-arrow-left" ></i>Back&nbsp;&nbsp;</a>
                                 </div>
                             </div>
@@ -321,3 +321,37 @@ function upload()
   
 </script>
 
+<style>
+
+@media only screen and (max-width:480px)
+{
+    .card
+    {
+        margin-left:0px!important;
+
+    }
+
+    .filesuploaded
+    {
+    
+        margin-left:26px;
+
+    }
+
+    .filesuploaded .btn-red
+    {
+        
+        margin-top:20px;
+
+    }
+
+    .back
+    {
+        margin-left:-40px!important;
+        margin-top:-16px!important;
+
+
+    }
+}
+
+</style>
