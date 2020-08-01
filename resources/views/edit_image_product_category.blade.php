@@ -334,7 +334,7 @@ function upload()
     .filesuploaded
     {
     
-        margin-left:26px;
+        margin-left:47px;
 
     }
 
