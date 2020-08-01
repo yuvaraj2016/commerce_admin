@@ -71,10 +71,11 @@ Route::resource('vendors', 'VendorController')->except('index')->middleware('che
 Route::get('vendor_list/{page?}','VendorController@index')->name('vendor.index')->middleware('checktoken');
 
 
+Route::post('assets/storeimage/{module}/{id}', 'AssetsController@store')->name('assets.storeimage')->middleware('checktoken');
 
 Route::resource('assets', 'AssetsController')->except('store')->middleware('checktoken');
 
-Route::post('assets/{$module}', 'AssetsController@store')->name('assets.storeimage')->middleware('checktoken');
+
 
 Route::get('{slug?}/{id}/edit/assets','AssetsController@editimage')->name('assets.edit')->middleware('checktoken');
 

@@ -124,7 +124,7 @@
                                                                 else {
                                                                     # code...
                                                                
-                                                                // echo count($imagedata);
+                                                            
                                                                 @endphp 
 
                                                             @foreach ($imagedata as $image)
@@ -177,6 +177,20 @@
                                                             
                                                             <div class="card-header">
                                                                 <h5>File Upload</h5>
+                                                                <br>
+                                                                @if(session('uploadsuccess') !== null)
+                                                                <div class='alert alert-success my-auto'>
+                                                                       {{ session('uploadsuccess') }}
+
+                                                                       {{ session('uuidsess') }}
+                                                               </div>
+                                                               @endif
+                                                               @if(session('uploaderror') !== null)
+
+                                                                 <div class='alert alert-success my-auto'>
+                                                                       {{ session('uploaderror') }}
+                                                               </div>
+                                                                @endif
                                                                 <div class="card-header-right">
                                                                     
                                                                     <ul class="list-unstyled card-option">
@@ -187,8 +201,9 @@
                                                                 </div>
                                                             </div>
                                                             <div class="card-block">
-                                                                <form class="dropzone" action="{{route('assets.storeimage',$module='product_categories') }}" method="post" id="addprocat"
+                                                                <form class="dropzone" action="{{url('assets/storeimage/product_categories/'.$editdata['id']) }}" method="post" id="addprocat"
                                                                     enctype="multipart/form-data">
+                                                                    {{-- @method('PATCH') --}}
                                                                   @csrf
                                                                 <p id="msg"></p>
                                                                 <div class="sub-title">Category Image Picture</div>
@@ -209,11 +224,11 @@
                                                    
  
                             
-
-                            {{-- <div class="form-group row mb-4">
+{{-- 
+                            <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right "></label>
                                 <div class="col-sm-12 col-md-7 offset-5">
-                                    <button type="submit" class="btn btn-primary">Update Product Category</button>
+                                    <button type="submit" class="btn btn-primary">Back</button>
                                 </div>
                             </div> --}}
 

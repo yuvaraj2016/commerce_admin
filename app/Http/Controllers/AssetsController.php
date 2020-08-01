@@ -37,7 +37,14 @@ class AssetsController extends Controller
     public function store(Request $request)
     {
         $session = session()->get('token');
-        echo $module;exit;
+
+        $module =  $request->segment(3);
+
+        $id =  $request->segment(4);
+
+        
+
+       
         // echo $session;exit;
         // dd($session);
         $fileext = '';
@@ -54,12 +61,51 @@ class AssetsController extends Controller
                 $response = $response->attach('file['.$k.']', $filename,$fileext);
             }
 
-            $response = $response->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'image/jpeg'])->post(config('global.url') . '/api/assets',
-            []);
-            
+            $response = $response->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'image/jpeg'])->patch(config('global.url') . '/api/prodCat/'.$id,
+            [    
+             [
+                'name' => '_method',
+                'contents' => 'PATCH'
+            ]        
+            ]);
+
+            $response = json_decode($response->getBody()->getContents(), true);
+
             return $response;
 
+            $assetdata = $response['data'];
+            
+            $uuid = $assetdata['id'];
+
+
+            if($module=="product_categories")
+            {
+                $apicall = "api/prodCat/".$id;
+                $view = "edit_image_product_category";
+            }
+
+
+            $updateresponse = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'json'])->patch(config('global.url').$apicall, [
+                "uuid"=>$uuid,
+              
+            ]);
+
+            return $updateresponse;
         }
+        if($updateresponse->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+            return redirect()->route('home');
+        }
+        if($updateresponse->status()===200){
+            return redirect()->back()->with('uploadsuccess','Image Uploaded Successfully!');
+        }else{
+            return redirect()->back()->with('uploaderror',$updateresponse->json());
+        }
+
+
+
+            // return $uuid;
+
+        
 
        
 
