@@ -88,62 +88,7 @@
 
        <!-- Modal large-->
        <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button>
-                                                                <div class="modal fade" id="default-Modal" tabindex="-1" role="dialog">
-                                                                    <div class="modal-dialog modal-lg" role="document">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h4 class="modal-title">Add Product Category</h4>
-                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                            <form action="/action_page.php">
-                                                                            <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Category Short Code</label>
-                                                        <input type="text"  value="    " class="form-control" >
-                                                        </div>
-
-
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Category Desc</label>
-                                                        <input type="text"  value="    " class="form-control" >
-                                                        </div>
-
-                                                        </div>
-                                                        <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Supplier Image Picture</label>
-                                                        <input type="file" class="custom-file-input" name="file[]" id="file">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                                        </div>
-
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Status</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        
-                                        @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach
-                                    </select>
-                                          
-                                                        </div>
-                                         
-                                                        </div>
-                                            
-                                                   
-                                                    </form> 
-                                                                           
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
-                                                                                <button type="submit" class="btn btn-primary waves-effect waves-light ">Submit</button>
-                                                                            </div>
-                                                                           
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                          
 
 
 
@@ -258,6 +203,62 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="default-Modal" tabindex="-1" role="dialog">
+                                                                    <div class="modal-dialog modal-lg" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h4 class="modal-title">Add Product Category</h4>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                            <form action="/action_page.php">
+                                                                            <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Category Short Code</label>
+                                                        <input type="text"  value="    " class="form-control" >
+                                                        </div>
+
+
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Category Desc</label>
+                                                        <input type="text"  value="    " class="form-control" >
+                                                        </div>
+
+                                                        </div>
+                                                        <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Supplier Image Picture</label>
+                                                        <input type="file" class="custom-file-input" name="file[]" id="file">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
+
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                        
+                                        @foreach($statuses as $status)
+                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
+                                        @endforeach
+                                    </select>
+                                          
+                                                        </div>
+                                         
+                                                        </div>
+                                            
+                                                   
+                                                  
+                                                                           
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+                                                                                <button type="submit" class="btn btn-primary waves-effect waves-light ">Submit</button>
+                                                                            </div>
+                                                                            </form> 
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
 </section>
 @endsection
 <script type="text/javascript" src="{{ asset('modules/upload-preview/assets/js/jquery-2.0.3.min.js') }}"></script>
