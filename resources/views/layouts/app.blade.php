@@ -58,6 +58,58 @@ color:black !important;
     padding: 2px 30px 2px 20px !important;
 
 }
+
+.btn-blue
+{
+    box-shadow: 0 2px 6px #acb5f6;
+    background-color: #6777ef;
+    border-color: #6777ef;
+    border-radius: 30px!important;;
+    color:#fff!important;
+
+}
+
+.btn-blue:hover
+{
+    color:#fff;
+
+}
+
+.btn-red
+{
+    box-shadow: 0 2px 6px red;
+    background-color:red;
+    border-color: red;
+    border-radius: 30px!important;
+    color:#fff;
+
+}
+
+.btn-red:hover
+{
+    color:#fff;
+
+}
+
+.alert-green
+{
+    box-shadow: 0 2px 6px green ;
+    background-color: green;
+    border-color: green;
+    border-radius: 30px!important;;
+    color:#fff;
+
+}
+
+.alert-red
+{
+    box-shadow: 0 2px 6px red ;
+    background-color: red;
+    border-color: red;
+    border-radius: 30px!important;;
+    color:#fff;
+
+}
 </style>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -74,7 +126,9 @@ color:black !important;
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
 <!-- datatable -->
-  <link rel="stylesheet" type="text/css" href="{{ asset('files/bower_components/datatables.net-bs4\css\dataTables.bootstrap4.min.css')}}">
+
+
+  <link rel="stylesheet" type="text/css" href="{{ asset('files/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/pages/data-table/css/buttons.dataTables.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('files/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/pages/data-table/extensions/buttons/css/buttons.dataTables.min.css')}}">
@@ -550,6 +604,12 @@ color:black !important;
   <script src="{{ asset('files/assets/pages/jquery.filer/js/jquery.filer.min.js')}}"></script>
   <script src="{{ asset('files/assets/pages/filer/custom-filer.js" type="text/javascript')}}"></script>
   <script src="{{ asset('files/assets/pages/filer/jquery.fileuploads.init.js')}}" type="text/javascript"></script>
+
+
+
+
+
+
 <!--  datatable -->
 
 <!-- fonts -->
@@ -586,12 +646,6 @@ color:black !important;
     <script type="text/javascript" src="{{asset('files/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('files/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('files/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
-<!-- Select 2 js  -->
-
-
-
-
-
 
 
 <script type="text/javascript" src="{{ asset('files/bower_components/select2/js/select2.full.min.js') }}"></script>
@@ -633,4 +687,5 @@ color:black !important;
 </body>
 
 </html>
+
 

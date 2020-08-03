@@ -24,9 +24,9 @@ $(document).ready(function(){
         maxSize: 3,
         theme: "dragdropbox",
         extensions: ['jpg', 'jpeg', 'png', 'gif', 'psd'],
-        changeInput: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag & Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn btn btn-primary waves-effect waves-light">Browse Files</a></div></div>',
+        changeInput: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag & Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="btn btn-blue waves-effect waves-light">Browse Files</a></div></div>',
         showThumbs: true,
-        addMore: false,
+        addMore: true,
         templates: {
             box: '<ul class="jFiler-items-list jFiler-items-grid"></ul>',
             item: '<li class="jFiler-item">\
@@ -88,6 +88,19 @@ $(document).ready(function(){
             dragLeave: null,
             drop: null,
         },
+        captions: {
+            button: "Choose Files",
+            feedback: "Choose files To Upload",
+            feedback2: "files were chosen",
+            drop: "Drop file here to Upload",
+            removeConfirmation: "Are you sure you want to remove this file?",
+            errors: {
+                filesLimit: "Only {{fi-limit}} files are allowed to be uploaded.",
+                filesType: "Only Images are allowed to be uploaded.",
+                filesSize: "{{fi-name}} is too large! Please upload file up to {{fi-maxSize}} MB.",
+                filesSizeAll: "Files you've choosed are too large! Please upload files up to {{fi-maxSize}} MB."
+            }
+        }
        
     });
 

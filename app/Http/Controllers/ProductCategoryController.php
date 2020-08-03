@@ -273,54 +273,27 @@ class ProductCategoryController extends Controller
     public function update(Request $request, $id)
     {
         $session = session()->get('token');
-        $file = '';
-        $file_name = '';
-        if ($request->file('cover_picture') !== null) {
-            $file = fopen($request->file('cover_picture'), 'r');
-            $file_name = $request->file('cover_picture')->getClientOriginalName();
-            $response = Http::attach('cover_picture', $file, $file_name)->withToken($session)->post(config('global.url').'/admin/gallery/updateAlbum/'.$id, [
-                [
-                    'name' => '_method',
-                    'contents' => 'PUT'
-                ],
-                [
-                    'name' => 'album_name',
-                    'contents' => $request->album_name
-                ],
-                [
-                    'name' => 'privacy',
-                    'contents' => $request->privacy
-                ],
-                [
-                    'name' => 'album_date',
-                    'contents' => $request->album_date
-                ],
-                [
-                    'name' => 'album_venue',
-                    'contents' => $request->album_venue
-                ],
-                [
-                    'name' => 'album_description',
-                    'contents' => 'Test'
-                ]
-            ]);
+      
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->put(config('global.url').'/api/prodCat/'.$id, 
+        
+        [
+            "_method"=> 'PUT',
+            "category_short_code"=>$request->category_short_code,
+            "category_desc"=>$request->category_desc,
+            "status_id"=>$request->status_id
+            
+        ]
+        
+      );
 
-        }else{
-            $response = Http::withToken($session)->put(config('global.url').'/admin/gallery/updateAlbum/'.$id, [
-                "album_name"=>$request->album_name,
-                "privacy"=>$request->privacy,
-                "album_date"=>$request->album_date,
-                "album_venue"=>$request->album_venue,
-                "album_description"=>$request->album_description
-            ]);
-        }
+        
         if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
             return redirect()->route('home');
         }
         if($response->status()===200){
-            return redirect()->to('albums/'.$id.'/edit')->with('success','Album Updated Successfully!');
+            return redirect()->back()->with('success','Product Category Updated Successfully!');
         }else{
-            return redirect()->to('albums/'.$id.'/edit')->with('error',$response->json());
+            return redirect()->back()->with('error',$response->json()['message']);
         }
 
 

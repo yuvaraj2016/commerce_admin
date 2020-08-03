@@ -56,7 +56,7 @@
                             @csrf
 
                             @if(session('success') !== null)
-                                <div class='alert alert-success'>
+                                <div class='alert alert-green'>
                                     {{ session('success') }}
                                 </div>
                             @endif
@@ -64,7 +64,7 @@
 
                             @foreach(session('error') as $v)
                                @foreach($v as $e)
-                               <div class='alert alert-danger'>
+                               <div class='alert alert-red'>
                                    {{ $e }}
                                 </div>
                                @endforeach
@@ -90,7 +90,7 @@
 
                                                     
 
-                                                    <div class="form-group row">
+                                                    {{-- <div class="form-group row">
                                                         <div class="col-sm-4 offset-1 card">
                                                             
                                                             <div class="card-header">
@@ -118,7 +118,7 @@
                                                                     class=" job-delete d-inline btn btn-danger font1" > <i
                                                                         class="icofont icofont-trash"></i>Delete</button>
                                                             </form>
-                                                                {{-- <a href="{{ url }}" class="btn btn-danger">Delete</a> --}}
+                                                               
                                                                </div>
 
                                                              </div>     
@@ -159,10 +159,15 @@
                                                                 <button id="upload" type="button">Upload</button>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                         {{-- <input type="file" name="files" data-fileuploader-files='[{"name":"stocksnap_4521.jpg","type":"image\/jpg","size":71135,"file":"{{ asset('files/assets/images/product/1.jpg') }}","local":"{{ asset('files/assets/images/product/1.jpg') }}","data":{"url":"{{ asset('files/assets/images/product/1.jpg') }}","thumbnail":"{{ asset('files/assets/images/product/1.jpg') }}","readerForce":true}}]'> --}}
-            
-                                                       
+                                                <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                            <label class="col-form-label text-md-right ">Click below to edit images</label><br>
+                                                            <a href="{{ url('product_categories/'.$prodcategory['id'].'/edit/assets') }}" class="btn btn-blue font1">Edit Image</a>
+                                                        </div>
+
+
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
@@ -178,7 +183,7 @@
                                                       
 
                                          
-                                                    </div>
+                                                </div>
 
                                                    
                                                   
@@ -187,13 +192,13 @@
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="category_short_code">Category Short Code</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <input type="text" id="category_short_code" name="category_short_code" value="{{ old('category_short_code') }}" class="form-control" required>
+                                    {{-- <input type="text" id="category_short_code" name="category_short_code" value="{{ old('category_short_code') }}" class="form-control" required> --}}
                                 </div>
                             </div>
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category Desc</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <textarea name="category_desc" class="summernote-simple form-control" required>{{ old('category_desc') }}</textarea>
+                                    {{-- <textarea name="category_desc" class="summernote-simple form-control" required>{{ old('category_desc') }}</textarea> --}}
                                 </div>
                             </div>
                             <div class="form-group row mb-4">
@@ -228,7 +233,7 @@
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right "></label>
                                 <div class="col-sm-12 col-md-7 offset-5">
-                                    <button type="submit" class="btn btn-primary">Update Product Category</button>
+                                    <button type="submit" class="btn btn-blue font1">Update </button>
                                 </div>
                             </div>
 

@@ -70,11 +70,14 @@ Route::resource('vendors', 'VendorController')->except('index')->middleware('che
 
 Route::get('vendor_list/{page?}','VendorController@index')->name('vendor.index')->middleware('checktoken');
 
-Route::post('{?}/{id}/edit/asset', function ($id) {
-    return view('asset');
-});
 
-Route::resource('assets', 'AssetsController')->except('index')->middleware('checktoken');
+Route::post('assets/storeimage/{module}/{id}', 'AssetsController@store')->name('assets.storeimage')->middleware('checktoken');
+
+Route::resource('assets', 'AssetsController')->except('store')->middleware('checktoken');
+
+
+
+Route::get('{slug?}/{id}/edit/assets','AssetsController@editimage')->name('assets.edit')->middleware('checktoken');
 
 // Route::get('product_categories/{page?}', function (Request$page=0) {
 //     echo $page;
