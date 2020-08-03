@@ -80,27 +80,28 @@
                                                         <label class="col-form-label text-md-right ">Item Code</label>
                                                         <input type="text" name="item_code" value="{{ old('item_code') }}" class="form-control" required>
                                                         </div>
+
+
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item Desc</label>
                                                         <input name="item_desc" value="{{ old('item_desc') }}" class="summernote-simple form-control" required>
                                           
                                                         </div>
-                                                        <div class="col-sm-3">
-                                                        <label class="col-form-label text-md-right ">Sub Category</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="sub_category_id" id="sub_category_id" placeholder="Sub Category" required class="form-control selectric" required>
-                                        <option value="">Select</option>
-                                        @foreach($subcategories as $subcategory)
-                                            <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['sub_category_desc'] }}</option>
-                                        @endforeach
-                                    </select>
-               
+
+
+                                                        <div class="col-sm-4">
+                                                            <label class="col-form-label text-md-right ">Item Image Picture</label>
+                                                            <input type="file" class="custom-file-input" name="file[]" id="file">
+                                                            <label class="custom-file-label" for="customFile">Choose file</label>
                                                         </div>
 
+
+                                                        
 
 
 
                       <!-- Modal large-->
-                      <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal1" style="margin-top: 30px;height:40px">+</button>
+                   
                                                                 <div class="modal fade" id="default-Modal1" tabindex="-1" role="dialog">
                                                                     <div class="modal-dialog modal-lg" role="document">
                                                                         <div class="modal-content">
@@ -184,6 +185,19 @@
                                                     </div>
 
                                                     <div class="form-group row">
+
+                                                        <div class="col-sm-3">
+                                                            <label class="col-form-label text-md-right ">Sub Category</label>
+                                                            <select  class="js-example-basic-single col-sm-12" name="sub_category_id" id="sub_category_id" placeholder="Sub Category" required class="form-control selectric" required>
+                                                                <option value="">Select</option>
+                                                                @foreach($subcategories as $subcategory)
+                                                                    <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['sub_category_desc'] }}</option>
+                                                                @endforeach
+                                                            </select>
+                                    
+                                                            </div>
+                                                            <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal1" style="margin-top: 30px;height:40px">+</button>
+
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
