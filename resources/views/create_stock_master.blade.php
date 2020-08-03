@@ -90,71 +90,7 @@
 
                                                                                           <!-- Modal large-->
                                                                                           <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button>
-                                                                <div class="modal fade" id="default-Modal" tabindex="-1" role="dialog">
-                                                                    <div class="modal-dialog modal-lg" role="document">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h4 class="modal-title">Add Item</h4>
-                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                            <form action="/action_page.php">
-                                                                            <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Item Code</label>
-                                                        <input type="text"  value="    " class="form-control" >
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Item Desc</label>
-                                                        <input type="text"  value=" " class="form-control" >
-                                          
-                                                        </div>
                                          
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Sub Category</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        
-                                        @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach
-                                    </select>
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Status</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        
-                                        @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach
-                                    </select>
-                                          
-                                                        </div>
-                                         
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Vendor Name</label>
-                                                        <input type="text"  value="    " class="form-control" >
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1">
-                                                       
-                                          
-                                                        </div>
-                                         
-                                                    </div>
-</form> 
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
-                                                                                <button type="submit" class="btn btn-primary waves-effect waves-light ">Submit</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
 
 
 
@@ -174,69 +110,7 @@
 
                                                                                           <!-- Modal large-->
                                                                                           <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal2" style="margin-top: 30px;height:40px">+</button>
-                                                                <div class="modal fade" id="default-Modal2" tabindex="-1" role="dialog">
-                                                                    <div class="modal-dialog modal-lg" role="document">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h4 class="modal-title">Add Item Variants</h4>
-                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                            <form action="/action_page.php">
-                                                                            <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Item</label>
-                                                       <select>
-                                                           <option>select</option>
-                                                       </select>
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Variant Code</label>
-                                                        <input type="text"  value=" " class="form-control" >
-                                          
-                                                        </div>
-                                         
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Variant Desc</label>
-                                                        <input type="text"  value=" " class="form-control" >
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Status</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        
-                                        @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach
-                                    </select>
-                                          
-                                                        </div>
-                                         
-                                                    </div>
-                                                    <div class="form-group row">
-                                                    <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Item Variant Image Picture</label>
-                                                        <input type="file" class="custom-file-input" name="file[]" id="file">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1">
-                                                       
-                                          
-                                                        </div>
-                                         
-                                                    </div>
-</form> 
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
-                                                                                <button type="submit" class="btn btn-primary waves-effect waves-light ">Submit</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                           
 
 
                                                         <div class="col-sm-3">
@@ -253,97 +127,7 @@
 
     <!-- Modal large-->
     <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal3" style="margin-top: 30px;height:40px">+</button>
-                                                                <div class="modal fade" id="default-Modal3" tabindex="-1" role="dialog">
-                                                                    <div class="modal-dialog modal-lg" role="document">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h4 class="modal-title">Add Vendor Category</h4>
-                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                            <form action="/action_page.php">
-                                                                            <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Vendor Name</label>
-                                                        <input type="text"  value="    " class="form-control" >
-                                                        </div>
-
-                                                      
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Vendor Category</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="vendor_category_id" id="vendor_category_id" placeholder="Vendor Category" required class="form-control selectric" required>
-                                        <option value="">Select</option>
-
-                                     
-                                    </select>
-                                                        </div>
-                                                      
-
-
-                                                                            </div>
-
-                                                                            <div class="form-group row">
-                                                                            <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Vendor Desc</label>
-                                                        <input type="text"  value="    " class="form-control" >
-                                                        </div>
-
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Vendor Image Picture</label>
-                                                        <input type="file" class="custom-file-input" name="file[]" id="file">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                                        </div>
-                                                                            </div>
-
-                                                                            <div class="form-group row">
-
-                                                                            <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Vendor Address</label>
-                                                        <input type="text"  value="    " class="form-control" >
-                                                        </div>
-
-
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Status</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        
-                                        @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach
-                                    </select>
-                                          
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1"></div>    
-                                         
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Vendor Contact</label>
-                                                        <input type="text"  value="    " class="form-control" >
-                                                        </div>
-
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Vendor Email</label>
-                                                        <input type="text"  value="    " class="form-control" >
-                                                        </div>
-
-
-                                                                            </div>
-                                            
-                                                   
-                                                    </form> 
-                                                                           
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
-                                                                                <button type="submit" class="btn btn-primary waves-effect waves-light ">Submit</button>
-                                                                            </div>
-                                                                           
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                             
 
 
 
@@ -459,6 +243,236 @@
             </div>
         </div>
     </div>
+<!-- item -->
+<div class="modal fade" id="default-Modal" tabindex="-1" role="dialog">
+                                                                    <div class="modal-dialog modal-lg" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h4 class="modal-title">Add Item</h4>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                            <form action="/action_page.php">
+                                                                            <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item Code</label>
+                                                        <input type="text"  value="    " class="form-control" >
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item Desc</label>
+                                                        <input type="text"  value=" " class="form-control" >
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Sub Category</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                        
+                                        @foreach($statuses as $status)
+                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
+                                        @endforeach
+                                    </select>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                        
+                                        @foreach($statuses as $status)
+                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
+                                        @endforeach
+                                    </select>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Vendor Name</label>
+                                                        <input type="text"  value="    " class="form-control" >
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                       
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+                                                                                <button type="submit" class="btn btn-primary waves-effect waves-light ">Submit</button>
+                                                                            </div>
+                                                                            </form> 
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+<!-- item variant -->
+<div class="modal fade" id="default-Modal2" tabindex="-1" role="dialog">
+                                                                    <div class="modal-dialog modal-lg" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h4 class="modal-title">Add Item Variants</h4>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                            <form action="/action_page.php">
+                                                                            <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item</label>
+                                                       <select>
+                                                           <option>select</option>
+                                                       </select>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Variant Code</label>
+                                                        <input type="text"  value=" " class="form-control" >
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Variant Desc</label>
+                                                        <input type="text"  value=" " class="form-control" >
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                        
+                                        @foreach($statuses as $status)
+                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
+                                        @endforeach
+                                    </select>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item Variant Image Picture</label>
+                                                        <input type="file" class="custom-file-input" name="file[]" id="file">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                       
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+                                                                                <button type="submit" class="btn btn-primary waves-effect waves-light ">Submit</button>
+                                                                            </div>
+                                                                            </form> 
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+<!-- vendor -->
+<div class="modal fade" id="default-Modal3" tabindex="-1" role="dialog">
+                                                                    <div class="modal-dialog modal-lg" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h4 class="modal-title">Add Vendor Category</h4>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                            <form action="/action_page.php">
+                                                                            <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Vendor Name</label>
+                                                        <input type="text"  value="    " class="form-control" >
+                                                        </div>
+
+                                                      
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Vendor Category</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="vendor_category_id" id="vendor_category_id" placeholder="Vendor Category" required class="form-control selectric" required>
+                                        <option value="">Select</option>
+
+                                     
+                                    </select>
+                                                        </div>
+                                                      
+
+
+                                                                            </div>
+
+                                                                            <div class="form-group row">
+                                                                            <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Vendor Desc</label>
+                                                        <input type="text"  value="    " class="form-control" >
+                                                        </div>
+
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Vendor Image Picture</label>
+                                                        <input type="file" class="custom-file-input" name="file[]" id="file">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
+                                                                            </div>
+
+                                                                            <div class="form-group row">
+
+                                                                            <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Vendor Address</label>
+                                                        <input type="text"  value="    " class="form-control" >
+                                                        </div>
+
+
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                        
+                                        @foreach($statuses as $status)
+                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
+                                        @endforeach
+                                    </select>
+                                          
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1"></div>    
+                                         
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Vendor Contact</label>
+                                                        <input type="text"  value="    " class="form-control" >
+                                                        </div>
+
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Vendor Email</label>
+                                                        <input type="text"  value="    " class="form-control" >
+                                                        </div>
+
+
+                                                                            </div>
+                                            
+                                                   
+                                                    
+                                                                           
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+                                                                                <button type="submit" class="btn btn-primary waves-effect waves-light ">Submit</button>
+                                                                            </div>
+                                                                            </form> 
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+
 </section>
     </div>
 </div>
