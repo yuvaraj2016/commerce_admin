@@ -62,14 +62,22 @@
                             @endif
                             @if(session('error') !== null)
 
-                            @foreach(session('error') as $v)
+                            {{-- @foreach(session('error') as $v)
                                @foreach($v as $e)
                                <div class='alert alert-red'>
                                    {{ $e }}
                                 </div>
                                @endforeach
 
-                            @endforeach
+                            @endforeach --}}
+
+
+                       
+                            <div class='alert alert-red'>
+                                {{ session('error') }}
+                             </div>
+                       
+                  
                         @endif
                         <div class="form-group row">
 
