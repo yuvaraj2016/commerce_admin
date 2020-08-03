@@ -203,7 +203,48 @@ class ProductSubCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $session = session()->get('token');
+
+
+        try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodCat');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $prodcategories = $response['data'];
+
+
+
+        try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $statuses = $response['data'];
+
+         $response=Http::withToken($session)->get(config('global.url').'/api/prodSubCat/'.$id);
+
+
+        if($response->ok()){
+
+            $prodsubcategory= $response->json()['data'];
+
+            return view('edit_product_sub_category', compact(
+                'prodcategories','prodsubcategory','statuses'
+            ));
+        }
     }
 
     /**
@@ -215,7 +256,32 @@ class ProductSubCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+
+        $session = session()->get('token');
+      
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->put(config('global.url').'/api/prodSubCat/'.$id, 
+        
+        [
+            "_method"=> 'PUT',
+            "category_id"=>$request->category_id,
+            "sub_category_short_code"=>$request->sub_category_short_code,
+            "sub_category_desc"=>$request->sub_category_desc,
+            "status_id"=>$request->status_id
+            
+        ]
+        
+      );
+
+        
+        if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+            return redirect()->route('home');
+        }
+        if($response->status()===200){
+            return redirect()->back()->with('success','Product Sub Category Updated Successfully!');
+        }else{
+            return redirect()->back()->with('error',$response->json()['message']);
+        }
     }
 
     /**

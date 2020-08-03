@@ -11,7 +11,7 @@
             <div class="col-lg-8">
                 <div class="page-header-title">
                     <div class="d-inline">
-                        <h4>Edit Product Category Image</h4>
+                        <h4>Edit Product Sub Category Image</h4>
                         {{-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> --}}
                     </div>
                 </div>
@@ -21,11 +21,11 @@
                     <ul class="breadcrumb-title">
                         <li class="breadcrumb-item">
                            
-                                <i class="">Edit Image  Product Category Image</i>
+                                <i class="">Edit Image  Product Sub Category Image</i>
                           
                         </li>
                       
-                        <li class="breadcrumb-item"><a href="{{ route('product_cat.index') }}">Product Category</a>
+                        <li class="breadcrumb-item"><a href="{{ route('product_sub_cat.index') }}">Product Sub Category</a>
                         </li>
                        
                     </ul>
@@ -69,12 +69,12 @@
                         @endif
                         <div class="form-group row">
                                             <div class="col-sm-4 offset-1">
-                                            <label class="col-form-label text-md-right ">Category Short Code : </label>
-                                            <b>{{ $editdata['category_short_code'] }}</b>
+                                            <label class="col-form-label text-md-right ">Sub Category Short Code : </label>
+                                            <b>{{ $editdata['sub_category_short_code'] }}</b>
                                             </div>
                                             <div class="col-sm-4 offset-1">
-                                            <label class="col-form-label text-md-right ">Category Desc : </label>
-                                            <b>{{ $editdata['category_desc'] }}</b>
+                                            <label class="col-form-label text-md-right ">Sub Category Desc : </label>
+                                            <b>{{ $editdata['sub_category_desc'] }}</b>
                                 
                                             </div>
 
@@ -182,7 +182,7 @@
                                                                 <div class='alert alert-green my-auto mt-3' style="margin-top:20px!important;">
                                                                        {{ session('uploadsuccess') }}
 
-                                                                       {{ session('uuidsess') }}
+                                                                       {{-- {{ session('uuidsess') }} --}}
                                                                </div>
                                                                @endif
                                                                @if(session('uploaderror') !== null)
@@ -203,7 +203,7 @@
                                                             
 
                                                             <div class="card-block">
-                                                                <form id="uploadform" action="{{url('assets/storeimage/product_categories/'.$editdata['id']) }}" method="post" id="addprocat"
+                                                                <form id="uploadform" action="{{url('assets/storeimage/product_sub_categories/'.$editdata['id']) }}" method="post" id="addprocat"
                                                                     enctype="multipart/form-data">
                                                                     {{-- @method('PATCH') --}}
                                                                   @csrf
@@ -232,7 +232,7 @@
                                 <label class="col-form-label text-md-right"></label>
                                 <div class="col-sm-12 col-md-7 offset-5">
                                  
-                                        <a href="{{ url('product_categories/'.$editdata['id'].'/edit') }}"
+                                        <a href="{{ url('product_sub_categories/'.$editdata['id'].'/edit') }}"
                         class=" d-inline text-center btn btn-blue font1 back" ><i
                             class="icofont icofont-arrow-left" ></i>Back&nbsp;&nbsp;</a>
                                 </div>

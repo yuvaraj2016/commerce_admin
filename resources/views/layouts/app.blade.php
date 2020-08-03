@@ -93,10 +93,11 @@ color:black !important;
 
 .alert-green
 {
-    box-shadow: 0 2px 6px green ;
-    background-color: green;
-    border-color: green;
-    border-radius: 30px!important;;
+    box-shadow: 0 2px 6px #009302;
+    background-color: #009302;
+    border-color: #009302;
+    border-radius: 30px!important;
+    font-weight: bold;
     color:#fff;
 
 }
