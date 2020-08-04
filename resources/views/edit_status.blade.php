@@ -11,7 +11,7 @@
             <div class="col-lg-8">
                 <div class="page-header-title">
                     <div class="d-inline">
-                        <h4>Edit Product Category</h4>
+                        <h4>Edit Status</h4>
                         {{-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> --}}
                     </div>
                 </div>
@@ -21,11 +21,11 @@
                     <ul class="breadcrumb-title">
                         <li class="breadcrumb-item">
                            
-                                <i class="">Edit Product Category</i>
+                                <i class="">Edit Status</i>
                           
                         </li>
                       
-                        <li class="breadcrumb-item"><a href="{{ route('product_cat.index') }}">Product Category</a>
+                        <li class="breadcrumb-item"><a href="{{ route('status.index') }}">Status</a>
                         </li>
                        
                     </ul>
@@ -50,7 +50,7 @@
 
 
 
-                        <form class="dropzone" action="{{route('product_categories.update',['product_category'=>$prodcategory['id']]) }}" method="post" id="addprocat"
+                        <form class="dropzone" action="{{route('status.update',['status'=>$status['id']]) }}" method="post" id="editstatus"
                             enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
@@ -74,22 +74,15 @@
                                 {{ session('error') }}
                              </div>
                         @endif
-                        <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Category Short Code</label>
-                                                        <input type="text" id="category_short_code" name="category_short_code" value="{{ old('category_short_code',$prodcategory['category_short_code']) }}" class="form-control" required>
+                       
+
+                                                    <div class="form-group row mb-4">
+                                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Desc</label>
+                                                        <div class="col-sm-12 col-md-7">
+                                                            <textarea name="status_desc" class="summernote-simple form-control" required>{{ old('status_desc',$status['status_desc']) }}</textarea>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Category Desc</label>
-                                                        <textarea name="category_desc" class="summernote-simple form-control" required>{{ old('category_desc',$prodcategory['category_desc']) }}</textarea>
-                                          
-                                                        </div>
-
-
-                                                      
-
-                                         
                                                     </div>
+                        
 
                                                     
 
@@ -106,12 +99,12 @@
                                                               <div class="row mt-3">  
 
                                                                <div class="col-sm-6 my-auto">
-                                                                <a href=""><img src="{{ isset($prodcategory['Assets']['data'][0]['links']) ? $prodcategory['Assets']['data'][0]['links']['full'].'?width=100&height=100' : asset('img/no-image.gif')  }}"/></a>
+                                                                <a href=""><img src="{{ isset($suppliercategory['Assets']['data'][0]['links']) ? $suppliercategory['Assets']['data'][0]['links']['full'].'?width=100&height=100' : asset('img/no-image.gif')  }}"/></a>
                                                                </div>
 
                                                                <div class="col-sm-6 my-auto">
                                                                    @php
-                                                                  $uuid=  $prodcategory['Assets']['data'][0]['id'];
+                                                                  $uuid=  $suppliercategory['Assets']['data'][0]['id'];
                                                                    @endphp
                                                                 <form id="myForm" action="{{ route('assets.destroy',['asset'=>$uuid]) }}"
                                                                 method="POST">
@@ -129,7 +122,7 @@
                                                              <div class="row mt-3">  
 
                                                                 <div class="col">
-                                                                 <a href=""><img src="{{ isset($prodcategory['Assets']['data'][0]['links']) ? $prodcategory['Assets']['data'][0]['links']['full'].'?width=100&height=100' : asset('img/no-image.gif')  }}"/></a>
+                                                                 <a href=""><img src="{{ isset($suppliercategory['Assets']['data'][0]['links']) ? $suppliercategory['Assets']['data'][0]['links']['full'].'?width=100&height=100' : asset('img/no-image.gif')  }}"/></a>
                                                                 </div>
  
                                                                 <div class="col">
@@ -164,82 +157,29 @@
                                                         </div>
                                                     </div> --}}
                                                         {{-- <input type="file" name="files" data-fileuploader-files='[{"name":"stocksnap_4521.jpg","type":"image\/jpg","size":71135,"file":"{{ asset('files/assets/images/product/1.jpg') }}","local":"{{ asset('files/assets/images/product/1.jpg') }}","data":{"url":"{{ asset('files/assets/images/product/1.jpg') }}","thumbnail":"{{ asset('files/assets/images/product/1.jpg') }}","readerForce":true}}]'> --}}
-                                                <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                            <label class="col-form-label text-md-right ">Click below to edit images</label><br>
-                                                            <a href="{{ url('product_categories/'.$prodcategory['id'].'/edit/assets') }}" class="btn btn-blue font1">Edit Image</a>
-                                                        </div>
+                                                {{-- <div class="form-group row">
+                                                       
 
 
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Status</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                                            <option value="">Select</option>
-                                                            @foreach($statuses as $status)
-                                                                <option value="{{ $status['id'] }}" {{ ($prodcategory['status_id'] == $status['id']) ? "selected":(old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                                            @endforeach
-                                                        </select>
-                                          
-                                                        </div>
-
+                                                     
 
                                                       
 
                                          
-                                                </div>
+                                                </div> --}}
 
                                                    
                                                   
 
-<!-- 
-                            <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="category_short_code">Category Short Code</label>
-                                <div class="col-sm-12 col-md-7">
-                                    {{-- <input type="text" id="category_short_code" name="category_short_code" value="{{ old('category_short_code') }}" class="form-control" required> --}}
-                                </div>
-                            </div>
-                            <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category Desc</label>
-                                <div class="col-sm-12 col-md-7">
-                                    {{-- <textarea name="category_desc" class="summernote-simple form-control" required>{{ old('category_desc') }}</textarea> --}}
-                                </div>
-                            </div>
-                            <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category Image
-                                    Picture</label>
-                                <div class="col-sm-12 col-md-7">
-
-                                        <div class="gallery"></div>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file[]" id="file">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-
-                                          </div>
-
-                                </div>
-
-
-                            </div>
-                            <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status</label>
-                                <div class="col-sm-12 col-md-7">
-                                    <select name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        <option value="">Select</option>
-                                        {{-- @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach --}}
-                                    </select>
-                                </div>
-                            </div> -->
                             
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right "></label>
                                 <div class="col-sm-12 col-md-7 offset-5">
                                     <button type="submit" class="btn btn-blue font1">Update </button>
-                                    <a href="{{ url('product_cat_list') }}"
-                                    class=" d-inline text-center btn btn-black font1 back" ><i
-                                        class="icofont icofont-arrow-left" ></i>Back&nbsp;&nbsp;</a>
+                                    <a href="{{ url('vendor_cat_list') }}"
+                        class=" d-inline text-center btn btn-black font1 back" ><i
+                            class="icofont icofont-arrow-left" ></i>Back&nbsp;&nbsp;</a>
                                 </div>
                             </div>
 
@@ -251,7 +191,7 @@
     </div>
 </section>
 @endsection
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+{{-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function (e) {
@@ -303,4 +243,4 @@
 
 
 </script>
-
+ --}}

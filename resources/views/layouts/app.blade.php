@@ -85,6 +85,17 @@ color:black !important;
 
 }
 
+
+.btn-black
+{
+    box-shadow: 0 2px 6px #6d6d6d;
+    background-color:#6d6d6d;
+    border-color: #6d6d6d;
+    border-radius: 30px!important;
+    color:#fff;
+
+}
+
 .btn-red:hover
 {
     color:#fff;
@@ -333,21 +344,30 @@ color:black !important;
                             <span class="sr-only">(current)</span>
                             </a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-envelope-o">
+                              
+                              </i>
+                              Catalogue
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item  {{ (request()->is('item_list')) ? 'active' : '' }}" href="{{ route('item.index') }}">Items</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item {{ (request()->is('item_variant_list')) ? 'active' : '' }}" href="{{ route('item_variant.index') }}">Item Variants</a>
+                                <div class="dropdown-divider"></div>
+                                
+                               <a class="dropdown-item  {{ (request()->is('product_cat_list')) ? 'active' : '' }}" href="{{ route('product_cat.index') }}">Product Category</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item {{ (request()->is('product_sub_cat_list')) ? 'active' : '' }}" href="{{ route('product_sub_cat.index') }}">Product Sub Category</a>
+                            
+                            </div>
+                          </li>
                         <li class="nav-item {{ (request()->is('item_list')) ? 'active' : '' }}">
-                          <a class="nav-link" href="{{ route('item.index') }}">
-                            <i class="fa fa-envelope-o">
-                             
-                            </i>
-                            Items
-                          </a>
+                         
                         </li>
                         <li class="nav-item {{ (request()->is('item_variant_list')) ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('item_variant.index') }}">
-                              <i class="fa fa-envelope-o">
-                               
-                              </i>
-                              Item Variants
-                            </a>
+                           
                           </li>
                           <li class="nav-item {{ (request()->is('stock_master_list')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('stock_master.index') }}">
@@ -383,16 +403,13 @@ color:black !important;
                               Configurations
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item  {{ (request()->is('product_cat_list')) ? 'active' : '' }}" href="{{ route('product_cat.index') }}">Product Category</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item {{ (request()->is('product_sub_cat_list')) ? 'active' : '' }}" href="{{ route('product_sub_cat.index') }}">Product Sub Category</a>
-                              <div class="dropdown-divider"></div>
+                             
                               <a class="dropdown-item {{ (request()->is('supplier_cat_list')) ? 'active' : '' }}" href="{{ route('supplier_cat.index') }}">Supplier Category</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item {{ (request()->is('vendor_cat_list')) ? 'active' : '' }}" href="{{ route('vendor_cat.index') }}">Vendor Category</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item {{ (request()->is('status_list')) ? 'active' : '' }}" href="{{ route('status.index') }}">Status</a>
-                              <div class="dropdown-divider"></div>
+                            
                             </div>
                           </li>
                  

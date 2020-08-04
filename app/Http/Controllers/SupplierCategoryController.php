@@ -153,7 +153,33 @@ class SupplierCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $session = session()->get('token');
+
+
+        try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $statuses = $response['data'];
+
+         $response=Http::withToken($session)->get(config('global.url').'/api/confSupplierCat/'.$id);
+
+
+        if($response->ok()){
+
+            $suppliercategory=   $response->json()['data'];
+
+            return view('edit_supplier_category', compact(
+                'suppliercategory','statuses'
+            ));
+        }
     }
 
     /**
@@ -165,7 +191,29 @@ class SupplierCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $session = session()->get('token');
+      
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->put(config('global.url').'/api/confSupplierCat/'.$id, 
+        
+        [
+            "_method"=> 'PUT',
+            "supplier_cat_desc"=>$request->supplier_cat_desc,
+            "status_id"=>$request->status_id
+            
+        ]
+        
+      );
+
+        
+        if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+            return redirect()->route('home');
+        }
+        if($response->status()===200){
+            return redirect()->back()->with('success','Supplier Category Updated Successfully!');
+        }else{
+            return redirect()->back()->with('error',$response->json()['message']);
+        }
+
     }
 
     /**

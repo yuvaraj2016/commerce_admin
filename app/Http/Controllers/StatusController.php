@@ -123,7 +123,26 @@ class StatusController extends Controller
      */
     public function edit($id)
     {
-        //
+        $session = session()->get('token');
+
+
+       
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus/' . $id);
+
+       
+     
+        
+
+        if($response->ok()){
+
+            $status =   $response->json()['data'];
+
+            // return $status;
+
+            return view('edit_status', compact(
+               'status'
+            ));
+        }
     }
 
     /**
@@ -135,7 +154,27 @@ class StatusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $session = session()->get('token');
+      
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->put(config('global.url').'/api/confStatus/'.$id, 
+        [
+            "_method"=> 'PUT',
+            "status_desc"=>$request->status_desc,
+                      
+        ]
+        
+      );
+
+        
+        if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+            return redirect()->route('home');
+        }
+        if($response->status()===200){
+            return redirect()->back()->with('success','Status Updated Successfully!');
+        }else{
+            return redirect()->back()->with('error',$response->json()['message']);
+        }
+
     }
 
     /**
