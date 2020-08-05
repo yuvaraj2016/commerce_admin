@@ -94,29 +94,9 @@
                                                             <input type="file" class="custom-file-input" name="file[]" id="file">
                                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                                         </div>
-
-
-                                                        
-
-
-
-                      <!-- Modal large-->
+                                                                   <!-- Modal large-->
                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                    </div>
+                                                </div>
 
                                                     <div class="form-group row">
 

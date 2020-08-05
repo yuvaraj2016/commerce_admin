@@ -53,7 +53,12 @@ class AssetsController extends Controller
             $apicall = "api/prodSubCat/".$id;
             // $view = "edit_image_product_sub_category";
         }
-
+        else if($module=="items")
+        {
+            $apicall = "api/item/".$id;
+            
+            // $view = "edit_item";
+        }
 
        
         // echo $session;exit;
@@ -73,6 +78,7 @@ class AssetsController extends Controller
             }
 
             $response = $response->withHeaders(['Accept'=>'application/vnd.api.v1+json'])->post(config('global.url') . $apicall,
+         
             [ [   
              
                 'name' => '_method',
@@ -82,7 +88,7 @@ class AssetsController extends Controller
 
             // $response = json_decode($response->getBody()->getContents(), true);
 
-            // return $response;
+           //  return $response;
 
             if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
                 return redirect()->route('home');
@@ -144,7 +150,11 @@ class AssetsController extends Controller
             $view = "edit_image_product_sub_category";
         }
 
-
+        else if($module=="items")
+        {
+            $apicall = "api/item/".$id;
+            $view = "edit_image_item";
+        }
         $session = session()->get('token');
 
 

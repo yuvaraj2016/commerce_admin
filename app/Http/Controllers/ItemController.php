@@ -219,6 +219,65 @@ class ItemController extends Controller
     public function edit($id)
     {
         //
+
+        $session = session()->get('token');
+
+
+        try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodSubCat');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $prodSubCat = $response['data'];
+
+
+
+        try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $statuses = $response['data'];
+
+         try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/vendors');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $vendors = $response['data'];
+
+
+
+         $response=Http::withToken($session)->get(config('global.url').'/api/item/'.$id);
+         //return $response;
+
+        if($response->ok()){
+
+            $item= $response->json()['data'];
+        //    return $item['id'];
+            return view('edit_item', compact(
+                'prodSubCat','vendors','statuses','item'
+            ));
+        }
+
     }
 
     /**
@@ -231,6 +290,39 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
         //
+// return $id;
+        $session = session()->get('token');
+      
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->put(config('global.url').'/api/item/'.$id, 
+        
+        [
+            "_method"=> 'PUT',
+                    
+            "item_code"=>$request->item_code,
+                "item_desc"=>$request->item_desc,
+                "sub_category_id"=>$request->sub_category_id,
+                "status_id"=>$request->status_id,
+                "vendor_store_id"=>$request->vendor_store_id
+        ]
+        
+      );
+
+        
+        if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+            return redirect()->route('home');
+        }
+        if($response->status()===200){
+            return redirect()->back()->with('success','Item Updated Successfully!');
+        }else{
+            return redirect()->back()->with('error',$response->json()['message']);
+        }
+
+
+
+
+
+
+
     }
 
     /**
