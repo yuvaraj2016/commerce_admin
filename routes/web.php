@@ -22,6 +22,9 @@ Route::get('/', function () {
     //$request->session()->put('token', $value);
     //return Http::get('http://restschool.hridham.com/api/getAllAlbums')->json();
 })->name('home');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
 Route::post('/login', 'UserController@login');
 Route::resource('albums', 'AlbumController');
 Route::resource('albums.photo', 'PhotoController');

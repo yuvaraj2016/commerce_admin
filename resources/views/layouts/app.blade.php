@@ -337,8 +337,8 @@ color:black !important;
                   
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
-                        <li class="nav-item {{ (request()->is('#')) ? 'active' : '' }}">
-                          <a class="nav-link" href="#">
+                        <li class="nav-item {{ (request()->is('dashboard')) ? 'active' : '' }}">
+                          <a class="nav-link" href="{{ url('dashboard') }}">
                             <i class="fa fa-home"></i>
                             Home
                             <span class="sr-only">(current)</span>
@@ -608,6 +608,19 @@ color:black !important;
     <!-- modernizr js -->
     <script type="text/javascript" src="{{ asset('files/bower_components/modernizr/js/modernizr.js') }}"></script>
     <script type="text/javascript" src="{{ asset('files/bower_components/modernizr/js/css-scrollbars.js') }}"></script>
+
+
+        <!-- Chart js -->
+        <script type="text/javascript" src="{{ asset('files/bower_components/chart.js/js/Chart.js')}}"></script>
+
+    <!-- amchart js -->
+    <script src="{{ asset('files\assets\pages\widget\amchart\amcharts.js')}}"></script>
+    <script src="{{ asset('files\assets\pages\widget\amchart\serial.js')}}"></script>
+    <script src="{{ asset('files\assets\pages\widget\amchart\light.js')}}"></script>
+    <script src="{{ asset('files\assets\js\jquery.mCustomScrollbar.concat.min.js')}}"></script>
+    <!-- <script type="{{ asset('text/javascript" src="..\files\assets\js\SmoothScroll.js')}}"></script>
+    <script src="{{ asset('files\assets\js\pcoded.min.js')}}"></script> -->
+    <script type="text/javascript" src="{{ asset('files\assets\pages\dashboard\custom-dashboard.js')}}"></script>
 
 
     <link href="{{ asset('files/assets/pages/jquery.filer/css/jquery.filer.css')}}" type="text/css" rel="stylesheet">
