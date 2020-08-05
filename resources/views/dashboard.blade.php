@@ -34,8 +34,7 @@
     </div>
     <div class="page-body">
 
-
-
+    <div class="card bg-light">
 
     <div class="pcoded-content">
                         <div class="pcoded-inner-content">
@@ -546,6 +545,7 @@
                                 </div>
                             </div>
                         </div>
+    </div>
     </div>
 </div>
 @endsection
