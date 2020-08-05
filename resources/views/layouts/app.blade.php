@@ -346,9 +346,7 @@ color:black !important;
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fa fa-envelope-o">
-                              
-                              </i>
+                                <i class="fa fa-address-card"></i>
                               Catalogue
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -363,24 +361,20 @@ color:black !important;
                             
                             </div>
                           </li>
-                        <li class="nav-item {{ (request()->is('item_list')) ? 'active' : '' }}">
-                         
-                        </li>
-                        <li class="nav-item {{ (request()->is('item_variant_list')) ? 'active' : '' }}">
-                           
-                          </li>
+                    
                           <li class="nav-item {{ (request()->is('stock_master_list')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('stock_master.index') }}">
-                              <i class="fa fa-envelope-o">
+                              <i class="fa fa-cubes">
                                
                               </i>
+                              
                               Stock Master
                             </a>
                           </li>
 
                           <li class="nav-item {{ (request()->is('supplier_list')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('supplier.index') }}">
-                              <i class="fa fa-envelope-o">
+                              <i class="fa fa-group">
                                
                               </i>
                               Suppliers
@@ -389,7 +383,7 @@ color:black !important;
 
                           <li class="nav-item {{ (request()->is('vendor_list')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('vendor.index') }}">
-                              <i class="fa fa-envelope-o">
+                              <i class="fa fa-handshake-o">
                                
                               </i>
                               Vendors
@@ -397,7 +391,7 @@ color:black !important;
                           </li>
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fa fa-envelope-o">
+                              <i class="fa fa-cog">
                               
                               </i>
                               Configurations
