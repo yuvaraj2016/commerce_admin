@@ -39,12 +39,12 @@
 <section class="section" >
     <!-- <div class="section-header">
         <div class="section-header-back">
-            <a href="{{ route('stock_master.index') }}" class="btn btn-icon"><i
+            {{-- <a href="{{ route('stock_master.index') }}" class="btn btn-icon"><i --}}
                     class="fas fa-arrow-left"></i>&nbsp;<b>Back</b></a>
         </div>
         <h1>Create Stock Master</h1>
         <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item"><a href="{{ route('stock_master.index') }}">Stock Masters</a></div>
+            {{-- <div class="breadcrumb-item"><a href="{{ route('stock_master.index') }}">Stock Masters</a></div> --}}
             <div class="breadcrumb-item">Create Stock Master</div>
         </div>
     </div> -->
@@ -171,9 +171,9 @@
                                 <div class="col-sm-12 col-md-7">
                                     <select name="item_id" id="" placeholder="Item" required class="form-control selectric" required>
                                         <option value="">Select</option>
-                                        @foreach($items as $item)
+                                        {{-- @foreach($items as $item)
                                             <option value="{{ $item['id'] }}" {{ (old("item_id") == $item['id'] ? "selected":"") }}>{{ $item['item_desc'] }}</option>
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                 </div>
                             </div>
@@ -182,9 +182,9 @@
                                 <div class="col-sm-12 col-md-7">
                                     <select name="variant_id" id="" placeholder="Variant" required class="form-control selectric" required>
                                         <option value="">Select</option>
-                                        @foreach($variants as $variant)
+                                        {{-- @foreach($variants as $variant)
                                             <option value="{{ $variant['id'] }}" {{ (old("variant_id") == $variant['id'] ? "selected":"") }}>{{ $variant['variant_desc'] }}</option>
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                 </div>
                             </div>
@@ -194,9 +194,9 @@
                                 <div class="col-sm-12 col-md-7">
                                     <select name="vendor_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
                                         <option value="">Select</option>
-                                        @foreach($vendors as $vendor)
+                                        {{-- @foreach($vendors as $vendor)
                                             <option value="{{ $vendor['id'] }}" {{ (old("vendor_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option>
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                 </div>
                             </div>
@@ -206,27 +206,27 @@
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Stock Quantity</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <input type="number" name="stock_quantity" value="{{ old('stock_quantity') }}" class="form-control" required>
+                                    {{-- <input type="number" name="stock_quantity" value="{{ old('stock_quantity') }}" class="form-control" required> --}}
                                 </div>
                             </div>
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Stock Threshold</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <input type="number" name="stock_threshold" value="{{ old('stock_threshold') }}" class="form-control" required>
+                                    {{-- <input type="number" name="stock_threshold" value="{{ old('stock_threshold') }}" class="form-control" required> --}}
                                 </div>
                             </div>
 
                            <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status</label>
-                                <div class="col-sm-12 col-md-7">
+                                {{-- <div class="col-sm-12 col-md-7">
                                     <select name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($statuses as $status)
                                             <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
                                         @endforeach
                                     </select>
-                                </div>
+                                </div> --}}
                             </div> -->
 
 
