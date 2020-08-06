@@ -212,6 +212,58 @@ class VendorController extends Controller
     public function edit($id)
     {
         //
+
+
+        $session = session()->get('token');
+
+
+
+
+        try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confVendorCat');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $vendorcat = $response['data'];
+
+
+        try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $statuses = $response['data'];
+
+         $response=Http::withToken($session)->get(config('global.url').'/api/vendors/'.$id);
+//return $response;
+
+        if($response->ok()){
+
+            $vendors = $response->json()['data'];
+         
+// return $vendors['id'];
+            return view('edit_Vendor', compact(
+                'vendorcat','statuses','vendors'
+            ));
+        }
+
+
+
+
+
+
     }
 
     /**
@@ -224,6 +276,43 @@ class VendorController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+
+
+        $session = session()->get('token');
+      
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->put(config('global.url').'/api/vendors/'.$id, 
+        
+        [
+            "_method"=> 'PUT',
+           "vendor_name"=>$request->vendor_name,
+                "vendor_category_id"=>$request->vendor_category_id,
+                "vendor_desc"=>$request->vendor_desc,
+                "vendor_address"=>$request->vendor_address,
+                "vendor_contact"=>$request->vendor_contact,
+                "vendor_email"=>$request->vendor_email,
+                "status_id"=>$request->status_id
+            
+        ]
+        
+      );
+
+        
+        if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+            return redirect()->route('home');
+        }
+        if($response->status()===200){
+            return redirect()->back()->with('success','Vendor Updated Successfully!');
+        }else{
+            return redirect()->back()->with('error',$response->json()['message']);
+        }
+
+
+
+
+
+
+
     }
 
     /**
