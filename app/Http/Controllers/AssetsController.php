@@ -59,7 +59,12 @@ class AssetsController extends Controller
             
             // $view = "edit_item";
         }
-
+        else if($module=="item_variants")
+        {
+            $apicall = "api/itemVariant/".$id;
+            
+            // $view = "edit_item";
+        }
        
         // echo $session;exit;
         // dd($session);
@@ -155,6 +160,13 @@ class AssetsController extends Controller
             $apicall = "api/item/".$id;
             $view = "edit_image_item";
         }
+        else if($module=="item_variants")
+        {
+            $apicall = "api/itemVariant/".$id;
+            $view = "edit_image_item_variant";
+        }
+
+
         $session = session()->get('token');
 
 
