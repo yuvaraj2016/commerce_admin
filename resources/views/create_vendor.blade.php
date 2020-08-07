@@ -83,8 +83,7 @@
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Vendor Image Picture</label>
-                                                        <input type="file" class="custom-file-input" name="file[]" id="file"  style="border: 1px solid #ccc;">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
                                                         </div>
                                                         <div class="col-sm-3">
                                                         <label class="col-form-label text-md-right ">Vendor Category</label>

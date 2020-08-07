@@ -91,8 +91,7 @@
 
                                                         <div class="col-sm-4">
                                                             <label class="col-form-label text-md-right ">Item Image Picture</label>
-                                                            <input type="file" class="custom-file-input" name="file[]" id="file">
-                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                            <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
                                                         </div>
                                                                    <!-- Modal large-->
                    
