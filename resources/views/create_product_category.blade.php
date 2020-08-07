@@ -90,7 +90,7 @@
                                                         <div class="col-sm-4 offset-1">
                                                         
 
-
+                                                        <label class="col-form-label text-md-right ">Product Category Image Picture</label>
                                             <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
                                                                
                                                         </div>
