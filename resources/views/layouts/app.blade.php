@@ -17,8 +17,55 @@
     background-color: white !important;
 }
 body {
-    font-family: sans-serif !important;
+    font-family: Lato !important;
+    font-size: 13px !important;
 }
+
+.btn {
+
+
+font-size: 12px !important;
+
+}
+/* add button changes */
+button.dt-button, div.dt-button, a.dt-button, button.dt-button:focus:not(.disabled), div.dt-button:focus:not(.disabled), a.dt-button:focus:not(.disabled), button.dt-button:active:not(.disabled), button.dt-button.active:not(.disabled), div.dt-button:active:not(.disabled), div.dt-button.active:not(.disabled), a.dt-button:active:not(.disabled), a.dt-button.active:not(.disabled) {
+
+font-size: 12px !important;
+
+}
+/* fileexport button changes */
+button.dt-button, div.dt-button, a.dt-button, button.dt-button:focus:not(.disabled), div.dt-button:focus:not(.disabled), a.dt-button:focus:not(.disabled), button.dt-button:active:not(.disabled), button.dt-button.active:not(.disabled), div.dt-button:active:not(.disabled), div.dt-button.active:not(.disabled), a.dt-button:active:not(.disabled), a.dt-button.active:not(.disabled) {
+
+    padding: 6px 20px 6px 20px !important;
+border-radius: 15px !important;
+margin-right: 12px !important;
+
+}
+
+/* show page heading changed blow */
+
+/* .main-body .page-wrapper {
+
+margin-top: -35px !important;
+} */
+/* file export btn color changed blow */
+button.dt-button, div.dt-button, a.dt-button, button.dt-button:focus:not(.disabled), div.dt-button:focus:not(.disabled), a.dt-button:focus:not(.disabled), button.dt-button:active:not(.disabled), button.dt-button.active:not(.disabled), div.dt-button:active:not(.disabled), div.dt-button.active:not(.disabled), a.dt-button:active:not(.disabled), a.dt-button.active:not(.disabled) {
+
+
+    background-color: #01a9ac !important;
+border-color: #01a9ac !important;
+
+
+}
+
+
+
+
+    .main-body .page-wrapper .page-header-title h4 {
+        font-size: 18px !important;
+    }
+
+
 .border1{
 border:none !important;
 padding:1px !important;
@@ -329,7 +376,7 @@ color:black !important;
                 {{-- Below Menu Code Reference -- https://bootsnipp.com/snippets/nNX3a --}}
 
 
-                <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+                <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark" >
                     <a class="navbar-brand" href="#">Ecommerce Admin</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
