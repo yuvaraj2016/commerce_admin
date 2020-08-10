@@ -79,10 +79,16 @@
                                                         <label class="col-form-label text-md-right ">Supplier Name</label>
                                                         <input type="text" name="supplier_name" value="{{ old('supplier_name') }}" class="form-control" required>
                                                         </div>
+                                                       
                                                         <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Supplier Image Picture</label>
-                                                        <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
+                                                        <label class="col-form-label text-md-right ">Supplier Desc</label>
+                                                        <textarea name="supplier_desc" class="summernote-simple form-control" required>{{ old('supplier_desc') }}</textarea>
                                                         </div>
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
                                                         <div class="col-sm-3">
                                                         <label class="col-form-label text-md-right ">Supplier Category</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="supplier_category_id" id="supplier_category_id" placeholder="Supplier Category" required class="form-control selectric" required>
@@ -109,10 +115,10 @@
 
 
                                                     <div class="form-group row">
-                                                        <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Supplier Desc</label>
-                                                        <textarea name="supplier_desc" class="summernote-simple form-control" required>{{ old('supplier_desc') }}</textarea>
-                                                        </div>
+                                                           
+
+
+
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Supplier Address</label>
                                                         <textarea name="supplier_address" class="summernote-simple form-control" required>{{ old('supplier_address') }}</textarea>
@@ -123,11 +129,17 @@
                                                         <input type="number" name="supplier_contact" value="{{ old('supplier_contact') }}" class="form-control" required>
                
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group row">
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Supplier Email</label>
                                                         <input type="email" name="supplier_email" value="{{ old('supplier_email') }}" class="form-control" required>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Supplier Image Picture</label>
+                                                        <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>

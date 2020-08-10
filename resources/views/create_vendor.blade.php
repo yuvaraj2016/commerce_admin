@@ -81,10 +81,16 @@
                                                         <label class="col-form-label text-md-right ">Vendor Name</label>
                                                         <input type="text" name="vendor_name" value="{{ old('vendor_name') }}" class="form-control" required>
                                                         </div>
+                                                      
+                                                       
+
                                                         <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Vendor Image Picture</label>
-                                                        <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
+                                                        <label class="col-form-label text-md-right ">Vendor Desc</label>
+                                                        <textarea name="vendor_desc" class="summernote-simple form-control" required>{{ old('vendor_desc') }}</textarea>
                                                         </div>
+                                                       
+                                                       
+                                                       
                                                         <div class="col-sm-3">
                                                         <label class="col-form-label text-md-right ">Vendor Category</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="vendor_category_id" id="vendor_category_id" placeholder="Vendor Category" required class="form-control selectric" required>
@@ -111,9 +117,9 @@
 
 
                                                     <div class="form-group row">
-                                                        <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Vendor Desc</label>
-                                                        <textarea name="vendor_desc" class="summernote-simple form-control" required>{{ old('vendor_desc') }}</textarea>
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendor Email</label>
+                                                        <input type="email" name="vendor_email" value="{{ old('vendor_email') }}" class="form-control" required>
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Vendor Address</label>
@@ -128,9 +134,9 @@
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Vendor Email</label>
-                                                        <input type="email" name="vendor_email" value="{{ old('vendor_email') }}" class="form-control" required>
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendor Image Picture</label>
+                                                        <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
