@@ -74,6 +74,27 @@ Route::resource('vendors', 'VendorController')->except('index')->middleware('che
 Route::get('vendor_list/{page?}','VendorController@index')->name('vendor.index')->middleware('checktoken');
 
 
+
+
+Route::resource('users', 'UserController')->except('index')->middleware('checktoken');
+
+Route::get('user_list/{page?}','UserController@index')->name('user.index')->middleware('checktoken');
+
+
+
+// Route::resource('roles', 'RoleController')->except('index')->middleware('checktoken');
+
+// Route::get('role_list/{page?}','RoleController@index')->name('role.index')->middleware('checktoken');
+
+
+
+
+Route::resource('permissions', 'PermissionController')->except('index')->middleware('checktoken');
+
+Route::get('permission_list/{page?}','PermissionController@index')->name('permission.index')->middleware('checktoken');
+
+
+
 Route::post('assets/storeimage/{module}/{id}', 'AssetsController@store')->name('assets.storeimage')->middleware('checktoken');
 
 Route::resource('assets', 'AssetsController')->except('store')->middleware('checktoken');

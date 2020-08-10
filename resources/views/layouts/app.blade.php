@@ -391,6 +391,23 @@ color:black !important;
                           </li>
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-users">
+                              
+                              </i>
+                              Users
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                             
+                              <a class="dropdown-item {{ (request()->is('user_list')) ? 'active' : '' }}" href="{{ route('user.index') }}">Users</a>
+                              {{-- <div class="dropdown-divider"></div>
+                              <a class="dropdown-item {{ (request()->is('role_list')) ? 'active' : '' }}" href="{{ route('role.index') }}">Roles</a> --}}
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item {{ (request()->is('permission_list')) ? 'active' : '' }}" href="{{ route('permission.index') }}">Permissions</a>
+                          
+                            </div>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <i class="fa fa-cog">
                               
                               </i>
@@ -406,6 +423,24 @@ color:black !important;
                             
                             </div>
                           </li>
+
+                          {{-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-cog">
+                              
+                              </i>
+                              {{  ucfirst(session('username')) }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                             
+                              <a class="dropdown-item {{ (request()->is('supplier_cat_list')) ? 'active' : '' }}" href="{{ route('supplier_cat.index') }}">My Profile</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item {{ (request()->is('vendor_cat_list')) ? 'active' : '' }}" href="{{ route('vendor_cat.index') }}">Edit Profile</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item {{ (request()->is('status_list')) ? 'active' : '' }}" href="{{ route('status.index') }}">Logout</a>
+                            
+                            </div>
+                          </li> --}}
                  
                       </ul>
                       {{-- <form class="form-inline my-2 my-lg-0">

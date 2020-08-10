@@ -12,9 +12,30 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request,$page = 1)
     {
-        //
+        $token = session()->get('token');
+
+        try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/users?page='.$page);
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+
+        $users = $response['data'];
+
+        $pagination = $response['meta']['pagination'];
+
+        $lastpage = $pagination['total_pages'];
+
+        return view('user_list', compact('users', 'pagination','lastpage'));
+
     }
     public function login(Request $request)
     {
@@ -30,10 +51,43 @@ class UserController extends Controller
             "password" => $request->password,
             "scope" => ''
         ]);
+
         if($respose->ok()){
-        $request->session()->put('token',$respose->json()['access_token']);
-        $request->session()->save();
-        return redirect()->route('product_cat.index');
+
+            $request->session()->put('token',$respose->json()['access_token']);
+
+            $request->session()->save();
+
+            $token = session()->get('token');
+
+            try{
+
+                $profresponse = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') .'api/me');
+
+                // $profresponse = json_decode($call->getBody()->getContents(), true);
+
+               
+               
+            }catch (\Exception $e){
+                //buy a beer
+
+
+            }
+
+            if($profresponse->ok()){
+
+                // return $profresponse->json()['data']['name'];
+                
+                $username = $profresponse->json()['data']['name'];
+
+                $request->session()->put('username',$username);
+        
+                $request->session()->save();
+
+            }
+
+            return redirect()->route('product_cat.index');
+       
         }
         else{
 
