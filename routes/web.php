@@ -82,9 +82,9 @@ Route::get('user_list/{page?}','UserController@index')->name('user.index')->midd
 
 
 
-// Route::resource('roles', 'RoleController')->except('index')->middleware('checktoken');
+Route::resource('roles', 'RoleController')->except('index')->middleware('checktoken');
 
-// Route::get('role_list/{page?}','RoleController@index')->name('role.index')->middleware('checktoken');
+Route::get('role_list/{page?}','RoleController@index')->name('role.index')->middleware('checktoken');
 
 
 

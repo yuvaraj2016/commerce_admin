@@ -471,7 +471,7 @@ color:black !important;
                             </div>
                           </li>
 
-                          {{-- <li class="nav-item dropdown">
+                          <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <i class="fa fa-cog">
                               
@@ -487,7 +487,7 @@ color:black !important;
                               <a class="dropdown-item {{ (request()->is('status_list')) ? 'active' : '' }}" href="{{ route('status.index') }}">Logout</a>
                             
                             </div>
-                          </li> --}}
+                          </li>
                  
                       </ul>
                       {{-- <form class="form-inline my-2 my-lg-0">
