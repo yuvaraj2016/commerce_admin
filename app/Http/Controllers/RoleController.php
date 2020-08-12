@@ -44,7 +44,28 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        $token = session()->get('token');
+
+        try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/permissions');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $permissions = $response['data'];
+
+       
+         return view(
+                'create_role', compact(
+                    'permissions'
+                )
+        );
+      
     }
 
     /**
@@ -55,7 +76,32 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $session = session()->get('token');
+
+
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->post(config('global.url').'api/roles',
+
+        [
+
+            "name"=>$request->name,
+
+             "permissions"=>$request->permissions
+
+        ]);
+        // dd($request->all());
+
+        // dd($response);
+        // echo $response->status();exit;
+
+        if($response->status()===201){
+
+            return redirect()->route('roles.create')->with('success','Role Created Successfully!');
+        }else{
+            // var_dump($response);exit;
+          // return dd($response->json());
+            $request->flash();
+            return redirect()->route('roles.create')->with('error',$response['errors']);
+        }
     }
 
     /**
@@ -100,6 +146,18 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $session = session()->get('token');
+
+        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->delete(config('global.url').'api/roles/'.$id);
+    
+        if($response->status()==204){
+
+             return redirect()->route('role.index')->with('success','Role Deleted Sucessfully !..');
+        }
+        else{
+
+          //  dd($response);
+             return redirect()->route('role.index')->with('error',$response->json()['message']);
+        }
     }
 }

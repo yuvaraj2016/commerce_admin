@@ -103,7 +103,28 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $token = session()->get('token');
+
+        try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/roles');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $roles = $response['data'];
+
+
+
+         return view(
+                'create_user', compact(
+                    'roles'
+                )
+        );
     }
 
     /**
@@ -114,7 +135,39 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $session = session()->get('token');
+
+
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->post(config('global.url').'api/users',
+
+        [
+
+            "name"=>$request->name,
+
+            "email"=>$request->email,
+
+            "password"=>$request->password,
+
+            "password_confirmation"=>$request->password_confirmation,
+
+            "roles"=>$request->roles
+
+        ]);
+        // dd($request->all());
+
+        // dd($response);
+        // echo $response->status();exit;
+
+        if($response->status()===201){
+
+            return redirect()->route('users.create')->with('success','User Created Successfully!');
+        }else{
+            // var_dump($response);exit;
+          // return dd($response->json());
+            $request->flash();
+            return redirect()->route('users.create')->with('error',$response['errors']);
+        }
+
     }
 
     /**
@@ -159,6 +212,18 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $session = session()->get('token');
+
+        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->delete(config('global.url').'api/users/'.$id);
+    
+        if($response->status()==204){
+
+             return redirect()->route('user.index')->with('success','User Deleted Sucessfully !..');
+        }
+        else{
+
+          //  dd($response);
+             return redirect()->route('user.index')->with('error',$response->json()['message']);
+        }
     }
 }

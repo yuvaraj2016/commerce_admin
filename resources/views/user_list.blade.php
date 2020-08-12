@@ -191,27 +191,91 @@
                                         <td>{{ $user['email'] }}</td>
 
                                         <td>
+                                           
+                                                @foreach($user['roles']['data'] as $role)
+                                                
+                                            
+                                                @php if(count($user['roles']['data'])==1) 
+                                                {
+                                                    $role_name =  $role['name'];
+                                                    
+                                                    // echo  $role_name;
 
-                                        @foreach($user['roles']['data'] as $role)
+                                            
+                                                }else if(count($user['roles']['data'])>1) 
+                                                {
+                                                    
+                                                    if(!$loop->last)
+                                                    {
+                                                    $role_name = $role['name'].",";
+                                                    }
+                                                    else {
+                                                    $role_name = $role['name'];
+                                                    }
+                                                
+                                                
+                                                    
+                                                }
+                                            
+                                            
+                                                @endphp  
+                                                
+                                                {{ $role_name }}
                                         
-                                            {{ $role['name'] }}
 
-                                        
-                                        @endforeach
+                                                @endforeach
+
+                                     
 
                                         </td>
 
                                         <td>
                                         {{-- @dd($user['roles']['data'][0]['permissions']['data']); --}}
-
+                                        <div style=" white-space: normal !important; 
+                                        word-wrap: break-word;  ">
+                                        @if(isset($user['roles']['data'][0]['permissions']['data']))
+                                         
 
                                             @foreach($user['roles']['data'][0]['permissions']['data'] as $permission)
-                                            
-                                                {{ $permission['name'] }} <br>
+                                        
+                                            {{-- {{ $permission['name'] }}<br> --}}
+
+
+                                            @php if(count($user['roles']['data'][0]['permissions']['data'])==1) 
+                                            {
+                                                $permissions =  $permission['name'];
+                                                
+                                                // echo  $role_name;
     
+                                           
+                                            }else if(count($user['roles']['data'][0]['permissions']['data'])>1) 
+                                            {
+                                                
+                                                if(!$loop->last)
+                                                {
+                                                $permissions = $permission['name'].",";
+                                                }
+                                                else {
+                                                 $permissions = $permission['name'];
+                                                }
+                                                
+                                                
+                                          
+                                                                                             
+                                            }
+                                          
+                                            echo $permissions;
+                                                                      
+                                            @endphp  
                                             
-                                            @endforeach
-    
+                                          
+                                        
+                                        @endforeach
+
+
+                                        @endif
+
+                                        </div>
                                         </td>
 
                                         <td>{{ date("Y-m-d H:i:s",$user['created_at']) }}</td>

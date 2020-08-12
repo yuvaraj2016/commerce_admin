@@ -2,6 +2,41 @@
 @section('content')
 
 
+@php 
+
+function wordSplit($longString,$length=20){
+    
+    $words = array_filter(preg_split('#[\s\n]+#s', $longString));
+    
+    $maxLineLength = $length;
+    
+    $currentLength = 0;
+    $index = 0;
+    foreach ($words as $word) {
+        // +1 because the word will receive back the space in the end that it loses in explode()
+        $wordLength = strlen($word) + 1;
+    
+        if (($currentLength + $wordLength) <= $maxLineLength) {
+            $output[$index][] = '' .$word . '';
+            $currentLength += $wordLength;
+            $close=false;
+        } else {
+            $output[$index]=join(' ',$output[$index]);
+            $close=false;
+            $index += 1;
+            $currentLength = $wordLength;
+            $output[$index][] = $word.'';
+        }
+    }
+    if($close==false){
+        $output[$index]=join(' ',$output[$index]);
+    }
+    
+    return  $output;
+    }
+
+@endphp
+
 
     <!-- @if(session('success') !== null)
         <div class='alert alert-success'>
@@ -163,7 +198,7 @@
                                                     </div>
                                                     <div class="card-block">
                                                         <div class="dt-responsive table-responsive">
-                                                            <table id="basic-btn" class="table table-striped table-bordered nowrap">
+                                                            <table id="basic-btn" class="table table-striped table-bordered">
                                                                 <thead>
                                                                     <tr>
                                                                     <th>Role Name</th>
@@ -187,12 +222,45 @@
                                         </td>
 
                                         <td>
+                                        <div style=" white-space: normal !important; 
+                                        word-wrap: break-word;  ">
                                         @foreach($role['permissions']['data'] as $permission)
                                         
-                                            {{ $permission['name'] }}<br>
+                                            {{-- {{ $permission['name'] }}<br> --}}
 
+
+                                            @php if(count($role['permissions']['data'])==1) 
+                                            {
+                                                $permissions =  $permission['name'];
+                                                
+                                                // echo  $role_name;
+    
+                                           
+                                            }else if(count($role['permissions']['data'])>1) 
+                                            {
+                                                
+                                                if(!$loop->last)
+                                                {
+                                                $permissions = $permission['name'].",";
+                                                }
+                                                else {
+                                                 $permissions = $permission['name'];
+                                                }
+                                                
+                                                
+                                          
+                                                                                             
+                                            }
+                                          
+                                            echo $permissions;
+                                                                      
+                                            @endphp  
+                                            
+                                          
                                         
                                         @endforeach
+
+                                        </div>
 
                                         </td>
 
