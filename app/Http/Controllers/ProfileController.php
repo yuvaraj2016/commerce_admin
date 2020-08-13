@@ -44,35 +44,6 @@ class ProfileController extends Controller
           return view('show_profile', compact('profile'));
     }
 
-
-
-
-
-
-    public function password(Request $request)
-    {
-        //
-
-        $token = session()->get('token');
-        try{
-
-            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/me/password');
-
-            $response = json_decode($call->getBody()->getContents(), true);
-        
-        }catch (\Exception $e){
-            //buy a beer
-
-
-        }
-        $password = $response['data'];
-        return $password;
-        // $pagination = $response['meta']['pagination'];
-
-        // $lastpage = $pagination['total_pages'];
-
-          return view('change_password', compact('password'));
-    }
     /**
      * Show the form for creating a new resource.
      *
