@@ -118,11 +118,11 @@ color:black !important;
 
 }
 
-.bg-blue,.active
+.bg-blue
 {
-    box-shadow: 0 2px 6px #acb5f6!important;
-    background-color: #6777ef!important;
-    border-color: #6777ef!important;
+    box-shadow: 0 2px 6px #002F56!important;
+    background-color: #002F56!important;
+    border-color: #002F56!important;
     
     color:#fff!important;
 
