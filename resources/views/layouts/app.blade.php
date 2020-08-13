@@ -106,11 +106,13 @@ color:black !important;
 
 }
 
-.btn-blue
+
+
+.btn-blue,.select2-selection__choice,.waves-effect,.dt-buttons .dt-button
 {
-    box-shadow: 0 2px 6px #acb5f6;
-    background-color: #6777ef;
-    border-color: #6777ef;
+    box-shadow: 0 2px 6px #acb5f6!important;
+    background-color: #6777ef!important;
+    border-color: #6777ef!important;
     border-radius: 30px!important;;
     color:#fff!important;
 
@@ -135,11 +137,11 @@ color:black !important;
 
 .btn-black
 {
-    box-shadow: 0 2px 6px #6d6d6d;
-    background-color:#6d6d6d;
-    border-color: #6d6d6d;
+    box-shadow: 0 2px 6px #6d6d6d!important;
+    background-color:#6d6d6d!important;
+    border-color: #6d6d6d!important;
     border-radius: 30px!important;
-    color:#fff;
+    color:#fff!important;
 
 }
 
@@ -473,7 +475,7 @@ color:black !important;
 
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fa fa-cog">
+                              <i class="fa fa-user">
                               
                               </i>
                               {{  ucfirst(session('username')) }}

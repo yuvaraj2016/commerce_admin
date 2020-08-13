@@ -110,7 +110,7 @@
     <select  class="js-example-basic-single col-sm-12" name="sub_category_id" id="sub_category_id" placeholder="Sub Category" required class="form-control selectric" required>
         <option value="">Select</option>
         @foreach($prodSubCat as $subcategory)
-            <!-- <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['sub_category_desc'] }}</option> -->
+            {{-- <!-- <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['sub_category_desc'] }}</option> --> --}}
             <option value="{{ $subcategory['id'] }}" {{ ( $item['sub_category_id'] == $subcategory['id']) ? "selected":(old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['sub_category_desc'] }}</option>
             @endforeach
     </select>

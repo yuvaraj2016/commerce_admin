@@ -9,7 +9,7 @@
             <div class="col-lg-8">
                 <div class="page-header-title">
                     <div class="d-inline">
-                        <h4>Create Role</h4>
+                        <h4>Edit User</h4>
                         {{-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> --}}
                     </div>
                 </div>
@@ -17,13 +17,13 @@
             <div class="col-lg-4">
                 <div class="page-header-breadcrumb">
                     <ul class="breadcrumb-title">
-                        <li class="breadcrumb-Role">
+                        <li class="breadcrumb-User">
                            
-                                <i class="">Create Role</i>
+                                <i class="">Edit User</i>
                           
                         </li>
                       
-                        <li class="breadcrumb-item"><a href="{{ route('role.index') }}">Roles</a>
+                        <li class="breadcrumb-item"><a href="{{ route('user.index') }}">Users</a>
                         </li>
                        
                     </ul>
@@ -56,9 +56,11 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('roles.store') }}" method="post" id="addrole"
+                        <form action="{{route('users.update',['user'=>$user['id']]) }}" method="post" id="editUser"
                             enctype="multipart/form-data">
+                            @method('PUT')
                             @csrf
+                            
                             @if(session('success') !== null)
                                 <div class='alert alert-success'>
                                     {{ session('success') }}
@@ -66,27 +68,60 @@
                             @endif
                             @if(session('error') !== null)
 
-                                {{-- @foreach(session('error') as $v) --}}
-                                   {{-- @foreach($v as $e) --}}
+                                @foreach(session('error') as $v)
+                                   @foreach($v as $e)
                                    <div class='alert alert-danger'>
-                                       {{ session('error') }}
+                                       {{ $e }}
                                     </div>
-                                   {{-- @endforeach --}}
+                                   @endforeach
 
-                                {{-- @endforeach --}}
+                                @endforeach
                             @endif
                             <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Role name</label>
-                                                        <input type="text" name="name" value="{{ old('name') }}" class="form-control" required>
+                                                        <div class="col-sm-3 ml-5">
+                                                        <label class="col-form-label text-md-right ">User name</label>
+                                                        <input type="text" name="name" value="{{ old('name',$user['name']) }}" class="form-control" required>
                                                         </div>
 
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Permissions</label>
-                                                        <select  class="js-example-basic-single col-sm-12"  name="permissions[]" id="" placeholder="Role" required class="form-control selectric" multiple required>
+
+                                                        <div class="col-sm-3">
+                                                        <label class="col-form-label text-md-right ">Email Address</label>
+                                                        <input type="email" name="email" value="{{ old('email',$user['email']) }}" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+
+                                                        {{-- <div class="col-sm-4">
+                                                            <label class="col-form-label text-md-right ">Password</label>
+                                                            <input type="password" name="password" id="password" minlength=8 value="{{ old('password',$user['password']) }}" class="summernote-simple form-control" required>
+                                              
+                                                       </div>
+
+                                                       <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Confirm Password</label>
+                                                        <input type="password" name="password_confirmation" id="confirm_password" minlength=8 value="{{ old('password_confirmation',$user['password_confirmation']) }}" class="summernote-simple form-control" required>
+                                          
+                                                        </div> --}}
+                                                       
+                                                     
+
+                                                        @php
+
+                                                        $userrolesarr = [];
+
+                                                        foreach($user['roles']['data'] as $userrolesdata)
+                                                        {
+
+                                                            $userrolesarr[] = $userrolesdata['id'];
+                                                        }
+                                                        @endphp
+                                                        
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Roles</label>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="roles[]" id="" placeholder="Role" required multiple class="form-control selectric">
                                                             <option value="">Select</option>
-                                                            @foreach($permissions as $permission)
-                                                                <option value="{{ $permission['id'] }}" {{ (collect(old('permissions'))->contains($permission['id'])) ? 'selected':'' }}>{{ $permission['name'] }}</option>
+                                                            @foreach($roles as $role)
+                                                            
+                                                                <option value="{{ $role['id'] }}" {{ (collect($userrolesarr)->contains($role['id'])) ? 'selected':((collect(old('roles'))->contains($role['id'])) ? 'selected':'') }}>{{ $role['name'] }}</option>
                                                             @endforeach
                                                         </select>
                
@@ -191,7 +226,10 @@
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right "></label>
                                 <div class="col-sm-12 col-md-7 offset-5">
-                                    <button type="submit" class="btn btn-primary">Create Role</button>
+                                    <button type="submit" class="btn btn-blue">Update</button>
+                                    <a href="{{ url('user_list') }}"
+                                    class=" d-inline text-center btn btn-black font1 back" ><i
+                                        class="icofont icofont-arrow-left" ></i>Back&nbsp;&nbsp;</a>
                                 </div>
                             </div>
 
@@ -392,7 +430,7 @@ confirm_password.onkeyup = validatePassword;
 validatePassword;
 
 });
-</script> --}}
+</script>
 
 
-
+ --}}

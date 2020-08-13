@@ -93,6 +93,8 @@ class RoleController extends Controller
         // dd($response);
         // echo $response->status();exit;
 
+        // return $response;
+
         if($response->status()===201){
 
             return redirect()->route('roles.create')->with('success','Role Created Successfully!');
@@ -100,7 +102,7 @@ class RoleController extends Controller
             // var_dump($response);exit;
           // return dd($response->json());
             $request->flash();
-            return redirect()->route('roles.create')->with('error',$response['errors']);
+            return redirect()->route('roles.create')->with('error',$response->json()['message']);
         }
     }
 

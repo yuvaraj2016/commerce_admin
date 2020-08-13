@@ -105,7 +105,7 @@
                                                         <select  class="js-example-basic-single col-sm-12"  name="roles[]" id="" placeholder="Role" required class="form-control selectric" multiple required>
                                                             <option value="">Select</option>
                                                             @foreach($roles as $role)
-                                                                <option value="{{ $role['id'] }}" {{ (old("roles[]") == $role['id'] ? "selected":"") }}>{{ $role['name'] }}</option>
+                                                                <option value="{{ $role['id'] }}" {{ (collect(old('roles'))->contains($role['id'])) ? 'selected':'' }}>{{ $role['name'] }}</option>
                                                             @endforeach
                                                         </select>
                
