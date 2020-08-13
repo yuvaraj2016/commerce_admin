@@ -118,7 +118,7 @@ color:black !important;
 
 }
 
-.bg-blue
+.bg-blue,.active
 {
     box-shadow: 0 2px 6px #acb5f6!important;
     background-color: #6777ef!important;
