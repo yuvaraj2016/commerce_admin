@@ -189,7 +189,36 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $session = session()->get('token');
+
+
+        try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/roles');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $roles = $response['data'];
+
+
+
+       
+         $response=Http::withToken($session)->get(config('global.url').'/api/users/'.$id);
+
+
+        if($response->ok()){
+
+            $user= $response->json()['data'];
+
+            return view('edit_user', compact(
+                'roles','user'
+            ));
+        }
     }
 
     /**
@@ -201,7 +230,30 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $session = session()->get('token');
+      
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->put(config('global.url').'/api/users/'.$id, 
+        
+        [
+            "_method"=> 'PUT',
+            "name"=>$request->name,
+            "email"=>$request->email,
+            "roles"=>$request->roles,
+           
+            
+        ]
+        
+      );
+
+        
+        if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+            return redirect()->route('home');
+        }
+        if($response->status()===200){
+            return redirect()->back()->with('success','User Updated Successfully!');
+        }else{
+            return redirect()->back()->with('error',$response['errors']);
+        }
     }
 
     /**

@@ -106,16 +106,37 @@ color:black !important;
 
 }
 
-.btn-blue
+
+
+.btn-blue,.select2-selection__choice,.waves-effect,.dt-buttons .dt-button
 {
-    box-shadow: 0 2px 6px #acb5f6;
-    background-color: #6777ef;
-    border-color: #6777ef;
-    border-radius: 30px!important;;
+    box-shadow: 0 2px 6px #acb5f6!important;
+    background-color: #6777ef!important;
+    border-color: #6777ef!important;
+    border-radius: 30px!important;
     color:#fff!important;
 
 }
 
+.bg-blue
+{
+    box-shadow: 0 2px 6px #002F56!important;
+    background-color: #002F56!important;
+    border-color: #002F56!important;
+    
+    color:#fff!important;
+
+}
+
+.active
+{
+    box-shadow: 0 2px 6px black!important;
+    background-color: black!important;
+    border-color: black!important;
+    
+    color:#fff!important;
+
+}
 .btn-blue:hover
 {
     color:#fff;
@@ -135,11 +156,11 @@ color:black !important;
 
 .btn-black
 {
-    box-shadow: 0 2px 6px #6d6d6d;
-    background-color:#6d6d6d;
-    border-color: #6d6d6d;
+    box-shadow: 0 2px 6px #6d6d6d!important;
+    background-color:#6d6d6d!important;
+    border-color: #6d6d6d!important;
     border-radius: 30px!important;
-    color:#fff;
+    color:#fff!important;
 
 }
 
@@ -376,7 +397,7 @@ color:black !important;
                 {{-- Below Menu Code Reference -- https://bootsnipp.com/snippets/nNX3a --}}
 
 
-                <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark" >
+                <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-blue fixed-top" >
                     <a class="navbar-brand" href="#">Ecommerce Admin</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
@@ -473,7 +494,7 @@ color:black !important;
 
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fa fa-cog">
+                              <i class="fa fa-user">
                               
                               </i>
                               {{  ucfirst(session('username')) }}
@@ -612,7 +633,7 @@ color:black !important;
                         <div class="pcoded-inner-content">
 
                             <!-- Main-body start -->
-                            <div class="main-body">
+                            <div class="main-body mt-4">
                                
                                 @yield('content')
 
