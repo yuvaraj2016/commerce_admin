@@ -480,7 +480,7 @@ color:black !important;
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                              
-                              <a class="dropdown-item {{ (request()->is('supplier_cat_list')) ? 'active' : '' }}" href="{{ route('supplier_cat.index') }}">My Profile</a>
+                              <a class="dropdown-item {{ (request()->is('profile_list')) ? 'active' : '' }}" href="{{ route('profile.index') }}">My Profile</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item {{ (request()->is('vendor_cat_list')) ? 'active' : '' }}" href="{{ route('vendor_cat.index') }}">Edit Profile</a>
                               <div class="dropdown-divider"></div>
