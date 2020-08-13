@@ -75,6 +75,12 @@ Route::get('vendor_list/{page?}','VendorController@index')->name('vendor.index')
 
 
 
+Route::resource('profile', 'ProfileController')->except('index')->middleware('checktoken');
+
+Route::get('show_profile/{page?}','ProfileController@index')->name('profile.index')->middleware('checktoken');
+
+
+
 
 Route::resource('users', 'UserController')->except('index')->middleware('checktoken');
 
