@@ -44,6 +44,35 @@ class ProfileController extends Controller
           return view('show_profile', compact('profile'));
     }
 
+
+
+
+
+
+    public function password(Request $request)
+    {
+        //
+
+        $token = session()->get('token');
+        try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/me/password');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+        
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+        $password = $response['data'];
+        return $password;
+        // $pagination = $response['meta']['pagination'];
+
+        // $lastpage = $pagination['total_pages'];
+
+          return view('change_password', compact('password'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -197,6 +226,39 @@ class ProfileController extends Controller
 
     }
 
+
+
+
+
+
+    public function changepassword(Request $request)
+    {
+
+    //   return $request->all();
+        $session = session()->get('token');
+      
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->post(config('global.url').'/api/me/password', 
+        [
+            "_method"=> 'PUT',
+            "current_password"=>$request->current_password,
+            "password"=>$request->password,
+            "password_confirmation"=>$request->password_confirmation
+            
+        ]
+        
+      );
+
+        
+        if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+            return redirect()->route('home');
+        }
+        if($response->status()===200){
+            return redirect()->back()->with('success','password Updated Successfully!');
+        }else{
+            return redirect()->back()->with('error',$response->json()['message']);
+        }
+
+    }
     /**
      * Remove the specified resource from storage.
      *
