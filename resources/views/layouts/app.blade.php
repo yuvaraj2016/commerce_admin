@@ -127,6 +127,16 @@ color:black !important;
     color:#fff!important;
 
 }
+
+.active
+{
+    box-shadow: 0 2px 6px black!important;
+    background-color: black!important;
+    border-color: black!important;
+    
+    color:#fff!important;
+
+}
 .btn-blue:hover
 {
     color:#fff;
