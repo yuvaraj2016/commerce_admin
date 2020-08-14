@@ -162,6 +162,21 @@ class ProfileController extends Controller
         }
     }
 
+
+    public function passwordedit()
+    {
+        $session = session()->get('token');
+
+      
+
+       
+
+           
+           // return $password;
+            return view('change_password');
+     
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -198,14 +213,10 @@ class ProfileController extends Controller
     }
 
 
-
-
-
-
-    public function changepassword(Request $request)
+    public function updatepassword(Request $request)
     {
 
-    //   return $request->all();
+    //    return $request->all();
         $session = session()->get('token');
       
         $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->post(config('global.url').'/api/me/password', 
@@ -214,7 +225,6 @@ class ProfileController extends Controller
             "current_password"=>$request->current_password,
             "password"=>$request->password,
             "password_confirmation"=>$request->password_confirmation
-            
         ]
         
       );
@@ -230,6 +240,9 @@ class ProfileController extends Controller
         }
 
     }
+
+
+
     /**
      * Remove the specified resource from storage.
      *

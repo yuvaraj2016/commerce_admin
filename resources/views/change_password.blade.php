@@ -23,8 +23,8 @@
                           
                         </li>
                       
-                        <li class="breadcrumb-item"><a href="{{ route('profile.change_password') }}">Users</a>
-                        </li>
+                        <!-- <li class="breadcrumb-item"><a href="">Users</a>
+                        </li> -->
                        
                     </ul>
                 </div>
@@ -47,7 +47,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                    <form class="dropzone" action="{{route('profile.change_password',['change_password'=>1]) }}" method="post" id="editprosubcat"
+                    <form class="dropzone" action="{{route('update_password')}}" method="post" id="editprosubcat"
                             enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
@@ -61,15 +61,9 @@
                                 </div>
                             @endif
                             @if(session('error') !== null)
-
-                                @foreach(session('error') as $v)
-                                   @foreach($v as $e)
-                                   <div class='alert alert-danger'>
-                                       {{ $e }}
-                                    </div>
-                                   @endforeach
-
-                                @endforeach
+                            <div class='alert alert-red'>
+                                {{ session('error') }}
+                             </div>
                             @endif
                             <div class="form-group row">
                                                       
@@ -119,7 +113,7 @@
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right "></label>
                                 <div class="col-sm-12 col-md-7 offset-5">
-                                    <button type="submit" class="btn btn-primary">Create User</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
                             </div>
 

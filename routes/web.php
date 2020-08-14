@@ -81,6 +81,10 @@ Route::get('show_profile/{page?}','ProfileController@index')->name('profile.inde
 
 
 
+Route::put('update_password', 'ProfileController@updatepassword')->name('update_password')->middleware('checktoken');
+
+Route::get('change_password','ProfileController@passwordedit')->name('change_password.index')->middleware('checktoken');
+
 
 Route::resource('users', 'UserController')->except('index')->middleware('checktoken');
 
