@@ -43,9 +43,9 @@ color:#000!important;
     background-color: white !important;
 }
 body {
-    font-family: Lato !important;
+    font-family: Lato Bold !important;
     font-size: 14px !important;
-    font-weight: 400!important;
+    font-weight: bold!important;
 }
 
 .btn {
@@ -204,14 +204,23 @@ i.fa{
 
 .active
 {
-    box-shadow: 0 2px 6px black!important;
-    background-color: black!important;
-    border-color: rgb(235, 218, 218)!important;
+    box-shadow: 0 2px 6px #01a9ac!important;
+    /* background-color:#ccc!important; */
+    /* border-color: rgb(235, 218, 218)!important; */
     
     color:#fff!important;
 
 }
 
+
+.active i.fa
+{
+    background-color:#fff!important;
+    color:#01a9ac!important;
+    position: relative;
+    top:3px!important;
+
+}
 .active .nav-link{
     color:#fff!important;
 }
@@ -276,7 +285,8 @@ display: none !important;
 
 a.nav-link,a.dropdown-item,.btn-primary
 {
-font-size:14px!important;
+font-size:17px!important;
+font-weight: bold!important;
 
 }
 
@@ -284,9 +294,16 @@ font-size:14px!important;
 {
 padding:0!important;
 margin:0!important;
+/* font-size:16px!important; */
 
 }
 
+.dropdown-menu a
+{
+
+font-size:16px!important;
+
+}
 
 </style>
 
