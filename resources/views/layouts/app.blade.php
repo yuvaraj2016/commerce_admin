@@ -502,8 +502,8 @@ color:black !important;
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                              
                               <a class="dropdown-item {{ (request()->is('profile_list')) ? 'active' : '' }}" href="{{ route('profile.index') }}">My Profile</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item {{ (request()->is('vendor_cat_list')) ? 'active' : '' }}" href="{{ route('vendor_cat.index') }}">Edit Profile</a>
+                              <!-- <div class="dropdown-divider"></div> -->
+                              <!-- <a class="dropdown-item {{ (request()->is('vendor_cat_list')) ? 'active' : '' }}" href="{{ route('vendor_cat.index') }}">Edit Profile</a> -->
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item {{ (request()->is('status_list')) ? 'active' : '' }}" href="{{ route('status.index') }}">Logout</a>
                             

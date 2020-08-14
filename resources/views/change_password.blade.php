@@ -23,8 +23,9 @@
                           
                         </li>
                       
-                        <!-- <li class="breadcrumb-item"><a href="">Users</a>
-                        </li> -->
+                      
+                        <li class="breadcrumb-item"><a href="{{ route('profile.index') }}">show profile</a>
+                        </li>
                        
                     </ul>
                 </div>
