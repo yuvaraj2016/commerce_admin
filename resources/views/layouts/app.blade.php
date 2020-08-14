@@ -190,6 +190,15 @@ color:black !important;
     color:#fff;
 
 }
+
+.pcoded #styleSelector {
+
+display: none !important;
+
+
+}
+
+
 </style>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">

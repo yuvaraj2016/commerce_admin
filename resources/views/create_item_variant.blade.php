@@ -113,9 +113,10 @@
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Item Variant Image</label>
-                                                        <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Selling Price</label>
+                                                        <input type="number"  name="selling_price" value="{{ old('selling_price') }}" class="form-control" required>
+               
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
@@ -129,9 +130,34 @@
                
                                                         </div>
                                                         <div class="col-sm-4">
-                                                        
+                                                        <label class="col-form-label text-md-right ">Mrp Price</label>
+                                                        <input type="number" name="MRP" value="{{ old('MRP') }}" class="form-control" required>
                
                                                         </div>
+                                                    </div>
+
+
+
+                                                    <div class="form-group row">
+
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Variants</label>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="variant_group_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                      
+                                        @foreach($statuses as $status)
+                                        <option value="{{ $status['id'] }}" {{ ($status['id'] == "2") ? "selected":(old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
+                                            <!-- <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option> -->
+                                        @endforeach
+                                    </select>
+               
+                                                        </div>
+
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Item Variant Image</label>
+                                                        <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
+                                                        </div>
+                                             
+                                                     
                                                     </div>
 
 

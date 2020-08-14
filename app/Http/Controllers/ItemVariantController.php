@@ -124,6 +124,18 @@ class ItemVariantController extends Controller
                 'contents' => $request->variant_desc
             ],
             [
+                'name' => 'MRP',
+                'contents' => $request->MRP
+            ],
+            [
+                'name' => 'selling_price',
+                'contents' => $request->selling_price
+            ],
+            [
+                'name' => 'variant_group_id',
+                'contents' => $request->variant_group_id
+            ],
+            [
                 'name' => 'status_id',
                 'contents' => $request->status_id
             ]
@@ -140,11 +152,16 @@ class ItemVariantController extends Controller
                 "item_id"=>$request->item_id,
                 "variant_code"=>$request->variant_code,
                 "variant_desc"=>$request->variant_desc,
+
+                "MRP"=>$request->MRP,
+                "selling_price"=>$request->selling_price,
+                "variant_group_id"=>$request->variant_group_id,
+
                 "status_id"=>$request->status_id
 
 
             ]);
-            // dd($response);
+           //  dd($response);
         }
 
         if($response->status()==201){
