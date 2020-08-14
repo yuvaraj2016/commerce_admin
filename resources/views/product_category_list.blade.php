@@ -17,7 +17,7 @@
 
 <div class="page-wrapper">
     <!-- Page-header start -->
-    <div class="page-header m-t-50">
+    <div class="page-header">
         <div class="row align-items-end">
             <div class="col-lg-8">
                 <div class="page-header-title">
@@ -67,9 +67,7 @@
                     <div class="card-header table-card-header">
                         <div class="row">
                             <div class="section-header-button col-md-4">
-                                <a href="{{ route('product_categories.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
-                    background-color: #6777ef;
-                    border-color: #6777ef;border-radius:30px">Add New</a>
+                                <a href="{{ route('product_categories.create') }}" class="btn btn-primary" style="padding-top:7px; padding-bottom:7px;border-radius:30px">Add New</a>
                             </div>
                             <div class="section-header-button col-md-5">
 
