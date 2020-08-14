@@ -112,7 +112,7 @@ color:black !important;
 .btn-blue,.select2-selection__choice,.waves-effect,.dt-buttons .dt-button
 {
     box-shadow: 0 2px 6px #acb5f6!important;
-    background-color: #dcdff5!important;
+    background-color: #6777ef!important;
     border-color: #6777ef!important;
     border-radius: 30px!important;
     color:#fff!important;
@@ -122,9 +122,9 @@ color:black !important;
 
 .bg-blue
 {
-    box-shadow: 0 2px 6px #002F56!important;
-    background-color: #002F56!important;
-    border-color: #002F56!important;
+    box-shadow: 0 2px 6px #6777ef!important;
+    background-color: #6777ef!important;
+    border-color: #6777ef!important;
     
     color:#fff!important;
 
@@ -196,6 +196,13 @@ color:black !important;
 a.nav-link,a.dropdown-item,.btn-primary
 {
 font-size:14px!important;
+
+}
+
+.dropdown-divider,.dropdown-menu
+{
+padding:0!important;
+margin:0!important;
 
 }
 </style>
