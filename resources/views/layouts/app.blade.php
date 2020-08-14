@@ -18,7 +18,8 @@
 }
 body {
     font-family: Lato !important;
-    font-size: 13px !important;
+    font-size: 14px !important;
+    font-weight: 400!important;
 }
 
 .btn {
@@ -111,10 +112,11 @@ color:black !important;
 .btn-blue,.select2-selection__choice,.waves-effect,.dt-buttons .dt-button
 {
     box-shadow: 0 2px 6px #acb5f6!important;
-    background-color: #6777ef!important;
+    background-color: #dcdff5!important;
     border-color: #6777ef!important;
     border-radius: 30px!important;
     color:#fff!important;
+    font-size:14px!important;
 
 }
 
@@ -188,6 +190,12 @@ color:black !important;
     border-color: red;
     border-radius: 30px!important;;
     color:#fff;
+
+}
+
+a.nav-link,a.dropdown-item,.btn-primary
+{
+font-size:14px!important;
 
 }
 </style>
