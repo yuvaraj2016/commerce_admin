@@ -119,14 +119,14 @@
 
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">MRP Price</label>
-                                                        <input name="MRP" value="{{ old('MRP',$itemVariants['MRP']) }}" class="summernote-simple form-control" required>
+                                                        <input name="MRP" value="{{ old('MRP',$itemVariants['MRP']) }}" step="any" class="summernote-simple form-control" required>
                                           
                                                         </div>
 
 
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Selling Prince</label>
-                                                        <input name="selling_price" value="{{ old('selling_price',$itemVariants['selling_price']) }}" class="summernote-simple form-control" required>
+                                                        <input name="selling_price" value="{{ old('selling_price',$itemVariants['selling_price']) }}" step="any" class="summernote-simple form-control" required>
                                           
                                                         </div>
 
@@ -145,7 +145,15 @@
                                                 <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item Variant Default</label>
                                                         
-                                                        <input name="default" value="{{ old('default',$itemVariants['default']) }}" class="summernote-simple form-control" required>
+                                                        {{-- <input name="default" value="{{ old('default',$itemVariants['default']) }}" class="summernote-simple form-control" required> --}}
+                                                        <select  class="js-example-basic-single col-sm-12"  name="default" id="" placeholder="default" class="form-control selectric" required>
+                                                            <option value="">Select</option>
+                                                          
+                                                            <option value="1" {{ ($itemVariants['default'] == 1) ? "selected":(old("default") == 1 ? "selected":"") }}>Yes</option>
+                                                            <option value="0" {{ ($itemVariants['default'] == 0) ? "selected":(old("default") == 0 ? "selected":"") }}>No</option>
+                                                            
+
+                                                        </select>
                                                         </div>
 
                                                 <div class="col-sm-4">

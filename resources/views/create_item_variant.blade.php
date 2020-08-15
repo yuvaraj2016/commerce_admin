@@ -115,7 +115,7 @@
                                                     <div class="form-group row">
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Selling Price</label>
-                                                        <input type="number"  name="selling_price" value="{{ old('selling_price') }}" class="form-control" required>
+                                                        <input type="number"  name="selling_price" value="{{ old('selling_price') }}" step="any" class="form-control" required>
                
                                                         </div>
                                                         <div class="col-sm-4">
@@ -131,7 +131,7 @@
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Mrp Price</label>
-                                                        <input type="number" name="MRP" value="{{ old('MRP') }}" class="form-control" required>
+                                                        <input type="number" name="MRP" value="{{ old('MRP') }}" step="any" class="form-control" required>
                
                                                         </div>
                                                     </div>
@@ -143,7 +143,14 @@
 
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item Variant Default</label>
-                                                        <input type="number" name="default" value="{{ old('default') }}" class="form-control" required>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="default" id="" placeholder="default" class="form-control selectric" required>
+                                                            <option value="">Select</option>
+                                                          
+                                                            <option value="1" {{ (old("default") == "1" ? "selected":"") }}>Yes</option>
+                                                            <option value="0" {{ (old("default") == "0" ? "selected":"") }}>No</option>
+                                                            
+
+                                                        </select>
                
                                                         </div>
 
@@ -186,9 +193,9 @@
                                 <div class="col-sm-12 col-md-7">
                                     <select name="item_id" id="" placeholder="Item" required class="form-control selectric" required>
                                         <option value="">Select</option>
-                                        @foreach($items as $item)
+                                        {{-- @foreach($items as $item)
                                             <option value="{{ $item['id'] }}" {{ (old("item_id") == $item['id'] ? "selected":"") }}>{{ $item['item_desc'] }}</option>
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                 </div>
                             </div>
@@ -197,7 +204,7 @@
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Variant Code</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <input type="text" name="variant_code" value="{{ old('variant_code') }}" class="form-control" required>
+                                    {{-- <input type="text" name="variant_code" value="{{ old('variant_code') }}" class="form-control" required> --}}
                                 </div>
                             </div>
 
@@ -230,9 +237,9 @@
                                 <div class="col-sm-12 col-md-7">
                                     <select name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
                                         <option value="">Select</option>
-                                        @foreach($statuses as $status)
+                                        {{-- @foreach($statuses as $status)
                                             <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                 </div>
                             </div> -->
