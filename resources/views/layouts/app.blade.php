@@ -12,6 +12,32 @@
     <![endif]-->
     <!-- Meta -->
 <style>
+
+
+
+.nav-link,.navbar-brand
+{
+color:#000!important;
+
+font-weight:bold!important;
+margin-right:30px!important;
+
+}
+
+.nav-item
+{
+
+margin-right:30px!important;
+
+}
+
+.navbar-toggler
+{
+color:#000!important;
+
+}
+
+
 .table-striped tbody tr:nth-of-type(2n+1) {
 
     background-color: white !important;
@@ -37,9 +63,9 @@ font-size: 12px !important;
 /* fileexport button changes */
 button.dt-button, div.dt-button, a.dt-button, button.dt-button:focus:not(.disabled), div.dt-button:focus:not(.disabled), a.dt-button:focus:not(.disabled), button.dt-button:active:not(.disabled), button.dt-button.active:not(.disabled), div.dt-button:active:not(.disabled), div.dt-button.active:not(.disabled), a.dt-button:active:not(.disabled), a.dt-button.active:not(.disabled) {
 
-    padding: 6px 20px 6px 20px !important;
-border-radius: 15px !important;
-margin-right: 12px !important;
+    /* padding: 6px 20px 6px 20px !important; */
+/* border-radius: 15px !important;
+margin-right: 12px !important; */
 
 }
 
@@ -55,11 +81,36 @@ button.dt-button, div.dt-button, a.dt-button, button.dt-button:focus:not(.disabl
 
     background-color: #01a9ac !important;
 border-color: #01a9ac !important;
-
+padding-top:5px!important; padding-bottom:5px!important;
 
 }
 
 
+a.dt-button
+
+{
+background-color: #01a9ac !important;
+border-color: #01a9ac !important;
+padding-top:0px!important; padding-bottom:5px!important;
+height:28px!important;
+
+}
+
+.dt-button span{
+    
+   position: relative;
+   top:-3px;
+    padding:0px!important;
+    margin:0px!important;
+}
+
+.buttons-csv span{
+    
+    position: relative;
+    top:-2px;
+     padding:0px!important;
+     margin:0px!important;
+ }
 
 
     .main-body .page-wrapper .page-header-title h4 {
@@ -82,9 +133,9 @@ display: none !important;
 /* pagination css */
 .btn-primary.disabled, .wizard > .actions a.disabled, .sweet-alert button.disabled.confirm {
 
-    background-color: #6777ef !important;
+    /* background-color: #6777ef !important;
                     border-color: #6777ef !important;
-                    border-radius:30px !important;
+                    border-radius:30px !important; */
 }
 /* nav bar margin top changed css */
 /* .pcoded-main-container {
@@ -109,24 +160,41 @@ color:black !important;
 
 
 
-.btn-blue,.select2-selection__choice,.waves-effect,.dt-buttons .dt-button
+.btn-blue,.select2-selection__choice,.waves-effect,.dt-buttons .dt-button,.btn-primary,.btn-primary.disabled
 {
-    box-shadow: 0 2px 6px #acb5f6!important;
-    background-color: #6777ef!important;
-    border-color: #6777ef!important;
-    border-radius: 30px!important;
+    /* box-shadow: 0 2px 6px #01A9AC!important; */
+    box-shadow: none!important;
+    background-color: #01A9AC!important;
+    /* border-color: #01A9AC!important; */
+    border-color:none!important;
+    border-radius: 25px!important;
     color:#fff!important;
     font-size:14px!important;
+    padding-top:5px!important; padding-bottom:5px!important;
 
+}
+
+i.fa{
+    box-shadow: 0 2px 4px #01a9ac!important;
+    background-color: #01a9ac!important;
+    border-color: #01a9ac!important;
+    border-radius: 50px!important;
+    /* padding: px!important; */
+    width:25px!important;
+    height:25px!important;
+    font-size:13px!important;
+    padding-top:2px!important;
+    color: #fff!important;
+    
 }
 
 .bg-blue
 {
-    box-shadow: 0 2px 6px #6777ef!important;
-    background-color: #6777ef!important;
-    border-color: #6777ef!important;
+    box-shadow: 0 2px 6px white!important;
+    background-color: white!important;
+    border-color: white!important;
     
-    color:#fff!important;
+    color:black!important;
 
 }
 
@@ -406,20 +474,20 @@ margin:0!important;
           
             
 
-            <div class="pcoded-main-container" style="margin-top:0px !important">
+            <div class="pcoded-main-container" style="margin-top:0px !important;padding-top:0px!important;">
                 
                 
                 {{-- Below Menu Code Reference -- https://bootsnipp.com/snippets/nNX3a --}}
 
 
-                <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-blue fixed-top" >
-                    <a class="navbar-brand" href="#">Ecommerce Admin</a>
+                <nav class="navbar navbar-icon-top navbar-expand-lg navbar-light bg-blue fixed-top" style="border:0px solid red!important;padding-top:0px!important;padding-bottom:0px!important;" >
+                    <a class="navbar-brand" href="#"><img src="{{  asset('files/assets/images/hridhamlogo.png') }}"/></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
                   
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav mr-auto">
+                      <ul class="navbar-nav mr-auto" >
                         <li class="nav-item {{ (request()->is('dashboard')) ? 'active' : '' }}">
                           <a class="nav-link" href="{{ url('dashboard') }}">
                             <i class="fa fa-home"></i>
@@ -648,7 +716,7 @@ margin:0!important;
                         <div class="pcoded-inner-content">
 
                             <!-- Main-body start -->
-                            <div class="main-body mt-4">
+                            <div class="main-body mt-0">
                                
                                 @yield('content')
 
