@@ -282,6 +282,8 @@ padding:0!important;
 margin:0!important;
 
 }
+
+
 </style>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -490,13 +492,13 @@ margin:0!important;
 
 
                 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-light bg-blue fixed-top" style="border:0px solid red!important;padding-top:0px!important;padding-bottom:0px!important;" >
-                    <a class="navbar-brand" href="#"><img src="{{  asset('files/assets/images/hridhamlogo.png') }}"/></a>
+                    <a class="navbar-brand ml-4" href="#"><img src="{{  asset('files/assets/images/hridhamlogo.png') }}"/></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
                   
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav mr-auto" >
+                      <ul class="navbar-nav mr-auto ml-auto mt-1" >
                         <li class="nav-item {{ (request()->is('dashboard')) ? 'active' : '' }}">
                           <a class="nav-link" href="{{ url('dashboard') }}">
                             <i class="fa fa-home" style="font-size:13px!important;"></i>
@@ -725,7 +727,7 @@ margin:0!important;
                         <div class="pcoded-inner-content">
 
                             <!-- Main-body start -->
-                            <div class="main-body mt-0">
+                            <div class="main-body mt-0 pt-2">
                                
                                 @yield('content')
 
