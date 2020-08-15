@@ -141,12 +141,14 @@
                                                     <div class="form-group row">
 
                                                     <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Variants</label>
-                                                        <select  class="js-example-basic-single col-sm-12"  name="variant_group_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                      
-                                        @foreach($statuses as $status)
-                                        <option value="{{ $status['id'] }}" {{ ($status['id'] == "2") ? "selected":(old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                            <!-- <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option> -->
+                                                        <label class="col-form-label text-md-right ">Variants Group</label>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="variant_group_id" id="" placeholder="variant_group_id" required class="form-control selectric" required>
+                                                        <option value="">Select</option>
+                                        @foreach($itemvariantgroup as $group)
+                                       
+                                        <option value="{{ $group['id'] }}" {{ (old("variant_group_id") == $group['id'] ? "selected":"") }}>{{ $group['item_group_desc'] }}</option>
+                                        
+                                        <!-- <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option> -->
                                         @endforeach
                                     </select>
                
