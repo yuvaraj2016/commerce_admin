@@ -206,11 +206,16 @@ i.fa{
 {
     box-shadow: 0 2px 6px black!important;
     background-color: black!important;
-    border-color: black!important;
+    border-color: rgb(235, 218, 218)!important;
     
     color:#fff!important;
 
 }
+
+.active .nav-link{
+    color:#fff!important;
+}
+
 .btn-blue:hover
 {
     color:#fff;
