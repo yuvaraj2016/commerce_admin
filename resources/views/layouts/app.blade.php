@@ -92,6 +92,7 @@ a.dt-button
 background-color: #01a9ac !important;
 border-color: #01a9ac !important;
 padding-top:0px!important; padding-bottom:5px!important;
+width:80px!important;
 height:28px!important;
 
 }
@@ -100,6 +101,7 @@ height:28px!important;
     
    position: relative;
    top:-3px;
+   left:10px;
     padding:0px!important;
     margin:0px!important;
 }
@@ -180,11 +182,13 @@ i.fa{
     border-color: #01a9ac!important;
     border-radius: 50px!important;
     /* padding: px!important; */
-    width:25px!important;
-    height:25px!important;
-    font-size:13px!important;
-    padding-top:2px!important;
+    width:30px!important;
+    height:30px!important;
+    font-size:12px!important;
+    padding-top:4px!important;
     color: #fff!important;
+    /* margin-left: 6px!important; */
+    text-align: center;
     
 }
 
@@ -490,14 +494,14 @@ margin:0!important;
                       <ul class="navbar-nav mr-auto" >
                         <li class="nav-item {{ (request()->is('dashboard')) ? 'active' : '' }}">
                           <a class="nav-link" href="{{ url('dashboard') }}">
-                            <i class="fa fa-home"></i>
+                            <i class="fa fa-home" style="font-size:13px!important;"></i>
                             Home
                             <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-address-card"></i>
+                                <i class="fa fa-address-card" style="margin-left:14px!important;"></i>
                               Catalogue
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -515,7 +519,7 @@ margin:0!important;
                     
                           <li class="nav-item {{ (request()->is('stock_master_list')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('stock_master.index') }}">
-                              <i class="fa fa-cubes">
+                              <i class="fa fa-cubes" style="padding-left:2px;">
                                
                               </i>
                               
@@ -542,7 +546,7 @@ margin:0!important;
                           </li>
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fa fa-users">
+                              <i class="fa fa-users" style="margin-left:4px!important;">
                               
                               </i>
                               Users
@@ -577,7 +581,7 @@ margin:0!important;
 
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fa fa-user">
+                              <i class="fa fa-user" style="margin-left:7px!important;">
                               
                               </i>
                               {{  ucfirst(session('username')) }}
