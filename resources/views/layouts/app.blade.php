@@ -536,6 +536,11 @@ font-size:16px!important;
                                 <a class="dropdown-item  {{ (request()->is('item_list')) ? 'active' : '' }}" href="{{ route('item.index') }}">Items</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item {{ (request()->is('item_variant_list')) ? 'active' : '' }}" href="{{ route('item_variant.index') }}">Item Variants</a>
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item {{ (request()->is('item_variant_group_list')) ? 'active' : '' }}" href="{{ route('item_variant_group.index') }}">Item Variants Group</a>
+
+
                                 <div class="dropdown-divider"></div>
                                 
                                <a class="dropdown-item  {{ (request()->is('product_cat_list')) ? 'active' : '' }}" href="{{ route('product_cat.index') }}">Product Category</a>
