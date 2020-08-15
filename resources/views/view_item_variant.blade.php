@@ -82,6 +82,23 @@
                                          
                                                     </div>
 
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Mrp Price</label>
+                                                        <input type="text"  value="{{ $itemvariant['MRP'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Selling Price</label>
+                                                        <input type="text"  value="{{ $itemvariant['selling_price'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+
+
+
+
                                                     <div class="form-group row">
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Item Variant Image</label>

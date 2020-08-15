@@ -118,6 +118,40 @@
                                                         </div>
 
                                                         <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">MRP Price</label>
+                                                        <input name="MRP" value="{{ old('MRP',$itemVariants['MRP']) }}" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+
+
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Selling Prince</label>
+                                                        <input name="selling_price" value="{{ old('selling_price',$itemVariants['selling_price']) }}" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+
+
+
+
+                                                         
+                                                       
+
+                                                    
+                   
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Item Variant Default</label>
+                                                        
+                                                        <input name="default" value="{{ old('default',$itemVariants['default']) }}" class="summernote-simple form-control" required>
+                                                        </div>
+
+                                                <div class="col-sm-4">
+
+                                               
+
 <label class="col-form-label text-md-right ">Status</label>
 <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
 <option value="">Select</option>
@@ -131,20 +165,21 @@
 </div>
 
 
-                                                      
-                                                       
+<div class="col-sm-4">
+<label class="col-form-label text-md-right ">Item Variant Group</label>
+<select  class="js-example-basic-single col-sm-12" name="variant_group_id" id="" placeholder="variant_group_id" required class="form-control selectric" required>
+<option value="">Select</option>
+@foreach($itemvariantgroup as $variantgroup)
 
-                                                    
-                   
+<option value="{{ $variantgroup['id'] }}" {{ ($itemVariants['variant_group_id'] == $variantgroup['id']) ? "selected":(old("variant_group_id") == $variantgroup['id'] ? "selected":"") }}>{{ $variantgroup['item_group_desc'] }}</option>
+@endforeach
+
+</select>
+
+</div>
+
+
                                                 </div>
-
-
-
-
-
-
-
-
 
 
                    
@@ -155,46 +190,6 @@
                                                    
                                                   
 
-<!-- 
-                            <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="category_short_code">Category Short Code</label>
-                                <div class="col-sm-12 col-md-7">
-                                    {{-- <input type="text" id="category_short_code" name="category_short_code" value="{{ old('category_short_code') }}" class="form-control" required> --}}
-                                </div>
-                            </div>
-                            <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category Desc</label>
-                                <div class="col-sm-12 col-md-7">
-                                    {{-- <textarea name="category_desc" class="summernote-simple form-control" required>{{ old('category_desc') }}</textarea> --}}
-                                </div>
-                            </div>
-                            <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category Image
-                                    Picture</label>
-                                <div class="col-sm-12 col-md-7">
-
-                                        <div class="gallery"></div>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file[]" id="file">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-
-                                          </div>
-
-                                </div>
-
-
-                            </div>
-                            <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status</label>
-                                <div class="col-sm-12 col-md-7">
-                                    <select name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        <option value="">Select</option>
-                                        {{-- @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach --}}
-                                    </select>
-                                </div>
-                            </div> -->
                             
 
                             <div class="form-group row mb-4">

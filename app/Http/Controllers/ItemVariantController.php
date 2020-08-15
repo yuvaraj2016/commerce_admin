@@ -153,6 +153,11 @@ class ItemVariantController extends Controller
                 'name' => 'variant_group_id',
                 'contents' => $request->variant_group_id
             ],
+
+            [
+                'name' => 'default',
+                'contents' => $request->default
+            ],
             [
                 'name' => 'status_id',
                 'contents' => $request->status_id
@@ -174,7 +179,7 @@ class ItemVariantController extends Controller
                 "MRP"=>$request->MRP,
                 "selling_price"=>$request->selling_price,
                 "variant_group_id"=>$request->variant_group_id,
-
+                "default"=>$request->default,
                 "status_id"=>$request->status_id
 
 
@@ -250,6 +255,20 @@ class ItemVariantController extends Controller
          $item = $response['data'];
 
 
+         try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/itemVariantGroup');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $itemvariantgroup = $response['data'];
+
+
 
         try{
 
@@ -272,7 +291,7 @@ class ItemVariantController extends Controller
             $itemVariants= $response->json()['data'];
            //  return $itemVariants['id'];
             return view('edit_item_variant', compact(
-                'item','statuses','itemVariants'
+                'item','statuses','itemVariants','itemvariantgroup'
             ));
         }
 
@@ -290,7 +309,7 @@ class ItemVariantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
 
 
 
@@ -302,9 +321,14 @@ class ItemVariantController extends Controller
         [
             "_method"=> 'PUT',
             "item_id"=>$request->item_id,
-            "variant_code"=>$request->variant_code,
-            "variant_desc"=>$request->variant_desc,
-            "status_id"=>$request->status_id
+                "variant_code"=>$request->variant_code,
+                "variant_desc"=>$request->variant_desc,
+
+                "MRP"=>$request->MRP,
+                "selling_price"=>$request->selling_price,
+                "variant_group_id"=>$request->variant_group_id,
+"default"=>$request->default,
+                "status_id"=>$request->status_id
             
         ]
         

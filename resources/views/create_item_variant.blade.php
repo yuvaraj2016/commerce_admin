@@ -140,6 +140,18 @@
 
                                                     <div class="form-group row">
 
+
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Item Variant Default</label>
+                                                        <input type="number" name="default" value="{{ old('default') }}" class="form-control" required>
+               
+                                                        </div>
+
+
+
+
+
+
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Variants Group</label>
                                                         <select  class="js-example-basic-single col-sm-12"  name="variant_group_id" id="" placeholder="variant_group_id" required class="form-control selectric" required>
