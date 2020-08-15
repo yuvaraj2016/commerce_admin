@@ -60,6 +60,17 @@ Route::resource('item_variants', 'ItemVariantController')->except('index')->midd
 
 Route::get('item_variant_list/{page?}','ItemVariantController@index')->name('item_variant.index')->middleware('checktoken');
 
+
+
+Route::resource('item_variants_group', 'ItemVariantgroupController')->except('index')->middleware('checktoken');
+
+Route::get('item_variant_group_list/{page?}','ItemVariantgroupController@index')->name('item_variant_group.index')->middleware('checktoken');
+
+
+
+
+
+
 Route::resource('stock_masters', 'StockMasterController')->except('index')->middleware('checktoken');
 
 Route::get('stock_master_list/{page?}','StockMasterController@index')->name('stock_master.index')->middleware('checktoken');
