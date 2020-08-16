@@ -44,7 +44,7 @@ color:#000!important;
 }
 body {
     font-family: Lato Bold !important;
-    font-size: 14px !important;
+    font-size: 15px !important;
     font-weight: bold!important;
 }
 
@@ -126,8 +126,42 @@ padding:1px !important;
 margin-left: -13px!important;
 }
 .font1{
-    font-size: 13px !important;
+    font-size: 16px !important;
+   
+    background-color: #01a9ac !important;
+    /* display: block; */
+    border:none !important;
+   
+     border-radius:5px;
+
+     /* border-radius: 25px; */
+ 
+  padding: 7px;
+  padding-top:5px!important;
+  /* padding-bottom:3px!important; */
+  width: 15px;
+  height: 15px;
+   margin-right:15px!important;
+     /* width:30px!important; */
+     
 }
+
+.font1 i.fa{
+    font-size: 16px !important;
+    /* margin-top:9px!important; */
+    color:#fff!important;
+   
+}
+
+.job-delete i.fa{
+    
+    margin-top:-9px!important;
+    
+   
+}
+
+
+
 div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 
 display: none !important;
@@ -176,7 +210,7 @@ color:black !important;
 
 }
 
-i.fa{
+.navbar i.fa{
     box-shadow: 0 2px 4px #01a9ac!important;
     background-color: #01a9ac!important;
     border-color: #01a9ac!important;
@@ -282,6 +316,7 @@ i.fa{
 .pcoded #styleSelector {
 
 display: none !important;
+}
 
 a.nav-link,a.dropdown-item,.btn-primary
 {
@@ -302,6 +337,12 @@ margin:0!important;
 {
 
 font-size:16px!important;
+
+}
+
+.dataTable th, td, #basic-btn_filter label
+{
+    font-size:15px!important;
 
 }
 

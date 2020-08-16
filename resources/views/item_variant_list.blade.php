@@ -185,21 +185,21 @@
                                         {{-- <td>{{ date("Y-m-d H:i:s",$item_variant['created_at']) }}</td> --}}
                                         <td>
             <div class="d-flex">
-            <ul class="list-group">
-  <li class="list-group-item border1"><a href="{{ url('item_variants/'.$id) }}"
-                        class=" d-inline btn btn-link font1"><i
-                            class="icofont icofont-eye"></i>View&nbsp;&nbsp;</a>&nbsp;&nbsp;</li>
-  <li class="list-group-item border1"><a href="{{url('item_variants/'.$id.'/edit') }}"
-                        class=" d-inline text-center btn btn-link font1" ><i
-                            class="icofont icofont-ui-edit" ></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;</li>
-  <li class="list-group-item border1"> <form
+            <ul class="list-inline ml-5">
+  <li class=" border1"><a href="{{ url('item_variants/'.$id) }}"
+                        class="font1 d-inline" data-toggle="tooltip" data-placement="top" title="View"><i
+                            class="fa fa-eye"></i></a></li>
+  <li class=" border1"><a href="{{url('item_variants/'.$id.'/edit') }}"
+    class="font1  d-inline" data-toggle="tooltip" data-placement="top" title="Edit"><i
+                            class="fa fa-edit" style="position: relative;left:2px!important;"></i></a></li>
+  <li class="border1"> <form
                     action="{{ route('item_variants.destroy',$id) }}"
                     method="POST">
                     @method('DELETE')
                     @csrf
-                    <button type="submit"
-                        class=" job-delete d-inline btn btn-link font1" > <i
-                            class="icofont icofont-trash"></i>Delete</button>
+                    <button type="submit" style="position: relative;top:5px!important; padding-top:7px!important;padding-bottom:8px!important;"
+                        class=" job-delete font1 d-inline" data-toggle="tooltip" data-placement="top" title="Delete" > <i
+                            class="fa fa-trash" style="position: relative;top:-4px!important;"></i></button>
                 </form></li>
 
 </ul>
