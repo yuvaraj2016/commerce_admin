@@ -128,7 +128,7 @@ margin-left: -13px!important;
 .font1{
     font-size: 16px !important;
    
-    background-color: #01a9ac !important;
+    /* background-color: #01a9ac !important; */
     /* display: block; */
     border:none !important;
    
@@ -147,16 +147,16 @@ margin-left: -13px!important;
 }
 
 .font1 i.fa{
-    font-size: 16px !important;
+    font-size: 18px !important;
     /* margin-top:9px!important; */
-    color:#fff!important;
+    color:#01a9ac!important;
    
 }
 
 .job-delete i.fa{
     
     margin-top:-9px!important;
-    
+   background:none!important; 
    
 }
 
@@ -570,7 +570,7 @@ font-size:16px!important;
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-address-card" style="margin-left:17px!important;"></i>
+                                <i class="fa fa-address-card" style="margin-left:25px!important;"></i>
                               Catalogue
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -620,7 +620,7 @@ font-size:16px!important;
                           </li>
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fa fa-users" style="margin-left:4px!important;">
+                              <i class="fa fa-users" style="margin-left:11px!important;">
                               
                               </i>
                               Users
@@ -655,7 +655,7 @@ font-size:16px!important;
 
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fa fa-user" style="margin-left:7px!important;">
+                              <i class="fa fa-user" style="margin-left:14px!important;">
                               
                               </i>
                               {{  ucfirst(session('username')) }}

@@ -168,7 +168,7 @@
                                                                     <tr>
                                                                     <th>Permission Name</th>
                                                                     <th>Created At</th>
-                                                                    <th>Actions</th>
+                                                                    {{-- <th>Actions</th> --}}
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -188,7 +188,7 @@
                                    
 
                                         <td>{{ date("Y-m-d H:i:s",$permission['created_at']) }}</td>
-                                        <td>
+                                        {{-- <td>
             <div class="d-flex">
             <ul class="list-group">
   <li class="list-group-item border1"><a href="{{  url('permissions/'.$id) }}"
@@ -210,7 +210,7 @@
 </ul>
 
             </div>
-        </td>
+        </td> --}}
     </tr>
 
     

@@ -188,21 +188,21 @@
                                         <td>{{ date("Y-m-d H:i:s",$item['created_at']) }}</td>
                                         <td>
             <div class="d-flex">
-            <ul class="list-group">
+            <ul class="list-inline ml-1">
   <li class="list-group-item border1"><a href="{{ url('items/'.$id) }}"
-                        class=" d-inline btn btn-link font1"><i
-                            class="icofont icofont-eye"></i>View&nbsp;&nbsp;</a>&nbsp;&nbsp;</li>
+                        class=" d-inline font1"  data-toggle="tooltip" data-placement="top" title="View"><i
+                            class="fa fa-eye"></i></a>&nbsp;&nbsp;</li>
   <li class="list-group-item border1"><a href="{{ url('items/'.$id.'/edit') }}"
-                        class=" d-inline text-center btn btn-link font1" ><i
-                            class="icofont icofont-ui-edit" ></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;</li>
+                        class=" d-inline text-center font1"  data-toggle="tooltip" data-placement="top" title="Edit"><i
+                            class="fa fa-edit" ></i></a>&nbsp;&nbsp;</li>
   <li class="list-group-item border1"> <form
                     action="{{ route('items.destroy',$id) }}"
                     method="POST">
                     @method('DELETE')
                     @csrf
-                    <button type="submit"
-                        class=" job-delete d-inline btn btn-link font1" > <i
-                            class="icofont icofont-trash"></i>Delete</button>
+                    <button type="submit" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:7px!important;padding-bottom:8px!important;"
+                        class=" job-delete d-inline font1"  data-toggle="tooltip" data-placement="top" title="Delete"> <i
+                            class="fa fa-trash"></i></button>
                 </form></li>
 
 </ul>

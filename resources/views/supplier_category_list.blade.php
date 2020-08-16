@@ -180,14 +180,16 @@
                                         <td>{{ date("Y-m-d H:i:s",$suppliercategory['created_at']) }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <ul class="list-group">
-                                                    <li class="list-group-item border1"><a href="{{ url('supplier_categories/'.$id) }}" class=" d-inline btn btn-link font1"><i class="icofont icofont-eye"></i>View&nbsp;&nbsp;</a>&nbsp;&nbsp;</li>
-                                                    <li class="list-group-item border1"><a href="{{ url('supplier_categories/'.$id.'/edit') }}" class=" d-inline text-center btn btn-link font1"><i class="icofont icofont-ui-edit"></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;</li>
+                                                <ul class="list-group list-inline ml-1">
+                                                    <li class="list-group-item border1"><a href="{{ url('supplier_categories/'.$id) }}" class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-eye"></i></a></li>
+                                                    <li class="list-group-item border1"><a href="{{ url('supplier_categories/'.$id.'/edit') }}" class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a></li>
                                                     <li class="list-group-item border1">
                                                         <form action="{{  route('supplier_categories.destroy',$id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button type="submit" class=" job-delete d-inline btn btn-link font1"> <i class="icofont icofont-trash"></i>Delete</button>
+                                                            <button type="submit" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:3px!important;padding-bottom:8px!important;"
+                    class=" job-delete d-inline font1" data-toggle="tooltip" data-placement="top" title="Delete" > <i
+                        class="fa fa-trash" style="position: relative;top:-5;"></i></button>
                                                         </form>
                                                     </li>
 

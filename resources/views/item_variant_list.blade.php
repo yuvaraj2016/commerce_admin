@@ -185,7 +185,7 @@
                                         {{-- <td>{{ date("Y-m-d H:i:s",$item_variant['created_at']) }}</td> --}}
                                         <td>
             <div class="d-flex">
-            <ul class="list-inline ml-5">
+            <ul class="list-inline ml-1">
   <li class=" border1"><a href="{{ url('item_variants/'.$id) }}"
                         class="font1 d-inline" data-toggle="tooltip" data-placement="top" title="View"><i
                             class="fa fa-eye"></i></a></li>
@@ -197,7 +197,7 @@
                     method="POST">
                     @method('DELETE')
                     @csrf
-                    <button type="submit" style="position: relative;top:5px!important; padding-top:7px!important;padding-bottom:8px!important;"
+                    <button type="submit" style="background-color:#fff!important;position: relative;top:3px!important; padding-top:7px!important;padding-bottom:8px!important;"
                         class=" job-delete font1 d-inline" data-toggle="tooltip" data-placement="top" title="Delete" > <i
                             class="fa fa-trash" style="position: relative;top:-4px!important;"></i></button>
                 </form></li>
