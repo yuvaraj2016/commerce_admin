@@ -226,7 +226,7 @@
                                 <div class="col-sm-12 col-md-7 offset-5">
                                     <button type="submit" class="btn btn-blue">Update</button>
                                     <a href="{{ url('role_list') }}"
-                                    class=" d-inline text-center btn btn-black font1 back" ><i
+                                    class=" d-inline text-center btn btn-blue font1 back" ><i
                                         class="icofont icofont-arrow-left" ></i>Back&nbsp;&nbsp;</a>
                                 </div>
                             </div>
