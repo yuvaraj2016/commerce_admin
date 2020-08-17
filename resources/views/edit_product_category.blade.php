@@ -167,7 +167,7 @@
                                                 <div class="form-group row">
                                                         <div class="col-sm-4 offset-1">
                                                             <label class="col-form-label text-md-right ">Click below to edit images</label><br>
-                                                            <a href="{{ url('product_categories/'.$prodcategory['id'].'/edit/assets') }}" class="btn btn-blue font1">Edit Image</a>
+                                                            <a href="{{ url('product_categories/'.$prodcategory['id'].'/edit/assets') }}" class="btn btn-blue">Edit Image</a>
                                                         </div>
 
 
@@ -236,9 +236,9 @@
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right "></label>
                                 <div class="col-sm-12 col-md-7 offset-5">
-                                    <button type="submit" class="btn btn-blue font1">Update </button>
+                                    <button type="submit" class="btn btn-blue">Update </button>
                                     <a href="{{ url('product_cat_list') }}"
-                                    class=" d-inline text-center btn btn-black font1 back" ><i
+                                    class=" d-inline text-center btn btn-blue back" ><i
                                         class="icofont icofont-arrow-left" ></i>Back&nbsp;&nbsp;</a>
                                 </div>
                             </div>
