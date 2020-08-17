@@ -163,7 +163,8 @@ class VendorController extends Controller
         }
 
         if($response->status()==201){
-            return redirect()->route('vendors.create')->with('success','Vendor Created Successfully!');
+            // return redirect()->route('vendors.create')->with('success','Vendor Created Successfully!');
+            return redirect()->back()->with('success','Vendor Created Successfully!');
         }else{
             $request->flash();
 

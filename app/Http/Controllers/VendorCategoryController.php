@@ -81,6 +81,7 @@ class VendorCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        // echo "trer";exit;
         $session = session()->get('token');
 
 
@@ -100,7 +101,8 @@ class VendorCategoryController extends Controller
 
         if($response->status()===201){
 
-            return redirect()->route('vendor_categories.create')->with('success','Vendor Category Created Successfully!');
+            // return redirect()->route('vendor_categories.create')->with('success','Vendor Category Created Successfully!');
+            return redirect()->back()->with('success','Vendor Category Created Successfully!');
         }else{
 
             $request->flash();

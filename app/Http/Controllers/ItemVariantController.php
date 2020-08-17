@@ -80,9 +80,31 @@ class ItemVariantController extends Controller
          $itemvariantgroup = $iresponse['data'];
 
 
+         try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/vendors');
+
+            $vresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
 
 
+        }
+         $vendors = $vresponse['data'];
 
+         try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodSubCat');
+
+            $scresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $subcategories = $scresponse['data'];
 
        try{
 
@@ -100,7 +122,7 @@ class ItemVariantController extends Controller
 
             return view(
                 'create_item_variant', compact(
-                    'items','statuses','itemvariantgroup'
+                    'items','statuses','itemvariantgroup','vendors','subcategories'
                 )
         );
     }
