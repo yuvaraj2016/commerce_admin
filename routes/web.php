@@ -116,6 +116,11 @@ Route::get('permission_list/{page?}','PermissionController@index')->name('permis
 
 
 
+Route::resource('settings', 'SettingsController')->except('index')->middleware('checktoken');
+
+
+
+
 Route::post('assets/storeimage/{module}/{id}', 'AssetsController@store')->name('assets.storeimage')->middleware('checktoken');
 
 Route::resource('assets', 'AssetsController')->except('store')->middleware('checktoken');

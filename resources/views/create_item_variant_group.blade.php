@@ -104,8 +104,17 @@
 
                                                     <div class="form-group row">
                                                     <div class="col-sm-3">
-                                                        <label class="col-form-label text-md-right ">default</label>
-                                                        <input type="text" name="default" value="{{ old('default') }}" class="form-control" required>
+                                                        <label class="col-form-label text-md-right ">Default</label>
+                                                        {{-- <input type="text" name="default" value="{{ old('default') }}" class="form-control" required> --}}
+
+                                                        <select  class="js-example-basic-single col-sm-12"  name="default" id="" placeholder="default" class="form-control selectric" required>
+                                                            <option value="">Select</option>
+                                                          
+                                                            <option value="1" {{ (old("default") == "1" ? "selected":"") }}>Yes</option>
+                                                            <option value="0" {{ (old("default") == "0" ? "selected":"") }}>No</option>
+                                                            
+
+                                                        </select>
                                           
                                                         </div>
                                                        

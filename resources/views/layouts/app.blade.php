@@ -236,13 +236,36 @@ color:black !important;
 
 }
 
+.nav-tabs .active
+{
+    /* box-shadow: 0 2px 4px #01a9ac!important; */
+    background-color: #01a9ac!important;
+    border-color: #01a9ac!important;
+    /* border-bottom-color: white!important; */
+    -webkit-box-shadow: none!important;
+	-moz-box-shadow: none!important;
+    box-shadow: none!important;
+    color:#fff!important;
+}
+
 .active
 {
-    box-shadow: 0 2px 6px #01a9ac!important;
-    /* background-color:#ccc!important; */
-    /* border-color: rgb(235, 218, 218)!important; */
+    /* box-shadow: 0 2px 6px #01a9ac!important;
+   
     
-    color:#fff!important;
+    color:#fff!important; */
+
+}
+
+
+.tab-content .tab-pane .active .show
+{
+    -moz-box-shadow: 0px 5px 200px #00C0FF!important;
+    -webkit-box-shadow: 0px 5px 200px #00C0FF!important;
+    box-shadow: 0px 5px 200px #00C0FF!important;
+    border: 2px solid #01a9ac!important;
+    color:black!important;
+    /* border-color: #000!important; */
 
 }
 
@@ -649,7 +672,9 @@ font-size:16px!important;
                               <a class="dropdown-item {{ (request()->is('vendor_cat_list')) ? 'active' : '' }}" href="{{ route('vendor_cat.index') }}">Vendor Category</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item {{ (request()->is('status_list')) ? 'active' : '' }}" href="{{ route('status.index') }}">Status</a>
-                            
+                              {{-- <div class="dropdown-divider"></div>
+                              <a class="dropdown-item {{ (request()->is('settings/create')) ? 'active' : '' }}" href="{{ route('settings.create') }}">Settings</a>
+                             --}}
                             </div>
                           </li>
 
@@ -668,6 +693,7 @@ font-size:16px!important;
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item {{ (request()->is('status_list')) ? 'active' : '' }}" href="{{ route('status.index') }}">Logout</a>
                             
+                              
                             </div>
                           </li>
                  
