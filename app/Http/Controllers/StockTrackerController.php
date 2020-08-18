@@ -12,9 +12,34 @@ class StockTrackerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request,$page = 1)
     {
         //
+
+           //  echo $page;
+
+           $token = session()->get('token');
+           try{
+   
+               $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/stockTracker?page='.$page);
+   
+               $response = json_decode($call->getBody()->getContents(), true);
+               //  return $response;
+           }catch (\Exception $e){
+               //buy a beer
+   
+   
+           }
+            $stocktracker = $response['data'];
+            $pagination = $response['meta']['pagination'];
+   
+             $lastpage = $pagination['total_pages'];
+   
+               return view(
+                   'stock_tracker_list', compact(
+                       'stocktracker', 'pagination','lastpage'
+                   )
+           );
     }
 
     /**

@@ -52,7 +52,7 @@
                             </a>
                         </li>
                       
-                        <li class="breadcrumb-item"><a href="{{ route('stock_master.index') }}">Stock Tracker List</a>
+                        <li class="breadcrumb-item"><a href="{{ route('stock_tracker.index') }}">Stock Tracker List</a>
                         </li>
                        
                     </ul>
@@ -83,9 +83,9 @@
                                                     <div class="card-header table-card-header">
                                                     <div class="row">
                                                     <div class="section-header-button col-md-4" >
-                    <a href="{{ route('stock_masters.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
+                    <!-- <a href="{{ route('stock_masters.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
                     background-color: #6777ef;
-                    border-color: #6777ef;border-radius:30px">Add New</a>
+                    border-color: #6777ef;border-radius:30px">Add New</a> -->
                 </div>
                 <div class="section-header-button col-md-5" >
                   
@@ -93,7 +93,7 @@
                 <div class="section-header-button col-md-3 " >
                 <div class="col" >
                 <ul id="pagination" class="float-right m-0 p-0">
-                        <li><a href="{{ route('stock_master.index',$page=1) }}" class="btn btn-primary @if($pagination['current_page']==1) {{ "disabled" }} @endif">First</a></li>
+                        <li><a href="{{ route('stock_tracker.index',$page=1) }}" class="btn btn-primary @if($pagination['current_page']==1) {{ "disabled" }} @endif">First</a></li>
                         @php
                         if(isset($pagination['links']['previous']))
                         {
@@ -102,7 +102,7 @@
                                 $page = $endurl[1];
 
                         @endphp
-                        <li><a href="{{ route('stock_master.index',$page) }}" class="btn btn-primary">Previous</a></li>
+                        <li><a href="{{ route('stock_tracker.index',$page) }}" class="btn btn-primary">Previous</a></li>
                         @php
                             }
                         @endphp
@@ -117,7 +117,7 @@
                                 $page = $endurl[1];
                                 // echo
                         @endphp
-                        <li> <a href="{{ route('stock_master.index',$page) }}" class="btn btn-primary">Next</a></li>
+                        <li> <a href="{{ route('stock_tracker.index',$page) }}" class="btn btn-primary">Next</a></li>
                         @php
                             }
 
@@ -127,7 +127,7 @@
                         if($pagination['total_pages']>1)
                         {
                         @endphp
-                        <li> <a href="{{ route('stock_master.index',$pagination['total_pages']) }}" class="btn btn-primary float-right">Last</a> </li>
+                        <li> <a href="{{ route('stock_tracker.index',$pagination['total_pages']) }}" class="btn btn-primary float-right">Last</a> </li>
 
                         @php
                         }
@@ -149,64 +149,60 @@
                                                                     <tr>
                                                                     <th>Item Desc</th>
                                     <th>Variant Desc</th>
-                                    <th>Vendor Name</th>
+                                    <th>Supplier Name</th>
+                                    <th>Purchase Order Ref</th>
+                                    <th>Purchase Order Date</th>
+                                    <th>Purchase Price</th>
                                     <th>Stock Quantity</th>
-                                    <th>Stock Threshold</th>
+                                    <th>Comments</th>
                                     <th>Status</th>
                                     <th>Created At</th>
-                                    <th>Actions</th>
+                                    <!-- <th>Actions</th> -->
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                 {{-- @dd($prodcategories) --}}
-                                @foreach($stockmasters as $stockmaster )
-                                    @php
-                                        $id=$stockmaster['id'];
-                                    @endphp
+                                @foreach($stocktracker as $stocktracke )
+                                 
 
                                     <tr>
                                         <td><span class="text-center justify-content-center"
-                                            style="padding-top:10px;">{{ $stockmaster['item_desc'] }}</span>
+                                            style="padding-top:10px;">{{ $stocktracke['item_desc'] }}</span>
 
                                         </td>
                                         <td><span class="text-center justify-content-center"
-                                                style="padding-top:10px;">{{ $stockmaster['variant_desc'] }}</span>
+                                                style="padding-top:10px;">{{ $stocktracke['variant_desc'] }}</span>
 
                                         </td>
                                         <td><span class="text-center justify-content-center"
-                                            style="padding-top:10px;">{{ $stockmaster['vendor_name'] }}</span>
+                                            style="padding-top:10px;">{{ $stocktracke['supplier_name'] }}</span>
 
                                         </td>
 
-                                        <td>{{ $stockmaster['stock_quantity'] }}</td>
+                                        <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $stocktracke['purchase_order_ref'] }}</span>
 
-                                        <td>{{ $stockmaster['stock_threshold'] }}</td>
+                                        </td>
+                                        <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $stocktracke['purchase_order_date'] }}</span>
 
-                                        <td>{{ $stockmaster['status_desc'] }}</td>
+                                        </td>
+                                        <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $stocktracke['purchase_price'] }}</span>
 
-                                        <td>{{ date("Y-m-d H:i:s",$stockmaster['created_at']) }}</td>
+                                        </td>
+
+
+
+                                        <td>{{ $stocktracke['stock_quantity'] }}</td>
+
+                                        <td>{{ $stocktracke['comments'] }}</td>
+
+                                        <td>{{ $stocktracke['status_desc'] }}</td>
+
+                                        <td>{{ date("Y-m-d H:i:s",$stocktracke['created_at']) }}</td>
                                         <td>
-            <div class="d-flex">
-            <ul class="list-group list-inline ml-1">
-  <li class="list-group-item border1"><a href="{{ url('stock_masters/'.$id)  }}"
-                        class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="View"><i
-                            class="fa fa-eye"></i></a></li>
-  <li class="list-group-item border1"><a href="{{url('stock_masters/'.$id.'/edit') }}"
-                        class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Edit" ><i
-                            class="fa fa-edit" ></i></a></li>
-  <li class="list-group-item border1"> <form
-                    action="{{route('stock_masters.destroy',$id) }}"
-                    method="POST">
-                    @method('DELETE')
-                    @csrf
-                    <button type="submit" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:3px!important;padding-bottom:8px!important;"
-                    class=" job-delete d-inline font1" data-toggle="tooltip" data-placement="top" title="Delete" > <i
-                        class="fa fa-trash" style="position: relative;top:-5;"></i></button>
-                </form></li>
-
-</ul>
-
-             </div>
+           
         </td>
     </tr>
 
@@ -252,177 +248,7 @@
 
 
 
-<!-- 
-    <div class="row">
-        <div class="col-12">
-        @if(session('success') !== null)
-        <div class='alert alert-success'>
-            {{ session('success') }}
-        </div>
-    @endif
-    @if(session('error') !== null)
-        {{-- @echo "hai" --}}
-        @foreach(session('error') as $k =>$v)
-            <div class='alert alert-danger'>
-                {{ $v[0] }}
-            </div>
-        @endforeach
-    @endif
-        <div class="section-header-button">
-                    <a href="{{ route('stock_masters.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
-                    background-color: #6777ef;
-                    border-color: #6777ef;">Add New</a>
-                </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="container-fluid m-2">
-                    <div class="row">
-                        <div class="col">
-                             <h4>Stock Master List</h4>
-                        </div>
 
-                    <div class="col">
-                        <ul id="pagination" class="float-right m-0 p-0">
-                        <li><a href="{{ route('stock_master.index',$page=1) }}" class="btn btn-primary @if($pagination['current_page']==1) {{ "disabled" }} @endif">First</a></li>
-                        @php
-                        if(isset($pagination['links']['previous']))
-                        {
-                                # code...
-                                $endurl = explode("?page=",$pagination['links']['previous']);
-                                $page = $endurl[1];
-
-                        @endphp
-                        <li><a href="{{ route('stock_master.index',$page) }}" class="btn btn-primary">Previous</a></li>
-                        @php
-                            }
-                        @endphp
-
-
-
-
-                        @php
-                           if(isset($pagination['links']['next']))
-                            {
-                                $endurl = explode("?page=",$pagination['links']['next']);
-                                $page = $endurl[1];
-                                // echo
-                        @endphp
-                        <li> <a href="{{ route('stock_master.index',$page) }}" class="btn btn-primary">Next</a></li>
-                        @php
-                            }
-
-                        @endphp
-
-                        @php
-                        if($pagination['total_pages']>1)
-                        {
-                        @endphp
-                        <li> <a href="{{ route('stock_master.index',$pagination['total_pages']) }}" class="btn btn-primary float-right">Last</a> </li>
-
-                        @php
-                        }
-
-                        @endphp
-
-                    </ul>
-
-                       {{-- <a href="{{ route('product_categories.create') }}" class="btn btn-primary float-right">Add New</a> --}}
-
-                    </div>
-
-                    </div>
-                    </div>
-
-                </div>
-
-
-                <div class="card-body">
-
-                    <div class="table-responsive">
-                        <table class="table table-striped" id="table-1">
-                            <thead>
-                                <tr>
-                                    <th>Item Desc</th>
-                                    <th>Variant Desc</th>
-                                    <th>Vendor Name</th>
-                                    <th>Stock Quantity</th>
-                                    <th>Stock Threshold</th>
-                                    <th>Status</th>
-                                    <th>Created At</th>
-                                    <th>Actions</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                {{-- @dd($prodcategories) --}}
-                                @foreach($stockmasters as $stockmaster )
-                                    @php
-                                        $id=$stockmaster['id'];
-                                    @endphp
-
-                                    <tr>
-                                        <td><span class="text-center justify-content-center"
-                                            style="padding-top:10px;">{{ $stockmaster['item_desc'] }}</span>
-
-                                        </td>
-                                        <td><span class="text-center justify-content-center"
-                                                style="padding-top:10px;">{{ $stockmaster['variant_desc'] }}</span>
-
-                                        </td>
-                                        <td><span class="text-center justify-content-center"
-                                            style="padding-top:10px;">{{ $stockmaster['vendor_name'] }}</span>
-
-                                        </td>
-
-                                        <td>{{ $stockmaster['stock_quantity'] }}</td>
-
-                                        <td>{{ $stockmaster['stock_threshold'] }}</td>
-
-                                        <td>{{ $stockmaster['status_desc'] }}</td>
-
-                                        <td>{{ date("Y-m-d H:i:s",$stockmaster['created_at']) }}</td>
-                                        <td>
-                                            <div class="d-flex">
-
-                                                <a href="{{ url('stock_masters/'.$id) }}"
-                                                    class="btn btn-success d-inline" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
-                                                        background-color: #6777ef;
-                                                        border-color: #6777ef;"><i
-                                                        class="icofont icofont-eye"></i>View&nbsp;&nbsp;</a>&nbsp;&nbsp;
-
-                                                <a href="{{ url('stock_masters/'.$id.'/edit') }}"
-                                                    class="btn btn-info d-inline text-center" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
-                                                        background-color: #6777ef;
-                                                        border-color: #6777ef;"><i
-                                                        class="icofont icofont-ui-edit"></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;
-                                                {{-- <meta name="csrf-token" content="{{ csrf_token() }}">
-                                                <a href="{{ action('AlbumController@destroy', $id) }}"
-                                                    class="job-delete badge badge-danger d-inline"><i
-                                                        class="fas fa-trash"></i>Deletes</a> --}}
-
-                                                <form
-                                                    action="{{ route('stock_masters.destroy',$id) }}"
-                                                    method="POST">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                    <button type="submit"
-                                                        class="btn btn-danger job-delete d-inline" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
-                                                            background-color: #6777ef;
-                                                            border-color: #6777ef;"> <i
-                                                            class="icofont icofont-trash"></i>Delete</button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
     </div>
 </div>
 
