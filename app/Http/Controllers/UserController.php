@@ -118,11 +118,22 @@ class UserController extends Controller
         }
          $roles = $response['data'];
 
+         try{
 
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/permissions?limit=1000');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $permissions = $response['data'];
 
          return view(
                 'create_user', compact(
-                    'roles'
+                    'roles','permissions'
                 )
         );
     }

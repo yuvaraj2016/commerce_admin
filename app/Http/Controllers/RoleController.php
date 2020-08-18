@@ -97,7 +97,8 @@ class RoleController extends Controller
 
         if($response->status()===201){
 
-            return redirect()->route('roles.create')->with('success','Role Created Successfully!');
+            // return redirect()->route('roles.create')->with('success','Role Created Successfully!');
+            return redirect()->back()->with('success','Role Created Successfully!');
         }else{
             // var_dump($response);exit;
           // return dd($response->json());
