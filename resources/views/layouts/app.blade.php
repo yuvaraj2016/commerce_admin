@@ -614,7 +614,7 @@ font-size:16px!important;
                             </div>
                           </li>
                     
-                          <li class="nav-item {{ (request()->is('stock_master_list')) ? 'active' : '' }}">
+                          {{-- <li class="nav-item {{ (request()->is('stock_master_list')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('stock_master.index') }}">
                               <i class="fa fa-cubes" style="padding-left:2px;">
                                
@@ -622,7 +622,7 @@ font-size:16px!important;
                               
                               Stock Master
                             </a>
-                          </li>
+                          </li> --}}
 
                           <li class="nav-item dropdown {{ (request()->is('stock_master_list')) ? 'active' : '' }}">
                             <a class="nav-link dropdown-toggle" href="{{ route('stock_master.index') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
