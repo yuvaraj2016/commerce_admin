@@ -2,14 +2,13 @@
 @section('content')
 
 
-
-    <!-- @if(session('success') !== null)
+<!-- 
+    @if(session('success') !== null)
         <div class='alert alert-success'>
             {{ session('success') }}
         </div>
     @endif
     @if(session('error') !== null)
-        {{-- @echo "hai" --}}
         @foreach(session('error') as $k =>$v)
             <div class='alert alert-danger'>
                 {{ $v[0] }}
@@ -17,7 +16,7 @@
         @endforeach
     @endif
     <div class="section-header-button">
-        <a href="{{ route('stock_masters.create') }}" class="btn btn-primary">Add New</a>
+        <a href="{{ route('vendors.create') }}" class="btn btn-primary">Add New</a>
     </div> -->
 
 <style>
@@ -36,7 +35,7 @@
 <div class="page-header m-t-50">
         <div class="row align-items-end">
             <div class="col-lg-8">
-                <div class="page-header-title">
+            <div class="page-header-title">
                     <div class="d-inline">
                         <h4>Stock Tracker List</h4>
                         {{-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> --}}
@@ -79,8 +78,7 @@
                                             
                                                 <!-- HTML5 Export Buttons table start -->
                                                 <div class="card">
-                                                    
-                                                    <div class="card-header table-card-header">
+                                                <div class="card-header table-card-header">
                                                     <div class="row">
                                                     <div class="section-header-button col-md-4" >
                     <!-- <a href="{{ route('stock_masters.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
@@ -161,12 +159,15 @@
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
+
+                                                                {{-- @dd($prodcategories) --}}
                                                                 {{-- @dd($prodcategories) --}}
                                 @foreach($stocktracker as $stocktracke )
-                                 
 
                                     <tr>
-                                        <td><span class="text-center justify-content-center"
+
+
+                                    <td><span class="text-center justify-content-center"
                                             style="padding-top:10px;">{{ $stocktracke['item_desc'] }}</span>
 
                                         </td>
@@ -201,9 +202,7 @@
                                         <td>{{ $stocktracke['status_desc'] }}</td>
 
                                         <td>{{ date("Y-m-d H:i:s",$stocktracke['created_at']) }}</td>
-                                        <td>
-           
-        </td>
+         
     </tr>
 
     
@@ -214,7 +213,7 @@
 
                                                          
                                                             </table>
-                                     
+                                   
                                                         </div>
 
                                                         
@@ -245,12 +244,9 @@
 
 
 
-
-
-
-
-    </div>
+  
 </div>
 
+</div>
 </section>
 @endsection
