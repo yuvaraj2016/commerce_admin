@@ -155,7 +155,8 @@ class ProductSubCategoryController extends Controller
         }
 
         if($response->status()==201){
-            return redirect()->route('product_sub_categories.create')->with('success','Product Sub Category Created Successfully!');
+            // return redirect()->route('product_sub_categories.create')->with('success','Product Sub Category Created Successfully!');
+            return redirect()->back()->with('success','Product Sub Category Created Successfully!');
         }else{
             $request->flash();
 

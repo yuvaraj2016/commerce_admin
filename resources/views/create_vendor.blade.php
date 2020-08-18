@@ -259,16 +259,17 @@
                                                         </button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                            <form action="/action_page.php">
+                                                                            <form action="{{ route('vendor_categories.store') }}" method="post" id="addvendorcat">
+                                                                          @csrf
                                                                             <div class="form-group row">
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Vendor Desc</label>
-                                                        <input type="text"  value="    " class="form-control" >
+                                                        <input name="vendor_cat_desc" value="{{ old('vendor_cat_desc') }}" class="summernote-simple form-control" required>
                                                         </div>
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Status</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        
+                                                        <select  class=" col-sm-12" name="status_id" id="" placeholder="Status" class="form-control selectric" required>
+                                       
                                         @foreach($statuses as $status)
                                             <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
                                         @endforeach
@@ -279,13 +280,13 @@
                                                     </div>
                                             
                                                    
-                                                    </form> 
+                                                    
                                                                            
                                                                             <div class="modal-footer">
                                                                                 <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
                                                                                 <button type="submit" class="btn btn-primary waves-effect waves-light ">Submit</button>
                                                                             </div>
-                                                                           
+                                                                            </form> 
                                                                             </div>
                                                                         </div>
                                                                     </div>

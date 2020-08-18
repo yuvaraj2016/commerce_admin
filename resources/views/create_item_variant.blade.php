@@ -258,48 +258,29 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="default-Modal" tabindex="-1" role="dialog">
+<!-- item -->
+
+<div class="modal fade" id="default-Modal" tabindex="-1" role="dialog">
                                                                     <div class="modal-dialog modal-lg" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <h4 class="modal-title">Add Item</h4>
-                                                                                <button type="button" class="close" data-dismiss="modal">
-                                                        <span aria-hidden="true">&times;</span>
-                                                        <span class="sr-only">Close</span>
-                                                    </button>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                            <form action="/action_page.php">
+                                                                            <form action="{{ route('items.store') }}" method="post" id="additem"
+                            enctype="multipart/form-data">
+                            @csrf
                                                                             <div class="form-group row">
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Item Code</label>
-                                                        <input id="ic" type="text"  value="    " class="form-control" >
+                                                        <input type="text" name="item_code" value="{{ old('item_code') }}" class="form-control" required>
                                                         </div>
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Item Desc</label>
-                                                        <input id="id" type="text"  value=" " class="form-control" >
-                                          
-                                                        </div>
-                                         
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Sub Category</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        
-                                        @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach
-                                    </select>
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Status</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        
-                                        @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach
-                                    </select>
+                                                        <input name="item_desc" value="{{ old('item_desc') }}" class="summernote-simple form-control" required>
                                           
                                                         </div>
                                          
@@ -307,24 +288,50 @@
                                                     <div class="form-group row">
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Vendor Name</label>
-                                                        <input id="vn" type="text"  value="    " class="form-control" >
+                                                        <select  class=" col-sm-12"  name="vendor_store_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+                                        <option value="">Select</option>
+                                        @foreach($vendors as $vendor)
+                                            <option value="{{ $vendor['id'] }}" {{ (old("vendor_store_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option>
+                                        @endforeach
+                                    </select>
                                                         </div>
                                                         <div class="col-sm-4 offset-1">
-                                                       
+                                                        <label class="col-form-label text-md-right ">Sub Category</label>
+                                                            <select  class=" col-sm-12" name="sub_category_id" id="sub_category_id" placeholder="Sub Category" required class="form-control selectric" required>
+                                                                <option value="">Select</option>
+                                                                @foreach($subcategories as $subcategory)
+                                                                    <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['sub_category_desc'] }}</option>
+                                                                @endforeach
+                                                            </select>
+                                          
+                                                        </div>
+                                         
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <select  class=" col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                        <option value="">Select</option>
+                                        @foreach($statuses as $status)
+                                            <option value="{{ $status['id'] }}"  {{ ($status['id'] == "2") ? "selected":(old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
+                                        @endforeach
+                                       
+                                    </select>
+                                                        </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item Image Picture</label>
+                                                            <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
                                           
                                                         </div>
                                          
                                                     </div>
 
-                                                                            
-                                                                            <div class="modal-footer" id="ad">
-                                                    <div type="button" id="clear" class="btn btn-default" name="">Clear</div>
-                                                    
-                                                    <div type="button" id="ad" class="btn btn-primary submitBtn" data-dismiss="modal">ADD</div>
-                                                    <!--<button type="button" id="" class="btn btn-primary submitBtn" name="">ADD</button>-->
-                                                </div>
-                                                </form> 
-                                                </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+                                                                                <button type="submit" class="btn btn-primary waves-effect waves-light ">Submit</button>
+                                                                            </div>
+                                                                            </form> 
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>

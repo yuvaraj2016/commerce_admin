@@ -114,7 +114,7 @@
 
 
              <!-- Modal large-->
-             <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button>
+             <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal1" style="margin-top: 30px;height:40px">+</button>
                                                 
 
 
@@ -221,7 +221,8 @@
         </div>
     </div>
 
-    {{-- <div class="modal fade" id="default-Modal1" tabindex="-1" role="dialog">
+
+     <div class="modal fade" id="default-Modal1" tabindex="-1" role="dialog">
                                                                     <div class="modal-dialog modal-lg" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
@@ -231,49 +232,31 @@
                                                         </button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                            <form action="/action_page.php">
+                                                                            <form action="{{ route('roles.store') }}" method="post" id="addrole"
+                            enctype="multipart/form-data">
+                            @csrf
                                                                             <div class="form-group row">
                                                         <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Category</label>
-                                                        <input type="text"  value="    " class="form-control" >
+                                                        <label class="col-form-label text-md-right ">Role name</label>
+                                                        <input type="text" name="name" value="{{ old('name') }}" class="form-control" required>
                                                         </div>
 
                                                         <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Sub Category Short Code</label>
-                                                        <input type="text"  value="    " class="form-control" >
+                                                        <label class="col-form-label text-md-right ">Permissions</label>
+                                                        <select  class="col-sm-12"  name="permissions[]" id="" placeholder="Role" required class="form-control selectric" multiple required>
+                                                            <option value="">Select</option>
+                                                            @foreach($permissions as $permission)
+                                                                <option value="{{ $permission['id'] }}" {{ (collect(old('permissions'))->contains($permission['id'])) ? 'selected':'' }}>{{ $permission['name'] }}</option>
+                                                            @endforeach
+                                                        </select>
                                                         </div>
 
 
                                                                             </div>
 
-                                                                            <div class="form-group row">
-                                                                            <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Sub Category Desc</label>
-                                                        <input type="text"  value="    " class="form-control" >
-                                                        </div>
+                                       
 
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Category Image Picture</label>
-                                                        <input type="file" class="custom-file-input" name="file[]" id="file">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                                        </div>
-                                                                            </div>
-
-                                                                            <div class="form-group row">
-
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Status</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        
-                                        @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach
-                                    </select>
-                                          
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1"></div>    
-                                         
-                                                    </div>
+                                                            
                                             
                                                    
                                                    
@@ -291,7 +274,7 @@
 
 
 
-                                                                <div class="modal fade" id="default-Modal" tabindex="-1" role="dialog">
+                                                                {{--       <div class="modal fade" id="default-Modal" tabindex="-1" role="dialog">
                                                                     <div class="modal-dialog modal-lg" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">

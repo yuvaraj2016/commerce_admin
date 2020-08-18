@@ -95,7 +95,7 @@
 
 
              <!-- Modal large-->
-             <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button>
+             <!-- <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button> -->
                                                 
 
 
@@ -193,7 +193,7 @@
                                 <div class="col-sm-12 col-md-7 offset-5">
                                     <button type="submit" class="btn btn-blue">Create Role</button>
                                     <a href="{{ url('role_list') }}"
-                                    class=" d-inline text-center btn btn-black font1 back" ><i
+                                    class=" d-inline text-center btn btn-blue back" ><i
                                         class="icofont icofont-arrow-left" ></i>Back&nbsp;&nbsp;</a>
                                 </div>
                             </div>

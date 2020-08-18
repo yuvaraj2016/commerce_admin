@@ -67,6 +67,18 @@ class ItemController extends Controller
          $subcategories = $scresponse['data'];
 
 
+         try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confVendorCat');
+
+            $vcresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $vendorcategories = $vcresponse['data'];
 
 
 
@@ -82,7 +94,18 @@ class ItemController extends Controller
 
         }
          $vendors = $vresponse['data'];
+         try{
 
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodCat');
+
+            $scresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $categories = $scresponse['data'];
 
         try{
 
@@ -100,7 +123,7 @@ class ItemController extends Controller
 
             return view(
                 'create_item', compact(
-                    'subcategories','vendors','statuses',
+                    'subcategories','vendors','statuses','vendorcategories','categories'
                 )
         );
     }
@@ -170,7 +193,8 @@ class ItemController extends Controller
         }
 
         if($response->status()==201){
-            return redirect()->route('items.create')->with('success','Item Created Successfully!');
+            // return redirect()->route('items.create')->with('success','Item Created Successfully!');
+            return redirect()->back()->with('success','Item Created Successfully!');
         }else{
             $request->flash();
 

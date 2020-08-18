@@ -185,7 +185,8 @@ class ProductCategoryController extends Controller
         // return $response;
 
         if($response->status()===201){
-            return redirect()->route('product_categories.create')->with('success','Product Category Created Successfully!');
+            // return redirect()->route('product_categories.create')->with('success','Product Category Created Successfully!');
+            return redirect()->back()->with('success','Product Category Created Successfully!');
         }else{
             $request->flash();
             return redirect()->route('product_categories.create')->with('error',$response['errors']);

@@ -202,6 +202,7 @@
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="default-Modal" tabindex="-1" role="dialog">
                                                                     <div class="modal-dialog modal-lg" role="document">
                                                                         <div class="modal-content">
@@ -212,25 +213,27 @@
                                                         </button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                            <form action="/action_page.php">
+                                                                            <form action="{{ route('product_categories.store') }}" method="post" id="addprocat"
+                            enctype="multipart/form-data">
+                            @csrf
                                                                             <div class="form-group row">
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Category Short Code</label>
-                                                        <input type="text"  value="    " class="form-control" >
+                                                        <input type="text" id="category_short_code" name="category_short_code" value="{{ old('category_short_code') }}" class="form-control" required>
                                                         </div>
 
 
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Category Desc</label>
-                                                        <input type="text"  value="    " class="form-control" >
+                                                        <input type="text" name="category_desc" value="{{ old('category_desc') }}" class="summernote-simple form-control" required>
                                                         </div>
 
                                                         </div>
                                                         <div class="form-group row">
                                                         <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Supplier Image Picture</label>
-                                                        <input type="file" class="custom-file-input" name="file[]" id="file">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        
+                                                        <label class="col-form-label text-md-right ">Product Category Image Picture</label>
+                                            <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
                                                         </div>
 
                                                         <div class="col-sm-4 offset-1">

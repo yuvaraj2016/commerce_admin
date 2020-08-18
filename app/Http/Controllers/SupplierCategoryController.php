@@ -103,7 +103,8 @@ class SupplierCategoryController extends Controller
 
         if($response->status()===201){
 
-            return redirect()->route('supplier_categories.create')->with('success','Supplier Category Created Successfully!');
+            // return redirect()->route('supplier_categories.create')->with('success','Supplier Category Created Successfully!');
+            return redirect()->back()->with('success','Supplier Category Created Successfully!');
         }else{
             // var_dump($response);exit;
           // return dd($response->json());
