@@ -119,6 +119,11 @@ Route::get('permission_list/{page?}','PermissionController@index')->name('permis
 Route::resource('settings', 'SettingsController')->except('index')->middleware('checktoken');
 
 
+Route::resource('stock_tracker', 'StockTrackerController')->except('index')->middleware('checktoken');
+
+Route::get('stock_tracker_list/{page?}','StockTrackerController@index')->name('stock_tracker.index')->middleware('checktoken');
+
+
 
 
 Route::post('assets/storeimage/{module}/{id}', 'AssetsController@store')->name('assets.storeimage')->middleware('checktoken');

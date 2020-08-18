@@ -624,6 +624,20 @@ font-size:16px!important;
                             </a>
                           </li>
 
+                          <li class="nav-item dropdown {{ (request()->is('stock_master_list')) ? 'active' : '' }}">
+                            <a class="nav-link dropdown-toggle" href="{{ route('stock_master.index') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-cog">
+                              
+                              </i>
+                              Stock Master
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                             
+                              <a class="dropdown-item {{ (request()->is('stock_tracker_list')) ? 'active' : '' }}" href="{{ route('stock_tracker.index') }}">Stock Tracker</a>
+                            
+                            </div>
+                          </li>
+
                           <li class="nav-item {{ (request()->is('supplier_list')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('supplier.index') }}">
                               <i class="fa fa-group">
