@@ -11,7 +11,7 @@
             <div class="col-lg-8">
                 <div class="page-header-title">
                     <div class="d-inline">
-                        <h4>Edit Stock Tracker</h4>
+                        <h4>Edit Purchase Tracker</h4>
                         {{-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> --}}
                     </div>
                 </div>
@@ -21,11 +21,11 @@
                     <ul class="breadcrumb-title">
                         <li class="breadcrumb-item">
                            
-                                <i class="">Edit Stock Tracker</i>
+                                <i class="">Edit Purchase Tracker</i>
                           
                         </li>
                       
-                        <li class="breadcrumb-item"><a href="{{ route('stock_tracker.index') }}">Stock Tracker</a>
+                        <li class="breadcrumb-item"><a href="{{ route('stock_tracker.index') }}">Purchase Tracker</a>
                         </li>
                        
                     </ul>

@@ -37,7 +37,7 @@
             <div class="col-lg-8">
             <div class="page-header-title">
                     <div class="d-inline">
-                        <h4>Stock Tracker List</h4>
+                        <h4>Stock Purchase List</h4>
                         {{-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> --}}
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                             </a>
                         </li>
                       
-                        <li class="breadcrumb-item"><a href="{{ route('stock_tracker.index') }}">Stock Tracker List</a>
+                        <li class="breadcrumb-item"><a href="{{ route('stock_tracker.index') }}">Stock Purchase List</a>
                         </li>
                        
                     </ul>
