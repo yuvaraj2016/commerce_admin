@@ -93,8 +93,57 @@ class StockTrackerController extends Controller
         }
          $suppliers = $sresponse['data'];
 
+         try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/vendors');
+
+            $vresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
 
 
+        }
+         $vendors = $vresponse['data'];
+         try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodSubCat');
+
+            $scresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $subcategories = $scresponse['data'];
+
+
+         try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/itemVariantGroup');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $itemvariantgroup = $response['data'];
+
+         try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confSupplierCat');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+        $suppliercategories = $response['data'];
        try{
 
             $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
@@ -111,7 +160,7 @@ class StockTrackerController extends Controller
 
             return view(
                 'create_stock_tracker', compact(
-                    'items','variants','suppliers','statuses',
+                    'items','variants','suppliers','statuses','vendors','subcategories','itemvariantgroup','suppliercategories'
                 )
         );
     }
@@ -174,6 +223,35 @@ class StockTrackerController extends Controller
     public function show($id)
     {
         //
+
+
+        $token = session()->get('token');
+
+        try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/stockTracker/'.$id);
+
+            $response = json_decode($call->getBody()->getContents(), true);
+
+        }catch (\Exception $e){
+
+
+
+        }
+         $stocktracker = $response['data'];
+
+
+
+            return view(
+                'view_stock_tracker', compact(
+                    'stocktracker'
+                )
+        );
+
+
+
+
+
     }
 
     /**
@@ -185,6 +263,82 @@ class StockTrackerController extends Controller
     public function edit($id)
     {
         //
+  $token = session()->get('token');
+
+  try{
+
+    $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/item');
+
+    $iresponse = json_decode($call->getBody()->getContents(), true);
+    //  return $response;
+}catch (\Exception $e){
+    //buy a beer
+
+
+}
+ $items = $iresponse['data'];
+
+
+ try{
+
+    $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/itemVariant');
+
+    $ivresponse = json_decode($call->getBody()->getContents(), true);
+    //  return $response;
+}catch (\Exception $e){
+    //buy a beer
+
+
+}
+ $variants = $ivresponse['data'];
+
+
+
+ try{
+
+    $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/suppliers');
+
+    $sresponse = json_decode($call->getBody()->getContents(), true);
+    //  return $response;
+}catch (\Exception $e){
+    //buy a beer
+
+
+}
+ $suppliers = $sresponse['data'];
+
+
+
+try{
+
+    $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
+
+    $response = json_decode($call->getBody()->getContents(), true);
+    //  return $response;
+}catch (\Exception $e){
+    //buy a beer
+
+
+}
+ $statuses = $response['data'];
+
+         $smresponse=Http::withToken($token)->get(config('global.url').'/api/stockTracker/'.$id);
+
+
+         if($smresponse->ok()){
+
+            $stock_tracker=   $smresponse->json()['data'];
+
+            return view('edit_stock_tracker', compact(
+                'stock_tracker','items','variants','suppliers','statuses'
+            ));
+        }
+
+            
+
+
+
+
     }
 
     /**
@@ -197,6 +351,49 @@ class StockTrackerController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $session = session()->get('token');
+      
+        $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->put(config('global.url').'/api/stockTracker/'.$id, 
+        
+        [
+            "_method"=> 'PUT',
+                    
+            "item_id"=>$request->item_id,
+
+            "variant_id"=>$request->variant_id,
+
+            "supplier_id"=>$request->supplier_id,
+
+            "purchase_order_ref"=>$request->purchase_order_ref,
+
+            "purchase_order_date"=>$request->purchase_order_date,
+
+            "purchase_price"=>$request->purchase_price,
+
+            "stock_quantity"=>$request->stock_quantity,
+
+            "comments"=>$request->comments,
+
+            "status_id"=>$request->status_id
+        ]
+        
+      );
+
+        
+        if($response->headers()['Content-Type'][0]=="text/html; charset=UTF-8"){
+            return redirect()->route('home');
+        }
+        if($response->status()===200){
+            return redirect()->back()->with('success','Stock Tracker Updated Successfully!');
+        }else{
+            return redirect()->back()->with('error',$response->json()['message']);
+        }
+
+
+
+
+
     }
 
     /**
@@ -208,5 +405,24 @@ class StockTrackerController extends Controller
     public function destroy($id)
     {
         //
+
+
+        $session = session()->get('token');
+
+        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->delete(config('global.url').'api/stockTracker/'.$id);
+
+        if($response->status()==204){
+
+             return redirect()->route('stock_tracker.index')->with('success','Stock Tracker Deleted Sucessfully !..');
+        }
+        else{
+
+          //  dd($response);
+             return redirect()->route('stock_tracker.index')->with('error',$response->json()['message']);
+        }
+
+
+
+
     }
 }

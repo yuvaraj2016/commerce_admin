@@ -81,9 +81,9 @@
                                                 <div class="card-header table-card-header">
                                                     <div class="row">
                                                     <div class="section-header-button col-md-4" >
-                    <!-- <a href="{{ route('stock_masters.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
+                    <a href="{{ route('stock_tracker.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
                     background-color: #6777ef;
-                    border-color: #6777ef;border-radius:30px">Add New</a> -->
+                    border-color: #6777ef;border-radius:30px">Add New</a>
                 </div>
                 <div class="section-header-button col-md-5" >
                   
@@ -155,7 +155,7 @@
                                     <th>Comments</th>
                                     <th>Status</th>
                                     <th>Created At</th>
-                                    <!-- <th>Actions</th> -->
+                                    <th>Actions</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -163,6 +163,9 @@
                                                                 {{-- @dd($prodcategories) --}}
                                                                 {{-- @dd($prodcategories) --}}
                                 @foreach($stocktracker as $stocktracke )
+                                @php
+                                        $id=$stocktracke['id'];
+                                    @endphp
 
                                     <tr>
 
@@ -202,6 +205,29 @@
                                         <td>{{ $stocktracke['status_desc'] }}</td>
 
                                         <td>{{ date("Y-m-d H:i:s",$stocktracke['created_at']) }}</td>
+                                        <td>
+            <div class="d-flex">
+            <ul class="list-group list-inline ml-1">
+  <li class="list-group-item border1"><a href="{{ url('stock_tracker/'.$id)  }}"
+                        class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="View"><i
+                            class="fa fa-eye"></i></a></li>
+  <li class="list-group-item border1"><a href="{{url('stock_tracker/'.$id.'/edit') }}"
+                        class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Edit" ><i
+                            class="fa fa-edit" ></i></a></li>
+  <li class="list-group-item border1"> <form
+                    action="{{route('stock_tracker.destroy',$id) }}"
+                    method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:3px!important;padding-bottom:8px!important;"
+                    class=" job-delete d-inline font1" data-toggle="tooltip" data-placement="top" title="Delete" > <i
+                        class="fa fa-trash" style="position: relative;top:-5;"></i></button>
+                </form></li>
+
+</ul>
+
+             </div>
+        </td>
          
     </tr>
 
