@@ -201,6 +201,9 @@
                         class=" job-delete font1 d-inline" data-toggle="tooltip" data-placement="top" title="Delete" > <i
                             class="fa fa-trash" style="position: relative;top:-4px!important;"></i></button>
                 </form></li>
+                <li class=" border1"><a href="{{ url('item_variants/'.$id) }}"
+                        class="font1 d-inline" data-toggle="tooltip" data-placement="top" title="Audit"><i
+                            class="fa fa-calculator"></i></a></li>
 
 </ul>
  
