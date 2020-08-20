@@ -622,7 +622,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="appearance" role="tabpanel" aria-labelledby="appearance-tab">
+                            <div class="tab-pane fade" id="appearance" role="tabpanel" aria-labelledby="appearance-tab" style="border:1px solid #01a9ac;">
                                 <div class="col-md-6">
                                     <p class="text-muted">Settings about appearance such as themes, icon and color scheme.</p>
                                     <div class="form-group">

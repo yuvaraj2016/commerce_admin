@@ -624,19 +624,19 @@ font-size:16px!important;
                             </a>
                           </li> --}}
 
-                          <li class="nav-item {{ (request()->is('stock_master_list')) ? 'active' : '' }}">
+                          {{-- <li class="nav-item {{ (request()->is('stock_master_list')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('stock_master.index') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <i class="fa fa-cog">
                               
                               </i>
                               Stock Master
                             </a>
-                            {{-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                              
                               <a class="dropdown-item {{ (request()->is('stock_tracker_list')) ? 'active' : '' }}" href="{{ route('stock_tracker.index') }}">Purchase Tracker</a>
                             
-                            </div> --}}
-                          </li>
+                            </div>
+                          </li> --}}
                           <li class="nav-item {{ (request()->is('stock_tracker_list')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('stock_tracker.index') }}">
                               <i class="fa fa-group">
@@ -694,9 +694,9 @@ font-size:16px!important;
                               <a class="dropdown-item {{ (request()->is('vendor_cat_list')) ? 'active' : '' }}" href="{{ route('vendor_cat.index') }}">Vendor Category</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item {{ (request()->is('status_list')) ? 'active' : '' }}" href="{{ route('status.index') }}">Status</a>
-                              {{-- <div class="dropdown-divider"></div>
+                              <div class="dropdown-divider"></div>
                               <a class="dropdown-item {{ (request()->is('settings/create')) ? 'active' : '' }}" href="{{ route('settings.create') }}">Settings</a>
-                             --}}
+                            
                             </div>
                           </li>
 
