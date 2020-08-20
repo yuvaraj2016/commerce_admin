@@ -165,7 +165,8 @@ class SupplierController extends Controller
         }
 
         if($response->status()==201){
-            return redirect()->route('suppliers.create')->with('success','Supplier Created Successfully!');
+            // return redirect()->route('suppliers.create')->with('success','Supplier Created Successfully!');
+            return redirect()->back()->with('success','Supplier Created Successfully!');
         }else{
             $request->flash();
 

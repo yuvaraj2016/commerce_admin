@@ -196,6 +196,9 @@ $id=$prodcategory['id'];
                         class=" job-delete d-inline font1" data-toggle="tooltip" data-placement="top" title="Delete" > <i
                             class="fa fa-trash" style="position: relative;top:-5;"></i></button>
                 </form></li>
+                <li class="list-group-item border1"><a href="{{ url('product_categories/'.$id) }}"
+                        class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Audit"><i
+                            class="fa fa-calculator"></i></a></li>
 
 </ul>
 

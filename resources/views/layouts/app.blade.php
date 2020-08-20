@@ -633,7 +633,7 @@ font-size:16px!important;
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                              
-                              <a class="dropdown-item {{ (request()->is('stock_tracker_list')) ? 'active' : '' }}" href="{{ route('stock_tracker.index') }}">Stock Tracker</a>
+                              <a class="dropdown-item {{ (request()->is('stock_tracker_list')) ? 'active' : '' }}" href="{{ route('stock_tracker.index') }}">Purchase Tracker</a>
                             
                             </div>
                           </li> --}}
@@ -642,7 +642,7 @@ font-size:16px!important;
                               <i class="fa fa-group">
                                
                               </i>
-                              Stock Tracker
+                              Purchase Tracker
                             </a>
                           </li>
 

@@ -143,7 +143,7 @@
                                                                 @method('DELETE')
                                                                 @csrf
                                                                 <button id="formsubmit" type="submit"
-                                                                    class=" job-delete d-inline btn btn-red font1" > <i
+                                                                    class=" job-delete d-inline btn btn-red " > <i
                                                                         class="icofont icofont-trash"></i>Delete</button>
                                                             </form>
                                                               

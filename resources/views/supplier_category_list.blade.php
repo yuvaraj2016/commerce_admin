@@ -193,6 +193,8 @@
                                                         </form>
                                                     </li>
 
+                                                    <li class="list-group-item border1"><a href="{{ url('supplier_categories/'.$id) }}" class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Audit"><i class="fa fa-calculator"></i></a></li>
+
                                                 </ul>
 
                                               
