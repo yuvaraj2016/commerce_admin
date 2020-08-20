@@ -57,37 +57,116 @@
                     <div class="card-body">
 
                     <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Item Code</label>
-                                                        <input type="text"  value="    {{ $item['item_code'] }}" class="form-control" readonly>
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1">
+                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Sub Category</label>
+                                                        <!-- <input type="text"  value="    {{ $item['sub_category_desc'] }}" class="form-control" readonly> -->
+                                                        <textarea  rows="4" cols="30" readonly> {{ $item['sub_category_desc'] }}</textarea>
+                                                    </div>
+                                                        
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Item Desc</label>
-                                                        <input type="text"  value="   {{ $item['item_desc'] }}" class="form-control" readonly>
-                                          
+                                                        <!-- <input type="text"  value="   {{ $item['item_desc'] }}" class="form-control" readonly> -->
+                                                        <textarea  rows="4" cols="30" readonly> {{ $item['item_desc'] }}</textarea>
                                                         </div>
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Category Desc</label>
+                                                        <!-- <input type="text"  value="    {{ $item['category_desc'] }}" class="form-control" readonly> -->
+                                                        <textarea  rows="4" cols="30" readonly> {{ $item['category_desc'] }}</textarea>
+                                                    </div>
                                          
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Sub Category</label>
-                                                        <input type="text"  value="    {{ $item['sub_category_desc'] }}" class="form-control" readonly>
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Item Code</label>
+                                                        <input type="text"  value="    {{ $item['item_code'] }}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Min Order Quantity</label>
+                                                        <input type="text"  value="    {{ $item['min_order_quantity'] }}" class="form-control" readonly>
+                                                        </div>
+
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Min Order Amount</label>
+                                                        <input type="text"  value="    {{ $item['min_order_amount'] }}" class="form-control" readonly>
+                                                        </div>
+                                                   
+                                         
+                                                    </div>
+
+
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Max Order Quantity</label>
+                                                        <input type="text"  value="    {{ $item['max_order_quantity'] }}" class="form-control" readonly>
+                                                        </div>
+
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Max Order Amount</label>
+                                                        <input type="text"  value="    {{ $item['max_order_amount'] }}" class="form-control" readonly>
+                                                        </div>
+
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Discound Percentage</label>
+                                                        <input type="text"  value="    {{ $item['discount_percentage'] }}" class="form-control" readonly>
+                                                        </div>
+                                                   
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Discount Amount</label>
+                                                        <input type="text"  value="    {{ $item['discount_amount'] }}" class="form-control" readonly>
+                                                        </div>
+
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Quantity</label>
+                                                        <input type="text"  value="    {{ $item['quantity'] }}" class="form-control" readonly>
+                                                        </div>
+
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Threshold</label>
+                                                        <input type="text"  value="    {{ $item['threshold'] }}" class="form-control" readonly>
+                                                        </div>
+                                                   
+                                         
+                                                    </div>
+
+
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Supplier Name</label>
+                                                        <input type="text"  value="    {{ $item['supplier_name'] }}" class="form-control" readonly>
+                                                        </div>
+
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">MRP</label>
+                                                        <input type="text"  value="    {{ $item['MRP'] }}" class="form-control" readonly>
+                                                        </div>
+
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Selling Price</label>
+                                                        <input type="text"  value="    {{ $item['selling_price'] }}" class="form-control" readonly>
+                                                        </div>
+                                                   
+                                         
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <input type="text"  value="  {{ $item['status_desc'] }}" class="form-control" readonly>
                                           
                                                         </div>
-                                         
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Vendor Name</label>
                                                         <input type="text"  value="     {{ $item['vendor'] }}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Created At</label>
                                                         <input type="text"  value=" {{ date("Y-m-d H:i:s",$item['created_at']) }}" class="form-control" readonly>
                                           

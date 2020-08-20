@@ -107,6 +107,22 @@ class ItemController extends Controller
         }
          $categories = $scresponse['data'];
 
+         try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/suppliers');
+
+            $suresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $supplier = $suresponse['data'];
+
+
+
+
         try{
 
             $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
@@ -123,7 +139,7 @@ class ItemController extends Controller
 
             return view(
                 'create_item', compact(
-                    'subcategories','vendors','statuses','vendorcategories','categories'
+                    'subcategories','vendors','statuses','vendorcategories','categories','supplier'
                 )
         );
     }
@@ -171,6 +187,57 @@ class ItemController extends Controller
             [
                 'name' => 'vendor_store_id',
                 'contents' => $request->vendor_store_id
+            ],
+
+
+
+            [
+                'name' => 'category_id',
+                'contents' => $request->category_id
+            ],
+            [
+                'name' => 'min_order_quantity',
+                'contents' => $request->min_order_quantity
+            ],
+            [
+                'name' => 'min_order_amount',
+                'contents' => $request->min_order_amount
+            ],
+            [
+                'name' => 'max_order_quantity',
+                'contents' => $request->max_order_quantity
+            ],
+            [
+                'name' => 'max_order_amount',
+                'contents' => $request->max_order_amount
+            ],
+            [
+                'name' => 'discount_percentage',
+                'contents' => $request->discount_percentage
+            ],
+            [
+                'name' => 'discount_amount',
+                'contents' => $request->discount_amount
+            ],
+            [
+                'name' => 'quantity',
+                'contents' => $request->quantity
+            ],
+            [
+                'name' => 'threshold',
+                'contents' => $request->threshold
+            ],
+            [
+                'name' => 'supplier_id',
+                'contents' => $request->supplier_id
+            ],
+            [
+                'name' => 'MRP',
+                'contents' => $request->MRP
+            ],
+            [
+                'name' => 'selling_price',
+                'contents' => $request->selling_price
             ]
 
             ]);
@@ -186,7 +253,25 @@ class ItemController extends Controller
                 "item_desc"=>$request->item_desc,
                 "sub_category_id"=>$request->sub_category_id,
                 "status_id"=>$request->status_id,
-                "vendor_store_id"=>$request->vendor_store_id
+                "vendor_store_id"=>$request->vendor_store_id,
+
+
+                "category_id"=>$request->category_id,
+                "min_order_quantity"=>$request->min_order_quantity,
+                "min_order_amount"=>$request->min_order_amount,
+                "max_order_quantity"=>$request->max_order_quantity,
+                "max_order_amount"=>$request->max_order_amount,
+
+
+                "quantity"=>$request->quantity,
+                "threshold"=>$request->threshold,
+                "discount_percentage"=>$request->discount_percentage,
+                "discount_amount"=>$request->discount_amount,
+                "supplier_id"=>$request->supplier_id,
+
+                "MRP"=>$request->MRP,
+                "selling_price"=>$request->selling_price
+
 
             ]);
             // dd($response);
@@ -326,7 +411,26 @@ class ItemController extends Controller
                 "item_desc"=>$request->item_desc,
                 "sub_category_id"=>$request->sub_category_id,
                 "status_id"=>$request->status_id,
-                "vendor_store_id"=>$request->vendor_store_id
+                "vendor_store_id"=>$request->vendor_store_id,
+
+
+
+                "category_id"=>$request->category_id,
+                "min_order_quantity"=>$request->min_order_quantity,
+                "min_order_amount"=>$request->min_order_amount,
+                "max_order_quantity"=>$request->max_order_quantity,
+                "max_order_amount"=>$request->max_order_amount,
+
+
+                "quantity"=>$request->quantity,
+                "threshold"=>$request->threshold,
+                "discount_percentage"=>$request->discount_percentage,
+                "discount_amount"=>$request->discount_amount,
+                "supplier_id"=>$request->supplier_id,
+
+                "MRP"=>$request->MRP,
+                "selling_price"=>$request->selling_price
+
         ]
         
       );

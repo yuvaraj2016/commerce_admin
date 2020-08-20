@@ -151,6 +151,18 @@
                                     <th>Item Desc</th>
                                     <th>Sub Category Desc</th>
                                     <th>Item Image</th>
+                                    <th>Category Desc</th>
+                                    <th>Min Order Quantity</th>
+                                    <th>Min Order Amount</th>
+                                    <th>Max Order Quantity</th>
+                                    <th>Max Order Amount</th>
+                                    <th>Quantity</th>
+                                    <th>Threshold</th>
+                                    <th>Discount Percentage</th>
+                                    <th>Discount Amount</th>
+                                    <th>Supplier Desc</th>
+                                    <th>Mrp Price</th>
+                                    <th>Selling Price</th>
                                     <th>Status</th>
                                     <th>Vendor</th>
                                     <th>Created At</th>
@@ -181,6 +193,27 @@
 
                                         <td><img src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'].'?width=52&height=52' : asset('img/no-image.gif')  }}"/></td>
 
+                                        
+                                        
+                                        <td>{{ $item['category_desc'] }}</td>
+                                        <td>{{ $item['min_order_quantity'] }}</td>
+                                        <td>{{ $item['min_order_amount'] }}</td>
+                                        <td>{{ $item['max_order_quantity'] }}</td>
+                                        <td>{{ $item['max_order_amount'] }}</td>
+                                        <td>{{ $item['quantity'] }}</td>
+                                        <td>{{ $item['threshold'] }}</td>
+                                        <td>{{ $item['discount_percentage'] }}</td>
+                                        <td>{{ $item['discount_amount'] }}</td>
+                                        <td>{{ $item['supplier_name'] }}</td>
+                                        <td>{{ $item['MRP'] }}</td>
+                                        <td>{{ $item['selling_price'] }}</td>
+                                                                 
+                                                                      
+                                                                     
+                                                                             
+                                                                            
+                                        
+                                        
                                         <td>{{ $item['status_desc'] }}</td>
 
                                         <td>{{ $item['vendor'] }}</td>
