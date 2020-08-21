@@ -205,7 +205,7 @@ color:black !important;
     border-color:none!important;
     border-radius: 25px!important;
     color:#fff!important;
-    font-size:14px!important;
+    font-size:13px!important;
     padding-top:5px!important; padding-bottom:5px!important;
 
 }
@@ -343,7 +343,7 @@ display: none !important;
 
 a.nav-link,a.dropdown-item,.btn-primary
 {
-font-size:17px!important;
+font-size:13px!important;
 font-weight: bold!important;
 
 }
@@ -371,7 +371,7 @@ font-size:16px!important;
 
 /* table td font size change */
 .dataTable th, td, #basic-btn_filter label {
-    font-size: 12px !important;
+    font-size: 13px !important;
 }
 
 </style>
