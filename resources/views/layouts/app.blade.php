@@ -43,9 +43,9 @@ color:#000!important;
     background-color: white !important;
 }
 body {
-    font-family: Lato Bold !important;
+    font-family: Lato !important;
     font-size: 15px !important;
-    font-weight: bold!important;
+    font-weight: 400!important;
 }
 
 .btn {
@@ -372,6 +372,7 @@ font-size:16px!important;
 /* table td font size change */
 .dataTable th, td, #basic-btn_filter label {
     font-size: 13px !important;
+    font-family: Lato !important;
 }
 
 </style>
