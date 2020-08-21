@@ -349,6 +349,35 @@ class ItemController extends Controller
 
         try{
 
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodCat');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $prodCat = $response['data'];
+
+
+         try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/suppliers');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $suppliers = $response['data'];
+
+
+
+        try{
+
             $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
 
             $response = json_decode($call->getBody()->getContents(), true);
@@ -383,7 +412,7 @@ class ItemController extends Controller
             $item= $response->json()['data'];
         //    return $item['id'];
             return view('edit_item', compact(
-                'prodSubCat','vendors','statuses','item'
+                'prodSubCat','vendors','statuses','item','prodCat','suppliers'
             ));
         }
 

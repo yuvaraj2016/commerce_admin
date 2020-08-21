@@ -95,17 +95,33 @@
 
 
                                                         <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Click below to edit images</label><br>
-                                                            <a href="{{ url('items/'.$item['id'].'/edit/assets') }}" class="btn btn-blue">Edit Image</a>
-                                                        </div>
+<label class="col-form-label text-md-right ">Vendor Name</label>
+<select  class="js-example-basic-single col-sm-12"  name="vendor_store_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+<option value="">Select</option>
+@foreach($vendors as $vendor)
+<!-- <option value="{{ $vendor['id'] }}" {{ (old("vendor_store_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option> -->
+<option value="{{ $vendor['id'] }}" {{ ( $item['vendor_store_id'] == $vendor['id']) ? "selected":(old("vendor_store_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option>
+@endforeach
+</select>
+
+</div>
                                                                    <!-- Modal large-->
                    
                                                 </div>
-
-
                                                 <div class="form-group row">
+                                                <div class="col-sm-4">
+    <label class="col-form-label text-md-right "> Category</label>
+    <select  class="js-example-basic-single col-sm-12" name="category_id" id="category_id" placeholder=" Category" required class="form-control selectric" required>
+        <option value="">Select</option>
+        @foreach($prodCat as $category)
+            {{-- <!-- <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['sub_category_desc'] }}</option> --> --}}
+            <option value="{{ $category['id'] }}" {{ ( $item['category_id'] == $category['id']) ? "selected":(old("category_id") == $category['id'] ? "selected":"") }}>{{ $category['category_desc'] }}</option>
+            @endforeach
+    </select>
 
-<div class="col-sm-3">
+    </div>
+
+                                                <div class="col-sm-4">
     <label class="col-form-label text-md-right ">Sub Category</label>
     <select  class="js-example-basic-single col-sm-12" name="sub_category_id" id="sub_category_id" placeholder="Sub Category" required class="form-control selectric" required>
         <option value="">Select</option>
@@ -116,6 +132,112 @@
     </select>
 
     </div>
+                                         
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Min Order Quantity</label>
+                                                        <input type="number" name="min_order_quantity" value="{{ old('min_order_quantity',$item['min_order_quantity']) }}" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+
+
+                                                                   <!-- Modal large-->
+                   
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                <div class="col-sm-4">
+    <label class="col-form-label text-md-right ">Min Order Amount</label>
+    <input type="number" step="any" name="min_order_amount" value="{{ old('min_order_amount',$item['min_order_amount']) }}" class="summernote-simple form-control" required>
+
+    </div>
+
+    <div class="col-sm-4">
+    <label class="col-form-label text-md-right ">Max Order Quantity</label>
+    <input type="number"  name="max_order_quantity" value="{{ old('max_order_quantity',$item['max_order_quantity']) }}" class="summernote-simple form-control" required>
+
+    </div>
+                                         
+    <div class="col-sm-4">
+    <label class="col-form-label text-md-right ">Max Order Amount</label>
+    <input type="number" step="any" name="max_order_amount" value="{{ old('max_order_amount',$item['max_order_amount']) }}" class="summernote-simple form-control" required>
+
+    </div>
+                                                                   <!-- Modal large-->
+                   
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                <div class="col-sm-4">
+<label class="col-form-label text-md-right ">Discount Percentage</label>
+<input type="number"  name="discount_percentage" value="{{ old('discount_percentage',$item['discount_percentage']) }}" class="summernote-simple form-control" required>
+
+</div>
+
+<div class="col-sm-4">
+<label class="col-form-label text-md-right ">Discount Amount</label>
+<input step="any" type="number"  name="discount_amount" value="{{ old('discount_amount',$item['discount_amount']) }}" class="summernote-simple form-control" required>
+
+</div>
+                                         
+<div class="col-sm-4">
+<label class="col-form-label text-md-right ">Quantity</label>
+<input type="number"  name="quantity" value="{{ old('quantity',$item['quantity']) }}" class="summernote-simple form-control" required>
+
+</div>
+                                                                   <!-- Modal large-->
+                   
+                                                </div>
+
+                                                <div class="form-group row">
+                                                <div class="col-sm-4">
+<label class="col-form-label text-md-right ">Threshold</label>
+<input type="number"  name="threshold" value="{{ old('threshold',$item['threshold']) }}" class="summernote-simple form-control" required>
+
+</div>
+
+<div class="col-sm-4">
+<label class="col-form-label text-md-right ">Mrp Amount</label>
+<input step="any" type="number"  name="MRP" value="{{ old('MRP',$item['MRP']) }}" class="summernote-simple form-control" required>
+
+</div>
+                                         
+<div class="col-sm-4">
+<label class="col-form-label text-md-right ">Selling Price</label>
+<input type="number"  step="any" name="selling_price" value="{{ old('selling_price',$item['selling_price']) }}" class="summernote-simple form-control" required>
+
+</div>
+                                                                   <!-- Modal large-->
+                   
+                                                </div>
+
+
+
+
+
+
+                                                <div class="form-group row">
+
+                                                <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Click below to edit images</label><br>
+                                                            <a href="{{ url('items/'.$item['id'].'/edit/assets') }}" class="btn btn-blue">Edit Image</a>
+                                                        </div>
+
+
+
+                                                <div class="col-sm-4">
+    <label class="col-form-label text-md-right ">Suppliers</label>
+    <select  class="js-example-basic-single col-sm-12" name="supplier_id" id="supplier_id" placeholder="Suppliers" required class="form-control selectric" required>
+        <option value="">Select</option>
+        @foreach($suppliers as $supp)
+            {{-- <!-- <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['sub_category_desc'] }}</option> --> --}}
+            <option value="{{ $supp['id'] }}" {{ ( $item['supplier_id'] == $supp['id']) ? "selected":(old("supplier_id") == $supp['id'] ? "selected":"") }}>{{ $supp['supplier_name'] }}</option>
+            @endforeach
+    </select>
+
+    </div>
+
     <!-- <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal1" style="margin-top: 30px;height:40px">+</button> -->
 
 <div class="col-sm-4">
@@ -131,26 +253,8 @@
 
 </div>
 
-<div class="col-sm-3">
-<label class="col-form-label text-md-right ">Vendor Name</label>
-<select  class="js-example-basic-single col-sm-12"  name="vendor_store_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
-<option value="">Select</option>
-@foreach($vendors as $vendor)
-<!-- <option value="{{ $vendor['id'] }}" {{ (old("vendor_store_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option> -->
-<option value="{{ $vendor['id'] }}" {{ ( $item['vendor_store_id'] == $vendor['id']) ? "selected":(old("vendor_store_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option>
-@endforeach
-</select>
-
-</div>
-
-
-
 <!-- Modal large-->
 <!-- <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button> -->
-
-
-
-
 
 <div class="col-sm-4">
 
