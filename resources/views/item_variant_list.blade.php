@@ -151,6 +151,28 @@
                                     <th>Variant Code</th>
                                     <th>Variant Desc</th>
                                     <th>Variant Image</th>
+
+                                    <th>Variant Group</th>
+                                    <th>Min Order Quantity</th>
+                                    <th>Min Order Amount</th>
+                                    <th>Max Order Quantity</th>
+                                    <th>Max Order Amount</th>
+                                    
+
+                                    <!-- <th>Quantity</th>
+                                    <th>Threshold</th> -->
+                                    <th>Discount Percentage</th>
+                                    <th>Discount Amount</th>
+                                    <th>Supplier Desc</th>
+                                    
+
+                                    <th>vendor Name</th>
+                                    <th>MRP Price</th>
+                                    <th>Selling Price</th>
+
+
+
+
                                     <th>Status</th>
                                     {{-- <th>Created At</th> --}}
                                     <th>Actions</th>
@@ -180,6 +202,35 @@
 
                                         <td><img src="{{ isset($item_variant['Assets']['data'][0]['links']) ? $item_variant['Assets']['data'][0]['links']['full'].'?width=52&height=52' : asset('img/no-image.gif')  }}"/></td>
 
+                                       
+                                       
+                                       
+                                        <td>{{ $item_variant['variant_group_desc'] }}</td>
+                                        <td>{{ $item_variant['min_order_quantity'] }}</td>
+                                        <td>{{ $item_variant['min_order_amount'] }}</td>
+                                        <td>{{ $item_variant['max_order_quantity'] }}</td>
+                                        <td>{{ $item_variant['max_order_amount'] }}</td>
+                                        
+                                        <td>{{ $item_variant['discount_percentage'] }}</td>
+                                        <td>{{ $item_variant['discount_amount'] }}</td>
+                                        <td>{{ $item_variant['supplier_name'] }}</td>
+                                        <td>{{ $item_variant['vendor'] }}</td>
+                                        <td>{{ $item_variant['MRP'] }}</td>
+
+                                        <td>{{ $item_variant['selling_price'] }}</td>
+
+                                       
+
+
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
                                         <td>{{ $item_variant['status_desc'] }}</td>
 
                                         {{-- <td>{{ date("Y-m-d H:i:s",$item_variant['created_at']) }}</td> --}}

@@ -91,53 +91,17 @@
             @endforeach
     </select>
                                                         </div>
-
-
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Variant Code</label>
                                                         <input name="variant_code" value="{{ old('variant_code',$itemVariants['variant_code']) }}" class="summernote-simple form-control" required>
                                           
                                                         </div>
-
-
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Variant Description</label>
                                                         <input name="variant_desc" value="{{ old('variant_desc',$itemVariants['variant_desc']) }}" class="summernote-simple form-control" required>
                                           
                                                         </div>
-                                                       
-
-                                                </div>
-
-
-
-                                                <div class="form-group row">
-                                                <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Click below to edit images</label><br>
-                                                            <a href="{{ url('item_variants/'.$itemVariants['id'].'/edit/assets') }}" class="btn btn-blue">Edit Image</a>
-                                                        </div>
-
-                                                        <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">MRP Price</label>
-                                                        <input name="MRP" value="{{ old('MRP',$itemVariants['MRP']) }}" step="any" class="summernote-simple form-control" required>
-                                          
-                                                        </div>
-
-
-                                                        <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Selling Prince</label>
-                                                        <input name="selling_price" value="{{ old('selling_price',$itemVariants['selling_price']) }}" step="any" class="summernote-simple form-control" required>
-                                          
-                                                        </div>
-
-
-
-
-                                                         
-                                                       
-
                                                     
-                   
                                                 </div>
 
 
@@ -155,7 +119,120 @@
 
                                                         </select>
                                                         </div>
+                                                        <div class="col-sm-4">
+<label class="col-form-label text-md-right ">Item Variant Group</label>
+<select  class="js-example-basic-single col-sm-12" name="variant_group_id" id="" placeholder="variant_group_id" required class="form-control selectric" required>
+<option value="">Select</option>
+@foreach($itemvariantgroup as $variantgroup)
 
+<option value="{{ $variantgroup['id'] }}" {{ ($itemVariants['variant_group_id'] == $variantgroup['id']) ? "selected":(old("variant_group_id") == $variantgroup['id'] ? "selected":"") }}>{{ $variantgroup['item_group_desc'] }}</option>
+@endforeach
+
+</select>
+
+</div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Min Order Quantity</label>
+                                                        <input name="min_order_quantity" value="{{ old('min_order_quantity',$itemVariants['min_order_quantity']) }}" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+                                                    
+                                                </div>
+
+                                                <div class="form-group row">
+                                                <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Min Order Amount</label>
+                                                        <input name="min_order_amount" value="{{ old('min_order_amount',$itemVariants['min_order_amount']) }}" step="any" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Max order Quantity</label>
+                                                        <input name="max_order_quantity" value="{{ old('max_order_quantity',$itemVariants['max_order_quantity']) }}" step="any" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+
+
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Max Order Amount</label>
+                                                        <input name="max_order_amount" value="{{ old('max_order_amount',$itemVariants['max_order_amount']) }}" step="any" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+                                                                                                      
+                                                                      
+                                                </div>
+
+                                                <div class="form-group row">
+                                                <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Discount Percentage</label>
+                                                        <input name="discount_percentage" value="{{ old('discount_percentage',$itemVariants['discount_percentage']) }}" step="any" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Discount Amount</label>
+                                                        <input name="discount_amount" value="{{ old('discount_amount',$itemVariants['discount_amount']) }}" step="any" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+
+
+                                                        <div class="col-sm-4">
+<label class="col-form-label text-md-right ">Suppliers</label>
+<select  class="js-example-basic-single col-sm-12" name="supplier_id" id="" placeholder="Supplier" required class="form-control selectric" required>
+<option value="">Select</option>
+@foreach($suppliers as $supp)
+
+<option value="{{ $supp['id'] }}" {{ ($itemVariants['supplier_id'] == $supp['id']) ? "selected":(old("supplier_id") == $supp['id'] ? "selected":"") }}>{{ $supp['supplier_name'] }}</option>
+@endforeach
+
+</select>
+
+</div>
+                                                                                                      
+                                                                      
+                                                </div>
+
+
+
+
+
+                                                <div class="form-group row">
+                                                <div class="col-sm-4">
+<label class="col-form-label text-md-right ">Vendor</label>
+<select  class="js-example-basic-single col-sm-12" name="vendor_store_id" id="" placeholder="Supplier" required class="form-control selectric" required>
+<option value="">Select</option>
+@foreach($vendors as $ven)
+
+<option value="{{ $ven['id'] }}" {{ ($itemVariants['vendor_store_id'] == $ven['id']) ? "selected":(old("vendor_store_id") == $ven['id'] ? "selected":"") }}>{{ $ven['vendor_name'] }}</option>
+@endforeach
+
+</select>
+
+</div>
+
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">MRP Price</label>
+                                                        <input name="MRP" value="{{ old('MRP',$itemVariants['MRP']) }}" step="any" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+
+
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Selling Prince</label>
+                                                        <input name="selling_price" value="{{ old('selling_price',$itemVariants['selling_price']) }}" step="any" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+                                                                                                      
+                                                                      
+                                                </div>
+
+
+                                                <div class="form-group row">
+                         
+                                                <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Click below to edit images</label><br>
+                                                            <a href="{{ url('item_variants/'.$itemVariants['id'].'/edit/assets') }}" class="btn btn-blue">Edit Image</a>
+                                                        </div>
                                                 <div class="col-sm-4">
 
                                                
@@ -173,18 +250,7 @@
 </div>
 
 
-<div class="col-sm-4">
-<label class="col-form-label text-md-right ">Item Variant Group</label>
-<select  class="js-example-basic-single col-sm-12" name="variant_group_id" id="" placeholder="variant_group_id" required class="form-control selectric" required>
-<option value="">Select</option>
-@foreach($itemvariantgroup as $variantgroup)
 
-<option value="{{ $variantgroup['id'] }}" {{ ($itemVariants['variant_group_id'] == $variantgroup['id']) ? "selected":(old("variant_group_id") == $variantgroup['id'] ? "selected":"") }}>{{ $variantgroup['item_group_desc'] }}</option>
-@endforeach
-
-</select>
-
-</div>
 
 
                                                 </div>

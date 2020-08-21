@@ -88,17 +88,7 @@
                                                        
                                                                 <!-- Modal large-->
                                                                 <button id="btn1" type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button>
-                        
-                                                          
-
-
-
-
-
-
-
-
-
+                                                                               
 
                                                         <div class="col-sm-3">
                                                         <label class="col-form-label text-md-right ">Variant Code</label>
@@ -111,6 +101,120 @@
                
                                                         </div>
                                                     </div>
+
+
+
+                                                    <div class="form-group row">
+
+
+<div class="col-sm-4">
+    <label class="col-form-label text-md-right ">Item Variant Default</label>
+    <select  class="js-example-basic-single col-sm-12"  name="default" id="" placeholder="default" class="form-control selectric" required>
+        <option value="">Select</option>
+      
+        <option value="1" {{ (old("default") == "1" ? "selected":"") }}>Yes</option>
+        <option value="0" {{ (old("default") == "0" ? "selected":"") }}>No</option>
+        
+
+    </select>
+
+    </div>
+
+<div class="col-sm-4">
+    <label class="col-form-label text-md-right ">Variants Group</label>
+    <select  class="js-example-basic-single col-sm-12"  name="variant_group_id" id="" placeholder="variant_group_id" required class="form-control selectric" required>
+    <option value="">Select</option>
+@foreach($itemvariantgroup as $group)
+
+<option value="{{ $group['id'] }}" {{ (old("variant_group_id") == $group['id'] ? "selected":"") }}>{{ $group['item_group_desc'] }}</option>
+
+
+@endforeach
+</select>
+
+    </div>
+
+    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Min Order Quantity</label>
+                                                        <input type="number"  name="min_order_quantity" value="{{ old('min_order_quantity') }}" step="any" class="form-control" required>
+               
+                                                        </div>
+
+ 
+</div>
+
+
+
+<div class="form-group row">
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Min Order Amount</label>
+                                                        <input type="number"  name="min_order_amount" value="{{ old('min_order_amount') }}" step="any" class="form-control" required>
+               
+                                                        </div>
+                                                    
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Max Order Quantity</label>
+                                                        <input type="number" name="max_order_quantity" value="{{ old('max_order_quantity') }}" step="any" class="form-control" required>
+               
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Max Order Amount</label>
+                                                        <input type="number" name="max_order_amount" value="{{ old('max_order_amount') }}" step="any" class="form-control" required>
+               
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Quantity</label>
+                                                        <input type="number"  name="quantity" value="{{ old('quantity') }}" step="any" class="form-control" required>
+               
+                                                        </div>
+                                                    
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Threshold</label>
+                                                        <input type="number" name="threshold" value="{{ old('threshold') }}" step="any" class="form-control" required>
+               
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Discount Percentage</label>
+                                                        <input type="number" name="discount_percentage" value="{{ old('discount_percentage') }}" step="any" class="form-control" required>
+               
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Discount Amount</label>
+                                                        <input type="number"  name="discount_amount" value="{{ old('discount_amount') }}" step="any" class="form-control" required>
+               
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Suppliers</label>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="supplier_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                                        <option value="">Select</option>
+                                        @foreach($suppliers as $supp)
+                                        <option value="{{ $supp['id'] }}" {{ (old("supplier_id") == $supp['id'] ? "selected":"") }}>{{ $supp['supplier_desc'] }}</option>
+                                           
+                                        @endforeach
+                                    </select>
+               
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendors</label>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_store_id" id="" placeholder="Vendor" required class="form-control selectric" required>
+                                                        <option value="">Select</option>
+                                        @foreach($vendors as $vend)
+                                        <option value="{{ $vend['id'] }}" {{ (old("vendor_store_id") == $vend['id'] ? "selected":"") }}>{{ $vend['vendor_desc'] }}</option>
+                                           
+                                        @endforeach
+                                    </select>
+               
+                                                        </div>
+                                                    </div>
+
+                                                    
 
                                                     <div class="form-group row">
                                                     <div class="col-sm-4">
@@ -141,7 +245,7 @@
                                                     <div class="form-group row">
 
 
-                                                    <div class="col-sm-4">
+                                                    <!-- <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item Variant Default</label>
                                                         <select  class="js-example-basic-single col-sm-12"  name="default" id="" placeholder="default" class="form-control selectric" required>
                                                             <option value="">Select</option>
@@ -154,11 +258,6 @@
                
                                                         </div>
 
-
-
-
-
-
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Variants Group</label>
                                                         <select  class="js-example-basic-single col-sm-12"  name="variant_group_id" id="" placeholder="variant_group_id" required class="form-control selectric" required>
@@ -167,11 +266,11 @@
                                        
                                         <option value="{{ $group['id'] }}" {{ (old("variant_group_id") == $group['id'] ? "selected":"") }}>{{ $group['item_group_desc'] }}</option>
                                         
-                                        <!-- <option value="{{ $status['id'] }}" {{ (old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option> -->
+                                       
                                         @endforeach
                                     </select>
                
-                                                        </div>
+                                                        </div> -->
 
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item Variant Image</label>

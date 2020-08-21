@@ -106,6 +106,20 @@ class ItemVariantController extends Controller
         }
          $subcategories = $scresponse['data'];
 
+
+         try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/suppliers');
+
+            $scresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $suppliers = $scresponse['data'];
+
        try{
 
             $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
@@ -122,7 +136,7 @@ class ItemVariantController extends Controller
 
             return view(
                 'create_item_variant', compact(
-                    'items','statuses','itemvariantgroup','vendors','subcategories'
+                    'items','statuses','itemvariantgroup','vendors','subcategories','suppliers'
                 )
         );
     }
@@ -183,7 +197,49 @@ class ItemVariantController extends Controller
             [
                 'name' => 'status_id',
                 'contents' => $request->status_id
+            ],
+
+            [
+                'name' => 'min_order_quantity',
+                'contents' => $request->min_order_quantity
+            ],
+            [
+                'name' => 'min_order_amount',
+                'contents' => $request->min_order_amount
+            ],
+            [
+                'name' => 'max_order_quantity',
+                'contents' => $request->max_order_quantity
+            ],
+            [
+                'name' => 'max_order_amount',
+                'contents' => $request->max_order_amount
+            ],
+            [
+                'name' => 'quantity',
+                'contents' => $request->quantity
+            ],
+            [
+                'name' => 'threshold',
+                'contents' => $request->threshold
+            ],
+            [
+                'name' => 'discount_percentage',
+                'contents' => $request->discount_percentage
+            ],
+            [
+                'name' => 'discount_amount',
+                'contents' => $request->discount_amount
+            ],
+            [
+                'name' => 'supplier_id',
+                'contents' => $request->supplier_id
+            ],
+            [
+                'name' => 'vendor_store_id',
+                'contents' => $request->vendor_store_id
             ]
+            
 
             ]);
 
@@ -202,7 +258,30 @@ class ItemVariantController extends Controller
                 "selling_price"=>$request->selling_price,
                 "variant_group_id"=>$request->variant_group_id,
                 "default"=>$request->default,
-                "status_id"=>$request->status_id
+                "status_id"=>$request->status_id,
+
+
+                "min_order_quantity"=>$request->min_order_quantity,
+                "min_order_amount"=>$request->min_order_amount,
+                "max_order_quantity"=>$request->max_order_quantity,
+                "max_order_amount"=>$request->max_order_amount,
+                "quantity"=>$request->quantity,
+
+
+                "threshold"=>$request->threshold,
+                "discount_percentage"=>$request->discount_percentage,
+                "discount_amount"=>$request->discount_amount,
+                "supplier_id"=>$request->supplier_id,
+                "vendor_store_id"=>$request->vendor_store_id,
+
+
+
+
+
+
+
+
+
 
 
             ]);
@@ -290,6 +369,32 @@ class ItemVariantController extends Controller
         }
          $itemvariantgroup = $response['data'];
 
+         try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/suppliers');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $suppliers = $response['data'];
+
+
+         try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/vendors');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $vendors = $response['data'];
 
 
         try{
@@ -313,7 +418,7 @@ class ItemVariantController extends Controller
             $itemVariants= $response->json()['data'];
            //  return $itemVariants['id'];
             return view('edit_item_variant', compact(
-                'item','statuses','itemVariants','itemvariantgroup'
+                'item','statuses','itemVariants','itemvariantgroup','suppliers','vendors'
             ));
         }
 
@@ -343,14 +448,29 @@ class ItemVariantController extends Controller
         [
             "_method"=> 'PUT',
             "item_id"=>$request->item_id,
-                "variant_code"=>$request->variant_code,
-                "variant_desc"=>$request->variant_desc,
+            "variant_code"=>$request->variant_code,
+            "variant_desc"=>$request->variant_desc,
 
-                "MRP"=>$request->MRP,
-                "selling_price"=>$request->selling_price,
-                "variant_group_id"=>$request->variant_group_id,
-"default"=>$request->default,
-                "status_id"=>$request->status_id
+            "MRP"=>$request->MRP,
+            "selling_price"=>$request->selling_price,
+            "variant_group_id"=>$request->variant_group_id,
+            "default"=>$request->default,
+            "status_id"=>$request->status_id,
+
+
+            "min_order_quantity"=>$request->min_order_quantity,
+            "min_order_amount"=>$request->min_order_amount,
+            "max_order_quantity"=>$request->max_order_quantity,
+            "max_order_amount"=>$request->max_order_amount,
+            "quantity"=>$request->quantity,
+
+
+            "threshold"=>$request->threshold,
+            "discount_percentage"=>$request->discount_percentage,
+            "discount_amount"=>$request->discount_amount,
+            "supplier_id"=>$request->supplier_id,
+            "vendor_store_id"=>$request->vendor_store_id
+
             
         ]
         
