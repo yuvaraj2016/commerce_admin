@@ -43,7 +43,7 @@ color:#000!important;
     background-color: white !important;
 }
 body {
-    font-family: Lato !important;
+    font-family: Montserrat !important;
     font-size: 15px !important;
     font-weight: 400!important;
 }
@@ -359,7 +359,7 @@ margin:0!important;
 .dropdown-menu a
 {
 
-font-size:16px!important;
+font-size:14px!important;
 
 }
 
