@@ -43,7 +43,7 @@ color:#000!important;
     background-color: white !important;
 }
 body {
-    font-family: Montserrat !important;
+    font-family: Lato !important;
     font-size: 15px !important;
     font-weight: 400!important;
 }
@@ -388,7 +388,9 @@ font-size:14px!important;
     <meta name="author" content="#">
     <!-- Favicon icon -->
     <link rel="icon" href="{{ asset('files/assets/images/favicon.ico') }}" type="image/x-icon">
+
     <!-- Google font-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
 <!-- datatable -->
 
