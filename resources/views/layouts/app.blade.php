@@ -369,6 +369,11 @@ font-size:16px!important;
 
 }
 
+/* table td font size change */
+.dataTable th, td, #basic-btn_filter label {
+    font-size: 12px !important;
+}
+
 </style>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">

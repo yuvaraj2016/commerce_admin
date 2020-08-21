@@ -148,24 +148,24 @@
                                                                 <thead>
                                                                     <tr>
                                                                     <th>Item Code</th>
-                                    <th>Item Desc</th>
-                                    <th>Sub Category Desc</th>
-                                    <th>Item Image</th>
-                                    <th>Category Desc</th>
-                                    <th>Min Order Quantity</th>
-                                    <th>Min Order Amount</th>
-                                    <th>Max Order Quantity</th>
-                                    <th>Max Order Amount</th>
+                                    <th>Item<br> Desc</th>
+                                    <th>Sub Category<br> Desc</th>
+                                    <th>Item<br> Image</th>
+                                    <th>Category<br> Desc</th>
+                                    <th>Min Order<br> Quantity</th>
+                                    <th>Min Order<br> Amount</th>
+                                    <th>Max Order<br> Quantity</th>
+                                    <th>Max Order<br> Amount</th>
                                     <th>Quantity</th>
                                     <th>Threshold</th>
-                                    <th>Discount Percentage</th>
-                                    <th>Discount Amount</th>
-                                    <th>Supplier Desc</th>
-                                    <th>Mrp Price</th>
-                                    <th>Selling Price</th>
+                                    <th>Discount<br> Percentage</th>
+                                    <th>Discount<br> Amount</th>
+                                    <th>Supplier<br> Desc</th>
+                                    <th>Mrp<br> Price</th>
+                                    <th>Selling<br> Price</th>
                                     <th>Status</th>
                                     <th>Vendor</th>
-                                    <th>Created At</th>
+                                    <th>Created<br> At</th>
                                     <th>Actions</th>
                                                                     </tr>
                                                                 </thead>
