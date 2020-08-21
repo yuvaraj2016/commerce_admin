@@ -43,7 +43,7 @@ color:#000!important;
     background-color: white !important;
 }
 body {
-    font-family: Lato !important;
+    font-family: Montserrat !important;
     font-size: 15px !important;
     font-weight: 400!important;
 }
@@ -359,7 +359,7 @@ margin:0!important;
 .dropdown-menu a
 {
 
-font-size:14px!important;
+font-size:13px!important;
 
 }
 
@@ -372,7 +372,7 @@ font-size:14px!important;
 /* table td font size change */
 .dataTable th, td, #basic-btn_filter label {
     font-size: 13px !important;
-    font-family: Lato !important;
+    font-family: Montserrat !important;
 }
 
 </style>
@@ -394,7 +394,7 @@ font-size:14px!important;
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
 <!-- datatable -->
 
-
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <link rel="stylesheet" type="text/css" href="{{ asset('files/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/pages/data-table/css/buttons.dataTables.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('files/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}">
