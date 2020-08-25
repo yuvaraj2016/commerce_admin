@@ -60,7 +60,7 @@
 
 
         <div class="row">
-            @if(session('success') !== null)
+            <!-- @if(session('success') !== null)
             <div class='alert alert-success'>
                 {{ session('success') }}
             </div>
@@ -71,7 +71,7 @@
                 {{ $v[0] }}
             </div>
             @endforeach
-            @endif
+            @endif -->
             <div class="col-sm-12">
                 <!-- HTML5 Export Buttons table start -->
                 <div class="card">
@@ -183,7 +183,7 @@
                                                 <ul class="list-group list-inline ml-1">
                                                     <li class="list-group-item border1"><a href="{{ url('supplier_categories/'.$id) }}" class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-eye"></i></a></li>
                                                     <li class="list-group-item border1"><a href="{{ url('supplier_categories/'.$id.'/edit') }}" class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a></li>
-                                                    <li class="list-group-item border1">
+                                                    <!-- <li class="list-group-item border1">
                                                         <form action="{{  route('supplier_categories.destroy',$id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
@@ -191,9 +191,22 @@
                     class=" job-delete d-inline font1" data-toggle="tooltip" data-placement="top" title="Delete" > <i
                         class="fa fa-trash" style="position: relative;top:-5;"></i></button>
                                                         </form>
-                                                    </li>
+                                                    </li> -->
 
-                                                    <li class="list-group-item border1"><a href="{{ url('supplier_categories/'.$id) }}" class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Audit"><i class="fa fa-calculator"></i></a></li>
+
+                                                    <li class="list-group-item border1">
+                                                    <form id="delete_from_{{$suppliercategory['id']}}" method="POST" action="{{ route('supplier_categories.destroy', $suppliercategory['id']) }}">
+                    {{ csrf_field() }}
+    {{ method_field('DELETE') }}
+
+    <div class="form-group">
+        <a href="javascript:void(0);" data-id="{{$suppliercategory['id']}}" class="_delete_data"  data-toggle="tooltip" data-placement="top" title="Delete" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:3px!important;padding-bottom:8px!important;">
+        <i class="fa fa-trash" style="position: relative;top:-5;color:#01a9ac"></i>
+        </a>                    
+    </div>
+</form></li>
+
+                                                    <!-- <li class="list-group-item border1"><a href="{{ url('supplier_categories/'.$id) }}" class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Audit"><i class="fa fa-calculator"></i></a></li> -->
 
                                                 </ul>
 
