@@ -59,7 +59,7 @@
     </div>
     <div class="page-body">
         <div class="row">
-            @if(session('success') !== null)
+            <!-- @if(session('success') !== null)
             <div class='alert alert-success'>
                 {{ session('success') }}
             </div>
@@ -70,7 +70,7 @@
                 {{ $v[0] }}
             </div>
             @endforeach
-            @endif
+            @endif -->
             <div class="col-sm-12">
                 <!-- HTML5 Export Buttons table start -->
                 <div class="card">
@@ -78,7 +78,7 @@
                     <div class="card-header table-card-header">
                         <div class="row">
                             <div class="section-header-button col-md-4">
-                                <a href="{{ route('status.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
+                                <a href="{{ route('status.create') }}" id="alert" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
                     background-color: #6777ef;
                     border-color: #6777ef;border-radius:30px">Add New</a>
                             </div>
@@ -167,18 +167,30 @@
                                         <td>
                                             <div class="d-flex">
                                                 <ul class="list-group list-inline ml-1">
-                                                    <li class="list-group-item border1"><a href="{{ url('status/'.$id) }}" class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-eye"></i></a></li>
+                                                    <li class="list-group-item border1"><a href="{{ url('status/'.$id) }}" class=" d-inline font1" id="alert1" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-eye"></i></a></li>
                                                     <li class="list-group-item border1"><a href="{{ url('status/'.$id.'/edit') }}" class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a></li>
-                                                    <li class="list-group-item border1">
-                                                        <form action="{{ route('status.destroy',$id) }}" method="POST">
+                                                    <!-- <li class="list-group-item border1">
+                                                        <form id="delete_from_{{$status['id']}}" action="{{ route('status.destroy', $status['id']) }}"  method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button type="submit" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:3px!important;padding-bottom:8px!important;"
-                                                            class=" job-delete d-inline font1" data-toggle="tooltip" data-placement="top" title="Delete" > <i
+                                                            <button type="submit" data-id="{{$status['id']}}"  style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:3px!important;padding-bottom:8px!important;"
+                                                            class=" job-delete d-inline font1 _delete_data" data-toggle="tooltip" data-placement="top" title="Delete" > <i
                                                                 class="fa fa-trash" style="position: relative;top:-5;"></i></button>
                                                         </form>
-                                                    </li>
-                                                    <li class="list-group-item border1"><a href="{{ url('status/'.$id) }}" class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Audit"><i class="fa fa-calculator"></i></a></li>
+                                                    </li> -->
+
+                                                    <li class="list-group-item border1">
+                                                    <form id="delete_from_{{$status['id']}}" method="POST" action="{{route('status.destroy', $status['id']) }}">
+                    {{ csrf_field() }}
+    {{ method_field('DELETE') }}
+
+    <div class="form-group">
+        <a href="javascript:void(0);" data-id="{{$status['id']}}" class="_delete_data"  data-toggle="tooltip" data-placement="top" title="Delete" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:3px!important;padding-bottom:8px!important;">
+        <i class="fa fa-trash" style="position: relative;top:-5;color:#01a9ac"></i>
+        </a>                    
+    </div>
+</form></li>
+                                                    <!-- <li class="list-group-item border1 btn-delete"><a href="{{ url('status/'.$id) }}" class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Audit"><i class="fa fa-calculator"></i></a></li> -->
                                                 </ul>
 
 
@@ -397,6 +409,65 @@
     });
 
 </script> --}}
+<script>
+// $(document).ready(function(){
+//     $('.sa-remove').click(function () {
+//             var postId = $(this).data('id'); 
+//             swal({
+//                 title: "are u sure?",
+//                 text: "lorem lorem lorem",
+//                 type: "error",
+//                 showCancelButton: true,
+//                 confirmButtonClass: 'btn-danger waves-effect waves-light',
+//                 confirmButtonText: "Delete",
+//                 cancelButtonText: "Cancel",
+//                 closeOnConfirm: true,
+//                 closeOnCancel: true
+//             },
+//             function(){
+//                 window.location.href = "status.destroy/" + postId;
+//             }); here
+
+// });
+// });
+
+
+
+
+
+// $(document).on('click', '.sa-remove', function (e) {
+//     e.preventDefault();
+//     var id = $(this).data('id');
+//    alert(id);
+//     swal({
+//             title: "Are you sure!",
+//             type: "error",
+//             confirmButtonClass: "btn-danger",
+//             confirmButtonText: "Yes!",
+//             showCancelButton: true,
+//         },
+//         function() {
+//             $.ajax({
+//                 type: "POST",
+//                 url: "{{ url('status.destroy') }}",
+             
+//                 data: {id:id},
+//                 success: function (data) {
+                    
+//                               if (data.success){
+//                                     swalWithBootstrapButtons.fire(
+//                                         'Deleted!',
+//                                         'Your file has been deleted.',
+//                                         "success"
+//                                     );
+//                                     $("#"+id+"").remove(); // you can add name div to remove
+//                                 }
+//                     }         
+//             });
+//     });
+// });
+</script>
+
 
 </section>
 @endsection

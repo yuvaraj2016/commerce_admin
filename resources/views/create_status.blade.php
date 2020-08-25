@@ -54,10 +54,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('status.store') }}" method="post" id="addstatus"
+                        <form action="{{ route('status.store') }}" class="swa-confirm"  method="post" id="addstatus"
                             enctype="multipart/form-data">
                             @csrf
-                            @if(session('success') !== null)
+                            <!-- @if(session('success') !== null)
                                 <div class='alert alert-success'>
                                     {{ session('success') }}
                                 </div>
@@ -72,7 +72,7 @@
                                    @endforeach
 
                                 @endforeach
-                            @endif
+                            @endif -->
                             <!-- <div class="form-group row">
                                                         <div class="col-sm-4 offset-5">
                                                         <label class="col-form-label text-md-right ">Status Desc</label>
@@ -95,7 +95,7 @@
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right "></label>
                                 <div class="col-sm-12 col-md-7 offset-5">
-                                    <button type="submit" class="btn btn-primary">Create Status</button>
+                                    <button type="submit" id="submit" class="btn btn-primary">Create Status</button>
                                 </div>
                             </div>
 
@@ -105,6 +105,15 @@
             </div>
         </div>
     </div>
+    <script>
+$("#addstatus").on("click", function(e) {
+    Swal.fire(
+  'Good job!',
+  'You clicked the button!',
+  'success'
+)
+});
+</script>
 </section>
     </div>
 </div>

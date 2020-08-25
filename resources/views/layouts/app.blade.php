@@ -415,7 +415,9 @@ font-size:13px!important;
     <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/css/jquery.mCustomScrollbar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/css/pcoded-horizontal.min.css') }}">
-
+   
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     
 
@@ -1009,6 +1011,8 @@ font-size:13px!important;
     <script type="text/javascript" src="{{ asset('files/assets/js/script.js') }}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -1029,6 +1033,42 @@ font-size:13px!important;
 	
 // });
 </script>
+
+<script>
+    $(document).ready(function(){
+        $('._delete_data').click(function(e){
+            var data_id = $(this).attr('data-id');
+           // alert(data_id);
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+
+                if (result.value) {
+                    $(document).find('#delete_from_'+data_id).submit();
+                    Swal.fire(
+      'Deleted!',
+      'Your  file has been deleted.',
+      'success'
+    )
+                }
+                else if (result.dismiss === Swal.DismissReason.cancel) {
+    Swal.fire(
+      'Cancelled',
+      'Your  file is safe',
+      'error'
+    )
+  }
+            })
+        });
+    });            
+</script>
+
 </body>
 
 </html>
