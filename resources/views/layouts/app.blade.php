@@ -664,7 +664,7 @@ font-size:13px!important;
                               Suppliers
                             </a>
                           </li>
-
+<!-- 
                           <li class="nav-item {{ (request()->is('vendor_list')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('vendor.index') }}">
                               <i class="fa fa-handshake-o">
@@ -672,7 +672,25 @@ font-size:13px!important;
                               </i>
                               Vendors
                             </a>
+                          </li> -->
+
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-users" style="margin-left:11px!important;">
+                              
+                              </i>
+                              Vendors
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                             
+                              <a class="dropdown-item {{ (request()->is('vendor_list')) ? 'active' : '' }}" href="{{ route('vendor.index') }}"> Vendors</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item {{ (request()->is('vendorstores_list')) ? 'active' : '' }}" href="{{ route('vendorstores.index') }}">Vendor Stores</a>
+                             
+                          
+                            </div>
                           </li>
+
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <i class="fa fa-users" style="margin-left:11px!important;">

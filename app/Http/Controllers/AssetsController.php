@@ -53,6 +53,13 @@ class AssetsController extends Controller
             $apicall = "api/prodSubCat/".$id;
             // $view = "edit_image_product_sub_category";
         }
+
+        else if($module=="vendorstore")
+        {
+            $apicall = "api/vendorStores/".$id;
+            // $view = "edit_image_vendor_stores";
+        }
+
         else if($module=="items")
         {
             $apicall = "api/item/".$id;
@@ -165,6 +172,13 @@ class AssetsController extends Controller
         {
             $apicall = "api/prodSubCat/".$id;
             $view = "edit_image_product_sub_category";
+        }
+
+
+        else if($module=="vendorstore")
+        {
+            $apicall = "api/vendorStores/".$id;
+            $view = "edit_vendor_stores_image";
         }
 
         else if($module=="items")
