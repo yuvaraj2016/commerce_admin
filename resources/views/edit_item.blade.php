@@ -54,8 +54,30 @@
                             enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
-
                             @if(session('success') !== null)
+                            <div class="succWrap">
+                            {{ session('success') }}
+                            </div>
+                                <!-- <div class='alert alert-success'>
+                                    {{ session('success') }}
+                                </div> -->
+                            @endif
+
+                            @if(session('error') !== null)
+
+                                <!-- @foreach(session('error') as $v)
+                                   @foreach($v as $e) -->
+
+                                   <div class="errorWrap"><strong>ERROR</strong>:  {{ session('error') }} </div>
+
+                                   <!-- <div class='alert alert-danger'>
+                                       {{ $e }}
+                                    </div> -->
+                                   <!-- @endforeach
+
+                                @endforeach -->
+                            @endif
+                            <!-- @if(session('success') !== null)
                                 <div class='alert alert-green'>
                                     {{ session('success') }}
                                 </div>
@@ -78,7 +100,7 @@
                              </div>
                        
                   
-                        @endif
+                        @endif -->
 
                         <div class="form-group row">
                                                         <div class="col-sm-4">
@@ -96,11 +118,11 @@
 
                                                         <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Vendor Name</label>
-<select  class="js-example-basic-single col-sm-12"  name="vendor_store_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+<select  class="js-example-basic-single col-sm-12"  name="vendor_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
 <option value="">Select</option>
 @foreach($vendors as $vendor)
 <!-- <option value="{{ $vendor['id'] }}" {{ (old("vendor_store_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option> -->
-<option value="{{ $vendor['id'] }}" {{ ( $item['vendor_store_id'] == $vendor['id']) ? "selected":(old("vendor_store_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option>
+<option value="{{ $vendor['id'] }}" {{ ( $item['vendor_id'] == $vendor['id']) ? "selected":(old("vendor_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option>
 @endforeach
 </select>
 
@@ -238,8 +260,27 @@
 
     </div>
 
+
+    <div class="col-sm-4">
+    <label class="col-form-label text-md-right ">Vendor Stored Name</label>
+    <select  class="js-example-basic-single col-sm-12" name="vendor_store_id" id="" placeholder="Suppliers" required class="form-control selectric" required>
+        <option value="">Select</option>
+        @foreach($vendorStore as $vendorstores)
+            {{-- <!-- <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['sub_category_desc'] }}</option> --> --}}
+            <option value="{{ $vendorstores['id'] }}" {{ ( $item['vendor_store_id'] == $vendorstores['id']) ? "selected":(old("vendor_store_id") == $vendorstores['id'] ? "selected":"") }}>{{ $vendorstores['vendor_store_name'] }}</option>
+            @endforeach
+    </select>
+
+    </div>
+
     <!-- <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal1" style="margin-top: 30px;height:40px">+</button> -->
 
+
+
+</div>
+
+
+<div class="form-group row">
 <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Status</label>
 <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
@@ -252,18 +293,7 @@
 </select>
 
 </div>
-
-<!-- Modal large-->
-<!-- <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button> -->
-
-<div class="col-sm-4">
-
-
 </div>
-</div>
-
-
-
 
 
 

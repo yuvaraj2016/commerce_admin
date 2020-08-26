@@ -116,10 +116,10 @@
 
                                                         <div class="col-sm-3">
                                                         <label class="col-form-label text-md-right ">Vendor Name</label>
-                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_store_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($vendors as $vendor)
-                                            <option value="{{ $vendor['id'] }}" {{ (old("vendor_store_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option>
+                                            <option value="{{ $vendor['id'] }}" {{ (old("vendor_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option>
                                         @endforeach
                                     </select>
                
@@ -271,6 +271,18 @@
                                     </select>
                
                                                         </div>
+
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendor Stored Name</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="vendor_store_id" id="" placeholder="vendor store" required class="form-control selectric" required>
+                                        <option value="">Select</option>
+                                        @foreach($vendorstore as $vendorstores)
+                                        <option value="{{ $vendorstores['id'] }}" {{ (old("vendor_store_id") == $vendorstores['id'] ? "selected":"") }}>{{ $vendorstores['vendor_store_name'] }}</option>
+                                        @endforeach
+                                       
+                                    </select>
+               
+                                                        </div>
                                                           
 
                                                     <div class="col-sm-4">
@@ -286,20 +298,20 @@
                                                         </div>
                                                       
                               
-                                                        <div class="col-sm-4">
-                                                            <label class="col-form-label text-md-right ">Item Image Picture</label>
-                                                            <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
-                                                        </div>
+                                                        
 
 
-                                                        <div class="col-sm-4">
-                                                      
-                                          
-                                                        </div>
+                                                    
                                                     </div>
 
 
+                                                    <div class="form-group row">
 
+                                                    <div class="col-sm-4">
+                                                            <label class="col-form-label text-md-right ">Item Image Picture</label>
+                                                            <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
+                                                        </div>
+                                                    </div>
 
 
 

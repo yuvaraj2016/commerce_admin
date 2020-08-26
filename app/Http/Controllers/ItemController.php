@@ -86,14 +86,14 @@ class ItemController extends Controller
 
             $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/vendors');
 
-            $vresponse = json_decode($call->getBody()->getContents(), true);
+            $response = json_decode($call->getBody()->getContents(), true);
             //  return $response;
         }catch (\Exception $e){
             //buy a beer
 
 
         }
-         $vendors = $vresponse['data'];
+         $vendors = $response['data'];
          try{
 
             $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodCat');
@@ -122,6 +122,21 @@ class ItemController extends Controller
 
 
 
+         try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/vendorStores');
+
+            $suresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $vendorstore = $suresponse['data'];
+
+
+
 
         try{
 
@@ -139,7 +154,7 @@ class ItemController extends Controller
 
             return view(
                 'create_item', compact(
-                    'subcategories','vendors','statuses','vendorcategories','categories','supplier'
+                    'subcategories','vendors','statuses','vendorcategories','categories','supplier','vendorstore'
                 )
         );
     }
@@ -185,8 +200,8 @@ class ItemController extends Controller
                 'contents' => $request->status_id
             ],
             [
-                'name' => 'vendor_store_id',
-                'contents' => $request->vendor_store_id
+                'name' => 'vendor_id',
+                'contents' => $request->vendor_id
             ],
 
 
@@ -236,6 +251,10 @@ class ItemController extends Controller
                 'contents' => $request->MRP
             ],
             [
+                'name' => 'vendor_store_id',
+                'contents' => $request->vendor_store_id
+            ],
+            [
                 'name' => 'selling_price',
                 'contents' => $request->selling_price
             ]
@@ -253,7 +272,7 @@ class ItemController extends Controller
                 "item_desc"=>$request->item_desc,
                 "sub_category_id"=>$request->sub_category_id,
                 "status_id"=>$request->status_id,
-                "vendor_store_id"=>$request->vendor_store_id,
+                "vendor_id"=>$request->vendor_id,
 
 
                 "category_id"=>$request->category_id,
@@ -270,6 +289,7 @@ class ItemController extends Controller
                 "supplier_id"=>$request->supplier_id,
 
                 "MRP"=>$request->MRP,
+                "vendor_store_id"=>$request->vendor_store_id,
                 "selling_price"=>$request->selling_price
 
 
@@ -361,6 +381,21 @@ class ItemController extends Controller
          $prodCat = $response['data'];
 
 
+
+         try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/vendorStores');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $vendorStore = $response['data'];
+
+
          try{
 
             $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/suppliers');
@@ -412,7 +447,7 @@ class ItemController extends Controller
             $item= $response->json()['data'];
         //    return $item['id'];
             return view('edit_item', compact(
-                'prodSubCat','vendors','statuses','item','prodCat','suppliers'
+                'prodSubCat','vendors','statuses','item','prodCat','suppliers','vendorStore'
             ));
         }
 
@@ -443,7 +478,7 @@ class ItemController extends Controller
                 "vendor_store_id"=>$request->vendor_store_id,
 
 
-
+                "vendor_id"=>$request->vendor_id,
                 "category_id"=>$request->category_id,
                 "min_order_quantity"=>$request->min_order_quantity,
                 "min_order_amount"=>$request->min_order_amount,

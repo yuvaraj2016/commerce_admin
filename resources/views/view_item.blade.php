@@ -167,15 +167,19 @@
                                                         <input type="text"  value="     {{ $item['vendor'] }}" class="form-control" readonly>
                                                         </div>
                                                         <div class="col-sm-4 ">
-                                                        <label class="col-form-label text-md-right ">Created At</label>
-                                                        <input type="text"  value=" {{ date("Y-m-d H:i:s",$item['created_at']) }}" class="form-control" readonly>
-                                          
+                                                        <label class="col-form-label text-md-right ">Vendor Stored Name</label>
+                                                        <input type="text"  value="     {{ $item['vendor_store_name'] }}" class="form-control" readonly>
                                                         </div>
                                          
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Created At</label>
+                                                        <input type="text"  value=" {{ date("Y-m-d H:i:s",$item['created_at']) }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Item Image</label>
                                                         <img src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'].'?width=300&height=300' : asset('img/no-image.gif')  }}"/>
                                                         </div>
