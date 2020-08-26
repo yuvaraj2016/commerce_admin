@@ -158,11 +158,11 @@
                                                                 <thead>
                                                                     <tr>
                                                                     <th>Vendor Name</th>
-                                    <th>Vendor Stores Name</th>
+                                    <th>Vendor Store Name</th>
                                     <th>Vendor Store Image</th>
-                                    <th>Vendor Stores Location</th>
-                                    <th>Vendor Stores Address</th>
-                                    <th>Vendor Stores Contact</th>
+                                    <th>Vendor Store Location</th>
+                                    <th>Vendor Store Address</th>
+                                    <th>Vendor Store Contact</th>
                                     <th>Latitude</th>
                                     <th>Longitude</th>
                                     <th>Status</th>
