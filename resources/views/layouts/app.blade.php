@@ -1068,7 +1068,34 @@ font-size:13px!important;
         });
     });            
 </script>
+<script>
 
+
+
+    $(".errorWrap").each(function () {
+        swal("Error", "'" + $(this).text() + "'", 'warning');
+        $(this).hide();
+    });
+
+
+
+
+</script>
+<script>
+    $(".succWrap").each(function () {
+     
+//         swal(
+//                {
+//                    title: 'Successfully Created!',
+//                    text: 'You clicked the button!',
+//                    type: 'success',
+//                    confirmButtonClass: 'btn btn-confirm mt-2'
+//                }
+//            );
+        swal("Success ", "" + $(this).text() + "", 'success');
+        $(this).hide();
+    });
+</script>
 </body>
 
 </html>

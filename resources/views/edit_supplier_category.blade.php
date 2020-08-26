@@ -55,25 +55,30 @@
                             @method('PUT')
                             @csrf
 
+                         
                             @if(session('success') !== null)
-                                <div class='alert alert-green'>
+                            <div class="succWrap">
+                            {{ session('success') }}
+                            </div>
+                                <!-- <div class='alert alert-success'>
                                     {{ session('success') }}
-                                </div>
+                                </div> -->
                             @endif
+
                             @if(session('error') !== null)
 
-                            {{-- @foreach(session('error') as $v)
-                               @foreach($v as $e)
-                               <div class='alert alert-red'>
-                                   {{ $e }}
-                                </div>
-                               @endforeach
+                                @foreach(session('error') as $v)
+                                   @foreach($v as $e)
 
-                            @endforeach --}}
-                            <div class='alert alert-red'>
-                                {{ session('error') }}
-                             </div>
-                        @endif
+                                   <div class="errorWrap"><strong>ERROR</strong>:  {{ $e }} </div>
+
+                                   <!-- <div class='alert alert-danger'>
+                                       {{ $e }}
+                                    </div> -->
+                                   @endforeach
+
+                                @endforeach
+                            @endif
                         <div class="form-group row">
                                                        
                                                         <div class="col-sm-4 offset-1">

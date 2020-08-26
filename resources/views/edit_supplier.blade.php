@@ -55,7 +55,32 @@
                             @method('PUT')
                             @csrf
 
+
                             @if(session('success') !== null)
+                            <div class="succWrap">
+                            {{ session('success') }}
+                            </div>
+                                <!-- <div class='alert alert-success'>
+                                    {{ session('success') }}
+                                </div> -->
+                            @endif
+
+                            @if(session('error') !== null)
+
+                                @foreach(session('error') as $v)
+                                   @foreach($v as $e)
+
+                                   <div class="errorWrap"><strong>ERROR</strong>:  {{ $e }} </div>
+
+                                   <!-- <div class='alert alert-danger'>
+                                       {{ $e }}
+                                    </div> -->
+                                   @endforeach
+
+                                @endforeach
+                            @endif
+
+                            <!-- @if(session('success') !== null)
                                 <div class='alert alert-green'>
                                     {{ session('success') }}
                                 </div>
@@ -78,7 +103,7 @@
                              </div>
                        
                   
-                        @endif
+                        @endif -->
                         <div class="form-group row">
 
                                                  

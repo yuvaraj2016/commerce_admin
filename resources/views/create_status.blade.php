@@ -57,6 +57,32 @@
                         <form action="{{ route('status.store') }}" class="swa-confirm"  method="post" id="addstatus"
                             enctype="multipart/form-data">
                             @csrf
+
+               
+                            @if(session('success') !== null)
+                            <div class="succWrap">
+                            {{ session('success') }}
+                            </div>
+                                <!-- <div class='alert alert-success'>
+                                    {{ session('success') }}
+                                </div> -->
+                            @endif
+
+                            @if(session('error') !== null)
+
+                                @foreach(session('error') as $v)
+                                   @foreach($v as $e)
+
+                                   <div class="errorWrap"><strong>ERROR</strong>:  {{ $e }} </div>
+
+                                   <!-- <div class='alert alert-danger'>
+                                       {{ $e }}
+                                    </div> -->
+                                   @endforeach
+
+                                @endforeach
+                            @endif
+
                             <!-- @if(session('success') !== null)
                                 <div class='alert alert-success'>
                                     {{ session('success') }}
@@ -105,15 +131,7 @@
             </div>
         </div>
     </div>
-    <script>
-$("#addstatus").on("click", function(e) {
-    Swal.fire(
-  'Good job!',
-  'You clicked the button!',
-  'success'
-)
-});
-</script>
+ 
 </section>
     </div>
 </div>

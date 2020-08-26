@@ -60,6 +60,31 @@
                             enctype="multipart/form-data">
                             @csrf
                             @if(session('success') !== null)
+                            <div class="succWrap">
+                            {{ session('success') }}
+                            </div>
+                                <!-- <div class='alert alert-success'>
+                                    {{ session('success') }}
+                                </div> -->
+                            @endif
+
+                            @if(session('error') !== null)
+
+                                @foreach(session('error') as $v)
+                                   @foreach($v as $e)
+
+                                   <div class="errorWrap"><strong>ERROR</strong>:  {{ $e }} </div>
+
+                                   <!-- <div class='alert alert-danger'>
+                                       {{ $e }}
+                                    </div> -->
+                                   @endforeach
+
+                                @endforeach
+                            @endif
+
+
+                            <!-- @if(session('success') !== null)
                                 <div class='alert alert-success'>
                                     {{ session('success') }}
                                 </div>
@@ -74,7 +99,7 @@
                                    @endforeach
 
                                 @endforeach
-                            @endif
+                            @endif -->
                             <div class="form-group row">
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">User name</label>

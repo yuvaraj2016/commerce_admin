@@ -58,19 +58,28 @@
                         <form action="{{ route('supplier_categories.store') }}" method="post" id="addsuppliercat"
                             enctype="multipart/form-data">
                             @csrf
+                          
+                           
+                           
                             @if(session('success') !== null)
-                                <div class='alert alert-success'>
+                            <div class="succWrap">
+                            {{ session('success') }}
+                            </div>
+                                <!-- <div class='alert alert-success'>
                                     {{ session('success') }}
-                                </div>
+                                </div> -->
                             @endif
 
                             @if(session('error') !== null)
 
                                 @foreach(session('error') as $v)
                                    @foreach($v as $e)
-                                   <div class='alert alert-danger'>
+
+                                   <div class="errorWrap"><strong>ERROR</strong>:  {{ $e }} </div>
+
+                                   <!-- <div class='alert alert-danger'>
                                        {{ $e }}
-                                    </div>
+                                    </div> -->
                                    @endforeach
 
                                 @endforeach

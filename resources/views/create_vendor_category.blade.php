@@ -58,7 +58,33 @@
                         <form action="{{ route('vendor_categories.store') }}" method="post" id="addvendorcat"
                             enctype="multipart/form-data">
                             @csrf
+               
                             @if(session('success') !== null)
+                            <div class="succWrap">
+                            {{ session('success') }}
+                            </div>
+                                <!-- <div class='alert alert-success'>
+                                    {{ session('success') }}
+                                </div> -->
+                            @endif
+
+                            @if(session('error') !== null)
+
+                                @foreach(session('error') as $v)
+                                   @foreach($v as $e)
+
+                                   <div class="errorWrap"><strong>ERROR</strong>:  {{ $e }} </div>
+
+                                   <!-- <div class='alert alert-danger'>
+                                       {{ $e }}
+                                    </div> -->
+                                   @endforeach
+
+                                @endforeach
+                            @endif
+
+
+                            <!-- @if(session('success') !== null)
                                 <div class='alert alert-success'>
                                     {{ session('success') }}
                                 </div>
@@ -69,7 +95,7 @@
                                     {{ $v[0] }}
                                 </div>
                             @endforeach
-                            @endif
+                            @endif -->
                             <div class="form-group row">
                                                     <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Vendor Desc</label>
