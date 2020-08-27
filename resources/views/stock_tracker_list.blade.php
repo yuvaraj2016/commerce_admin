@@ -63,7 +63,7 @@
 
     <div class="row">
     <div class="col-sm-12">
-                                        @if(session('success') !== null)
+                                        <!-- @if(session('success') !== null)
         <div class='alert alert-success'>
             {{ session('success') }}
         </div>
@@ -74,7 +74,7 @@
                     {{ $v[0] }}
                 </div>
             @endforeach
-        @endif
+        @endif -->
                                             
                                                 <!-- HTML5 Export Buttons table start -->
                                                 <div class="card">
@@ -214,7 +214,7 @@
   <li class="list-group-item border1"><a href="{{url('stock_tracker/'.$id.'/edit') }}"
                         class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Edit" ><i
                             class="fa fa-edit" ></i></a></li>
-  <li class="list-group-item border1"> <form
+  <!-- <li class="list-group-item border1"> <form
                     action="{{route('stock_tracker.destroy',$id) }}"
                     method="POST">
                     @method('DELETE')
@@ -222,10 +222,26 @@
                     <button type="submit" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:3px!important;padding-bottom:8px!important;"
                     class=" job-delete d-inline font1" data-toggle="tooltip" data-placement="top" title="Delete" > <i
                         class="fa fa-trash" style="position: relative;top:-5;"></i></button>
-                </form></li>
-                <li class="list-group-item border1"><a href="{{ url('stock_tracker/'.$id)  }}"
+                </form></li> -->
+
+
+
+
+
+                <li class="list-group-item border1">
+                                                    <form id="delete_from_{{$stocktracke['id']}}" method="POST" action="{{route('stock_tracker.destroy', $stocktracke['id']) }}">
+                    {{ csrf_field() }}
+    {{ method_field('DELETE') }}
+
+    <div class="form-group">
+        <a href="javascript:void(0);" data-id="{{$stocktracke['id']}}" class="_delete_data"  data-toggle="tooltip" data-placement="top" title="Delete" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:3px!important;padding-bottom:8px!important;">
+        <i class="fa fa-trash" style="position: relative;top:-5;color:#01a9ac"></i>
+        </a>                    
+    </div>
+</form></li>
+                <!-- <li class="list-group-item border1"><a href="{{ url('stock_tracker/'.$id)  }}"
                         class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Audit"><i
-                            class="fa fa-calculator"></i></a></li>
+                            class="fa fa-calculator"></i></a></li> -->
 
 </ul>
 

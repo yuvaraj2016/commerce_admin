@@ -174,7 +174,22 @@
   <li class="list-group-item border1"><a href="{{url('item_variants_group/'.$id.'/edit') }}"
                         class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Edit"><i
                             class="fa fa-edit" ></i></a></li>
-  <li class="list-group-item border1"> <form
+
+                            <li class="list-group-item border1">
+                                                    <form id="delete_from_{{$item_variant_group['id']}}" method="POST" action="{{route('item_variants_group.destroy', $item_variant_group['id']) }}">
+                    {{ csrf_field() }}
+    {{ method_field('DELETE') }}
+
+    <div class="form-group">
+        <a href="javascript:void(0);" data-id="{{$item_variant_group['id']}}" class="_delete_data"  data-toggle="tooltip" data-placement="top" title="Delete" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:3px!important;padding-bottom:8px!important;">
+        <i class="fa fa-trash" style="position: relative;top:-5;color:#01a9ac"></i>
+        </a>                    
+    </div>
+</form></li>
+
+
+
+  <!-- <li class="list-group-item border1"> <form
                     action="{{ route('item_variants_group.destroy',$id) }}"
                     method="POST">
                     @method('DELETE')
@@ -182,10 +197,10 @@
                     <button type="submit" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:7px!important;padding-bottom:8px!important;"
                         class=" job-delete d-inline font1"  data-toggle="tooltip" data-placement="top" title="Delete"> <i
                             class="fa fa-trash"></i></button>
-                </form></li>
-                <li class="list-group-item border1"><a href="{{ url('item_variants_group/'.$id) }}"
+                </form></li> -->
+                <!-- <li class="list-group-item border1"><a href="{{ url('item_variants_group/'.$id) }}"
                         class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="Audit"><i
-                            class="fa fa-calculator"></i></a></li>
+                            class="fa fa-calculator"></i></a></li> -->
 
 </ul>
  

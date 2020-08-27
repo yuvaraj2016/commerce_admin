@@ -48,7 +48,7 @@
                         <form action="{{ route('item_variants_group.store') }}" method="post" id="additem"
                             enctype="multipart/form-data">
                             @csrf
-                            @if(session('success') !== null)
+                            <!-- @if(session('success') !== null)
                                 <div class='alert alert-success'>
                                     {{ session('success') }}
                                 </div>
@@ -63,9 +63,35 @@
                                    @endforeach
 
                                 @endforeach
-                            @endif
+                            @endif -->
                            
+                            @if(session('success') !== null)
+                            <div class="succWrap">
+                            {{ session('success') }}
+                            </div>
+                                <!-- <div class='alert alert-success'>
+                                    {{ session('success') }}
+                                </div> -->
+                            @endif
 
+                           
+                            <!-- @if(session('success') !== null)
+                                <div class='alert alert-green'>
+                                    {{ session('success') }}
+                                </div>
+                            @endif -->
+                            @if(session('error') !== null)
+
+                          
+
+
+                       
+                            <div class='alert alert-red'>
+                                {{ session('error') }}
+                             </div>
+                       
+                  
+                        @endif
                                                   
                                                     <div class="form-group row">
                                                         <div class="col-sm-4">

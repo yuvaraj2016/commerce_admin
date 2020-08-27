@@ -53,8 +53,34 @@
                             enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
-
                             @if(session('success') !== null)
+                            <div class="succWrap">
+                            {{ session('success') }}
+                            </div>
+                                <!-- <div class='alert alert-success'>
+                                    {{ session('success') }}
+                                </div> -->
+                            @endif
+
+                           
+                            <!-- @if(session('success') !== null)
+                                <div class='alert alert-green'>
+                                    {{ session('success') }}
+                                </div>
+                            @endif -->
+                            @if(session('error') !== null)
+
+                          
+
+
+                       
+                            <div class='alert alert-red'>
+                                {{ session('error') }}
+                             </div>
+                       
+                  
+                        @endif
+                            <!-- @if(session('success') !== null)
                                 <div class='alert alert-green'>
                                     {{ session('success') }}
                                 </div>
@@ -77,7 +103,7 @@
                              </div>
                        
                   
-                        @endif
+                        @endif -->
 
                         <div class="form-group row">
                                                         <div class="col-sm-4">
