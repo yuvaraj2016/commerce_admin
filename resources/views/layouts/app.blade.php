@@ -1135,6 +1135,36 @@ Swal.fire(
 })
 });
 
+
+
+// view script
+$('.view-confirmation').on('click', function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+    swal({
+        title: "Are you sure to View?",
+
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Yes, I am sure!',
+            cancelButtonText: "No, cancel it!"
+    }).then((result) => {
+
+if (result.value) {
+    window.location.href = url;
+
+}
+else if (result.dismiss === Swal.DismissReason.cancel) {
+Swal.fire(
+'Cancelled',
+'You  Cancelled',
+'error'
+)
+}
+})
+});
+
 </script>
 
 

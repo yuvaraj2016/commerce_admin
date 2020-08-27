@@ -203,7 +203,7 @@
             <div class="d-flex">
             <ul class="list-group list-inline ml-1">
   <li class="list-group-item border1"><a href="{{  url('suppliers/'.$id) }}"
-                        class=" d-inline font1"  data-toggle="tooltip" data-placement="top" title="View"><i
+                        class=" d-inline font1 view-confirmation"  data-toggle="tooltip" data-placement="top" title="View"><i
                             class="fa fa-eye"></i></a></li>
   <li class="list-group-item border1"><a href="{{ url('suppliers/'.$id.'/edit') }}"
                         class=" d-inline font1 edit-confirmation"  data-toggle="tooltip" data-placement="top" title="Edit" ><i

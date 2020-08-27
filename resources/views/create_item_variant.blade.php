@@ -73,23 +73,12 @@
                                     {{ session('success') }}
                                 </div>
                             @endif -->
-                            @if(session('error') !== null)
-
-                          
-
-
-                       
-                            <div class='alert alert-red'>
-                                {{ session('error') }}
-                             </div>
-                       
-                  
-                        @endif
+                        
                             <!-- @if(session('success') !== null)
                                 <div class='alert alert-success'>
                                     {{ session('success') }}
                                 </div>
-                            @endif
+                            @endif -->
                             @if(session('error') !== null)
 
                                 @foreach(session('error') as $v)
@@ -100,7 +89,7 @@
                                    @endforeach
 
                                 @endforeach
-                            @endif -->
+                            @endif
                             <div class="form-group row">
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item</label>

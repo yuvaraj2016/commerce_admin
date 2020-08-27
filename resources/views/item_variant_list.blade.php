@@ -240,7 +240,7 @@
             <div class="d-flex">
             <ul class="list-inline ml-1">
   <li class=" border1"><a href="{{ url('item_variants/'.$id) }}"
-                        class="font1 d-inline" data-toggle="tooltip" data-placement="top" title="View"><i
+                        class="font1 d-inline view-confirmation" data-toggle="tooltip" data-placement="top" title="View"><i
                             class="fa fa-eye"></i></a></li>
   <li class=" border1"><a href="{{url('item_variants/'.$id.'/edit') }}"
     class="font1  d-inline edit-confirmation" data-toggle="tooltip" data-placement="top" title="Edit"><i
