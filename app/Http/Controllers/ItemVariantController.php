@@ -85,13 +85,27 @@ class ItemVariantController extends Controller
             $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/vendors');
 
             $vresponse = json_decode($call->getBody()->getContents(), true);
-            //  return $response;
+            //   return $vresponse;
         }catch (\Exception $e){
             //buy a beer
 
 
         }
          $vendors = $vresponse['data'];
+
+
+         try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/vendorStores');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $vendorstores = $response['data'];
 
          try{
 
@@ -136,7 +150,7 @@ class ItemVariantController extends Controller
 
             return view(
                 'create_item_variant', compact(
-                    'items','statuses','itemvariantgroup','vendors','subcategories','suppliers'
+                    'items','statuses','itemvariantgroup','vendors','subcategories','suppliers','vendorstores'
                 )
         );
     }
@@ -238,8 +252,11 @@ class ItemVariantController extends Controller
             [
                 'name' => 'vendor_store_id',
                 'contents' => $request->vendor_store_id
+            ],
+            [
+                'name' => 'vendor_id',
+                'contents' => $request->vendor_id
             ]
-            
 
             ]);
 
@@ -273,6 +290,7 @@ class ItemVariantController extends Controller
                 "discount_amount"=>$request->discount_amount,
                 "supplier_id"=>$request->supplier_id,
                 "vendor_store_id"=>$request->vendor_store_id,
+                "vendor_id"=>$request->vendor_id,
 
 
 
@@ -397,6 +415,20 @@ class ItemVariantController extends Controller
          $vendors = $response['data'];
 
 
+         try{
+
+            $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/vendorStores');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $vendorstores = $response['data'];
+
+
         try{
 
             $call = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
@@ -418,7 +450,7 @@ class ItemVariantController extends Controller
             $itemVariants= $response->json()['data'];
            //  return $itemVariants['id'];
             return view('edit_item_variant', compact(
-                'item','statuses','itemVariants','itemvariantgroup','suppliers','vendors'
+                'item','statuses','itemVariants','itemvariantgroup','suppliers','vendors','vendorstores'
             ));
         }
 
@@ -469,7 +501,9 @@ class ItemVariantController extends Controller
             "discount_percentage"=>$request->discount_percentage,
             "discount_amount"=>$request->discount_amount,
             "supplier_id"=>$request->supplier_id,
-            "vendor_store_id"=>$request->vendor_store_id
+            "vendor_store_id"=>$request->vendor_store_id,
+            "vendor_id"=>$request->vendor_id
+
 
             
         ]

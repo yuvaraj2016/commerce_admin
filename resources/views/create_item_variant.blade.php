@@ -59,6 +59,33 @@
                             enctype="multipart/form-data">
                             @csrf
                             @if(session('success') !== null)
+                            <div class="succWrap">
+                            {{ session('success') }}
+                            </div>
+                                <!-- <div class='alert alert-success'>
+                                    {{ session('success') }}
+                                </div> -->
+                            @endif
+
+                           
+                            <!-- @if(session('success') !== null)
+                                <div class='alert alert-green'>
+                                    {{ session('success') }}
+                                </div>
+                            @endif -->
+                            @if(session('error') !== null)
+
+                          
+
+
+                       
+                            <div class='alert alert-red'>
+                                {{ session('error') }}
+                             </div>
+                       
+                  
+                        @endif
+                            <!-- @if(session('success') !== null)
                                 <div class='alert alert-success'>
                                     {{ session('success') }}
                                 </div>
@@ -73,7 +100,7 @@
                                    @endforeach
 
                                 @endforeach
-                            @endif
+                            @endif -->
                             <div class="form-group row">
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item</label>
@@ -203,10 +230,10 @@
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Vendors</label>
-                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_store_id" id="" placeholder="Vendor" required class="form-control selectric" required>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_id" id="" placeholder="Vendor" required class="form-control selectric" required>
                                                         <option value="">Select</option>
                                         @foreach($vendors as $vend)
-                                        <option value="{{ $vend['id'] }}" {{ (old("vendor_store_id") == $vend['id'] ? "selected":"") }}>{{ $vend['vendor_desc'] }}</option>
+                                        <option value="{{ $vend['id'] }}" {{ (old("vendor_id") == $vend['id'] ? "selected":"") }}>{{ $vend['vendor_name'] }}</option>
                                            
                                         @endforeach
                                     </select>
@@ -271,6 +298,17 @@
                                     </select>
                
                                                         </div> -->
+                                                               <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Vendor Stores</label>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_store_id" id="" placeholder="Vendor" required class="form-control selectric" required>
+                                                        <option value="">Select</option>
+                                        @foreach($vendorstores as $variantst)
+                                        <option value="{{ $variantst['id'] }}" {{ (old("vendor_store_id") == $variantst['id'] ? "selected":"") }}>{{ $variantst['vendor_store_name'] }}</option>
+                                           
+                                        @endforeach
+                                    </select>
+               
+                                                        </div>
 
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item Variant Image</label>

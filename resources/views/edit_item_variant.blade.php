@@ -53,22 +53,24 @@
                             enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
-
                             @if(session('success') !== null)
+                            <div class="succWrap">
+                            {{ session('success') }}
+                            </div>
+                                <!-- <div class='alert alert-success'>
+                                    {{ session('success') }}
+                                </div> -->
+                            @endif
+
+                           
+                            <!-- @if(session('success') !== null)
                                 <div class='alert alert-green'>
                                     {{ session('success') }}
                                 </div>
-                            @endif
+                            @endif -->
                             @if(session('error') !== null)
 
-                            {{-- @foreach(session('error') as $v)
-                               @foreach($v as $e)
-                               <div class='alert alert-red'>
-                                   {{ $e }}
-                                </div>
-                               @endforeach
-
-                            @endforeach --}}
+                          
 
 
                        
@@ -199,11 +201,11 @@
                                                 <div class="form-group row">
                                                 <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Vendor</label>
-<select  class="js-example-basic-single col-sm-12" name="vendor_store_id" id="" placeholder="Supplier" required class="form-control selectric" required>
+<select  class="js-example-basic-single col-sm-12" name="vendor_id" id="" placeholder="Supplier" required class="form-control selectric" required>
 <option value="">Select</option>
 @foreach($vendors as $ven)
 
-<option value="{{ $ven['id'] }}" {{ ($itemVariants['vendor_store_id'] == $ven['id']) ? "selected":(old("vendor_store_id") == $ven['id'] ? "selected":"") }}>{{ $ven['vendor_name'] }}</option>
+<option value="{{ $ven['id'] }}" {{ ($itemVariants['vendor_id'] == $ven['id']) ? "selected":(old("vendor_id") == $ven['id'] ? "selected":"") }}>{{ $ven['vendor_name'] }}</option>
 @endforeach
 
 </select>
@@ -233,10 +235,24 @@
                                                         <label class="col-form-label text-md-right ">Click below to edit images</label><br>
                                                             <a href="{{ url('item_variants/'.$itemVariants['id'].'/edit/assets') }}" class="btn btn-blue">Edit Image</a>
                                                         </div>
-                                                <div class="col-sm-4">
-
                                                
 
+                              
+                                                <div class="col-sm-4">
+<label class="col-form-label text-md-right ">Vendor Stores</label>
+<select  class="js-example-basic-single col-sm-12" name="vendor_store_id" id="" placeholder="Supplier" required class="form-control selectric" required>
+<option value="">Select</option>
+@foreach($vendorstores as $vendorst)
+
+<option value="{{ $vendorst['id'] }}" {{ ($itemVariants['vendor_store_id'] == $vendorst['id']) ? "selected":(old("vendor_store_id") == $vendorst['id'] ? "selected":"") }}>{{ $vendorst['vendor_store_name'] }}</option>
+@endforeach
+
+</select>
+
+</div>
+
+
+<div class="col-sm-4">
 <label class="col-form-label text-md-right ">Status</label>
 <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
 <option value="">Select</option>

@@ -64,7 +64,7 @@
 
     <div class="row">
     <div class="col-sm-12">
-                                        @if(session('success') !== null)
+                                        <!-- @if(session('success') !== null)
         <div class='alert alert-success'>
             {{ session('success') }}
         </div>
@@ -75,7 +75,7 @@
                     {{ $v[0] }}
                 </div>
             @endforeach
-        @endif
+        @endif -->
                                             
                                                 <!-- HTML5 Export Buttons table start -->
                                                 <div class="card">
@@ -167,6 +167,7 @@
                                     
 
                                     <th>vendor Name</th>
+                                    <th>vendor Stored Name</th>
                                     <th>MRP Price</th>
                                     <th>Selling Price</th>
 
@@ -215,6 +216,7 @@
                                         <td>{{ $item_variant['discount_amount'] }}</td>
                                         <td>{{ $item_variant['supplier_name'] }}</td>
                                         <td>{{ $item_variant['vendor'] }}</td>
+                                        <td>{{ $item_variant['vendor_store_name'] }}</td>
                                         <td>{{ $item_variant['MRP'] }}</td>
 
                                         <td>{{ $item_variant['selling_price'] }}</td>
@@ -243,7 +245,7 @@
   <li class=" border1"><a href="{{url('item_variants/'.$id.'/edit') }}"
     class="font1  d-inline" data-toggle="tooltip" data-placement="top" title="Edit"><i
                             class="fa fa-edit" style="position: relative;left:2px!important;"></i></a></li>
-  <li class="border1"> <form
+  <!-- <li class="border1"> <form
                     action="{{ route('item_variants.destroy',$id) }}"
                     method="POST">
                     @method('DELETE')
@@ -251,10 +253,24 @@
                     <button type="submit" style="background-color:#fff!important;position: relative;top:3px!important; padding-top:7px!important;padding-bottom:8px!important;"
                         class=" job-delete font1 d-inline" data-toggle="tooltip" data-placement="top" title="Delete" > <i
                             class="fa fa-trash" style="position: relative;top:-4px!important;"></i></button>
-                </form></li>
-                <li class=" border1"><a href="{{ url('item_variants/'.$id) }}"
+                </form></li> -->
+
+
+                 <li class="list-group-item border1">
+                                                    <form id="delete_from_{{$item_variant['id']}}" method="POST" action="{{route('item_variants.destroy', $item_variant['id']) }}">
+                    {{ csrf_field() }}
+    {{ method_field('DELETE') }}
+
+    <div class="form-group">
+        <a href="javascript:void(0);" data-id="{{$item_variant['id']}}" class="_delete_data"  data-toggle="tooltip" data-placement="top" title="Delete" style="background-color:#fff!important;position: relative;top:-1px!important; padding-top:3px!important;padding-bottom:8px!important;">
+        <i class="fa fa-trash" style="position: relative;top:-5;color:#01a9ac"></i>
+        </a>                    
+    </div>
+</form></li>
+            
+                <!-- <li class=" border1"><a href="{{ url('item_variants/'.$id) }}"
                         class="font1 d-inline" data-toggle="tooltip" data-placement="top" title="Audit"><i
-                            class="fa fa-calculator"></i></a></li>
+                            class="fa fa-calculator"></i></a></li> -->
 
 </ul>
  
