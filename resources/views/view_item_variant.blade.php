@@ -150,8 +150,6 @@
 
                                                   
 
-
-
                                                     <div class="form-group row">
 
                                                     <div class="col-sm-4 ">
@@ -159,6 +157,25 @@
                                                         <input type="text"  value="{{ $itemvariant['vendor_store_name'] }}" class="form-control" readonly>
                                           
                                                         </div>
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Quantity</label>
+                                                        <input type="text"  value="{{ $itemvariant['quantity'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Threshold</label>
+                                                        <input type="text"  value="{{ $itemvariant['threshold'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                                   
+                                                        
+                                         
+                                                    </div>
+
+
+                                                    <div class="form-group row">
+
+                                                   
                                          
 
                                                     <div class="col-sm-4">
