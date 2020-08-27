@@ -206,7 +206,7 @@
                         class=" d-inline font1" data-toggle="tooltip" data-placement="top" title="View"><i
                             class="fa fa-eye"></i></a></li>
   <li class="list-group-item border1"><a href="{{ url('product_sub_categories/'.$id.'/edit') }}"
-                        class=" d-inline text-center font1" data-toggle="tooltip" data-placement="top" title="Edit"><i
+                        class=" d-inline text-center font1 edit-confirmation" data-toggle="tooltip" data-placement="top" title="Edit"><i
                             class="fa fa-edit" ></i></a></li>
   <!-- <li class="list-group-item border1"> <form
                     action="{{ route('product_sub_categories.destroy',$id) }}"

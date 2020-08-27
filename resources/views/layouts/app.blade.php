@@ -1086,6 +1086,58 @@ font-size:13px!important;
         });
     });            
 </script>
+
+
+<script>
+
+
+// $('.edit-confirmation').on('click', function (event) {
+//     event.preventDefault();
+//     const url = $(this).attr('href');
+//     swal({
+//         title: "Are you sure to edit?",
+
+// type: "warning",
+// showCancelButton: true,
+// confirmButtonColor: '#DD6B55',
+// confirmButtonText: 'Yes, I am sure!',
+// cancelButtonText: "No, cancel it!"
+//     }).then(function(value) {
+//         if (value) {
+//             window.location.href = url;
+//         }
+//     });
+// });
+$('.edit-confirmation').on('click', function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+    swal({
+        title: "Are you sure to edit?",
+
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Yes, I am sure!',
+            cancelButtonText: "No, cancel it!"
+    }).then((result) => {
+
+if (result.value) {
+    window.location.href = url;
+
+}
+else if (result.dismiss === Swal.DismissReason.cancel) {
+Swal.fire(
+'Cancelled',
+'You  Cancelled',
+'error'
+)
+}
+})
+});
+
+</script>
+
+
 <script>
 
 

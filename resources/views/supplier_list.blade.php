@@ -206,7 +206,7 @@
                         class=" d-inline font1"  data-toggle="tooltip" data-placement="top" title="View"><i
                             class="fa fa-eye"></i></a></li>
   <li class="list-group-item border1"><a href="{{ url('suppliers/'.$id.'/edit') }}"
-                        class=" d-inline font1"  data-toggle="tooltip" data-placement="top" title="Edit" ><i
+                        class=" d-inline font1 edit-confirmation"  data-toggle="tooltip" data-placement="top" title="Edit" ><i
                             class="fa fa-edit" ></i></a></li>
   <!-- <li class="list-group-item border1"> <form
                     action="{{ route('suppliers.destroy',$id) }}"

@@ -243,7 +243,7 @@
                         class="font1 d-inline" data-toggle="tooltip" data-placement="top" title="View"><i
                             class="fa fa-eye"></i></a></li>
   <li class=" border1"><a href="{{url('item_variants/'.$id.'/edit') }}"
-    class="font1  d-inline" data-toggle="tooltip" data-placement="top" title="Edit"><i
+    class="font1  d-inline edit-confirmation" data-toggle="tooltip" data-placement="top" title="Edit"><i
                             class="fa fa-edit" style="position: relative;left:2px!important;"></i></a></li>
   <!-- <li class="border1"> <form
                     action="{{ route('item_variants.destroy',$id) }}"

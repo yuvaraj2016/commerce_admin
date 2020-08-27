@@ -200,7 +200,7 @@
                                 <label class="col-form-label text-md-right "></label>
                                 <div class="col-sm-12 col-md-7 offset-5">
                                     <button type="submit" class="btn btn-blue">Update </button>
-                                    <a href="{{ url('vendor_cat_list') }}"
+                                    <a href="{{ url('status_list') }}"
                         class=" d-inline text-center btn btn-blue back" ><i
                             class="icofont icofont-arrow-left" ></i>Back&nbsp;&nbsp;</a>
                                 </div>
