@@ -99,7 +99,7 @@
                         <div class="form-group row">
                                                        
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <label class="col-form-label text-md-right ">Item</label>
                                 <select  class="js-example-basic-single col-sm-12" name="item_id" id="" placeholder="Item" required class="form-control selectric" required>
                                     <option value="">Select</option>
@@ -114,7 +114,7 @@
 
 
                                                                   <!-- Modal large-->
-                                <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button>
+                                <!-- <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button> -->
                  
 
 
@@ -135,11 +135,11 @@
 
 
                                                                   <!-- Modal large-->
-                               <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal2" style="margin-top: 30px;height:40px">+</button>
+                               <!-- <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal2" style="margin-top: 30px;height:40px">+</button> -->
                    
 
 
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                 <label class="col-form-label text-md-right ">Supplier Name</label>
                                 <select  class="js-example-basic-single col-sm-12" name="supplier_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
                                     <option value="">Select</option>
@@ -151,16 +151,50 @@
                                 </select>
 
                                 </div>
-
 <!-- Modal large-->
-                                <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal3" style="margin-top: 30px;height:40px">+</button>
-                                     
-
-
-
-
-
+                                <!-- <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal3" style="margin-top: 30px;height:40px">+</button> -->
+                                 
                             </div>
+
+
+                            <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label class="col-form-label text-md-right ">Vendor Name</label>
+                                <select  class="js-example-basic-single col-sm-12" name="vendor_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+                                    <option value="">Select</option>
+
+                                    @foreach($vendor as $vendors)
+                                        
+                                        <option value="{{ $vendors['id'] }}" {{ ($stock_tracker['vendor_id'] == $vendors['id']) ? "selected":(old("vendor_id") == $vendors['id'] ? "selected":"") }}>{{ $vendors['vendor_name'] }}</option>
+                                    @endforeach
+                                </select>
+
+                                </div>
+                                <div class="col-sm-4">
+                                <label class="col-form-label text-md-right ">Vendor Stored Name</label>
+                                <select  class="js-example-basic-single col-sm-12" name="vendor_store_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+                                    <option value="">Select</option>
+
+                                    @foreach($vendorstore as $vendorst)
+                                        
+                                        <option value="{{ $vendorst['id'] }}" {{ ($stock_tracker['vendor_store_id'] == $vendorst['id']) ? "selected":(old("vendor_store_id") == $vendorst['id'] ? "selected":"") }}>{{ $vendorst['vendor_store_name'] }}</option>
+                                    @endforeach
+                                </select>
+
+                                </div>
+                                <div class="col-sm-4">
+                                <label class="col-form-label text-md-right ">Purchase Price</label>
+                               
+                                <input type="number" name="purchase_price" step="any" value="{{ old('purchase_price',$stock_tracker['purchase_price']) }}" class="form-control" required>
+                  
+                                </div>                        
+                            </div>
+
+
+
+
+
+
 
 
                             <div class="form-group row">
@@ -172,25 +206,24 @@
                                 <div class="col-sm-4">
                                 <label class="col-form-label text-md-right ">Purchase Order Date</label>
                                 <input type="date" name="purchase_order_date" value="{{ old('purchase_order_date',$stock_tracker['purchase_order_date']) }}" class="form-control" required>
-                               
-                  
+                                               
                                 </div>
-
                                 <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Stock Quantity</label>
+                                                        <input type="text" name="stock_quantity" value="{{ old('stock_quantity',$stock_tracker['stock_quantity']) }}" class="form-control" required>
+                                                        </div>
+                                <!-- <div class="col-sm-4">
                                 <label class="col-form-label text-md-right ">Purchase Price</label>
                                
                                 <input type="number" name="purchase_price" step="any" value="{{ old('purchase_price',$stock_tracker['purchase_price']) }}" class="form-control" required>
                   
-                                </div>                        
+                                </div>                         -->
                             </div>
 
 <div class="form-group row">
 
 
-<div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Stock Quantity</label>
-                                                        <input type="text" name="stock_quantity" value="{{ old('stock_quantity',$stock_tracker['stock_quantity']) }}" class="form-control" required>
-                                                        </div>
+
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Comments</label>
                                                         <textarea name="comments" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ old('comments',$stock_tracker['comments']) }}</textarea>

@@ -56,37 +56,35 @@
                 <div class="card">
                     <div class="card-body">
                     <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Item</label>
                                                         <input type="text"  value=" {{$stocktracker['item_desc']}}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Variants</label>
                                                         <input type="text"  value="    {{$stocktracker['variant_desc']}}" class="form-control" readonly>
                                           
                                                         </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Supplier Name</label>
+                                                        <input type="text"  value=" {{$stocktracker['supplier_name']}}" class="form-control" readonly>
+                                                        </div>
                                          
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Supplier Name</label>
-                                                        <input type="text"  value=" {{$stocktracker['supplier_name']}}" class="form-control" readonly>
-                                                        </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                      
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Purchase Order Ref</label>
                                                         <input type="text"  value="    {{$stocktracker['purchase_order_ref']}}" class="form-control" readonly>
                                           
                                                         </div>
-                                         
-                                                    </div>
 
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Purchase Order Date</label>
                                                         <input type="text"  value=" {{$stocktracker['purchase_order_date']}}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Purchase Price</label>
                                                         <input type="text"  value="      {{$stocktracker['purchase_price']}}" class="form-control" readonly>
                                           
@@ -95,30 +93,43 @@
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                                                    <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Stock Quantity</label>
                                                         <input type="text"  value=" {{$stocktracker['stock_quantity']}}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Comments</label>
-                                                        <input type="text"  value="      {{$stocktracker['comments']}}" class="form-control" readonly>
-                                          
+
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Vendor Name</label>
+                                                        <input type="text"  value=" {{$stocktracker['vendor']}}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Vendor Stored Name</label>
+                                                        <input type="text"  value=" {{$stocktracker['vendor_store_name']}}" class="form-control" readonly>
                                                         </div>
                                          
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                                                       
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Comments</label>
+                                                        <input type="text"  value="      {{$stocktracker['comments']}}" class="form-control" readonly>
+                                          
+                                                        </div>
+
+                                                        <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <input type="text"  value="{{$stocktracker['status_desc']}}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Created At</label>
                                                         <input type="text"  value="{{ date("Y-m-d H:i:s",$stocktracker['created_at']) }}" class="form-control" readonly>
                                           
                                                         </div>
                                          
                                                     </div>
+
+                                                 
 
 
 

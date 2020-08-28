@@ -148,6 +148,8 @@
                                                                     <th>Item Desc</th>
                                     <th>Variant Desc</th>
                                     <th>Supplier Name</th>
+                                    <th>Vendor Name</th>
+                                    <th>Vendor Store Name</th>
                                     <th>Purchase Order Ref</th>
                                     <th>Purchase Order Date</th>
                                     <th>Purchase Price</th>
@@ -180,6 +182,16 @@
                                         </td>
                                         <td><span class="text-center justify-content-center"
                                             style="padding-top:10px;">{{ $stocktracke['supplier_name'] }}</span>
+
+                                        </td>
+
+                                        <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $stocktracke['vendor'] }}</span>
+
+                                        </td>
+
+                                        <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $stocktracke['vendor_store_name'] }}</span>
 
                                         </td>
 
