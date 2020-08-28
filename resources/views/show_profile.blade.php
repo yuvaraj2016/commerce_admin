@@ -102,7 +102,7 @@
             <ul class="list-group">
           
   <li class="list-group-item border1"><a href="{{ url('profile/'.$id.'/edit') }}"
-                        class=" d-inline text-center btn btn-link font1" ><i
+                        class=" d-inline text-center btn btn-link font1 edit-confirmation" ><i
                             class="icofont icofont-ui-edit" ></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;</li>
                             <li class="list-group-item border1"><a href="{{ url('change_password') }}"
                         class=" d-inline text-center btn btn-link font1" ><i
