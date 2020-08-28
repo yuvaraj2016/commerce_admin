@@ -596,8 +596,8 @@ font-size:13px!important;
                       <ul class="navbar-nav mr-auto ml-auto mt-1" >
                         <li class="nav-item {{ (request()->is('dashboard')) ? 'active' : '' }}">
                           <a class="nav-link" href="{{ url('dashboard') }}">
-                            <i class="fa fa-home" style="font-size:13px!important;"></i>
-                            Home
+                            <i class="fa fa-dashboard" style="font-size:13px!important;"></i>
+                          Dashboard
                             <span class="sr-only">(current)</span>
                             </a>
                         </li>

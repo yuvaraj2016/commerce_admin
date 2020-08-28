@@ -50,7 +50,7 @@
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
                                                                 <h4 class="text-white">$30200</h4>
-                                                                <h6 class="text-white m-b-0">All Earnings</h6>
+                                                                <h6 class="text-white m-b-0"><a href="#" style="color: white;">Vendors</a></h6>
                                                             </div>
                                                             <div class="col-4 text-right">
                                                                 <canvas id="update-chart-1" height="50"></canvas>
@@ -119,7 +119,7 @@
                                             <!-- task, page, download counter  end -->
 
                                             <!--  sale analytics start -->
-                                            <div class="col-xl-9 col-md-12">
+                                            <!-- <div class="col-xl-9 col-md-12">
                                                 <div class="card">
                                                     <div class="card-header">
                                                         <h5>Sales Analytics</h5>
@@ -159,10 +159,10 @@
                                                     </div>
                                                     <button class="btn btn-warning btn-block p-t-15 p-b-15">Download Overall Report</button>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!--  sale analytics end -->
 
-                                            <div class="col-xl-8 col-md-12">
+                                            <!-- <div class="col-xl-8 col-md-12">
                                                 <div class="card table-card">
                                                     <div class="card-header">
                                                         <h5>Application Sales</h5>
@@ -359,10 +359,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             <!-- wather user -->
-                                            <div class="col-xl-6 col-md-12">
+                                            <!-- <div class="col-xl-6 col-md-12">
                                                 <div class="card latest-update-card">
                                                     <div class="card-header">
                                                         <h5>Latest Updates</h5>
@@ -479,11 +479,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- wather user -->
 
                                             <!-- social download  start -->
-                                            <div class="col-xl-4 col-md-6">
+                                            <!-- <div class="col-xl-4 col-md-6">
                                                 <div class="card social-card bg-simple-c-blue">
                                                     <div class="card-block">
                                                         <div class="row align-items-center">
@@ -533,7 +533,7 @@
                                                     </div>
                                                     <a href="#!" class="download-icon"><i class="feather icon-arrow-down"></i></a>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- social download  end -->
 
                                         </div>
