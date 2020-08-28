@@ -1058,8 +1058,8 @@ font-size:13px!important;
             var data_id = $(this).attr('data-id');
            // alert(data_id);
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Are you sure to Delete?',
+               // text: "You won't be able to revert this!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -1071,14 +1071,14 @@ font-size:13px!important;
                     $(document).find('#delete_from_'+data_id).submit();
                     Swal.fire(
       'Deleted!',
-      'Your  file has been deleted.',
+      'Your  Record has been deleted.',
       'success'
     )
                 }
                 else if (result.dismiss === Swal.DismissReason.cancel) {
     Swal.fire(
       'Cancelled',
-      'Your  file is safe',
+      'Your  Record is safe',
       'error'
     )
   }
