@@ -57,6 +57,10 @@
                     <div class="card-body">
 
                     <div class="form-group row">
+                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Item Variants Title</label>
+                                                        <input type="text"  value="  {{ $itemvariant['title'] }}" class="form-control" readonly>
+                                                        </div>
                                                         <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Item</label>
                                                         <input type="text"  value="  {{ $itemvariant['item_desc'] }}" class="form-control" readonly>
@@ -66,15 +70,16 @@
                                                         <input type="text"  value="    {{ $itemvariant['variant_code'] }}" class="form-control" readonly>
                                           
                                                         </div>
-                                                        <div class="col-sm-4 ">
-                                                        <label class="col-form-label text-md-right ">Variant Desc</label>
-                                                        <input type="text"  value="    {{ $itemvariant['variant_desc'] }}" class="form-control" readonly>
-                                                        </div>
+                                                      
                                          
                                                     </div>
 
 
                                                     <div class="form-group row">
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Variant Desc</label>
+                                                        <input type="text"  value="    {{ $itemvariant['variant_desc'] }}" class="form-control" readonly>
+                                                        </div>
                                                         <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Variants Group</label>
                                                         <input type="text"  value="  {{ $itemvariant['variant_group_desc'] }}" class="form-control" readonly>
@@ -84,15 +89,16 @@
                                                         <input type="text"  value="    {{ $itemvariant['min_order_quantity'] }}" class="form-control" readonly>
                                           
                                                         </div>
-                                                        <div class="col-sm-4 ">
-                                                        <label class="col-form-label text-md-right ">Min Order Amount</label>
-                                                        <input type="text"  value="    {{ $itemvariant['min_order_amount'] }}" class="form-control" readonly>
-                                                        </div>
+                                                      
                                          
                                                     </div>
 
 
                                                     <div class="form-group row">
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Min Order Amount</label>
+                                                        <input type="text"  value="    {{ $itemvariant['min_order_amount'] }}" class="form-control" readonly>
+                                                        </div>
                                                         <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Max Order Quantity</label>
                                                         <input type="text"  value="  {{ $itemvariant['max_order_quantity'] }}" class="form-control" readonly>
@@ -102,14 +108,15 @@
                                                         <input type="text"  value="    {{ $itemvariant['max_order_amount'] }}" class="form-control" readonly>
                                           
                                                         </div>
-                                                        <div class="col-sm-4 ">
-                                                        <label class="col-form-label text-md-right ">Discount Percentage</label>
-                                                        <input type="text"  value="    {{ $itemvariant['discount_percentage'] }}" class="form-control" readonly>
-                                                        </div>
+                                                      
                                          
                                                     </div>
 
                                                     <div class="form-group row">
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Discount Percentage</label>
+                                                        <input type="text"  value="    {{ $itemvariant['discount_percentage'] }}" class="form-control" readonly>
+                                                        </div>
                                                         <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Discount Amount</label>
                                                         <input type="text"  value="  {{ $itemvariant['discount_amount'] }}" class="form-control" readonly>
@@ -119,16 +126,17 @@
                                                         <input type="text"  value="    {{ $itemvariant['supplier_name'] }}" class="form-control" readonly>
                                           
                                                         </div>
-                                                        <div class="col-sm-4 ">
-                                                        <label class="col-form-label text-md-right ">Vendors</label>
-                                                        <input type="text"  value="    {{ $itemvariant['vendor'] }}" class="form-control" readonly>
-                                                        </div>
+                                                     
                                          
                                                     </div>
 
 
 
                                                     <div class="form-group row">
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Vendors</label>
+                                                        <input type="text"  value="    {{ $itemvariant['vendor'] }}" class="form-control" readonly>
+                                                        </div>
                                                        
                                                         <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Status</label>
@@ -139,11 +147,7 @@
                                                         <label class="col-form-label text-md-right ">Mrp Price</label>
                                                         <input type="text"  value="{{ $itemvariant['MRP'] }}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 ">
-                                                        <label class="col-form-label text-md-right ">Selling Price</label>
-                                                        <input type="text"  value="{{ $itemvariant['selling_price'] }}" class="form-control" readonly>
-                                          
-                                                        </div>
+                                                       
                                          
                                                     </div>
 
@@ -151,6 +155,11 @@
                                                   
 
                                                     <div class="form-group row">
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Selling Price</label>
+                                                        <input type="text"  value="{{ $itemvariant['selling_price'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
 
                                                     <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Vendor Stored Name</label>
@@ -162,11 +171,7 @@
                                                         <input type="text"  value="{{ $itemvariant['quantity'] }}" class="form-control" readonly>
                                           
                                                         </div>
-                                                        <div class="col-sm-4 ">
-                                                        <label class="col-form-label text-md-right ">Threshold</label>
-                                                        <input type="text"  value="{{ $itemvariant['threshold'] }}" class="form-control" readonly>
-                                          
-                                                        </div>
+                                                      
                                                    
                                                         
                                          
@@ -176,7 +181,11 @@
                                                     <div class="form-group row">
 
                                                    
-                                         
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Threshold</label>
+                                                        <input type="text"  value="{{ $itemvariant['threshold'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
 
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Created At</label>

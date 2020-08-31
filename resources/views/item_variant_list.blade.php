@@ -147,7 +147,8 @@
                                                             <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                                                 <thead>
                                                                     <tr>
-                                                                    <th>Item Desc</th>
+                                                                        <th>Item Variant Title</th>
+                                                                    <th>Item Variant Desc</th>
                                     <th>Variant Code</th>
                                     <th>Variant Desc</th>
                                     <th>Variant Image</th>
@@ -188,6 +189,10 @@
                                     @endphp
 
                                     <tr>
+                                    <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $item_variant['title'] }}</span>
+
+                                        </td>
                                         <td><span class="text-center justify-content-center"
                                             style="padding-top:10px;">{{ $item_variant['item_desc'] }}</span>
 

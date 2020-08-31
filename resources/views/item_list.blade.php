@@ -147,6 +147,7 @@
                                                             <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                                                 <thead>
                                                                     <tr>
+                                                                        <th>Item Title</th>
                                                                     <th>Item Code</th>
                                     <th>Item<br> Desc</th>
                                     <th>Sub Category<br> Desc</th>
@@ -179,6 +180,10 @@
                                     @endphp
 
                                     <tr>
+                                    <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $item['title'] }}</span>
+
+                                        </td>
                                         <td><span class="text-center justify-content-center"
                                             style="padding-top:10px;">{{ $item['item_code'] }}</span>
 

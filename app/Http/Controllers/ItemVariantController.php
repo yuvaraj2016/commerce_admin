@@ -254,6 +254,10 @@ class ItemVariantController extends Controller
                 'contents' => $request->vendor_store_id
             ],
             [
+                'name' => 'title',
+                'contents' => $request->title
+            ],
+            [
                 'name' => 'vendor_id',
                 'contents' => $request->vendor_id
             ]
@@ -290,6 +294,7 @@ class ItemVariantController extends Controller
                 "discount_amount"=>$request->discount_amount,
                 "supplier_id"=>$request->supplier_id,
                 "vendor_store_id"=>$request->vendor_store_id,
+                "title"=>$request->title,
                 "vendor_id"=>$request->vendor_id,
 
 
@@ -502,6 +507,8 @@ class ItemVariantController extends Controller
             "discount_amount"=>$request->discount_amount,
             "supplier_id"=>$request->supplier_id,
             "vendor_store_id"=>$request->vendor_store_id,
+            "title"=>$request->title,
+            
             "vendor_id"=>$request->vendor_id
 
 

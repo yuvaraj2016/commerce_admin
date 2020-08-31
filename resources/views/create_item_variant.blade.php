@@ -91,6 +91,12 @@
                                 @endforeach
                             @endif
                             <div class="form-group row">
+
+                            <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Variant Title</label>
+                                                        <input type="text" name="title" value="{{ old('title') }}" class="form-control" required>
+                                          
+                                                        </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item</label>
                                                         <select id="tm" class="js-example-basic-single col-sm-12"  name="item_id" id="" placeholder="Item" required class="form-control selectric" required>
@@ -111,16 +117,17 @@
                                                         <input type="text" name="variant_code" value="{{ old('variant_code') }}" class="form-control" required>
                                           
                                                         </div>
-                                                        <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Variant Desc</label>
-                                                        <input name="variant_desc" value="{{ old('variant_desc') }}" class="summernote-simple form-control" required>
-               
-                                                        </div>
+                                                       
                                                     </div>
 
 
 
                                                     <div class="form-group row">
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Variant Desc</label>
+                                                        <input name="variant_desc" value="{{ old('variant_desc') }}" class="summernote-simple form-control" required>
+               
+                                                        </div>
 
 
 <div class="col-sm-4">
@@ -150,11 +157,7 @@
 
     </div>
 
-    <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Min Order Quantity</label>
-                                                        <input type="number"  name="min_order_quantity" value="{{ old('min_order_quantity') }}" step="any" class="form-control" required>
-               
-                                                        </div>
+  
 
  
 </div>
@@ -162,6 +165,11 @@
 
 
 <div class="form-group row">
+<div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Min Order Quantity</label>
+                                                        <input type="number"  name="min_order_quantity" value="{{ old('min_order_quantity') }}" step="any" class="form-control" required>
+               
+                                                        </div>
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Min Order Amount</label>
                                                         <input type="number"  name="min_order_amount" value="{{ old('min_order_amount') }}" step="any" class="form-control" required>
@@ -173,14 +181,16 @@
                                                         <input type="number" name="max_order_quantity" value="{{ old('max_order_quantity') }}" step="any" class="form-control" required>
                
                                                         </div>
-                                                        <div class="col-sm-4">
+                                                     
+                                                     
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Max Order Amount</label>
                                                         <input type="number" name="max_order_amount" value="{{ old('max_order_amount') }}" step="any" class="form-control" required>
                
                                                         </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Quantity</label>
                                                         <input type="number"  name="quantity" value="{{ old('quantity') }}" step="any" class="form-control" required>
@@ -192,15 +202,18 @@
                                                         <input type="number" name="threshold" value="{{ old('threshold') }}" step="any" class="form-control" required>
                
                                                         </div>
-                                                        <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Discount Percentage</label>
-                                                        <input type="number" name="discount_percentage" value="{{ old('discount_percentage') }}" step="any" class="form-control" required>
-               
-                                                        </div>
+
+                                                    
+                                       
                                                     </div>
 
 
                                                     <div class="form-group row">
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Discount Percentage</label>
+                                                        <input type="number" name="discount_percentage" value="{{ old('discount_percentage') }}" step="any" class="form-control" required>
+               
+                                                        </div>
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Discount Amount</label>
                                                         <input type="number"  name="discount_amount" value="{{ old('discount_amount') }}" step="any" class="form-control" required>
@@ -217,7 +230,14 @@
                                     </select>
                
                                                         </div>
-                                                        <div class="col-sm-4">
+                                                    
+                                                       
+                                                    </div>
+
+                                                    
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Vendors</label>
                                                         <select  class="js-example-basic-single col-sm-12"  name="vendor_id" id="" placeholder="Vendor" required class="form-control selectric" required>
                                                         <option value="">Select</option>
@@ -228,17 +248,25 @@
                                     </select>
                
                                                         </div>
-                                                    </div>
 
-                                                    
-
-                                                    <div class="form-group row">
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Selling Price</label>
                                                         <input type="number"  name="selling_price" value="{{ old('selling_price') }}" step="any" class="form-control" required>
                
                                                         </div>
                                                         <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Mrp Price</label>
+                                                        <input type="number" name="MRP" value="{{ old('MRP') }}" step="any" class="form-control" required>
+               
+                                                        </div>
+                             
+                                                    </div>
+
+
+
+                                                    <div class="form-group row">
+
+                                                    <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <select  class="js-example-basic-single col-sm-12"  name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
                                       
@@ -249,18 +277,6 @@
                                     </select>
                
                                                         </div>
-                                                        <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Mrp Price</label>
-                                                        <input type="number" name="MRP" value="{{ old('MRP') }}" step="any" class="form-control" required>
-               
-                                                        </div>
-                                                    </div>
-
-
-
-                                                    <div class="form-group row">
-
-
                                                     <!-- <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item Variant Default</label>
                                                         <select  class="js-example-basic-single col-sm-12"  name="default" id="" placeholder="default" class="form-control selectric" required>
@@ -287,6 +303,7 @@
                                     </select>
                
                                                         </div> -->
+                                                     
                                                                <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Vendor Stores</label>
                                                         <select  class="js-example-basic-single col-sm-12"  name="vendor_store_id" id="" placeholder="Vendor" required class="form-control selectric" required>

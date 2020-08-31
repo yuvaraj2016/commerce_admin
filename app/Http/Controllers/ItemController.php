@@ -255,6 +255,10 @@ class ItemController extends Controller
                 'contents' => $request->vendor_store_id
             ],
             [
+                'name' => 'title',
+                'contents' => $request->title
+            ],
+            [
                 'name' => 'selling_price',
                 'contents' => $request->selling_price
             ]
@@ -290,6 +294,7 @@ class ItemController extends Controller
 
                 "MRP"=>$request->MRP,
                 "vendor_store_id"=>$request->vendor_store_id,
+                "title"=>$request->title,
                 "selling_price"=>$request->selling_price
 
 
@@ -491,7 +496,7 @@ class ItemController extends Controller
                 "discount_percentage"=>$request->discount_percentage,
                 "discount_amount"=>$request->discount_amount,
                 "supplier_id"=>$request->supplier_id,
-
+                "title"=>$request->title,
                 "MRP"=>$request->MRP,
                 "selling_price"=>$request->selling_price
 

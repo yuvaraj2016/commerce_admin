@@ -100,6 +100,11 @@
                                 @endforeach
                             @endif -->
                             <div class="form-group row">
+                            <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Item Title</label>
+                                                        <input type="text" name="title" value="{{ old('title') }}" class="form-control" required>
+                                                        </div>
+
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item Code</label>
                                                         <input type="text" name="item_code" value="{{ old('item_code') }}" class="form-control" required>
@@ -114,7 +119,16 @@
 
 
 
-                                                        <div class="col-sm-3">
+                                                          
+
+
+                                                        
+                                                                   <!-- Modal large-->
+                   
+                                                </div>
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Vendor Name</label>
                                                         <select  class="js-example-basic-single col-sm-12"  name="vendor_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
                                         <option value="">Select</option>
@@ -129,15 +143,7 @@
 
              <!-- Modal large-->
              <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button>
-                                                
-
-
-                                                        
-                                                                   <!-- Modal large-->
-                   
-                                                </div>
-
-                                                    <div class="form-group row">
+                                      
 
                                                     <div class="col-sm-3">
                                                         <label class="col-form-label text-md-right ">Category Desc</label>
@@ -165,11 +171,7 @@
                                                             <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal1" style="margin-top: 30px;height:40px">+</button>
 
                                          
-                                                            <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Min Order Quantity</label>
-                                                        <input type="number" name="min_order_quantity" value="{{ old('min_order_quantity') }}" class="summernote-simple form-control" required>
-                                          
-                                                        </div>
+                                                           
 
 
                                                        
@@ -178,7 +180,11 @@
 
 
                                                     <div class="form-group row">
-
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Min Order Quantity</label>
+                                                        <input type="number" name="min_order_quantity" value="{{ old('min_order_quantity') }}" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
                                                     <div class="col-sm-4">
     <label class="col-form-label text-md-right ">Min Order Amount</label>
     <input type="number" step="any" name="min_order_amount" value="{{ old('min_order_amount') }}" class="summernote-simple form-control" required>
@@ -192,11 +198,7 @@
 
     </div>
 
-    <div class="col-sm-4">
-    <label class="col-form-label text-md-right ">Max Order Amount</label>
-    <input type="number" step="any" name="max_order_amount" value="{{ old('max_order_amount') }}" class="summernote-simple form-control" required>
-
-    </div>
+  
 
 
    
@@ -204,6 +206,11 @@
 
 
 <div class="form-group row">
+<div class="col-sm-4">
+    <label class="col-form-label text-md-right ">Max Order Amount</label>
+    <input type="number" step="any" name="max_order_amount" value="{{ old('max_order_amount') }}" class="summernote-simple form-control" required>
+
+    </div>
 
 <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Discount Percentage</label>
@@ -218,11 +225,7 @@
 
 </div>
 
-<div class="col-sm-4">
-<label class="col-form-label text-md-right ">Quantity</label>
-<input type="number"  name="quantity" value="{{ old('quantity') }}" class="summernote-simple form-control" required>
 
-</div>
 
 
 
@@ -230,7 +233,11 @@
 
 
 <div class="form-group row">
+<div class="col-sm-4">
+<label class="col-form-label text-md-right ">Quantity</label>
+<input type="number"  name="quantity" value="{{ old('quantity') }}" class="summernote-simple form-control" required>
 
+</div>
 <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Threshold</label>
 <input type="number"  name="threshold" value="{{ old('threshold') }}" class="summernote-simple form-control" required>
@@ -244,11 +251,7 @@
 
 </div>
 
-<div class="col-sm-4">
-<label class="col-form-label text-md-right ">Selling Price</label>
-<input type="number"  step="any" name="selling_price" value="{{ old('selling_price') }}" class="summernote-simple form-control" required>
 
-</div>
 
 
 
@@ -259,7 +262,11 @@
 
 
                                                     <div class="form-group row">
+                                                    <div class="col-sm-4">
+<label class="col-form-label text-md-right ">Selling Price</label>
+<input type="number"  step="any" name="selling_price" value="{{ old('selling_price') }}" class="summernote-simple form-control" required>
 
+</div>
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Supplier Desc</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="supplier_id" id="" placeholder="Supplier" required class="form-control selectric" required>
@@ -285,17 +292,7 @@
                                                         </div>
                                                           
 
-                                                    <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Status</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
-                                        <option value="">Select</option>
-                                        @foreach($statuses as $status)
-                                            <option value="{{ $status['id'] }}"  {{ ($status['id'] == "2") ? "selected":(old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
-                                        @endforeach
-                                       
-                                    </select>
-               
-                                                        </div>
+                    
                                                       
                               
                                                         
@@ -310,6 +307,17 @@
                                                     <div class="col-sm-4">
                                                             <label class="col-form-label text-md-right ">Item Image Picture</label>
                                                             <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                        <option value="">Select</option>
+                                        @foreach($statuses as $status)
+                                            <option value="{{ $status['id'] }}"  {{ ($status['id'] == "2") ? "selected":(old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
+                                        @endforeach
+                                       
+                                    </select>
+               
                                                         </div>
                                                     </div>
 
