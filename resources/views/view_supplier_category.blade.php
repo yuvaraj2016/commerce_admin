@@ -77,13 +77,18 @@
                             @endif
 
                             <div class="form-group row">
-                            <div class="col-sm-4 offset-1">
+                            <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Supplier Category Title</label>
+                                                        <input type="text"  value="   {{ $suppliercategory['title'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                            <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Supplier Category Desc</label>
                                                         <input type="text"  value="   {{ $suppliercategory['supplier_cat_desc'] }}" class="form-control" readonly>
                                           
                                                         </div>
 
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Status </label>
                                                         <input type="text"  value="    {{ $suppliercategory['status_desc'] }}" class="form-control" readonly>
                                                         </div>
@@ -92,7 +97,7 @@
                                                     </div>
 
                                                     <div class="form-group row">
-                            <div class="col-sm-4 offset-1">
+                            <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Created At</label>
                                                         <input type="text"  value="   {{ date("Y-m-d H:i:s",$suppliercategory['created_at']) }}" class="form-control" readonly>
                                           

@@ -72,11 +72,15 @@
                             @endif
 
                             <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                            <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Vendor Category Title</label>
+                                                        <input type="text"  value="   {{ $vendorcategory['title'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Vendor Category Desc</label>
                                                         <input type="text"  value="   {{ $vendorcategory['vendor_cat_desc'] }}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <input type="text"  value="     {{ $vendorcategory['status_desc'] }}" class="form-control" readonly>
                                           
@@ -85,7 +89,7 @@
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Created At</label>
                                                         <input type="text"  value="  {{ date("Y-m-d H:i:s",$vendorcategory['created_at']) }}" class="form-control" readonly>
                                                         </div>

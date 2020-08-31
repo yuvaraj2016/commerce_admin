@@ -90,7 +90,7 @@ class VendorCategoryController extends Controller
         [
 
             "vendor_cat_desc"=>$request->vendor_cat_desc,
-
+            "title"=>$request->title,
             "status_id"=>$request->status_id
 
         ]);
@@ -194,6 +194,7 @@ class VendorCategoryController extends Controller
         [
             "_method"=> 'PUT',
             "vendor_cat_desc"=>$request->vendor_cat_desc,
+            "title"=>$request->title,
             "status_id"=>$request->status_id
             
         ]

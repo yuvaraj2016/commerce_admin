@@ -154,6 +154,7 @@
                             <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                 <thead>
                                     <tr>
+                                        <th>Supplier Title</th>
                                     <th>Supplier Category Desc</th>
                                         <th>Status</th>
                                         <th>Created At</th>
@@ -170,7 +171,9 @@
 
                                     <tr>
 
-
+                                    <td>
+                                            {{ $suppliercategory['title'] }}
+                                        </td>
                                         <td>
                                             {{ $suppliercategory['supplier_cat_desc'] }}
                                         </td>

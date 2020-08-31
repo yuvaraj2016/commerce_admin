@@ -97,13 +97,18 @@
                             @endforeach
                             @endif -->
                             <div class="form-group row">
-                                                    <div class="col-sm-4 offset-1">
+                            <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Vendor Category Title</label>
+                                                        <input name="title" value="{{ old('title') }}" class="summernote-simple form-control" required>
+               
+                                                        </div>
+                                                    <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Vendor Desc</label>
                                                         <input name="vendor_cat_desc" value="{{ old('vendor_cat_desc') }}" class="summernote-simple form-control" required>
                
                                                         </div>
                                                       
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" class="form-control selectric" required>
                                        

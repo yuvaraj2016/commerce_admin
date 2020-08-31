@@ -92,6 +92,7 @@ class SupplierCategoryController extends Controller
         [
 
             "supplier_cat_desc"=>$request->supplier_cat_desc,
+            "title"=>$request->title,
 
             "status_id"=>$request->status_id
 
@@ -199,6 +200,7 @@ class SupplierCategoryController extends Controller
         [
             "_method"=> 'PUT',
             "supplier_cat_desc"=>$request->supplier_cat_desc,
+            "title"=>$request->title,
             "status_id"=>$request->status_id
             
         ]

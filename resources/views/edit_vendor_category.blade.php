@@ -98,14 +98,19 @@
                              </div>
                         @endif -->
                         <div class="form-group row">
+                        <div class="col-sm-4 ">
+                                                            <label class="col-form-label text-md-right ">Vendor Category Title</label>
+                                                            <input name="title" value="{{ old('title',$vendorcategory['title']) }}" class="summernote-simple form-control" required>
+                                              
+                                                        </div>
                                                        
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                             <label class="col-form-label text-md-right ">Vendor Category Desc</label>
                                                             <textarea name="vendor_cat_desc" class="summernote-simple form-control" required>{{ old('vendor_cat_desc',$vendorcategory['vendor_cat_desc']) }}</textarea>
                                               
                                                         </div>
     
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                             <label class="col-form-label text-md-right ">Status</label>
                                                             <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
                                                                 <option value="">Select</option>
