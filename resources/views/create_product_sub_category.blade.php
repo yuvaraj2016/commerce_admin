@@ -99,6 +99,13 @@
                                 @endforeach
                             @endif -->
                             <div class="form-group row">
+                            <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Sub Category Title</label>
+                                                        <input type="text" name="title" value="{{ old('title') }}" class="form-control" required>
+                                          
+                                                        </div>
+
+
                                                         <div class="col-sm-3">
                                                         <label class="col-form-label text-md-right ">Category</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="category_id" id="category_id" placeholder="Category" required class="form-control selectric" required>
@@ -127,11 +134,11 @@
                                                         <input type="text" name="sub_category_short_code" value="{{ old('sub_category_short_code') }}" class="form-control" required>
                                           
                                                         </div>
-                                                        <div class="col-sm-4">
+                                                        <!-- <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Sub Category Desc</label>
                                                         <input type="text" name="sub_category_desc" value="{{ old('sub_category_desc') }}" class="summernote-simple form-control" required>
                                           
-                                                        </div>
+                                                        </div> -->
 
                                                     </div>
 
@@ -140,6 +147,15 @@
                                                         <label class="col-form-label text-md-right ">Sub Category Image Picture</label>
                                                         <input type="file" name="file[]" id="filer_input" multiple="multiple" class="form-control">
                                                         </div>
+
+
+                                                        <div class="col-sm-4">
+                                                      
+                                                        <label class="col-form-label text-md-right ">Sub Category Desc</label>
+                                                        <input type="text" name="sub_category_desc" value="{{ old('sub_category_desc') }}" class="summernote-simple form-control" required>
+                                                      </div>
+
+
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
@@ -150,10 +166,7 @@
                                     </select>
                                           
                                                         </div>
-                                                        <div class="col-sm-4">
-                                                      
-               
-                                                        </div>
+                      
                                                     </div>
 
 

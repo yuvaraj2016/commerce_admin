@@ -76,15 +76,18 @@
                             @endif
 
                             <div class="form-group row">
+
+                            <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Sub Category Title</label>
+                                                        <input type="text"  value="{{ $productsubcategory['title'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Category </label>
                                                         <input type="text"  value="  {{ $productsubcategory['category_desc'] }}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Sub Category Short Code</label>
-                                                        <input type="text"  value="{{ $productsubcategory['sub_category_short_code'] }}" class="form-control" readonly>
-                                          
-                                                        </div>
+                                                  
                                          
                                                     </div>
 
@@ -94,12 +97,34 @@
                                                         <input type="text"  value="   {{ $productsubcategory['sub_category_desc'] }}" class="form-control" readonly>
                                                         </div>
                                                         <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Sub Category Short Code</label>
+                                                        <input type="text"  value="{{ $productsubcategory['sub_category_short_code'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+                                                        <!-- <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Status</label>
+                                                        <input type="text"  value=" {{ $productsubcategory['status_desc'] }}" class="form-control" readonly>
+                                          
+                                                        </div> -->
+                                         
+                                                    </div>
+
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <input type="text"  value=" {{ $productsubcategory['status_desc'] }}" class="form-control" readonly>
                                           
                                                         </div>
+                                                        <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Created At</label>
+                                                        <input type="text"  value="  {{ date("Y-m-d H:i:s",$productsubcategory['created_at']) }}" class="form-control" readonly>
+                                          
+                                                        </div>
                                          
                                                     </div>
+
+
 
 
                                                     <div class="form-group row">
@@ -108,8 +133,7 @@
                                                         <img src="{{ isset($productsubcategory['Assets']['data'][0]['links']) ? $productsubcategory['Assets']['data'][0]['links']['full'].'?width=300&height=300' : asset('img/no-image.gif')  }}"/>
                                                         </div>
                                                         <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Created At</label>
-                                                        <input type="text"  value="  {{ date("Y-m-d H:i:s",$productsubcategory['created_at']) }}" class="form-control" readonly>
+                                                      
                                           
                                                         </div>
                                          

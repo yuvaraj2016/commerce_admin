@@ -159,6 +159,7 @@
                                                             <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                                                 <thead>
                                                                     <tr>
+                                                                    <th>Category Title</th>
                                                                     <th>Category Desc</th>
                                     <th>Sub Category Short Code</th>
                                     <th>Sub Category Desc</th>
@@ -177,6 +178,10 @@
     @endphp
 
     <tr>
+    <td><span class="text-center justify-content-center"
+            style="padding-top:10px;">{{ $prodsubcategory['title'] }}</span>
+
+        </td>
         <td><span class="text-center justify-content-center"
             style="padding-top:10px;">{{ $prodsubcategory['category_desc'] }}</span>
 

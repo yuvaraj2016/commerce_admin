@@ -149,6 +149,10 @@ class ItemVariantgroupController extends Controller
                 'contents' => $request->default
             ],
             [
+                'name' => 'title',
+                'contents' => $request->title
+            ],
+            [
                 'name' => 'status_id',
                 'contents' => $request->status_id
             ]
@@ -166,6 +170,7 @@ class ItemVariantgroupController extends Controller
                 "item_id"=>$request->item_id,
                 "item_group_desc"=>$request->item_group_desc,
                 "default"=>$request->default,
+                "title"=>$request->title,
 
                
 
@@ -298,6 +303,7 @@ class ItemVariantgroupController extends Controller
             "item_id"=>$request->item_id,
             "item_group_desc"=>$request->item_group_desc,
             "default"=>$request->default,
+            "title"=>$request->title,
             "status_id"=>$request->status_id
             
         ]

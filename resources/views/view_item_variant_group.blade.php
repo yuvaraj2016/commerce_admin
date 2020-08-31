@@ -57,19 +57,31 @@
                     <div class="card-body">
 
                     <div class="form-group row">
+                    <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item Group Title</label>
+                                                        <input type="text"  value="    {{ $itemvariantgroup['title'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
+
+
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Item</label>
                                                         <input type="text"  value="  {{ $itemvariantgroup['item_desc'] }}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                        <!-- <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Item Group Description</label>
                                                         <input type="text"  value="    {{ $itemvariantgroup['item_group_desc'] }}" class="form-control" readonly>
                                           
-                                                        </div>
+                                                        </div> -->
                                          
                                                     </div>
 
                                                     <div class="form-group row">
+                                                    <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right ">Item Group Description</label>
+                                                        <input type="text"  value="    {{ $itemvariantgroup['item_group_desc'] }}" class="form-control" readonly>
+                                          
+                                                        </div>
                                                        
                                                         <div class="col-sm-4 offset-1">
                                                         <label class="col-form-label text-md-right ">Status</label>

@@ -98,11 +98,15 @@
                              </div>
                         @endif -->
                         <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Category Title</label>
+                                                        <input type="text" id="category_short_code" name="title" value="{{ old('title',$prodcategory['title']) }}" class="form-control" required>
+                                                        </div>
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Category Short Code</label>
                                                         <input type="text" id="category_short_code" name="category_short_code" value="{{ old('category_short_code',$prodcategory['category_short_code']) }}" class="form-control" required>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Category Desc</label>
                                                         <textarea name="category_desc" class="summernote-simple form-control" required>{{ old('category_desc',$prodcategory['category_desc']) }}</textarea>
                                           

@@ -132,6 +132,7 @@
                                                             <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                                                 <thead>
                                                                     <tr>
+                                                                        <th>Item Title</th>
                                                                     <th>Item Desc</th>
                                     <th>Item Group Description</th>
                                     <!-- <th>Variant Desc</th>
@@ -150,6 +151,11 @@
                                     @endphp
 
                                     <tr>
+                                    <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $item_variant_group['title'] }}</span>
+
+                                        </td>
+
                                         <td><span class="text-center justify-content-center"
                                             style="padding-top:10px;">{{ $item_variant_group['item_desc'] }}</span>
 

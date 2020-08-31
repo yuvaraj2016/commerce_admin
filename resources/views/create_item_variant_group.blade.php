@@ -94,6 +94,13 @@
                         @endif
                                                   
                                                     <div class="form-group row">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label text-md-right ">Variant Group Title</label>
+                                                        <input type="text" name="title" value="{{ old('title') }}" class="form-control" required>
+                                          
+                                                        </div>
+
+
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item</label>
                                                         <select id="tm" class="js-example-basic-single col-sm-12"  name="item_id" id="" placeholder="Item" required class="form-control selectric" required>
@@ -113,7 +120,13 @@
                                                         <input type="text" name="item_group_desc" value="{{ old('item_group_desc') }}" class="form-control" required>
                                           
                                                         </div>
-                                                        <div class="col-sm-4">
+                               
+                                                    </div>
+
+
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <select  class="js-example-basic-single col-sm-12"  name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
                                       
@@ -124,12 +137,7 @@
                                     </select>
                
                                                         </div>
-                                                    </div>
-
-
-
-                                                    <div class="form-group row">
-                                                    <div class="col-sm-3">
+                                                    <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Default</label>
                                                         {{-- <input type="text" name="default" value="{{ old('default') }}" class="form-control" required> --}}
 

@@ -132,6 +132,11 @@ class ProductSubCategoryController extends Controller
             ],
 
             [
+                'name' => 'title',
+                'contents' => $request->title
+            ],
+
+            [
                 'name' => 'status_id',
                 'contents' => $request->status_id
             ]
@@ -147,6 +152,8 @@ class ProductSubCategoryController extends Controller
                 "category_id"=>$request->category_id,
                 "sub_category_short_code"=>$request->sub_category_short_code,
                 "sub_category_desc"=>$request->sub_category_desc,
+
+                "title"=>$request->title,
                 // "file"=>$request->file,
                 "status_id"=>$request->status_id
 
@@ -268,6 +275,7 @@ class ProductSubCategoryController extends Controller
             "category_id"=>$request->category_id,
             "sub_category_short_code"=>$request->sub_category_short_code,
             "sub_category_desc"=>$request->sub_category_desc,
+            "title"=>$request->title,
             "status_id"=>$request->status_id
             
         ]

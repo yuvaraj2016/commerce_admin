@@ -105,6 +105,15 @@
                         @endif -->
                         <div class="form-group row">
 
+                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Sub Category Title</label>
+                                                        <input name="title" value="{{ old('title',$prodsubcategory['title']) }}" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+
+
+
+
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Category</label>
                                                         <select  class="js-example-basic-single col-sm-12" name="category_id" id="" placeholder="Category" required class="form-control selectric" required>
@@ -119,11 +128,7 @@
                                                         <label class="col-form-label text-md-right ">Sub Category Short Code</label>
                                                         <input type="text" id="sub_category_short_code" name="sub_category_short_code" value="{{ old('sub_category_short_code',$prodsubcategory['sub_category_short_code']) }}" class="form-control" required>
                                                         </div>
-                                                        <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Sub Category Desc</label>
-                                                        <textarea name="sub_category_desc" class="summernote-simple form-control" required>{{ old('sub_category_desc',$prodsubcategory['sub_category_desc']) }}</textarea>
-                                          
-                                                        </div>
+                                                    
 
 
                                                       
@@ -205,6 +210,15 @@
                                                     </div> --}}
                                                         {{-- <input type="file" name="files" data-fileuploader-files='[{"name":"stocksnap_4521.jpg","type":"image\/jpg","size":71135,"file":"{{ asset('files/assets/images/product/1.jpg') }}","local":"{{ asset('files/assets/images/product/1.jpg') }}","data":{"url":"{{ asset('files/assets/images/product/1.jpg') }}","thumbnail":"{{ asset('files/assets/images/product/1.jpg') }}","readerForce":true}}]'> --}}
                                                 <div class="form-group row">
+
+                                                <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Sub Category Desc</label>
+                                                        <textarea name="sub_category_desc" class="summernote-simple form-control" required>{{ old('sub_category_desc',$prodsubcategory['sub_category_desc']) }}</textarea>
+                                          
+                                                        </div>
+
+
+
                                                         <div class="col-sm-4">
                                                             <label class="col-form-label text-md-right ">Click below to edit images</label><br>
                                                             <a href="{{ url('product_sub_categories/'.$prodsubcategory['id'].'/edit/assets') }}" class="btn btn-blue">Edit Image</a>

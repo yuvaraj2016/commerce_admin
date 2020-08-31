@@ -162,6 +162,11 @@ class ProductCategoryController extends Controller
             ],
 
             [
+                'name' => 'title',
+                'contents' => $request->title
+            ],
+
+            [
                 'name' => 'status_id',
                 'contents' => $request->status_id
             ]
@@ -176,6 +181,8 @@ class ProductCategoryController extends Controller
             $response = Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->post(config('global.url').'api/prodCat', [
                 "category_short_code"=>$request->category_short_code,
                 "category_desc"=>$request->category_desc,
+                "title"=>$request->title,
+                
                 // "file"=>$request->file,
                 "status_id"=>$request->status_id
 
@@ -281,6 +288,7 @@ class ProductCategoryController extends Controller
             "_method"=> 'PUT',
             "category_short_code"=>$request->category_short_code,
             "category_desc"=>$request->category_desc,
+            "title"=>$request->title,
             "status_id"=>$request->status_id
             
         ]

@@ -76,11 +76,15 @@
                         @endif
 
                         <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Category Title</label>
+                                                        <input type="text"  value="  {{ $productcategory['title'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Category Short Code</label>
                                                         <input type="text"  value="  {{ $productcategory['category_short_code'] }}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Category Desc</label>
                                                         <input type="text"  value="   {{ $productcategory['category_desc'] }}" class="form-control" readonly>
                                           
@@ -90,30 +94,32 @@
 
 
                                                     <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Category Image</label>
+                                                        <img src="{{ isset($productcategory['Assets']['data'][0]['links']) ? $productcategory['Assets']['data'][0]['links']['full'].'?width=300&height=300' : asset('img/no-image.gif')  }}"/>
+                                                        </div>
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <input type="text"  value="   {{ $productcategory['status_desc'] }}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Created At</label>
                                                         <input type="text"  value="{{ date("Y-m-d H:i:s",$productcategory['created_at']) }}" class="form-control" readonly>
                                           
                                                         </div>
+                                                   
                                          
                                                     </div>
 
 
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
-                                                        <label class="col-form-label text-md-right ">Category Image</label>
-                                                        <img src="{{ isset($productcategory['Assets']['data'][0]['links']) ? $productcategory['Assets']['data'][0]['links']['full'].'?width=300&height=300' : asset('img/no-image.gif')  }}"/>
-                                                        </div>
+                                                    <!-- <div class="form-group row">
+                                                   
                                                         <div class="col-sm-4 offset-1">
                                                        
                                           
                                                         </div>
                                          
-                                                    </div>
+                                                    </div> -->
 
 
 

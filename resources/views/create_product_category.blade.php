@@ -101,11 +101,15 @@
                             @endforeach
                         @endif -->
                         <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Category Title</label>
+                                                        <input type="text" id="category_short_code" name="title" value="{{ old('title') }}" class="form-control" required>
+                                                        </div>
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Category Short Code</label>
                                                         <input type="text" id="category_short_code" name="category_short_code" value="{{ old('category_short_code') }}" class="form-control" required>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Category Desc</label>
                                                         <input type="text" name="category_desc" value="{{ old('category_desc') }}" class="summernote-simple form-control" required>
                                           

@@ -140,6 +140,7 @@
                             <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                 <thead>
                                     <tr>
+                                        <th>Category Title</th>
                                     <th>Category Short Code</th>
                                         <th>Category Desc</th>
                                         <th>Category Image</th>
@@ -157,7 +158,9 @@ $id=$prodcategory['id'];
 @endphp
 
 <tr>
+<td><span class="text-center justify-content-center" style="padding-top:10px;">{{ $prodcategory['title'] }}</span>
 
+    </td>
     <td><span class="text-center justify-content-center" style="padding-top:10px;">{{ $prodcategory['category_short_code'] }}</span>
 
     </td>

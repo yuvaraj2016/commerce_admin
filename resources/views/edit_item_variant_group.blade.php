@@ -106,6 +106,13 @@
                         @endif -->
 
                         <div class="form-group row">
+
+                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Item  Variant Group Title</label>
+                                                        <input name="title" value="{{ old('title',$itemVariantsgroup['title']) }}" class="summernote-simple form-control" required>
+                                          
+                                                        </div>
+
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Item </label>
                                                         <select  class="js-example-basic-single col-sm-12" name="item_id" id="item_id" placeholder="Item" required class="form-control selectric" required>
@@ -126,7 +133,17 @@
                                                         </div>
 
 
-                                                        <div class="col-sm-4">
+                                                        
+                                                       
+
+                                                </div>
+
+         
+                                                    
+                                        
+                                                <div class="form-group row">
+
+                                                <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Status</label>
 <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
 <option value="">Select</option>
@@ -138,14 +155,6 @@
 </select>
 
 </div>
-                                                       
-
-                                                </div>
-
-         
-                                                    
-                                        
-                                                <div class="form-group row">
                                                     <div class="col-sm-3">
                                                         <label class="col-form-label text-md-right ">Default</label>
                                                         {{-- <input name="default" value="{{ old('default',$itemVariantsgroup['default']) }}" class="summernote-simple form-control" required> --}}
