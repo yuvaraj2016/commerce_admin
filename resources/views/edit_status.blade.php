@@ -99,9 +99,16 @@
                         @endif -->
                        
 
-                                                    <div class="form-group row mb-4">
-                                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Desc</label>
-                                                        <div class="col-sm-12 col-md-7">
+                                                    <div class="form-group row ">
+                                                    <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right">Status Title</label>
+                                                      
+                                                            <input value="{{ old('title',$status['title']) }}" name="title" class="summernote-simple form-control" required>
+                                                        </div>
+
+                                                    <div class="col-sm-4 offset-1">
+                                                        <label class="col-form-label text-md-right">Status Desc</label>
+                                                      
                                                             <textarea name="status_desc" class="summernote-simple form-control" required>{{ old('status_desc',$status['status_desc']) }}</textarea>
                                                         </div>
                                                     </div>

@@ -142,6 +142,7 @@
                             <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                 <thead>
                                     <tr>
+                                        <th>Title</th>
                                     <th>Status Desc</th>
                                         <th>Created At</th>
                                         <th>Actions</th>
@@ -156,7 +157,9 @@
                                     @endphp
 
                                     <tr>
-
+                                    <td>
+                                            {{ $status['title'] }}
+                                        </td>
 
                                         <td>
                                             {{ $status['status_desc'] }}

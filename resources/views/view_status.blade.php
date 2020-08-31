@@ -75,11 +75,16 @@
                             @endif
 
                             <div class="form-group row">
-                                                        <div class="col-sm-4 offset-1">
+
+                            <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Status Title</label>
+                                                        <input type="text"  value="   {{ $status['title'] }}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Status Desc</label>
                                                         <input type="text"  value="   {{ $status['status_desc'] }}" class="form-control" readonly>
                                                         </div>
-                                                        <div class="col-sm-4 offset-1">
+                                                        <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Created At </label>
                                                         <input type="text"  value="    {{ date("Y-m-d H:i:s",$status['created_at']) }}" class="form-control" readonly>
                                           

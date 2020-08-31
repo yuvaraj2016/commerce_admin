@@ -69,7 +69,7 @@ class StatusController extends Controller
         [
 
             "status_desc"=>$request->status_desc,
-
+            "title"=>$request->title,
         ]);
 
 
@@ -160,7 +160,7 @@ class StatusController extends Controller
         [
             "_method"=> 'PUT',
             "status_desc"=>$request->status_desc,
-                      
+            "title"=>$request->title         
         ]
         
       );
