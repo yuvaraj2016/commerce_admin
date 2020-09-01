@@ -52,6 +52,14 @@ Route::resource('status', 'StatusController')->except('index')->middleware('chec
 
 Route::get('status_list/{page?}','StatusController@index')->name('status.index')->middleware('checktoken');
 
+
+Route::resource('ordertype', 'OrdertypeController')->except('index')->middleware('checktoken');
+
+Route::get('ordertype_list/{page?}','OrdertypeController@index')->name('ordertype.index')->middleware('checktoken');
+
+
+
+
 Route::resource('items', 'ItemController')->except('index')->middleware('checktoken');
 
 Route::get('item_list/{page?}','ItemController@index')->name('item.index')->middleware('checktoken');

@@ -723,6 +723,10 @@ font-size:13px!important;
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item {{ (request()->is('status_list')) ? 'active' : '' }}" href="{{ route('status.index') }}">Status</a>
                               <div class="dropdown-divider"></div>
+                              <a class="dropdown-item {{ (request()->is('ordertype_list')) ? 'active' : '' }}" href="{{ route('ordertype.index') }}">Order</a>
+                             
+                             
+                              <div class="dropdown-divider"></div>
                               <a class="dropdown-item {{ (request()->is('settings/create')) ? 'active' : '' }}" href="{{ route('settings.create') }}">Settings</a>
                             
                             </div>
