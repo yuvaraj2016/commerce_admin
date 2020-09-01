@@ -150,6 +150,8 @@
                                     <th>Supplier Name</th>
                                     <th>Vendor Name</th>
                                     <th>Vendor Store Name</th>
+                                    <th>Order Type Desc</th>
+                                    <th>Payment Status Desc</th>
                                     <th>Purchase Order Ref</th>
                                     <th>Purchase Order Date</th>
                                     <th>Purchase Price</th>
@@ -195,12 +197,27 @@
 
                                         </td>
 
+
                                         <td><span class="text-center justify-content-center"
-                                            style="padding-top:10px;">{{ $stocktracke['purchase_order_ref'] }}</span>
+                                            style="padding-top:10px;">{{ $stocktracke['order_type_desc'] }}</span>
+
+                                        </td>
+
+                                        <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $stocktracke['payment_status_desc'] }}</span>
+
+                                        </td>
+
+
+
+
+
+                                        <td><span class="text-center justify-content-center"
+                                            style="padding-top:10px;">{{ $stocktracke['order_ref'] }}</span>
 
                                         </td>
                                         <td><span class="text-center justify-content-center"
-                                            style="padding-top:10px;">{{ $stocktracke['purchase_order_date'] }}</span>
+                                            style="padding-top:10px;">{{ $stocktracke['order_date'] }}</span>
 
                                         </td>
                                         <td><span class="text-center justify-content-center"

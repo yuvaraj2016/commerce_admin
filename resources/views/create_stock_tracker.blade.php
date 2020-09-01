@@ -68,27 +68,8 @@
                                 </div> -->
                             @endif
 
-                            @if(session('error') !== null)
-
-                                <!-- @foreach(session('error') as $v)
-                                   @foreach($v as $e) -->
-
-                                   <div class="errorWrap">
-                                   {{ session('error') }}
-                                    </div>
-
-                                   <!-- <div class='alert alert-danger'>
-                                       {{ $e }}
-                                    </div> -->
-                                   <!-- @endforeach
-
-                                @endforeach -->
-                            @endif
-                            <!-- @if(session('success') !== null)
-                                <div class='alert alert-success'>
-                                    {{ session('success') }}
-                                </div>
-                            @endif
+                       
+                       
                             @if(session('error') !== null)
 
                                 @foreach(session('error') as $v)
@@ -99,7 +80,7 @@
                                    @endforeach
 
                                 @endforeach
-                            @endif -->
+                            @endif
 
                             <div class="form-group row">
                                                         <div class="col-sm-3">
@@ -203,43 +184,86 @@
 
 
 
-
-
-
-
-
-
-
                                                     <div class="form-group row">
                                                         <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Purchase Order Ref</label>
-                                                        <input type="text" name="purchase_order_ref" value="{{ old('purchase_order_ref') }}" class="form-control" required>
+                                                        
+                                                        <label class="col-form-label text-md-right ">Order Type Desc</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="order_type_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+                                        <option value="">Select</option>
+
+                                        @foreach($ordertype as $ordertypes)
+                                            <option value="{{ $ordertypes['id'] }}" {{ (old("order_type_id") == $ordertypes['id'] ? "selected":"") }}>{{ $ordertypes['order_type_desc'] }}</option>
+                                        @endforeach
+                                    </select>
                                                         </div>
                                                         <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Purchase Order Date</label>
-                                                        <input type="date" name="purchase_order_date" value="{{ old('purchase_order_date') }}" class="form-control" required>
+                                                        <label class="col-form-label text-md-right ">Payment Status Desc</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="payment_status_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+                                        <option value="">Select</option>
+
+                                        @foreach($paymentstatus as $paymentstatuss)
+                                            <option value="{{ $paymentstatuss['id'] }}" {{ (old("payment_status_id") == $paymentstatuss['id'] ? "selected":"") }}>{{ $paymentstatuss['payment_status_desc'] }}</option>
+                                        @endforeach
+                                    </select>
                                           
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Stock Quantity</label>
                                                         <input type="text" name="stock_quantity" value="{{ old('stock_quantity') }}" class="form-control" required>
                                                         </div>
-                                                        <!-- <div class="col-sm-4">
-                                                            <label class="col-form-label text-md-right ">Purchase Price</label>
-                                                            <input type="number" name="purchase_price" step="any" value="{{ old('purchase_price') }}" class="form-control" required>
-                                              
-                                                        </div> -->
+                                                       
                                                     </div>
 
 
                                                     <div class="form-group row">
-                                                     
-                                                        <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Comments</label>
-                                                        <textarea name="comments" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ old('comments') }}</textarea>
-                                          
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">MRP Price</label>
+                                                        <input type="number" name="MRP" value="{{ old('MRP') }}" class="form-control" required>
                                                         </div>
                                                         <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Selling Price</label>
+                                                        <input type="text" name="selling_price" value="{{ old('selling_price') }}" class="form-control" required>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Payment Date</label>
+                                                        <input type="date" name="payment_date" value="{{ old('payment_date') }}" class="form-control" required>
+                                          
+                                                        </div>
+                                                        <!-- <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Stock Quantity</label>
+                                                        <input type="text" name="stock_quantity" value="{{ old('stock_quantity') }}" class="form-control" required>
+                                                        </div> -->
+                                                
+                                                       
+                                                    </div>
+
+
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Total Amount</label>
+                                                        <input type="number" name="total_amount" value="{{ old('total_amount') }}" class="form-control" required>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Purchase Order Ref</label>
+                                                        <input type="text" name="order_ref" value="{{ old('order_ref') }}" class="form-control" required>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Purchase Order Date</label>
+                                                        <input type="date" name="order_date" value="{{ old('order_date') }}" class="form-control" required>
+                                          
+                                                        </div>
+                                                        <!-- <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Stock Quantity</label>
+                                                        <input type="text" name="stock_quantity" value="{{ old('stock_quantity') }}" class="form-control" required>
+                                                        </div> -->
+                                                
+                                                       
+                                                    </div>
+
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
                                                         <select  class="js-example-basic-single col-sm-12"  name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
                                     
@@ -250,6 +274,12 @@
                                     </select>
                
                                                         </div>
+                                                    <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Comments</label>
+                                                        <textarea name="comments" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ old('comments') }}</textarea>
+                                          
+                                                        </div>
+                                      
                                                     </div>
 
 

@@ -65,17 +65,11 @@
 
                             @if(session('error') !== null)
 
-                                @foreach(session('error') as $v)
-                                   @foreach($v as $e)
+                              
 
-                                   <div class="errorWrap"><strong>ERROR</strong>:  {{ $e }} </div>
+                                   <div class="errorWrap"><strong>ERROR</strong>:   {{ session('error') }} </div>
 
-                                   <!-- <div class='alert alert-danger'>
-                                       {{ $e }}
-                                    </div> -->
-                                   @endforeach
-
-                                @endforeach
+                           
                             @endif
                             <!-- @if(session('success') !== null)
                                 <div class='alert alert-green'>
@@ -193,6 +187,60 @@
 
 
 
+                            <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label class="col-form-label text-md-right ">Order Type Desc</label>
+                                <select  class="js-example-basic-single col-sm-12" name="order_type_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+                                    <option value="">Select</option>
+
+                                    @foreach($ordertype as $ordertypes)
+                                        
+                                        <option value="{{ $ordertypes['id'] }}" {{ ($stock_tracker['order_type_id'] == $ordertypes['id']) ? "selected":(old("order_type_id") == $ordertypes['id'] ? "selected":"") }}>{{ $ordertypes['order_type_desc'] }}</option>
+                                    @endforeach
+                                </select>
+
+                                </div>
+                                <div class="col-sm-4">
+                                <label class="col-form-label text-md-right ">Payment Type Desc</label>
+                                <select  class="js-example-basic-single col-sm-12" name="payment_status_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+                                    <option value="">Select</option>
+
+                                    @foreach($paymentstatus as $paymentstatuss)
+                                        
+                                        <option value="{{ $paymentstatuss['id'] }}" {{ ($stock_tracker['payment_status_id'] == $paymentstatuss['id']) ? "selected":(old("payment_status_id") == $paymentstatuss['id'] ? "selected":"") }}>{{ $paymentstatuss['payment_status_desc'] }}</option>
+                                    @endforeach
+                                </select>
+
+                                </div>
+                                <div class="col-sm-4">
+                                <label class="col-form-label text-md-right ">Total Amount</label>
+                                <input type="number" step="any" name="total_amount" value="{{ old('total_amount',$stock_tracker['total_amount']) }}" class="form-control" required>
+                                               
+                                </div>
+       
+                                                   
+                            </div>
+
+
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                <label class="col-form-label text-md-right ">MRP Price</label>
+                                <input type="number" step="any" name="MRP" value="{{ old('MRP',$stock_tracker['MRP']) }}" class="form-control" required>
+                               
+                                </div>
+                                <div class="col-sm-4">
+                                                        <label class="col-form-label text-md-right ">Selling Price</label>
+                                                        <input type="number" step="any" name="selling_price" value="{{ old('selling_price',$stock_tracker['selling_price']) }}" class="form-control" required>
+                                                        </div>
+                                <div class="col-sm-4">
+                                <label class="col-form-label text-md-right ">Payment Date</label>
+                                <input type="date" name="payment_date" value="{{ old('payment_date',$stock_tracker['payment_date']) }}" class="form-control" required>
+                                               
+                                </div>
+       
+                                                   
+                            </div>
+
 
 
 
@@ -200,24 +248,19 @@
                             <div class="form-group row">
                                 <div class="col-sm-4">
                                 <label class="col-form-label text-md-right ">Purchase Order Ref</label>
-                                <input type="text" name="purchase_order_ref" value="{{ old('purchase_order_ref',$stock_tracker['purchase_order_ref']) }}" class="form-control" required>
+                                <input type="text" name="order_ref" value="{{ old('order_ref',$stock_tracker['order_ref']) }}" class="form-control" required>
                                
                                 </div>
                                 <div class="col-sm-4">
                                 <label class="col-form-label text-md-right ">Purchase Order Date</label>
-                                <input type="date" name="purchase_order_date" value="{{ old('purchase_order_date',$stock_tracker['purchase_order_date']) }}" class="form-control" required>
+                                <input type="date" name="order_date" value="{{ old('order_date',$stock_tracker['order_date']) }}" class="form-control" required>
                                                
                                 </div>
                                 <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Stock Quantity</label>
                                                         <input type="text" name="stock_quantity" value="{{ old('stock_quantity',$stock_tracker['stock_quantity']) }}" class="form-control" required>
                                                         </div>
-                                <!-- <div class="col-sm-4">
-                                <label class="col-form-label text-md-right ">Purchase Price</label>
-                               
-                                <input type="number" name="purchase_price" step="any" value="{{ old('purchase_price',$stock_tracker['purchase_price']) }}" class="form-control" required>
-                  
-                                </div>                         -->
+                                                   
                             </div>
 
 <div class="form-group row">

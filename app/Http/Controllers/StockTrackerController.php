@@ -177,6 +177,36 @@ class StockTrackerController extends Controller
 
         }
         $suppliercategories = $response['data'];
+
+        try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confOrderType');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+        $ordertype = $response['data'];
+
+
+        try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confPaymentStatus');
+
+            $response = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+        $paymentstatus = $response['data'];
+
+
+
        try{
 
             $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confStatus');
@@ -193,7 +223,7 @@ class StockTrackerController extends Controller
 
             return view(
                 'create_stock_tracker', compact(
-                    'items','variants','suppliers','statuses','vendors','subcategories','itemvariantgroup','suppliercategories','vendorstores','vendorcate'
+                    'items','variants','suppliers','statuses','vendors','subcategories','itemvariantgroup','suppliercategories','vendorstores','vendorcate','ordertype','paymentstatus'
                 )
         );
     }
@@ -218,9 +248,9 @@ class StockTrackerController extends Controller
 
             "supplier_id"=>$request->supplier_id,
 
-            "purchase_order_ref"=>$request->purchase_order_ref,
+            "order_ref"=>$request->order_ref,
 
-            "purchase_order_date"=>$request->purchase_order_date,
+            "order_date"=>$request->order_date,
 
             "purchase_price"=>$request->purchase_price,
 
@@ -230,7 +260,15 @@ class StockTrackerController extends Controller
 
             "vendor_id"=>$request->vendor_id,
             "vendor_store_id"=>$request->vendor_store_id,
+            "order_type_id"=>$request->order_type_id,
 
+            "MRP"=>$request->MRP,
+            "selling_price"=>$request->selling_price,
+            "payment_date"=>$request->payment_date,
+
+
+            "total_amount"=>$request->total_amount,
+            "payment_status_id"=>$request->payment_status_id,
             "status_id"=>$request->status_id
 
         ]);
@@ -373,7 +411,32 @@ class StockTrackerController extends Controller
 }
  $suppliers = $sresponse['data'];
 
+ try{
 
+    $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confOrderType');
+
+    $response = json_decode($call->getBody()->getContents(), true);
+    //  return $response;
+}catch (\Exception $e){
+    //buy a beer
+
+
+}
+$ordertype = $response['data'];
+
+
+try{
+
+    $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/confPaymentStatus');
+
+    $response = json_decode($call->getBody()->getContents(), true);
+    //  return $response;
+}catch (\Exception $e){
+    //buy a beer
+
+
+}
+$paymentstatus = $response['data'];
 
 try{
 
@@ -396,7 +459,7 @@ try{
             $stock_tracker=   $smresponse->json()['data'];
 
             return view('edit_stock_tracker', compact(
-                'stock_tracker','items','variants','suppliers','statuses','vendor','vendorstore'
+                'stock_tracker','items','variants','suppliers','statuses','vendor','vendorstore','ordertype','paymentstatus'
             ));
         }
 
@@ -431,16 +494,22 @@ try{
 
             "supplier_id"=>$request->supplier_id,
 
-            "purchase_order_ref"=>$request->purchase_order_ref,
+            "order_ref"=>$request->order_ref,
 
-            "purchase_order_date"=>$request->purchase_order_date,
+            "order_date"=>$request->order_date,
 
             "purchase_price"=>$request->purchase_price,
 
             "stock_quantity"=>$request->stock_quantity,
             "vendor_id"=>$request->vendor_id,
             "vendor_store_id"=>$request->vendor_store_id,
+            "order_type_id"=>$request->order_type_id,
+            "total_amount"=>$request->total_amount,
 
+            "MRP"=>$request->MRP,
+            "selling_price"=>$request->selling_price,
+            "payment_date"=>$request->payment_date,
+            "payment_status_id"=>$request->payment_status_id,
             "comments"=>$request->comments,
 
             "status_id"=>$request->status_id

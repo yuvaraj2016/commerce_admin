@@ -76,13 +76,13 @@
                                                       
                                                         <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Purchase Order Ref</label>
-                                                        <input type="text"  value="    {{$stocktracker['purchase_order_ref']}}" class="form-control" readonly>
+                                                        <input type="text"  value="    {{$stocktracker['order_ref']}}" class="form-control" readonly>
                                           
                                                         </div>
 
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Purchase Order Date</label>
-                                                        <input type="text"  value=" {{$stocktracker['purchase_order_date']}}" class="form-control" readonly>
+                                                        <input type="text"  value=" {{$stocktracker['order_date']}}" class="form-control" readonly>
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Purchase Price</label>
@@ -109,13 +109,53 @@
                                          
                                                     </div>
 
+
                                                     <div class="form-group row">
-                                                       
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">MRP Price</label>
+                                                        <input type="text"  value=" {{$stocktracker['MRP']}}" class="form-control" readonly>
+                                                        </div>
+
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Selling Price</label>
+                                                        <input type="text"  value=" {{$stocktracker['selling_price']}}" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Total Amount</label>
+                                                        <input type="text"  value=" {{$stocktracker['total_amount']}}" class="form-control" readonly>
+                                                        </div>
+                                         
+                                                    </div>
+
+
+
+                                                    <div class="form-group row">
+                                                    <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Order Desc</label>
+                                                        <input type="text"  value=" {{$stocktracker['order_type_desc']}}" class="form-control" readonly>
+                                                        </div>
+
+                                                        <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Payment Desc</label>
+                                                        <input type="text"  value=" {{$stocktracker['payment_status_desc']}}" class="form-control" readonly>
+                                                        </div>
+                                                        <!-- <div class="col-sm-4 ">
+                                                        <label class="col-form-label text-md-right ">Total Amount</label>
+                                                        <input type="text"  value=" {{$stocktracker['total_amount']}}" class="form-control" readonly>
+                                                        </div> -->
                                                         <div class="col-sm-4 ">
                                                         <label class="col-form-label text-md-right ">Comments</label>
                                                         <input type="text"  value="      {{$stocktracker['comments']}}" class="form-control" readonly>
                                           
                                                         </div>
+                                         
+                                                    </div>
+
+
+
+                                                    <div class="form-group row">
+                                                       
+                                                 
 
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
