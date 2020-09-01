@@ -59,6 +59,10 @@ Route::get('ordertype_list/{page?}','OrdertypeController@index')->name('ordertyp
 
 
 
+Route::resource('payment', 'PaymentController')->except('index')->middleware('checktoken');
+
+Route::get('payment_list/{page?}','PaymentController@index')->name('payment.index')->middleware('checktoken');
+
 
 Route::resource('items', 'ItemController')->except('index')->middleware('checktoken');
 
