@@ -150,7 +150,7 @@
                                                         <select  class="js-example-basic-single col-sm-12" name="category_id" id="" placeholder="Category" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($categories as $categorie)
-                                        <option value="{{ $categorie['id'] }}" {{ (old("category_id") == $categorie['id'] ? "selected":"") }}>{{ $categorie['category_desc'] }}</option>
+                                        <option value="{{ $categorie['id'] }}" {{ (old("category_id") == $categorie['id'] ? "selected":"") }}>{{ $categorie['title'] }}</option>
                                         @endforeach
                                        
                                     </select>
@@ -163,7 +163,7 @@
                                                             <select  class="js-example-basic-single col-sm-12" name="sub_category_id" id="sub_category_id" placeholder="Sub Category" required class="form-control selectric" required>
                                                                 <option value="">Select</option>
                                                                 @foreach($subcategories as $subcategory)
-                                                                    <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['sub_category_desc'] }}</option>
+                                                                    <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['title'] }}</option>
                                                                 @endforeach
                                                             </select>
                                     
