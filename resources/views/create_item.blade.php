@@ -182,19 +182,19 @@
                                                     <div class="form-group row">
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Min Order Quantity</label>
-                                                        <input type="number" name="min_order_quantity" value="{{ old('min_order_quantity') }}" class="summernote-simple form-control" required>
+                                                        <input type="number" name="min_order_quantity" value="{{ old('min_order_quantity') }}" class="summernote-simple form-control" >
                                           
                                                         </div>
                                                     <div class="col-sm-4">
     <label class="col-form-label text-md-right ">Min Order Amount</label>
-    <input type="number" step="any" name="min_order_amount" value="{{ old('min_order_amount') }}" class="summernote-simple form-control" required>
+    <input type="number" step="any" name="min_order_amount" value="{{ old('min_order_amount') }}" class="summernote-simple form-control">
 
     </div>
 
    
     <div class="col-sm-4">
     <label class="col-form-label text-md-right ">Max Order Quantity</label>
-    <input type="number"  name="max_order_quantity" value="{{ old('max_order_quantity') }}" class="summernote-simple form-control" required>
+    <input type="number"  name="max_order_quantity" value="{{ old('max_order_quantity') }}" class="summernote-simple form-control">
 
     </div>
 
@@ -208,20 +208,20 @@
 <div class="form-group row">
 <div class="col-sm-4">
     <label class="col-form-label text-md-right ">Max Order Amount</label>
-    <input type="number" step="any" name="max_order_amount" value="{{ old('max_order_amount') }}" class="summernote-simple form-control" required>
+    <input type="number" step="any" name="max_order_amount" value="{{ old('max_order_amount') }}" class="summernote-simple form-control">
 
     </div>
 
 <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Discount Percentage</label>
-<input type="number"  name="discount_percentage" value="{{ old('discount_percentage') }}" class="summernote-simple form-control" required>
+<input type="number"  name="discount_percentage" value="{{ old('discount_percentage') }}" class="summernote-simple form-control">
 
 </div>
 
 
 <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Discount Amount</label>
-<input step="any" type="number"  name="discount_amount" value="{{ old('discount_amount') }}" class="summernote-simple form-control" required>
+<input step="any" type="number"  name="discount_amount" value="{{ old('discount_amount') }}" class="summernote-simple form-control">
 
 </div>
 
@@ -235,19 +235,19 @@
 <div class="form-group row">
 <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Quantity</label>
-<input type="number"  name="quantity" value="{{ old('quantity') }}" class="summernote-simple form-control" required>
+<input type="number"  name="quantity" value="{{ old('quantity') }}" class="summernote-simple form-control">
 
 </div>
 <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Threshold</label>
-<input type="number"  name="threshold" value="{{ old('threshold') }}" class="summernote-simple form-control" required>
+<input type="number"  name="threshold" value="{{ old('threshold') }}" class="summernote-simple form-control">
 
 </div>
 
 
 <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Mrp Amount</label>
-<input step="any" type="number"  name="MRP" value="{{ old('MRP') }}" class="summernote-simple form-control" required>
+<input step="any" type="number"  name="MRP" value="{{ old('MRP') }}" class="summernote-simple form-control">
 
 </div>
 
@@ -264,7 +264,7 @@
                                                     <div class="form-group row">
                                                     <div class="col-sm-4">
 <label class="col-form-label text-md-right ">Selling Price</label>
-<input type="number"  step="any" name="selling_price" value="{{ old('selling_price') }}" class="summernote-simple form-control" required>
+<input type="number"  step="any" name="selling_price" value="{{ old('selling_price') }}" class="summernote-simple form-control">
 
 </div>
                                                     <div class="col-sm-4">

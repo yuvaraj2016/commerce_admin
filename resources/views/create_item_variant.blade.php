@@ -167,18 +167,18 @@
 <div class="form-group row">
 <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Min Order Quantity</label>
-                                                        <input type="number"  name="min_order_quantity" value="{{ old('min_order_quantity') }}" step="any" class="form-control" required>
+                                                        <input type="number"  name="min_order_quantity" value="{{ old('min_order_quantity') }}" step="any" class="form-control">
                
                                                         </div>
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Min Order Amount</label>
-                                                        <input type="number"  name="min_order_amount" value="{{ old('min_order_amount') }}" step="any" class="form-control" required>
+                                                        <input type="number"  name="min_order_amount" value="{{ old('min_order_amount') }}" step="any" class="form-control">
                
                                                         </div>
                                                     
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Max Order Quantity</label>
-                                                        <input type="number" name="max_order_quantity" value="{{ old('max_order_quantity') }}" step="any" class="form-control" required>
+                                                        <input type="number" name="max_order_quantity" value="{{ old('max_order_quantity') }}" step="any" class="form-control">
                
                                                         </div>
                                                      
@@ -188,7 +188,7 @@
                                                     <div class="form-group row">
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Max Order Amount</label>
-                                                        <input type="number" name="max_order_amount" value="{{ old('max_order_amount') }}" step="any" class="form-control" required>
+                                                        <input type="number" name="max_order_amount" value="{{ old('max_order_amount') }}" step="any" class="form-control">
                
                                                         </div>
                                                     <div class="col-sm-4">
@@ -211,12 +211,12 @@
                                                     <div class="form-group row">
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Discount Percentage</label>
-                                                        <input type="number" name="discount_percentage" value="{{ old('discount_percentage') }}" step="any" class="form-control" required>
+                                                        <input type="number" name="discount_percentage" value="{{ old('discount_percentage') }}" step="any" class="form-control">
                
                                                         </div>
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Discount Amount</label>
-                                                        <input type="number"  name="discount_amount" value="{{ old('discount_amount') }}" step="any" class="form-control" required>
+                                                        <input type="number"  name="discount_amount" value="{{ old('discount_amount') }}" step="any" class="form-control">
                
                                                         </div>
                                                         <div class="col-sm-4">
