@@ -106,7 +106,7 @@
                                                         <select id="tm" class="js-example-basic-single col-sm-12"  name="item_id" id="" placeholder="Item" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($items as $item)
-                                            <option value="{{ $item['id'] }}" {{ (old("item_id") == $item['id'] ? "selected":"") }}>{{ $item['item_desc'] }}</option>
+                                            <option value="{{ $item['id'] }}" {{ (old("item_id") == $item['id'] ? "selected":"") }}>{{ $item['title'] }}</option>
                                         @endforeach
                                     </select>
                                                         </div>
