@@ -62,13 +62,7 @@
                 {{ session('success') }}
             </div>
             @endif
-            @if(session('error') !== null)
-            @foreach(session('error') as $k =>$v)
-            <div class='alert alert-danger'>
-                {{ $v[0] }}
-            </div>
-            @endforeach
-            @endif -->
+        -->
             <div class="col-sm-12">
                 <!-- HTML5 Export Buttons table start -->
                 <div class="card">
