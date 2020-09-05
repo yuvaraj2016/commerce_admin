@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
 });
 Route::post('/login', 'UserController@login');
 
-Route::post('/logout', 'UserController@logout')->name('logout')->middleware('checktoken');
+Route::get('/logout', 'UserController@logout')->name('logout')->middleware('checktoken');
 
 Route::resource('albums', 'AlbumController');
 Route::resource('albums.photo', 'PhotoController');
