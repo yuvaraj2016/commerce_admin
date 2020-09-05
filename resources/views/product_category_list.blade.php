@@ -262,6 +262,7 @@ $id=$prodcategory['id'];
         </div>
 
 
+<<<<<<< HEAD
         <!-- <div class="row">
             <div class="col-12">
                 {{-- @if(session('success') !== null)
@@ -436,6 +437,9 @@ $id=$prodcategory['id'];
                 </div>
             </div>
         </div> -->
+=======
+       
+>>>>>>> 7f35e7aaaf97373a7caecb9c8030a241c1e1f9c2
 
 
 
