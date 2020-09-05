@@ -38,21 +38,19 @@ function wordSplit($longString,$length=20){
 @endphp
 
 
-    <!-- @if(session('success') !== null)
+     @if(session('success') !== null)
         <div class='alert alert-success'>
             {{ session('success') }}
         </div>
     @endif
-    @if(session('error') !== null)
-        @foreach(session('error') as $k =>$v)
-            <div class='alert alert-danger'>
-                {{ $v[0] }}
-            </div>
-        @endforeach
+    @if(Session::has('error'))
+    <div class="alert errorWrap">
+        {{session('error')}}
+    </div>
     @endif
     <div class="section-header-button">
         <a href="{{ route('roles.create') }}" class="btn btn-primary">Add New</a>
-    </div> -->
+    </div> 
 
 <style>
 #pagination li

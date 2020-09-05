@@ -49,17 +49,15 @@
 
     <div class="row">
     <div class="col-sm-12">
-                                        @if(session('success') !== null)
+        @if(session('success') !== null)
         <div class='alert alert-success'>
             {{ session('success') }}
         </div>
         @endif
-        @if(session('error') !== null)
-            @foreach(session('error') as $k =>$v)
-                <div class='alert alert-danger'>
-                    {{ $v[0] }}
+        @if(Session::has('error'))
+                <div class="alert errorWrap">
+                    {{session('error')}}
                 </div>
-            @endforeach
         @endif
                                             
                                                 <!-- HTML5 Export Buttons table start -->

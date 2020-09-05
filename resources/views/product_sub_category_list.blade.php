@@ -2,23 +2,20 @@
 @section('content')
 
 
-<!-- 
+
     @if(session('success') !== null)
         <div class='alert alert-success'>
             {{ session('success') }}
         </div>
     @endif
-    @if(session('error') !== null)
-        {{-- @echo "hai" --}}
-        @foreach(session('error') as $k =>$v)
-            <div class='alert alert-danger'>
-                {{ $v[0] }}
-            </div>
-        @endforeach
-    @endif
+    @if(Session::has('error'))
+                <div class="alert errorWrap">
+                    {{session('error')}}
+                </div>
+  @endif
     <div class="section-header-button">
         <a href="{{ route('product_sub_categories.create') }}" class="btn btn-primary">Add New</a>
-    </div> -->
+    </div> 
 <!-- Data Table Css -->
 
 <style>

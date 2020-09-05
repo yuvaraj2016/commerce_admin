@@ -48,18 +48,19 @@
     <!-- Page body start -->
     <div class="page-body">
         <div class="row">
-            <!-- @if(session('success') !== null)
+           @if(session('success') !== null)
             <div class='alert alert-success'>
                 {{ session('success') }}
             </div>
             @endif
-            @if(session('error') !== null)
-            @foreach(session('error') as $k =>$v)
-            <div class='alert alert-danger'>
-                {{ $v[0] }}
-            </div>
-            @endforeach
-            @endif -->
+         
+
+            @if(Session::has('error'))
+                <div class="alert errorWrap">
+                    {{session('error')}}
+                </div>
+            @endif
+
             <div class="col-sm-12">
                 <!-- HTML5 Export Buttons table start -->
                 <div class="card">
@@ -263,7 +264,7 @@ $id=$prodcategory['id'];
 
         <!-- <div class="row">
             <div class="col-12">
-                @if(session('success') !== null)
+                {{-- @if(session('success') !== null)
                 <div class='alert alert-success'>
                     {{ session('success') }}
                 </div>
@@ -274,11 +275,11 @@ $id=$prodcategory['id'];
                     {{ $v[0] }}
                 </div>
                 @endforeach
-                @endif
+                @endif --}}
 
 
                 <div class="section-header-button">
-                    <a href="{{ route('product_categories.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
+                    {{-- <a href="{{ route('product_categories.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6; --}}
                     background-color: #6777ef;
                     border-color: #6777ef;">Add New</a>
                 </div>
@@ -294,7 +295,7 @@ $id=$prodcategory['id'];
 
                                 <div class="col">
                                     <ul id="pagination" class="float-right m-0 p-0">
-                                        <li><a href="{{ route('product_cat.index',$page=1) }}" class="btn btn-primary @if($pagination['current_page']==1) {{ "disabled" }} @endif">First</a></li>
+                                        {{-- <li><a href="{{ route('product_cat.index',$page=1) }}" class="btn btn-primary @if($pagination['current_page']==1) {{ "disabled" }} @endif">First</a></li>
                                         @php
                                         if(isset($pagination['links']['previous']))
                                         {
@@ -306,7 +307,7 @@ $id=$prodcategory['id'];
                                         <li><a href="{{ route('product_cat.index',$page) }}" class="btn btn-primary">Previous</a></li>
                                         @php
                                         }
-                                        @endphp
+                                        @endphp --}}
 
 
                                         {{-- @for($i = 1; $i <= $pagination['total_pages']; $i++)
@@ -322,7 +323,7 @@ $id=$prodcategory['id'];
 
 
 
-                                        @php
+                                        {{-- @php
                                         if(isset($pagination['links']['next']))
                                         {
                                         $endurl = explode("?page=",$pagination['links']['next']);
@@ -344,7 +345,7 @@ $id=$prodcategory['id'];
                                         @php
                                         }
 
-                                        @endphp
+                                        @endphp --}}
 
                                     </ul>
 
@@ -377,10 +378,10 @@ $id=$prodcategory['id'];
                                 <tbody>
 
                                     {{-- @dd($prodcategories) --}}
-                                    @foreach($prodcategories as $prodcategory )
+                                    {{-- @foreach($prodcategories as $prodcategory )
                                     @php
                                     $id=$prodcategory['id'];
-                                    @endphp
+                                    @endphp --}}
 
                                     <tr>
 
@@ -388,13 +389,13 @@ $id=$prodcategory['id'];
 
                                         </td>
                                         <td>
-                                            {{ $prodcategory['category_desc'] }}
+                                            {{-- {{ $prodcategory['category_desc'] }} --}}
                                         </td>
                                         {{-- <td>{{ dd($prodcategory['Assets']) }}</td> --}}
                                         <td align="center">
 
-                                            <img src="{{ isset($prodcategory['Assets']['data'][0]['links']) ? $prodcategory['Assets']['data'][0]['links']['full'].'?width=52&height=52' : asset('img/no-image.gif')  }}" /></td>
-                                        <td>{{ $prodcategory['status_desc'] }}</td>
+                                            {{-- <img src="{{ isset($prodcategory['Assets']['data'][0]['links']) ? $prodcategory['Assets']['data'][0]['links']['full'].'?width=52&height=52' : asset('img/no-image.gif')  }}" /></td>
+                                        <td>{{ $prodcategory['status_desc'] }}</td> --}}
                                         {{-- <td>
                                                 <a href="#">
                                                     <img alt="image"
@@ -403,23 +404,23 @@ $id=$prodcategory['id'];
                                         </a>
                                         </td> --}}
 
-                                        <td>{{ date("Y-m-d H:i:s",$prodcategory['created_at']) }}</td>
+                                        {{-- <td>{{ date("Y-m-d H:i:s",$prodcategory['created_at']) }}</td> --}}
                                         <td>
                                             <div class="d-flex">
 
-                                                <a href="{{ url('product_categories/'.$id) }}" class="btn btn-success d-inline" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
+                                                {{-- <a href="{{ url('product_categories/'.$id) }}" class="btn btn-success d-inline" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6; --}}
                                                         background-color: #6777ef;
                                                         border-color: #6777ef;"><i class="icofont icofont-eye"></i>View&nbsp;&nbsp;</a>&nbsp;&nbsp;
 
-                                                <a href="{{ url('product_categories/'.$id.'/edit') }}" class="btn btn-info d-inline text-center" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
+                                                {{-- <a href="{{ url('product_categories/'.$id.'/edit') }}" class="btn btn-info d-inline text-center" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6; --}}
                                                         background-color: #6777ef;
                                                         border-color: #6777ef;"><i class="icofont icofont-ui-edit"></i>Edit&nbsp;&nbsp;</a>&nbsp;&nbsp;
                                                 {{-- <meta name="csrf-token" content="{{ csrf_token() }}">
                                                 <a href="{{ action('AlbumController@destroy', $id) }}" class="job-delete badge badge-danger d-inline"><i class="fas fa-trash"></i>Deletes</a> --}}
 
-                                                <form action="{{ route('product_categories.destroy',$id) }}" method="POST">
-                                                    @method('DELETE')
-                                                    @csrf
+                                                {{-- <form action="{{ route('product_categories.destroy',$id) }}" method="POST"> --}}
+                                                    {{-- @method('DELETE') --}}
+                                                    {{-- @csrf --}}
                                                     <button type="submit" class="btn btn-danger job-delete d-inline" style="border-radius:30px;box-shadow: 0 2px 6px #acb5f6;
                                                             background-color: #6777ef;
                                                             border-color: #6777ef;"> <i class="icofont icofont-trash"></i>Delete</button>
@@ -427,7 +428,7 @@ $id=$prodcategory['id'];
                                             </div>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    {{-- @endforeach --}}
                                 </tbody>
                             </table>
                         </div>

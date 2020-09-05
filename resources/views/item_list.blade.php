@@ -3,7 +3,7 @@
 
 
 
-    <!-- @if(session('success') !== null)
+   @if(session('success') !== null)
         <div class='alert alert-success'>
             {{ session('success') }}
         </div>
@@ -18,7 +18,7 @@
     @endif
     <div class="section-header-button">
         <a href="{{ route('items.create') }}" class="btn btn-primary">Add New</a>
-    </div> -->
+    </div> 
 
 <style>
 #pagination li
