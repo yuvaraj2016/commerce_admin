@@ -315,19 +315,7 @@
 
     <!-- <div class="row">
         <div class="col-12">
-        @if(session('success') !== null)
-        <div class='alert alert-success'>
-            {{ session('success') }}
-        </div>
-    @endif
-    @if(session('error') !== null)
-        {{-- @echo "hai" --}}
-        @foreach(session('error') as $k =>$v)
-            <div class='alert alert-danger'>
-                {{ $v[0] }}
-            </div>
-        @endforeach
-    @endif
+     
         <div class="section-header-button">
                     <a href="{{  route('items.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
                     background-color: #6777ef;
