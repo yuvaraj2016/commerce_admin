@@ -748,7 +748,7 @@ font-size:13px!important;
                               <!-- <div class="dropdown-divider"></div> -->
                               <!-- <a class="dropdown-item {{ (request()->is('vendor_cat_list')) ? 'active' : '' }}" href="{{ route('vendor_cat.index') }}">Edit Profile</a> -->
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item {{ (request()->is('status_list')) ? 'active' : '' }}" href="{{ route('status.index') }}">Logout</a>
+                              <a class="dropdown-item {{ (request()->is('logout')) ? 'active' : '' }}" href="{{ route('logout') }}">Logout</a>
                             
                               
                             </div>
