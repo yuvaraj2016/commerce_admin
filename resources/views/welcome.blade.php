@@ -79,6 +79,12 @@
                                         {{ session('error') }}
                                     </div>
                                 @endif
+
+                                @if(session('success') !== null)
+                                <div class='alert alert-success'>
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                                     <div class="row m-b-20">
                                         <div class="col-md-12">
                                             <h3 class="text-center">Sign In</h3>

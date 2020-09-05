@@ -297,7 +297,7 @@ class UserController extends Controller
 
         session()->forget('token');
 
-        return redirect()->route('/')->with('success','You have logged out Sucessfully !..');
+        return redirect()->route('home')->with('success','You have logged out Sucessfully !..');
 
     }
 }
