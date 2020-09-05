@@ -262,8 +262,7 @@ $id=$prodcategory['id'];
         </div>
 
 
-<<<<<<< HEAD
-        <!-- <div class="row">
+       <!-- <div class="row">
             <div class="col-12">
                 {{-- @if(session('success') !== null)
                 <div class='alert alert-success'>
