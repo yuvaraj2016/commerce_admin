@@ -61,19 +61,12 @@
 
     <div class="row">
     <div class="col-sm-12">
-                                        <!-- @if(session('success') !== null)
+                                       @if(session('success') !== null)
         <div class='alert alert-success'>
             {{ session('success') }}
         </div>
         @endif
-        @if(session('error') !== null)
-            @foreach(session('error') as $k =>$v)
-                <div class='alert alert-danger'>
-                    {{ $v[0] }}
-                </div>
-            @endforeach
-        @endif -->
-                                            
+                             
                                                 <!-- HTML5 Export Buttons table start -->
                                                 <div class="card">
                                                     
@@ -285,13 +278,7 @@
             {{ session('success') }}
         </div>
     @endif
-    @if(session('error') !== null)
-        @foreach(session('error') as $k =>$v)
-            <div class='alert alert-danger'>
-                {{ $v[0] }}
-            </div>
-        @endforeach
-    @endif
+  
         <div class="section-header-button">
                     <a href="{{ route('vendors.create') }}" class="btn btn-primary" style="box-shadow: 0 2px 6px #acb5f6;
                     background-color: #6777ef;

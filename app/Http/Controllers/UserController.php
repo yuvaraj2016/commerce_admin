@@ -289,4 +289,15 @@ class UserController extends Controller
              return redirect()->route('user.index')->with('error',$response->json()['message']);
         }
     }
+
+    public function logout()
+    {
+
+        session()->flush();
+
+        session()->forget('token');
+
+        return redirect()->route('home')->with('success','You have logged out Sucessfully !..');
+
+    }
 }
