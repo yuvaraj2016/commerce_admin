@@ -160,7 +160,7 @@
 
                                                         <div class="col-sm-3">
                                                             <label class="col-form-label text-md-right ">Sub Category</label>
-                                                            <select  class="js-example-basic-single col-sm-12" name="sub_category_id" id="sub_category_id" placeholder="Sub Category" required class="form-control selectric" required>
+                                                            <select  class="js-example-basic-single col-sm-12" name="sub_category_id" id="sub_category" placeholder="Sub Category" required class="form-control selectric" required>
                                                                 <option value="">Select</option>
                                                                 @foreach($subcategories as $subcategory)
                                                                     <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['title'] }}</option>
@@ -310,7 +310,7 @@
                                                         </div>
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Status</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="" placeholder="Status" required class="form-control selectric" required>
+                                                        <select  class="js-example-basic-single col-sm-12" name="status_id" id="status" placeholder="Status" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($statuses as $status)
                                             <option value="{{ $status['id'] }}"  {{ ($status['id'] == "2") ? "selected":(old("status_id") == $status['id'] ? "selected":"") }}>{{ $status['status_desc'] }}</option>
@@ -585,7 +585,40 @@
 </div>
 @endsection
 <script type="text/javascript" src="{{ asset('modules/upload-preview/assets/js/jquery-2.0.3.min.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script>
+
+$(document).ready(function(){
+    $('#sub_category').on('change', function () {
+        var supcatID = $(this).val();
+     alert(supcatID);
+    // if (supcatID) {
+    //             $.ajax({
+    //                 type: 'POST',
+    //                 url: 'ajaxData.php',
+    //                 dataType: "json",
+    //                 data: {supplier_id: supplierID},
+    //                 //data: 'wo_recipe_id=' + wor,
+    //                 success: function (data) {
+    //                     if (data.status === 'ok') {
+    //                         // $('#prp').val(data.result.recipe_percentage);
+    //                         $('#supcatNAME').val(data.result.supplier_category_desc);
+    //                     } else {
+    //                         // $('#prp').val('');
+    //                         $('#supcatNAME').val('');
+    //                     }
+    //                 }
+    //             });
+
+    //         } else {
+    //             $('#supcatNAME').val('');
+    //         }
+    });
+});
+
+
+</script>
 <script type="text/javascript">
 
 $(function() {
