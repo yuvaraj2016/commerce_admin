@@ -147,7 +147,7 @@
 
                                                     <div class="col-sm-3">
                                                         <label class="col-form-label text-md-right ">Category Desc</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="category_id" id="" placeholder="Category" required class="form-control selectric" required>
+                                                        <select  class="js-example-basic-single col-sm-12" name="category_id" id="category" placeholder="Category" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($categories as $categorie)
                                         <option value="{{ $categorie['id'] }}" {{ (old("category_id") == $categorie['id'] ? "selected":"") }}>{{ $categorie['title'] }}</option>
@@ -586,39 +586,59 @@
 @endsection
 <script type="text/javascript" src="{{ asset('modules/upload-preview/assets/js/jquery-2.0.3.min.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-
+//  $.ajaxSetup({
+//                 headers: {
+//                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//                 }
+//             });
 $(document).ready(function(){
-    $('#sub_category').on('change', function () {
-        var supcatID = $(this).val();
-     alert(supcatID);
-    // if (supcatID) {
-    //             $.ajax({
-    //                 type: 'POST',
-    //                 url: 'ajaxData.php',
-    //                 dataType: "json",
-    //                 data: {supplier_id: supplierID},
-    //                 //data: 'wo_recipe_id=' + wor,
-    //                 success: function (data) {
-    //                     if (data.status === 'ok') {
-    //                         // $('#prp').val(data.result.recipe_percentage);
-    //                         $('#supcatNAME').val(data.result.supplier_category_desc);
-    //                     } else {
-    //                         // $('#prp').val('');
-    //                         $('#supcatNAME').val('');
-    //                     }
-    //                 }
-    //             });
+    $('#category').on('change', function () {
+        var catID = $(this).val();
+   alert(catID);
+    if (catID) {
+        
+                $.ajax({
 
-    //         } else {
-    //             $('#supcatNAME').val('');
-    //         }
+                    headers: {
+        
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        'Content-Type':'application/json',
+        'Accept' : 'application/vnd.api.v1+json',
+    }, 
+                   
+                    url: 'http://ecommerce-api.hridham.com/api/member/prodCat/'+catID+'?include=SubCategories',
+                    // headers: {'X-CSRF-TOKEN': $('form[name="csrf-token"]').attr('content')},                    dataType: "json",
+       
+    method: 'GET',
+                    dataType: "json",
+                     data: {catID: catID},
+                    //data: 'wo_recipe_id=' + wor,
+                    success: function(data){
+      console.log('succes: '+data);
+    
+                        // if (data.status === 'ok') {
+                           
+                        //     // $('#prp').val(data.result.recipe_percentage);
+                        //     $('#sub_category').val(data.result.sub_category_desc);
+                        // } else {
+                        //     // $('#prp').val('');
+                        //     $('#sub_category').val('');
+                        // }
+                    }
+                });
+
+            } 
     });
 });
 
 
 </script>
+
+<!-- sd -->
+
 <script type="text/javascript">
 
 $(function() {
