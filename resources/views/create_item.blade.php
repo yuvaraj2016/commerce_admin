@@ -614,7 +614,7 @@ $(document).ready(function(){
        
     method: 'GET',
                     dataType: "json",
-                     data: {catID: catID},
+                    //  data: {catID: catID},
                     //data: 'wo_recipe_id=' + wor,
                     success: function(data){
       console.log('succes: '+data);
