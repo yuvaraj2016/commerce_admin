@@ -584,9 +584,14 @@
     </div>
 </div>
 @endsection
+
+
 <script type="text/javascript" src="{{ asset('modules/upload-preview/assets/js/jquery-2.0.3.min.js') }}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+
 
 <script>
 //  $.ajaxSetup({
@@ -594,47 +599,107 @@
 //                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 //                 }
 //             });
-$(document).ready(function(){
-    $('#category').on('change', function () {
-        var catID = $(this).val();
-   alert(catID);
-    if (catID) {
+// $(document).ready(function(){
+//     $('#category').on('change', function () {
+//         var catID = $(this).val();
+//    alert(catID);
+//     if (catID) {
         
-                $.ajax({
+//                 $.ajax({
 
-                    headers: {
+//                     headers: {
         
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-        'Content-Type':'application/json',
-        'Accept' : 'application/vnd.api.v1+json',
-    }, 
+//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+//         'Content-Type':'application/json',
+//         'Accept' : 'application/vnd.api.v1+json',
+//     }, 
                    
-                    url: 'http://ecommerce-api.hridham.com/api/member/prodCat/'+catID+'?include=SubCategories',
-                    // headers: {'X-CSRF-TOKEN': $('form[name="csrf-token"]').attr('content')},                    dataType: "json",
+//                     url: 'http://ecommerce-api.hridham.com/api/member/prodCat/'+catID+'?include=SubCategories',
+//                     // headers: {'X-CSRF-TOKEN': $('form[name="csrf-token"]').attr('content')},                    dataType: "json",
        
-    method: 'GET',
-                    dataType: "json",
-                    //  data: {catID: catID},
-                    //data: 'wo_recipe_id=' + wor,
-                    success: function(data){
-      console.log('succes: '+data);
+//                     method: 'GET',
+//                     dataType: "json",
+//                     //  data: {catID: catID},
+//                     //data: 'wo_recipe_id=' + wor,
+//                     success: function(data){
+//                     console.log('succes: '+data);
     
-                        // if (data.status === 'ok') {
+//                         // if (data.status === 'ok') {
                            
-                        //     // $('#prp').val(data.result.recipe_percentage);
-                        //     $('#sub_category').val(data.result.sub_category_desc);
-                        // } else {
-                        //     // $('#prp').val('');
-                        //     $('#sub_category').val('');
-                        // }
-                    }
+//                         //     // $('#prp').val(data.result.recipe_percentage);
+//                         //     $('#sub_category').val(data.result.sub_category_desc);
+//                         // } else {
+//                         //     // $('#prp').val('');
+//                         //     $('#sub_category').val('');
+//                         // }
+//                     }
+//                 });
+
+//             } 
+//     });
+// });
+
+
+
+
+            $(document).ready(function () {
+             
+                $('#category').on('change',function(e) {
+                 
+                 var cat_id = e.target.value;
+
+                //  alert(cat_id);
+
+    //              $.ajaxSetup({
+    //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+    //     'Content-Type':'application/json',
+    //     'Accept' : 'application/vnd.api.v1+json'
+    // });
+
+                 $.ajax({
+                    
+                    headers: {  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        'Content-Type':'application/json',
+        'Accept' : 'application/vnd.api.v1+json' },
+                       url:"{{ url('getprodSubcat')}}" + "/" + cat_id,
+                   
+                       type:"GET",
+                   
+                        // data: {
+                        //   id : cat_id
+                        // },
+
+                       crossDomain:true,
+
+                       success:function (responsedata) {
+
+
+                        // var data = JSON.parse(responsedata);
+                        // console.log(responsedata.SubCategories.data);
+
+                        var subcategories = responsedata.SubCategories.data;
+
+                        $('#sub_category').empty();
+                        $('#sub_category').append('<option value="">Select</option>');
+
+                        $.each(subcategories,function(index,subcategory){
+                            // alert(subcategory.id);
+                            $('#sub_category').append('<option value="'+subcategory.id+'{{ (old("sub_category_id") =='. subcategory.id '? "selected":"") }}">'+subcategory.sub_category_desc +'</option>');
+                        })
+
+                       }
+                   })
+
+
+                   
+
+
+
+
+
                 });
 
-            } 
-    });
-});
-
-
+            });
 </script>
 
 <!-- sd -->

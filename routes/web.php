@@ -37,6 +37,8 @@ Route::resource('product_categories', 'ProductCategoryController')->except('inde
 
 Route::get('product_cat_list/{page?}','ProductCategoryController@index')->name('product_cat.index')->middleware('checktoken');
 
+Route::get('getprodSubcat/{id}','ProductCategoryController@getsubcategories')->name('getsubcategories')->middleware('checktoken');
+
 Route::resource('product_sub_categories', 'ProductSubCategoryController')->except('index')->middleware('checktoken');
 
 Route::get('product_sub_cat_list/{page?}','ProductSubCategoryController@index')->name('product_sub_cat.index')->middleware('checktoken');

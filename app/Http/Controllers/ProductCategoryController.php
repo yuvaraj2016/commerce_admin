@@ -337,4 +337,24 @@ class ProductCategoryController extends Controller
              return redirect()->route('product_cat.index')->with('error',$response->json()['message']);
         }
     }
+
+
+    public function getsubcategories($id)
+    {
+    //   return $id;
+        $session = session()->get('token');
+
+
+        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url').'api/member/prodCat/'.$id.'?include=SubCategories');
+
+        
+
+        if($response->ok()){
+
+            $prodcategory= $response->json()['data'];;
+
+            return $prodcategory;
+        }
+
+    }
 }
