@@ -646,9 +646,9 @@
              
                 $('#category').on('change',function(e) {
                  
-                 var cat_id = e.target.value;
+                 var cat_id = $(this).val();
 
-                //  alert(cat_id);
+                 alert(cat_id);
 
     //              $.ajaxSetup({
     //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
