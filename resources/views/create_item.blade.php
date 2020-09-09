@@ -166,6 +166,7 @@
                                                                     <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['title'] }}</option>
                                                                 @endforeach
                                                             </select>
+                                                            <input type="hidden" name="subcategoriesval" id="subcategoriesval" value="<?php echo json_encode($subcategories); ?>"/>
                                     
                                                             </div>
                                                             <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal1" style="margin-top: 30px;height:40px">+</button>
@@ -594,6 +595,8 @@
 
 
 <script>
+
+// $('#subcategoriesval').val(JSON.stringify(<?php $subcategories?>)); 
 //  $.ajaxSetup({
 //                 headers: {
 //                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -643,19 +646,21 @@
 
 
             $(document).ready(function () {
+
+          
              
                 $('#category').on('change',function(e) {
                  
-                 var cat_id = $(this).val();
+                 var cat_id = e.target.value;
 
-                 alert(cat_id);
+                //  alert(cat_id);
 
     //              $.ajaxSetup({
     //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
     //     'Content-Type':'application/json',
     //     'Accept' : 'application/vnd.api.v1+json'
     // });
-
+    if (cat_id) {
                  $.ajax({
                     
                     headers: {  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -691,7 +696,44 @@
                    })
 
 
+    }
+    else             
+    {
+        
+        $.ajax({
+                    
+                    headers: {  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        'Content-Type':'application/json',
+        'Accept' : 'application/vnd.api.v1+json' },
+                       url:"{{ url('getallprodSubcat')}}",
                    
+                       type:"GET",
+                   
+                        // data: {
+                        //   id : cat_id
+                        // },
+
+                       crossDomain:true,
+
+                       success:function (responsedata) {
+
+
+                        // var data = JSON.parse(responsedata);
+                        // console.log(responsedata.SubCategories.data);
+
+                        var subcategories = responsedata;
+
+                        $('#sub_category').empty();
+                        $('#sub_category').append('<option value="">Select</option>');
+
+                        $.each(subcategories,function(index,subcategory){
+                       
+                            $('#sub_category').append('<option value="'+subcategory.id+'{{ (old("sub_category_id") =='. subcategory.id '? "selected":"") }}">'+subcategory.sub_category_desc +'</option>');
+                        })
+
+                       }
+                   })
+    }
 
 
 
@@ -702,7 +744,7 @@
             });
 </script>
 
-<!-- sd -->
+
 
 <script type="text/javascript">
 

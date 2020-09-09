@@ -316,4 +316,27 @@ class ProductSubCategoryController extends Controller
              return redirect()->route('product_sub_cat.index')->with('error',$response->json()['message']);
         }
     }
+
+
+    public function getallsubcategories()
+    {
+        $token = session()->get('token');
+        
+        try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/prodSubCat');
+
+            $scresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $subcategories = $scresponse['data'];
+
+         return $subcategories;
+
+    }
+    
 }
