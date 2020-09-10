@@ -130,7 +130,7 @@
                                                     <div class="form-group row">
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Vendor Name</label>
-                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_id" id="vendor" placeholder="Vendor Store" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($vendors as $vendor)
                                             <option value="{{ $vendor['id'] }}" {{ (old("vendor_id") == $vendor['id'] ? "selected":"") }}>{{ $vendor['vendor_name'] }}</option>
@@ -166,7 +166,7 @@
                                                                     <option value="{{ $subcategory['id'] }}" {{ (old("sub_category_id") == $subcategory['id'] ? "selected":"") }}>{{ $subcategory['title'] }}</option>
                                                                 @endforeach
                                                             </select>
-                                                            <input type="hidden" name="subcategoriesval" id="subcategoriesval" value="<?php echo json_encode($subcategories); ?>"/>
+                                                            {{-- <input type="hidden" name="subcategoriesval" id="subcategoriesval" value="<?php echo json_encode($subcategories); ?>"/> --}}
                                     
                                                             </div>
                                                             <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal1" style="margin-top: 30px;height:40px">+</button>
@@ -178,6 +178,10 @@
                                                        
                                                     </div>
 
+                                                    <div id="response" style="position: absolute;
+                                                    top: 20%;
+                                                    left: 50%;
+                                                    "></div>
 
 
                                                     <div class="form-group row">
@@ -281,8 +285,8 @@
                                                         </div>
 
                                                         <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Vendor Stored Name</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="vendor_store_id" id="" placeholder="vendor store" required class="form-control selectric" required>
+                                                        <label class="col-form-label text-md-right ">Vendor Store Name</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="vendor_store_id" id="vendor_store" placeholder="vendor store" required class="form-control selectric" required>
                                         <option value="">Select</option>
                                         @foreach($vendorstore as $vendorstores)
                                         <option value="{{ $vendorstores['id'] }}" {{ (old("vendor_store_id") == $vendorstores['id'] ? "selected":"") }}>{{ $vendorstores['vendor_store_name'] }}</option>
@@ -675,9 +679,12 @@
                         // },
 
                        crossDomain:true,
+                       beforeSend: function() {
+                            $('#response').html("<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                        },
 
                        success:function (responsedata) {
-
+                        $('#response').html('');
 
                         // var data = JSON.parse(responsedata);
                         // console.log(responsedata.SubCategories.data);
@@ -714,10 +721,13 @@
                         // },
 
                        crossDomain:true,
+                       beforeSend: function() {
+                            $('#response').html("<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                        },
 
                        success:function (responsedata) {
 
-
+                        $('#response').html('');
                         // var data = JSON.parse(responsedata);
                         // console.log(responsedata.SubCategories.data);
 
@@ -740,6 +750,119 @@
 
 
                 });
+
+
+
+
+
+
+
+                $('#vendor').on('change',function(e) {
+                 
+                 var vendor_id = e.target.value;
+
+                //  alert(vendor_id);
+
+    //              $.ajaxSetup({
+    //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+    //     'Content-Type':'application/json',
+    //     'Accept' : 'application/vnd.api.v1+json'
+    // });
+    if (vendor_id) {
+                 $.ajax({
+                    
+                    headers: {  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        'Content-Type':'application/json',
+        'Accept' : 'application/vnd.api.v1+json' },
+                       url:"{{ url('getvendorStore')}}" + "/" + vendor_id,
+                   
+                       type:"GET",
+                   
+                        // data: {
+                        //   id : cat_id
+                        // },
+
+                       crossDomain:true,
+                       beforeSend: function() {
+                            $('#response').html("<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                        },
+
+                       success:function (responsedata) {
+                        $('#response').html('');
+
+                        // var data = JSON.parse(responsedata);
+                    //    alert(responsedata);
+
+                        var vendorstores = responsedata.VendorStores.data;
+
+                        // console.log(vendorstores);
+
+                        $('#vendor_store').empty();
+                        $('#vendor_store').append('<option value="">Select</option>');
+
+                        $.each(vendorstores,function(index,vendorstore){
+                            // alert(vendorstores.id);
+                            $('#vendor_store').append('<option value="'+vendorstore.id+'{{ (old("vendor_store_id") =='. vendorstore.id '? "selected":"") }}">'+vendorstore.vendor_store_name +'</option>');
+                        })
+
+                       }
+                   })
+
+
+    }
+    else             
+    {
+        
+        $.ajax({
+                    
+                    headers: {  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        'Content-Type':'application/json',
+        'Accept' : 'application/vnd.api.v1+json' },
+                       url:"{{ url('getallVendorStore')}}",
+                   
+                       type:"GET",
+                   
+                        // data: {
+                        //   id : cat_id
+                        // },
+
+                       crossDomain:true,
+                       beforeSend: function() {
+                            $('#response').html("<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                        },
+
+                       success:function (responsedata) {
+
+                        $('#response').html('');
+                        // var data = JSON.parse(responsedata);
+                        // console.log(responsedata.SubCategories.data);
+
+                        var vendorstores = responsedata;
+
+                        $('#vendor_store').empty();
+                        $('#vendor_store').append('<option value="">Select</option>');
+
+                        $.each(vendorstores,function(index,vendorstore){
+                       
+                            $('#vendor_store').append('<option value="'+vendorstore.id+'{{ (old("vendor_store_id") =='. vendorstore.id '? "selected":"") }}">'+vendorstore.vendor_store_name +'</option>');
+                        })
+
+                       }
+                   })
+    }
+
+
+
+
+
+                });
+
+
+
+
+
+
+
 
             });
 </script>

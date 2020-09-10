@@ -339,4 +339,24 @@ class VendorController extends Controller
         }
 
     }
+
+
+    public function getvendorstores($id)
+    {
+    //   return $id;
+        $session = session()->get('token');
+
+
+        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url').'api/member/vendor/'.$id.'?include=VendorStores');
+
+        
+
+        if($response->ok()){
+
+            $vendorstores= $response->json()['data'];;
+
+            return $vendorstores;
+        }
+
+    }
 }

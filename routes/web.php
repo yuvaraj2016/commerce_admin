@@ -103,6 +103,9 @@ Route::resource('vendors', 'VendorController')->except('index')->middleware('che
 
 Route::get('vendor_list/{page?}','VendorController@index')->name('vendor.index')->middleware('checktoken');
 
+Route::get('getvendorStore/{id}','VendorController@getvendorstores')->name('getvendorstores')->middleware('checktoken');
+
+Route::get('getallVendorStore','VendorstoresController@getallvendorstores')->name('getallvendorstores')->middleware('checktoken');
 
 
 Route::resource('vendorstores', 'VendorstoresController')->except('index')->middleware('checktoken');
