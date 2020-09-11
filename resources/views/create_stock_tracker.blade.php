@@ -85,7 +85,7 @@
                             <div class="form-group row">
                                                         <div class="col-sm-3">
                                                         <label class="col-form-label text-md-right ">Item</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="item_id" id="" placeholder="Item" required class="form-control selectric" required>
+                                                        <select  class="js-example-basic-single col-sm-12" name="item_id" id="item" placeholder="Item" required class="form-control selectric" required>
                                         <option value="">Select</option>
 
                                         @foreach($items as $item)
@@ -103,7 +103,7 @@
 
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Variants</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="variant_id" id="" placeholder="Variant" required class="form-control selectric" required>
+                                                        <select  class="js-example-basic-single col-sm-12" name="variant_id" id="item_variant" placeholder="Variant" required class="form-control selectric" required>
                                         <option value="">Select</option>
 
                                         @foreach($variants as $variant)
@@ -146,7 +146,7 @@
                                                     <div class="form-group row">
                                                     <div class="col-sm-3">
                                                         <label class="col-form-label text-md-right ">Vendor Name</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="vendor_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+                                                        <select  class="js-example-basic-single col-sm-12" name="vendor_id" id="vendor" placeholder="Vendor Store" required class="form-control selectric" required>
                                         <option value="">Select</option>
 
                                         @foreach($vendors as $vend)
@@ -161,14 +161,20 @@
 
 
                                                         <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Vendor Stored Name</label>
-                                                        <select  class="js-example-basic-single col-sm-12" name="vendor_store_id" id="" placeholder="Vendor Store" required class="form-control selectric" required>
+                                                        <label class="col-form-label text-md-right ">Vendor Store Name</label>
+                                                        <select  class="js-example-basic-single col-sm-12" name="vendor_store_id" id="vendor_store" placeholder="Vendor Store" required class="form-control selectric" required>
                                         <option value="">Select</option>
 
                                         @foreach($vendorstores as $vendorst)
                                             <option value="{{ $vendorst['id'] }}" {{ (old("vendor_store_id") == $vendorst['id'] ? "selected":"") }}>{{ $vendorst['vendor_store_name'] }}</option>
                                         @endforeach
                                     </select>
+
+                                    
+                                    <div id="response" style="position: absolute;
+                                    top: 10%;
+                                    left: 50%;
+                                    "></div>
                
                                                         </div>
 
@@ -791,7 +797,7 @@
                                                           <!-- <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#default-Modal" style="margin-top: 30px;height:40px">+</button> -->
 
                                                         <div class="col-sm-4">
-                                                        <label class="col-form-label text-md-right ">Vendor Stored Name</label>
+                                                        <label class="col-form-label text-md-right ">Vendor Store Name</label>
                                                         <input name="vendor_store_name" value="{{ old('vendor_store_name') }}" class="summernote-simple form-control" required>
                                                         </div>
                                                        
@@ -874,5 +880,239 @@
 </div>
 @endsection
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
 
 
+
+$('#vendor').on('change',function(e) {
+             
+             var vendor_id = e.target.value;
+
+            //  alert(vendor_id);
+
+//              $.ajaxSetup({
+//                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+//     'Content-Type':'application/json',
+//     'Accept' : 'application/vnd.api.v1+json'
+// });
+if (vendor_id) {
+             $.ajax({
+                
+                headers: {  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+    'Content-Type':'application/json',
+    'Accept' : 'application/vnd.api.v1+json' },
+                   url:"{{ url('getvendorStore')}}" + "/" + vendor_id,
+               
+                   type:"GET",
+               
+                    // data: {
+                    //   id : cat_id
+                    // },
+
+                   crossDomain:true,
+                   beforeSend: function() {
+                        $('#response').html("<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                    },
+
+                   success:function (responsedata) {
+                    $('#response').html('');
+
+                    // var data = JSON.parse(responsedata);
+                //    alert(responsedata);
+
+                    var vendorstores = responsedata.VendorStores.data;
+
+                    // console.log(vendorstores);
+
+                    $('#vendor_store').empty();
+                    $('#vendor_store').append('<option value="">Select</option>');
+
+                    $.each(vendorstores,function(index,vendorstore){
+                        // alert(vendorstores.id);
+                        $('#vendor_store').append('<option value="'+vendorstore.id+'{{ (old("vendor_store_id") =='. vendorstore.id '? "selected":"") }}">'+vendorstore.vendor_store_name +'</option>');
+                    })
+
+                   }
+               })
+
+
+}
+else             
+{
+    
+    $.ajax({
+                
+                headers: {  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+    'Content-Type':'application/json',
+    'Accept' : 'application/vnd.api.v1+json' },
+                   url:"{{ url('getallVendorStore')}}",
+               
+                   type:"GET",
+               
+                    // data: {
+                    //   id : cat_id
+                    // },
+
+                   crossDomain:true,
+                   beforeSend: function() {
+                        $('#response').html("<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                    },
+
+                   success:function (responsedata) {
+
+                    $('#response').html('');
+                    // var data = JSON.parse(responsedata);
+                    // console.log(responsedata.SubCategories.data);
+
+                    var vendorstores = responsedata;
+
+                    $('#vendor_store').empty();
+                    $('#vendor_store').append('<option value="">Select</option>');
+
+                    $.each(vendorstores,function(index,vendorstore){
+                   
+                        $('#vendor_store').append('<option value="'+vendorstore.id+'{{ (old("vendor_store_id") =='. vendorstore.id '? "selected":"") }}">'+vendorstore.vendor_store_name +'</option>');
+                    })
+
+                   }
+               })
+}
+
+
+
+
+
+            });
+
+
+
+
+
+
+
+
+            $('#item').on('change',function(e) {
+             
+             var item_id = e.target.value;
+
+            //  alert(vendor_id);
+
+//              $.ajaxSetup({
+//                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+//     'Content-Type':'application/json',
+//     'Accept' : 'application/vnd.api.v1+json'
+// });
+if (item_id) {
+             $.ajax({
+                
+                headers: {  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+    'Content-Type':'application/json',
+    'Accept' : 'application/vnd.api.v1+json' },
+                   url:"{{ url('getitemvariants')}}" + "/" + item_id,
+               
+                   type:"GET",
+               
+                    // data: {
+                    //   id : cat_id
+                    // },
+
+                   crossDomain:true,
+                   beforeSend: function() {
+                        $('#response').html("<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                    },
+
+                   success:function (responsedata) {
+                    $('#response').html('');
+
+                    // var data = JSON.parse(responsedata);
+                //    alert(responsedata);
+
+                    var itemvariants = responsedata.ItemVariants.data;
+
+                    // console.log(vendorstores);
+
+                    $('#item_variant').empty();
+                    $('#item_variant').append('<option value="">Select</option>');
+
+                    $.each(itemvariants,function(index,itemvariant){
+                        // alert(vendorstores.id);
+                        $('#item_variant').append('<option value="'+itemvariant.id+'{{ (old("item_variant_id") =='. itemvariant.id '? "selected":"") }}">'+itemvariant.variant_desc +'</option>');
+                    })
+
+                   }
+               })
+
+
+}
+else             
+{
+    
+    $.ajax({
+                
+                headers: {  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+    'Content-Type':'application/json',
+    'Accept' : 'application/vnd.api.v1+json' },
+                   url:"{{ url('getallitemvariants')}}",
+               
+                   type:"GET",
+               
+                    // data: {
+                    //   id : cat_id
+                    // },
+
+                   crossDomain:true,
+                   beforeSend: function() {
+                        $('#response').html("<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                    },
+
+                   success:function (responsedata) {
+
+                    $('#response').html('');
+                    // var data = JSON.parse(responsedata);
+                    // console.log(responsedata.SubCategories.data);
+
+                    var itemvariants = responsedata;
+
+                    $('#item_variant').empty();
+                    $('#item_variant').append('<option value="">Select</option>');
+
+                    $.each(itemvariants,function(index,itemvariant){
+                        // alert(vendorstores.id);
+                        $('#item_variant').append('<option value="'+itemvariant.id+'{{ (old("item_variant_id") =='. itemvariant.id '? "selected":"") }}">'+itemvariant.variant_desc +'</option>');
+                    })
+
+                   }
+               })
+}
+
+
+
+
+
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+</script>

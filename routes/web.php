@@ -75,6 +75,12 @@ Route::resource('items', 'ItemController')->except('index')->middleware('checkto
 
 Route::get('item_list/{page?}','ItemController@index')->name('item.index')->middleware('checktoken');
 
+Route::get('getitemvariants/{id}','ItemController@getitemvariants')->name('getitemvariants')->middleware('checktoken');
+
+Route::get('getallitemvariants','ItemVariantController@getallitemvariants')->name('getallitemvariants')->middleware('checktoken');
+
+
+
 Route::resource('item_variants', 'ItemVariantController')->except('index')->middleware('checktoken');
 
 Route::get('item_variant_list/{page?}','ItemVariantController@index')->name('item_variant.index')->middleware('checktoken');

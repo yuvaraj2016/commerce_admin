@@ -552,4 +552,24 @@ class ItemController extends Controller
         }
     }
 
+
+    public function getitemvariants($id)
+    {
+    //   return $id;
+        $session = session()->get('token');
+
+
+        $response=Http::withToken($session)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url').'api/member/item/'.$id.'?include=ItemVariants');
+
+        
+
+        if($response->ok()){
+
+            $itemvariants= $response->json()['data'];;
+
+            return $itemvariants;
+        }
+
+    }
+
 }

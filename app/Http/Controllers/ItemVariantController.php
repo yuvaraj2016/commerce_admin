@@ -565,4 +565,26 @@ class ItemVariantController extends Controller
              return redirect()->route('item_variant.index')->with('error',$response->json()['message']);
         }
     }
+
+
+    public function getallitemvariants()
+    {
+        $token = session()->get('token');
+        
+        try{
+
+            $call = Http::withToken($token)->withHeaders(['Accept'=>'application/vnd.api.v1+json','Content-Type'=>'application/json'])->get(config('global.url') . '/api/itemVariant');
+
+            $ivresponse = json_decode($call->getBody()->getContents(), true);
+            //  return $response;
+        }catch (\Exception $e){
+            //buy a beer
+
+
+        }
+         $vendorstores = $ivresponse['data'];
+
+         return $vendorstores;
+
+    }
 }

@@ -239,7 +239,7 @@
                                                     <div class="form-group row">
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Vendors</label>
-                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_id" id="" placeholder="Vendor" required class="form-control selectric" required>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_id" id="vendor" placeholder="Vendor" required class="form-control selectric" required>
                                                         <option value="">Select</option>
                                         @foreach($vendors as $vend)
                                         <option value="{{ $vend['id'] }}" {{ (old("vendor_id") == $vend['id'] ? "selected":"") }}>{{ $vend['vendor_name'] }}</option>
@@ -252,8 +252,9 @@
                                                     <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Selling Price</label>
                                                         <input type="number"  name="selling_price" value="{{ old('selling_price') }}" step="any" class="form-control" required>
-               
+                                                       
                                                         </div>
+                                                     
                                                         <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Mrp Price</label>
                                                         <input type="number" name="MRP" value="{{ old('MRP') }}" step="any" class="form-control" required>
@@ -306,14 +307,19 @@
                                                      
                                                                <div class="col-sm-4">
                                                         <label class="col-form-label text-md-right ">Vendor Stores</label>
-                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_store_id" id="" placeholder="Vendor" required class="form-control selectric" required>
+                                                        <select  class="js-example-basic-single col-sm-12"  name="vendor_store_id" id="vendor_store" placeholder="Vendor" required class="form-control selectric" required>
                                                         <option value="">Select</option>
                                         @foreach($vendorstores as $variantst)
                                         <option value="{{ $variantst['id'] }}" {{ (old("vendor_store_id") == $variantst['id'] ? "selected":"") }}>{{ $variantst['vendor_store_name'] }}</option>
                                            
                                         @endforeach
                                     </select>
-               
+
+                                                        <div id="response" style="position: absolute;
+                                                        top: 10%;
+                                                        left: 50%;
+                                                        "></div>
+                                
                                                         </div>
 
                                                         <div class="col-sm-4">
@@ -480,8 +486,8 @@
                                                                 </div>
 </section>
 @endsection
-<script type="text/javascript" src="{{ asset('modules/upload-preview/assets/js/jquery-2.0.3.min.js') }}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{-- <script type="text/javascript" src="{{ asset('modules/upload-preview/assets/js/jquery-2.0.3.min.js') }}"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script  type="text/javascript">
 
@@ -532,6 +538,133 @@ $(function() {
         imagesPreview(this, 'div.gallery');
     });
 });
+
+
+
+$(document).ready(function () {
+
+
+
+    $('#vendor').on('change',function(e) {
+                 
+                 var vendor_id = e.target.value;
+
+                //  alert(vendor_id);
+
+    //              $.ajaxSetup({
+    //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+    //     'Content-Type':'application/json',
+    //     'Accept' : 'application/vnd.api.v1+json'
+    // });
+    if (vendor_id) {
+                 $.ajax({
+                    
+                    headers: {  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        'Content-Type':'application/json',
+        'Accept' : 'application/vnd.api.v1+json' },
+                       url:"{{ url('getvendorStore')}}" + "/" + vendor_id,
+                   
+                       type:"GET",
+                   
+                        // data: {
+                        //   id : cat_id
+                        // },
+
+                       crossDomain:true,
+                       beforeSend: function() {
+                            $('#response').html("<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                        },
+
+                       success:function (responsedata) {
+                        $('#response').html('');
+
+                        // var data = JSON.parse(responsedata);
+                    //    alert(responsedata);
+
+                        var vendorstores = responsedata.VendorStores.data;
+
+                        // console.log(vendorstores);
+
+                        $('#vendor_store').empty();
+                        $('#vendor_store').append('<option value="">Select</option>');
+
+                        $.each(vendorstores,function(index,vendorstore){
+                            // alert(vendorstores.id);
+                            $('#vendor_store').append('<option value="'+vendorstore.id+'{{ (old("vendor_store_id") =='. vendorstore.id '? "selected":"") }}">'+vendorstore.vendor_store_name +'</option>');
+                        })
+
+                       }
+                   })
+
+
+    }
+    else             
+    {
+        
+        $.ajax({
+                    
+                    headers: {  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        'Content-Type':'application/json',
+        'Accept' : 'application/vnd.api.v1+json' },
+                       url:"{{ url('getallVendorStore')}}",
+                   
+                       type:"GET",
+                   
+                        // data: {
+                        //   id : cat_id
+                        // },
+
+                       crossDomain:true,
+                       beforeSend: function() {
+                            $('#response').html("<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                        },
+
+                       success:function (responsedata) {
+
+                        $('#response').html('');
+                        // var data = JSON.parse(responsedata);
+                        // console.log(responsedata.SubCategories.data);
+
+                        var vendorstores = responsedata;
+
+                        $('#vendor_store').empty();
+                        $('#vendor_store').append('<option value="">Select</option>');
+
+                        $.each(vendorstores,function(index,vendorstore){
+                       
+                            $('#vendor_store').append('<option value="'+vendorstore.id+'{{ (old("vendor_store_id") =='. vendorstore.id '? "selected":"") }}">'+vendorstore.vendor_store_name +'</option>');
+                        })
+
+                       }
+                   })
+    }
+
+
+
+
+
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
 </script>
 
 
