@@ -299,7 +299,7 @@ class ItemController extends Controller
 
 
             ]);
-            // dd($response);
+             dd($response);
         }
 
         if($response->status()==201){
